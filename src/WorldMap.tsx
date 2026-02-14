@@ -41,20 +41,20 @@ function WorldMap() {
                   onMouseLeave={() => setTooltip(null)}
                   style={{
                     default: {
-                      fill: "#2a2a3d",
-                      stroke: "#3a3a5c",
-                      strokeWidth: 0.2,
+                      fill: "#a6a6a6",
+                      stroke: "#303030",
+                      strokeWidth: 0.3,
                       outline: "none",
                     },
                     hover: {
-                      fill: "#4a4a7a",
-                      stroke: "#6a6aaa",
-                      strokeWidth: 0.4,
+                      fill: "#9CC837",
+                      stroke: "#303030",
+                      strokeWidth: 0.3,
                       outline: "none",
                       cursor: "pointer",
                     },
                     pressed: {
-                      fill: "#5a5a9a",
+                      fill: "#8ab82e",
                       outline: "none",
                     },
                   }}
