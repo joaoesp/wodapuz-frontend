@@ -4,3 +4,14 @@
   overflow: hidden;
   background-color: #1a1a2e;
 }
+
+.map-tooltip {
+  position: fixed;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  white-space: nowrap;
+}
