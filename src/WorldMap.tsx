@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   ComposableMap,
   Geographies,
@@ -8,6 +8,9 @@ import {
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
+const INITIAL_CENTER: [number, number] = [0, 30];
+const INITIAL_ZOOM = 1;
+
 interface Tooltip {
   name: string;
   x: number;
@@ -16,6 +19,23 @@ interface Tooltip {
 
 function WorldMap() {
   const [tooltip, setTooltip] = useState<Tooltip | null>(null);
+  const [center, setCenter] = useState<[number, number]>(INITIAL_CENTER);
+  const [zoom, setZoom] = useState(INITIAL_ZOOM);
+
+  const resetMap = useCallback(() => {
+    setCenter(INITIAL_CENTER);
+    setZoom(INITIAL_ZOOM);
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "r" || e.key === "R") {
+        resetMap();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [resetMap]);
 
   return (
     <>
@@ -25,6 +45,12 @@ function WorldMap() {
         style={{ width: "100%", height: "100%" }}
       >
         <ZoomableGroup
+          center={center}
+          zoom={zoom}
+          onMoveEnd={({ coordinates, zoom: z }) => {
+            setCenter(coordinates);
+            setZoom(z);
+          }}
           translateExtent={[[-200, -100], [1000, 600]]}
           minZoom={1}
           maxZoom={8}
