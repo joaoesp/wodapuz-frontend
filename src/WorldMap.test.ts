@@ -131,7 +131,7 @@ describe("METRIC_CONFIGS", () => {
     });
 
     it("should have ascending thresholds for all metrics", () => {
-      Object.entries(METRIC_CONFIGS).forEach(([name, config]) => {
+      Object.entries(METRIC_CONFIGS).forEach(([, config]) => {
         for (let i = 1; i < config.thresholds.length; i++) {
           expect(config.thresholds[i]).toBeGreaterThan(config.thresholds[i - 1]);
         }
@@ -139,7 +139,7 @@ describe("METRIC_CONFIGS", () => {
     });
 
     it("should have correct color array length for all metrics", () => {
-      Object.entries(METRIC_CONFIGS).forEach(([name, config]) => {
+      Object.entries(METRIC_CONFIGS).forEach(([, config]) => {
         expect(config.colors.length).toBe(config.thresholds.length + 1);
       });
     });

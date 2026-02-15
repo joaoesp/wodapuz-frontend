@@ -8,6 +8,8 @@ const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"
 const INITIAL_CENTER: [number, number] = [0, 30];
 const INITIAL_ZOOM = 1;
 
+// Exported for testing
+/* eslint-disable react-refresh/only-export-components */
 export interface MetricConfig {
   thresholds: number[];
   colors: string[];
@@ -65,6 +67,7 @@ export function getColorFromThresholds(
   }
   return colors[colors.length - 1];
 }
+/* eslint-enable react-refresh/only-export-components */
 
 interface Tooltip {
   name: string;

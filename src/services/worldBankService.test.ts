@@ -24,6 +24,7 @@ describe("worldBankService", () => {
         ],
       };
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (global.fetch as any).mockResolvedValueOnce({
         ok: true,
         json: async () => mockResponse,
@@ -39,6 +40,7 @@ describe("worldBankService", () => {
     it("should fetch from correct endpoint for GDP growth", async () => {
       const mockResponse = { "2024": [] };
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (global.fetch as any).mockResolvedValueOnce({
         ok: true,
         json: async () => mockResponse,
@@ -62,6 +64,7 @@ describe("worldBankService", () => {
       ];
 
       for (const indicator of indicators) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (global.fetch as any).mockResolvedValueOnce({
           ok: true,
           json: async () => ({}),
@@ -87,6 +90,7 @@ describe("worldBankService", () => {
     });
 
     it("should handle fetch errors", async () => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (global.fetch as any).mockRejectedValueOnce(new Error("Network error"));
 
       await expect(worldBankService.getIndicatorYearRange("GDP", 2020, 2024)).rejects.toThrow(
@@ -95,6 +99,7 @@ describe("worldBankService", () => {
     });
 
     it("should handle HTTP error responses", async () => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (global.fetch as any).mockResolvedValueOnce({
         ok: false,
         statusText: "Internal Server Error",
@@ -134,6 +139,7 @@ describe("worldBankService", () => {
         ],
       };
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (global.fetch as any).mockResolvedValueOnce({
         ok: true,
         json: async () => mockResponse,
