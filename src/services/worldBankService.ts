@@ -1,6 +1,6 @@
 const API_BASE_URL = 'http://localhost:1337/api';
 
-export interface GDPData {
+export interface IndicatorData {
   countryCode: string;
   countryName: string;
   year: string;
@@ -8,58 +8,34 @@ export interface GDPData {
   indicator: string;
 }
 
+const INDICATOR_SLUGS: Record<string, string> = {
+  'GDP': 'gdp',
+  'GDP growth': 'gdp-growth',
+  'GDP per capita': 'gdp-per-capita',
+  'Debt-to-GDP': 'debt-to-gdp',
+  'Inflation': 'inflation',
+  'Current Account Balance': 'current-account-balance',
+};
+
 export const worldBankService = {
-  async getGDP(year?: string): Promise<GDPData[]> {
+  async getIndicatorYearRange(indicator: string, startYear: number, endYear: number): Promise<Record<string, IndicatorData[]>> {
     try {
-      const url = year
-        ? `${API_BASE_URL}/world-bank/gdp?year=${year}`
-        : `${API_BASE_URL}/world-bank/gdp`;
+      const indicatorSlug = INDICATOR_SLUGS[indicator];
+      if (!indicatorSlug) {
+        throw new Error(`Unknown indicator: ${indicator}`);
+      }
+
+      const url = `${API_BASE_URL}/world-bank/${indicatorSlug}/years/${startYear}/${endYear}`;
 
       const response = await fetch(url);
 
       if (!response.ok) {
-        throw new Error(`Failed to fetch GDP data: ${response.statusText}`);
+        throw new Error(`Failed to fetch ${indicator} year range: ${response.statusText}`);
       }
 
       return await response.json();
     } catch (error) {
-      console.error('Error fetching GDP data:', error);
-      throw error;
-    }
-  },
-
-  async getGDPYearRange(startYear: number, endYear: number): Promise<Record<string, GDPData[]>> {
-    try {
-      const url = `${API_BASE_URL}/world-bank/gdp/years/${startYear}/${endYear}`;
-
-      const response = await fetch(url);
-
-      if (!response.ok) {
-        throw new Error(`Failed to fetch GDP year range: ${response.statusText}`);
-      }
-
-      return await response.json();
-    } catch (error) {
-      console.error('Error fetching GDP year range:', error);
-      throw error;
-    }
-  },
-
-  async getCountryGDP(countryCode: string, year?: string): Promise<GDPData | null> {
-    try {
-      const url = year
-        ? `${API_BASE_URL}/world-bank/gdp/${countryCode}?year=${year}`
-        : `${API_BASE_URL}/world-bank/gdp/${countryCode}`;
-
-      const response = await fetch(url);
-
-      if (!response.ok) {
-        throw new Error(`Failed to fetch GDP data for ${countryCode}: ${response.statusText}`);
-      }
-
-      return await response.json();
-    } catch (error) {
-      console.error(`Error fetching GDP data for ${countryCode}:`, error);
+      console.error(`Error fetching ${indicator} year range:`, error);
       throw error;
     }
   },

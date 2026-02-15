@@ -5,7 +5,7 @@ import {
   Geography,
   ZoomableGroup,
 } from "react-simple-maps";
-import { worldBankService, type GDPData } from "./services/worldBankService";
+import { worldBankService, type IndicatorData } from "./services/worldBankService";
 import { getCountryCode } from "./utils/countryNameToCode";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
@@ -29,7 +29,7 @@ function WorldMap({ selectedMetric, selectedYear }: WorldMapProps) {
   const [tooltip, setTooltip] = useState<Tooltip | null>(null);
   const [center, setCenter] = useState<[number, number]>(INITIAL_CENTER);
   const [zoom, setZoom] = useState(INITIAL_ZOOM);
-  const [gdpDataByYear, setGdpDataByYear] = useState<Record<string, Map<string, GDPData>>>({});
+  const [indicatorDataByYear, setIndicatorDataByYear] = useState<Record<string, Map<string, IndicatorData>>>({});
 
   const resetMap = useCallback(() => {
     setCenter(INITIAL_CENTER);
@@ -47,46 +47,100 @@ function WorldMap({ selectedMetric, selectedYear }: WorldMapProps) {
   }, [resetMap]);
 
   useEffect(() => {
-    if (selectedMetric === "GDP") {
-      worldBankService.getGDPYearRange(1960, 2024).then((dataByYear) => {
-        const processedData: Record<string, Map<string, GDPData>> = {};
+    if (selectedMetric) {
+      worldBankService.getIndicatorYearRange(selectedMetric, 1960, 2024).then((dataByYear) => {
+        const processedData: Record<string, Map<string, IndicatorData>> = {};
 
         Object.keys(dataByYear).forEach((year) => {
           const yearData = dataByYear[year];
-          const dataMap = new Map<string, GDPData>();
+          const dataMap = new Map<string, IndicatorData>();
           yearData.forEach((item) => {
             dataMap.set(item.countryCode, item);
           });
           processedData[year] = dataMap;
         });
 
-        console.log("GDP data loaded for years:", Object.keys(processedData).length);
-        setGdpDataByYear(processedData);
+        console.log(`${selectedMetric} data loaded for years:`, Object.keys(processedData).length);
+        setIndicatorDataByYear(processedData);
       }).catch((error) => {
-        console.error("Failed to load GDP data:", error);
+        console.error(`Failed to load ${selectedMetric} data:`, error);
       });
+    } else {
+      setIndicatorDataByYear({});
     }
   }, [selectedMetric]);
 
   const getCountryColor = (countryCode: string, countryName?: string) => {
-    if (selectedMetric === "GDP") {
+    if (selectedMetric) {
       // If no country code mapping, show white
       if (!countryCode || countryCode === "") {
         return "#ffffff";
       }
 
-      const yearData = gdpDataByYear[selectedYear.toString()];
+      const yearData = indicatorDataByYear[selectedYear.toString()];
       if (yearData) {
         const data = yearData.get(countryCode);
-        if (data && data.value) {
-          // Color scale based on GDP (in trillions)
-          const gdpInTrillions = data.value / 1_000_000_000_000;
-          if (gdpInTrillions > 10) return "#2d5016"; // Dark green for >10T
-          if (gdpInTrillions > 5) return "#4a7a23"; // Medium-dark green for >5T
-          if (gdpInTrillions > 1) return "#6b9c2f"; // Medium green for >1T
-          if (gdpInTrillions > 0.5) return "#9cc837"; // Light green for >500B
-          if (gdpInTrillions > 0.1) return "#b8d66b"; // Very light green for >100B
-          return "#d4e89f"; // Pale green for <100B
+        if (data && data.value !== null && data.value !== undefined) {
+          const value = data.value;
+
+          // Different color scales for different metrics
+          switch (selectedMetric) {
+            case "GDP": {
+              const gdpInTrillions = value / 1_000_000_000_000;
+              if (gdpInTrillions > 10) return "#2d5016";
+              if (gdpInTrillions > 5) return "#4a7a23";
+              if (gdpInTrillions > 1) return "#6b9c2f";
+              if (gdpInTrillions > 0.5) return "#9cc837";
+              if (gdpInTrillions > 0.1) return "#b8d66b";
+              return "#d4e89f";
+            }
+            case "GDP growth": {
+              // Negative to positive scale
+              if (value < -5) return "#8b0000"; // Dark red
+              if (value < 0) return "#d32f2f"; // Red
+              if (value < 2) return "#fdd835"; // Yellow
+              if (value < 5) return "#9cc837"; // Green
+              if (value < 8) return "#4a7a23"; // Dark green
+              return "#2d5016"; // Darkest green
+            }
+            case "GDP per capita": {
+              if (value > 50000) return "#2d5016";
+              if (value > 30000) return "#4a7a23";
+              if (value > 15000) return "#6b9c2f";
+              if (value > 5000) return "#9cc837";
+              if (value > 1000) return "#b8d66b";
+              return "#d4e89f";
+            }
+            case "Debt-to-GDP": {
+              // Higher debt is worse (red)
+              if (value > 150) return "#8b0000";
+              if (value > 100) return "#d32f2f";
+              if (value > 75) return "#ff9800";
+              if (value > 50) return "#fdd835";
+              if (value > 25) return "#9cc837";
+              return "#4a7a23";
+            }
+            case "Inflation": {
+              // Low inflation is better
+              if (value > 20) return "#8b0000";
+              if (value > 10) return "#d32f2f";
+              if (value > 5) return "#ff9800";
+              if (value > 2) return "#fdd835";
+              if (value > 0) return "#9cc837";
+              if (value > -2) return "#4a7a23";
+              return "#d32f2f"; // Deflation
+            }
+            case "Current Account Balance": {
+              // Positive surplus is good, negative deficit is bad
+              if (value < -10) return "#8b0000";
+              if (value < -5) return "#d32f2f";
+              if (value < -2) return "#ff9800";
+              if (value < 2) return "#fdd835";
+              if (value < 5) return "#9cc837";
+              if (value < 10) return "#4a7a23";
+              return "#2d5016";
+            }
+          }
         }
       }
       return "#ffffff"; // White for no data when metric is selected
@@ -122,17 +176,44 @@ function WorldMap({ selectedMetric, selectedYear }: WorldMapProps) {
                     const countryCode = getCountryCode(geo.properties.name);
                     let metricValue: string | undefined;
 
-                    if (selectedMetric === "GDP" && countryCode) {
-                      const yearData = gdpDataByYear[selectedYear.toString()];
+                    if (selectedMetric && countryCode) {
+                      const yearData = indicatorDataByYear[selectedYear.toString()];
                       if (yearData) {
                         const data = yearData.get(countryCode);
-                        if (data && data.value) {
-                          const gdpInTrillions = data.value / 1_000_000_000_000;
-                          if (gdpInTrillions >= 1) {
-                            metricValue = `GDP: $${gdpInTrillions.toFixed(2)}T`;
-                          } else {
-                            const gdpInBillions = data.value / 1_000_000_000;
-                            metricValue = `GDP: $${gdpInBillions.toFixed(0)}B`;
+                        if (data && data.value !== null && data.value !== undefined) {
+                          const value = data.value;
+
+                          switch (selectedMetric) {
+                            case "GDP": {
+                              const gdpInTrillions = value / 1_000_000_000_000;
+                              if (gdpInTrillions >= 1) {
+                                metricValue = `GDP: $${gdpInTrillions.toFixed(2)}T`;
+                              } else {
+                                const gdpInBillions = value / 1_000_000_000;
+                                metricValue = `GDP: $${gdpInBillions.toFixed(0)}B`;
+                              }
+                              break;
+                            }
+                            case "GDP growth": {
+                              metricValue = `GDP growth: ${value.toFixed(1)}%`;
+                              break;
+                            }
+                            case "GDP per capita": {
+                              metricValue = `GDP per capita: $${value.toLocaleString('en-US', { maximumFractionDigits: 0 })}`;
+                              break;
+                            }
+                            case "Debt-to-GDP": {
+                              metricValue = `Debt-to-GDP: ${value.toFixed(1)}%`;
+                              break;
+                            }
+                            case "Inflation": {
+                              metricValue = `Inflation: ${value.toFixed(1)}%`;
+                              break;
+                            }
+                            case "Current Account Balance": {
+                              metricValue = `Current Account: ${value.toFixed(1)}% of GDP`;
+                              break;
+                            }
                           }
                         }
                       }
