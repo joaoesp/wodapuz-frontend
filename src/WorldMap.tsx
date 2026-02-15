@@ -8,13 +8,13 @@ const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"
 const INITIAL_CENTER: [number, number] = [0, 30];
 const INITIAL_ZOOM = 1;
 
-interface MetricConfig {
+export interface MetricConfig {
   thresholds: number[];
   colors: string[];
   format: (value: number) => string;
 }
 
-const METRIC_CONFIGS: Record<string, MetricConfig> = {
+export const METRIC_CONFIGS: Record<string, MetricConfig> = {
   GDP: {
     thresholds: [0.1e12, 0.5e12, 1e12, 5e12, 10e12],
     colors: ["#d4e89f", "#b8d66b", "#9cc837", "#6b9c2f", "#4a7a23", "#2d5016"],
@@ -53,7 +53,11 @@ const METRIC_CONFIGS: Record<string, MetricConfig> = {
   },
 };
 
-function getColorFromThresholds(value: number, thresholds: number[], colors: string[]): string {
+export function getColorFromThresholds(
+  value: number,
+  thresholds: number[],
+  colors: string[]
+): string {
   for (let i = 0; i < thresholds.length; i++) {
     if (value <= thresholds[i]) {
       return colors[i];

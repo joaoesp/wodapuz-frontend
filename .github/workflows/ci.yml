@@ -40,14 +40,10 @@ jobs:
       - name: Type check
         run: npx tsc --noEmit
 
+      # Run tests
+      - name: Run tests
+        run: npm run test:run
+
       # Build the project
       - name: Build
         run: npm run build
-
-      # Uncomment when you add tests
-      # - name: Run tests
-      #   run: npm test
-
-      # Uncomment for test coverage
-      # - name: Run tests with coverage
-      #   run: npm test -- --coverage
