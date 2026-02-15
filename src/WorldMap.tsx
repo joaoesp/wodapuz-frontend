@@ -24,7 +24,11 @@ function WorldMap() {
         projectionConfig={{ scale: 130, center: [0, 30] }}
         style={{ width: "100%", height: "100%" }}
       >
-        <ZoomableGroup>
+        <ZoomableGroup
+          translateExtent={[[-200, -100], [1000, 600]]}
+          minZoom={1}
+          maxZoom={8}
+        >
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>
               geographies.map((geo) => (
