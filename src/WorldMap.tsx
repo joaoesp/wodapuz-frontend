@@ -13,6 +13,59 @@ const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"
 const INITIAL_CENTER: [number, number] = [0, 30];
 const INITIAL_ZOOM = 1;
 
+interface MetricConfig {
+  thresholds: number[];
+  colors: string[];
+  format: (value: number) => string;
+}
+
+const METRIC_CONFIGS: Record<string, MetricConfig> = {
+  "GDP": {
+    thresholds: [0.1e12, 0.5e12, 1e12, 5e12, 10e12],
+    colors: ["#d4e89f", "#b8d66b", "#9cc837", "#6b9c2f", "#4a7a23", "#2d5016"],
+    format: (value: number) => {
+      const trillions = value / 1e12;
+      return trillions >= 1
+        ? `GDP: $${trillions.toFixed(2)}T`
+        : `GDP: $${(value / 1e9).toFixed(0)}B`;
+    },
+  },
+  "GDP growth": {
+    thresholds: [-5, 0, 2, 5, 8],
+    colors: ["#8b0000", "#d32f2f", "#fdd835", "#9cc837", "#4a7a23", "#2d5016"],
+    format: (value: number) => `GDP growth: ${value.toFixed(1)}%`,
+  },
+  "GDP per capita": {
+    thresholds: [1000, 5000, 15000, 30000, 50000],
+    colors: ["#d4e89f", "#b8d66b", "#9cc837", "#6b9c2f", "#4a7a23", "#2d5016"],
+    format: (value: number) => `GDP per capita: $${value.toLocaleString('en-US', { maximumFractionDigits: 0 })}`,
+  },
+  "Debt-to-GDP": {
+    thresholds: [25, 50, 75, 100, 150],
+    colors: ["#4a7a23", "#9cc837", "#fdd835", "#ff9800", "#d32f2f", "#8b0000"],
+    format: (value: number) => `Debt-to-GDP: ${value.toFixed(1)}%`,
+  },
+  "Inflation": {
+    thresholds: [-2, 0, 2, 5, 10, 20],
+    colors: ["#d32f2f", "#4a7a23", "#9cc837", "#fdd835", "#ff9800", "#d32f2f", "#8b0000"],
+    format: (value: number) => `Inflation: ${value.toFixed(1)}%`,
+  },
+  "Current Account Balance": {
+    thresholds: [-10, -5, -2, 2, 5, 10],
+    colors: ["#8b0000", "#d32f2f", "#ff9800", "#fdd835", "#9cc837", "#4a7a23", "#2d5016"],
+    format: (value: number) => `Current Account: ${value.toFixed(1)}% of GDP`,
+  },
+};
+
+function getColorFromThresholds(value: number, thresholds: number[], colors: string[]): string {
+  for (let i = 0; i < thresholds.length; i++) {
+    if (value <= thresholds[i]) {
+      return colors[i];
+    }
+  }
+  return colors[colors.length - 1];
+}
+
 interface Tooltip {
   name: string;
   value?: string;
@@ -81,65 +134,9 @@ function WorldMap({ selectedMetric, selectedYear }: WorldMapProps) {
       if (yearData) {
         const data = yearData.get(countryCode);
         if (data && data.value !== null && data.value !== undefined) {
-          const value = data.value;
-
-          // Different color scales for different metrics
-          switch (selectedMetric) {
-            case "GDP": {
-              const gdpInTrillions = value / 1_000_000_000_000;
-              if (gdpInTrillions > 10) return "#2d5016";
-              if (gdpInTrillions > 5) return "#4a7a23";
-              if (gdpInTrillions > 1) return "#6b9c2f";
-              if (gdpInTrillions > 0.5) return "#9cc837";
-              if (gdpInTrillions > 0.1) return "#b8d66b";
-              return "#d4e89f";
-            }
-            case "GDP growth": {
-              // Negative to positive scale
-              if (value < -5) return "#8b0000"; // Dark red
-              if (value < 0) return "#d32f2f"; // Red
-              if (value < 2) return "#fdd835"; // Yellow
-              if (value < 5) return "#9cc837"; // Green
-              if (value < 8) return "#4a7a23"; // Dark green
-              return "#2d5016"; // Darkest green
-            }
-            case "GDP per capita": {
-              if (value > 50000) return "#2d5016";
-              if (value > 30000) return "#4a7a23";
-              if (value > 15000) return "#6b9c2f";
-              if (value > 5000) return "#9cc837";
-              if (value > 1000) return "#b8d66b";
-              return "#d4e89f";
-            }
-            case "Debt-to-GDP": {
-              // Higher debt is worse (red)
-              if (value > 150) return "#8b0000";
-              if (value > 100) return "#d32f2f";
-              if (value > 75) return "#ff9800";
-              if (value > 50) return "#fdd835";
-              if (value > 25) return "#9cc837";
-              return "#4a7a23";
-            }
-            case "Inflation": {
-              // Low inflation is better
-              if (value > 20) return "#8b0000";
-              if (value > 10) return "#d32f2f";
-              if (value > 5) return "#ff9800";
-              if (value > 2) return "#fdd835";
-              if (value > 0) return "#9cc837";
-              if (value > -2) return "#4a7a23";
-              return "#d32f2f"; // Deflation
-            }
-            case "Current Account Balance": {
-              // Positive surplus is good, negative deficit is bad
-              if (value < -10) return "#8b0000";
-              if (value < -5) return "#d32f2f";
-              if (value < -2) return "#ff9800";
-              if (value < 2) return "#fdd835";
-              if (value < 5) return "#9cc837";
-              if (value < 10) return "#4a7a23";
-              return "#2d5016";
-            }
+          const config = METRIC_CONFIGS[selectedMetric];
+          if (config) {
+            return getColorFromThresholds(data.value, config.thresholds, config.colors);
           }
         }
       }
@@ -181,39 +178,9 @@ function WorldMap({ selectedMetric, selectedYear }: WorldMapProps) {
                       if (yearData) {
                         const data = yearData.get(countryCode);
                         if (data && data.value !== null && data.value !== undefined) {
-                          const value = data.value;
-
-                          switch (selectedMetric) {
-                            case "GDP": {
-                              const gdpInTrillions = value / 1_000_000_000_000;
-                              if (gdpInTrillions >= 1) {
-                                metricValue = `GDP: $${gdpInTrillions.toFixed(2)}T`;
-                              } else {
-                                const gdpInBillions = value / 1_000_000_000;
-                                metricValue = `GDP: $${gdpInBillions.toFixed(0)}B`;
-                              }
-                              break;
-                            }
-                            case "GDP growth": {
-                              metricValue = `GDP growth: ${value.toFixed(1)}%`;
-                              break;
-                            }
-                            case "GDP per capita": {
-                              metricValue = `GDP per capita: $${value.toLocaleString('en-US', { maximumFractionDigits: 0 })}`;
-                              break;
-                            }
-                            case "Debt-to-GDP": {
-                              metricValue = `Debt-to-GDP: ${value.toFixed(1)}%`;
-                              break;
-                            }
-                            case "Inflation": {
-                              metricValue = `Inflation: ${value.toFixed(1)}%`;
-                              break;
-                            }
-                            case "Current Account Balance": {
-                              metricValue = `Current Account: ${value.toFixed(1)}% of GDP`;
-                              break;
-                            }
+                          const config = METRIC_CONFIGS[selectedMetric];
+                          if (config) {
+                            metricValue = config.format(data.value);
                           }
                         }
                       }
@@ -235,15 +202,19 @@ function WorldMap({ selectedMetric, selectedYear }: WorldMapProps) {
                       outline: "none",
                     },
                     hover: {
-                      fill: "#9CC837",
-                      stroke: "#303030",
-                      strokeWidth: 0.3,
+                      fill: getCountryColor(getCountryCode(geo.properties.name) || "", geo.properties.name),
+                      stroke: "#ffffff",
+                      strokeWidth: 1.5,
                       outline: "none",
                       cursor: "pointer",
+                      filter: "drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.5))",
                     },
                     pressed: {
-                      fill: "#8ab82e",
+                      fill: getCountryColor(getCountryCode(geo.properties.name) || "", geo.properties.name),
+                      stroke: "#ffffff",
+                      strokeWidth: 1.5,
                       outline: "none",
+                      filter: "drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.5))",
                     },
                   }}
                 />
