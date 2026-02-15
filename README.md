@@ -1,73 +1,99 @@
-# React + TypeScript + Vite
+# Wodapuz Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![CI](https://github.com/joaoesp/wodapuz-frontend/actions/workflows/ci.yml/badge.svg)](https://github.com/joaoesp/wodapuz-frontend/actions/workflows/ci.yml)
 
-Currently, two official plugins are available:
+An interactive world map visualization application built with React 19 and TypeScript, displaying economic indicators from the World Bank API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- 🗺️ Interactive world map with pan and zoom controls
+- 📊 Six economic indicators:
+  - GDP
+  - GDP growth
+  - GDP per capita
+  - Debt-to-GDP ratio
+  - Inflation
+  - Current Account Balance (% of GDP)
+- ⏱️ Historical data timeline (1960-2024)
+- 🎨 Metric-specific color scales for data visualization
+- 📱 Responsive design
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **React 19** - UI library
+- **TypeScript 5.9** - Type safety
+- **Vite 7** - Build tool and dev server
+- **react-simple-maps** - Map visualization
+- **ESLint 9** - Code linting
+- **Prettier** - Code formatting
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Node.js 20+
+- npm
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Installation
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### Build
+
+```bash
+npm run build
+```
+
+## Available Scripts
+
+- `npm run dev` - Start development server with HMR
+- `npm run build` - Type-check and build for production
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint
+- `npm run lint:fix` - Auto-fix ESLint issues
+- `npm run format` - Format code with Prettier
+- `npm run format:check` - Check code formatting
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── BottomBar.tsx      # Category selection buttons
+│   ├── MetricButtons.tsx  # Metric selection buttons
+│   ├── TimelineSlider.tsx # Year selection slider
+│   ├── TopBanner.tsx      # Category display banner
+│   └── WorldMap.tsx       # Main map component
+├── services/
+│   └── worldBankService.ts # API service for World Bank data
+├── utils/
+│   └── countryNameToCode.ts # Country name to ISO-3 code mapping
+├── App.tsx                # Main application component
+└── main.tsx              # Application entry point
+```
+
+## Backend
+
+This frontend works with the [Wodapuz Backend](https://github.com/joaoesp/wodapuz-backend) - a Strapi CMS that proxies World Bank API requests with caching.
+
+## Contributing
+
+1. Create a feature branch
+2. Make your changes
+3. Run `npm run lint` and `npm run format`
+4. Commit your changes
+5. Push and create a pull request
+
+## License
+
+MIT
