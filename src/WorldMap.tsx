@@ -1,10 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  ZoomableGroup,
-} from "react-simple-maps";
+import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
 import { worldBankService, type IndicatorData } from "./services/worldBankService";
 import { getCountryCode } from "./utils/countryNameToCode";
 
@@ -20,7 +15,7 @@ interface MetricConfig {
 }
 
 const METRIC_CONFIGS: Record<string, MetricConfig> = {
-  "GDP": {
+  GDP: {
     thresholds: [0.1e12, 0.5e12, 1e12, 5e12, 10e12],
     colors: ["#d4e89f", "#b8d66b", "#9cc837", "#6b9c2f", "#4a7a23", "#2d5016"],
     format: (value: number) => {
@@ -38,14 +33,15 @@ const METRIC_CONFIGS: Record<string, MetricConfig> = {
   "GDP per capita": {
     thresholds: [1000, 5000, 15000, 30000, 50000],
     colors: ["#d4e89f", "#b8d66b", "#9cc837", "#6b9c2f", "#4a7a23", "#2d5016"],
-    format: (value: number) => `GDP per capita: $${value.toLocaleString('en-US', { maximumFractionDigits: 0 })}`,
+    format: (value: number) =>
+      `GDP per capita: $${value.toLocaleString("en-US", { maximumFractionDigits: 0 })}`,
   },
   "Debt-to-GDP": {
     thresholds: [25, 50, 75, 100, 150],
     colors: ["#4a7a23", "#9cc837", "#fdd835", "#ff9800", "#d32f2f", "#8b0000"],
     format: (value: number) => `Debt-to-GDP: ${value.toFixed(1)}%`,
   },
-  "Inflation": {
+  Inflation: {
     thresholds: [-2, 0, 2, 5, 10, 20],
     colors: ["#d32f2f", "#4a7a23", "#9cc837", "#fdd835", "#ff9800", "#d32f2f", "#8b0000"],
     format: (value: number) => `Inflation: ${value.toFixed(1)}%`,
@@ -82,7 +78,9 @@ function WorldMap({ selectedMetric, selectedYear }: WorldMapProps) {
   const [tooltip, setTooltip] = useState<Tooltip | null>(null);
   const [center, setCenter] = useState<[number, number]>(INITIAL_CENTER);
   const [zoom, setZoom] = useState(INITIAL_ZOOM);
-  const [indicatorDataByYear, setIndicatorDataByYear] = useState<Record<string, Map<string, IndicatorData>>>({});
+  const [indicatorDataByYear, setIndicatorDataByYear] = useState<
+    Record<string, Map<string, IndicatorData>>
+  >({});
 
   const resetMap = useCallback(() => {
     setCenter(INITIAL_CENTER);
@@ -101,29 +99,36 @@ function WorldMap({ selectedMetric, selectedYear }: WorldMapProps) {
 
   useEffect(() => {
     if (selectedMetric) {
-      worldBankService.getIndicatorYearRange(selectedMetric, 1960, 2024).then((dataByYear) => {
-        const processedData: Record<string, Map<string, IndicatorData>> = {};
+      worldBankService
+        .getIndicatorYearRange(selectedMetric, 1960, 2024)
+        .then((dataByYear) => {
+          const processedData: Record<string, Map<string, IndicatorData>> = {};
 
-        Object.keys(dataByYear).forEach((year) => {
-          const yearData = dataByYear[year];
-          const dataMap = new Map<string, IndicatorData>();
-          yearData.forEach((item) => {
-            dataMap.set(item.countryCode, item);
+          Object.keys(dataByYear).forEach((year) => {
+            const yearData = dataByYear[year];
+            const dataMap = new Map<string, IndicatorData>();
+            yearData.forEach((item) => {
+              dataMap.set(item.countryCode, item);
+            });
+            processedData[year] = dataMap;
           });
-          processedData[year] = dataMap;
-        });
 
-        console.log(`${selectedMetric} data loaded for years:`, Object.keys(processedData).length);
-        setIndicatorDataByYear(processedData);
-      }).catch((error) => {
-        console.error(`Failed to load ${selectedMetric} data:`, error);
-      });
+          console.log(
+            `${selectedMetric} data loaded for years:`,
+            Object.keys(processedData).length
+          );
+          setIndicatorDataByYear(processedData);
+        })
+        .catch((error) => {
+          console.error(`Failed to load ${selectedMetric} data:`, error);
+        });
     } else {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIndicatorDataByYear({});
     }
   }, [selectedMetric]);
 
-  const getCountryColor = (countryCode: string, countryName?: string) => {
+  const getCountryColor = (countryCode: string) => {
     if (selectedMetric) {
       // If no country code mapping, show white
       if (!countryCode || countryCode === "") {
@@ -159,7 +164,10 @@ function WorldMap({ selectedMetric, selectedYear }: WorldMapProps) {
             setCenter(coordinates);
             setZoom(z);
           }}
-          translateExtent={[[-200, -100], [1000, 600]]}
+          translateExtent={[
+            [-200, -100],
+            [1000, 600],
+          ]}
           minZoom={1}
           maxZoom={8}
         >
@@ -196,13 +204,13 @@ function WorldMap({ selectedMetric, selectedYear }: WorldMapProps) {
                   onMouseLeave={() => setTooltip(null)}
                   style={{
                     default: {
-                      fill: getCountryColor(getCountryCode(geo.properties.name) || "", geo.properties.name),
+                      fill: getCountryColor(getCountryCode(geo.properties.name) || ""),
                       stroke: "#303030",
                       strokeWidth: 0.3,
                       outline: "none",
                     },
                     hover: {
-                      fill: getCountryColor(getCountryCode(geo.properties.name) || "", geo.properties.name),
+                      fill: getCountryColor(getCountryCode(geo.properties.name) || ""),
                       stroke: "#ffffff",
                       strokeWidth: 1.5,
                       outline: "none",
@@ -210,7 +218,7 @@ function WorldMap({ selectedMetric, selectedYear }: WorldMapProps) {
                       filter: "drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.5))",
                     },
                     pressed: {
-                      fill: getCountryColor(getCountryCode(geo.properties.name) || "", geo.properties.name),
+                      fill: getCountryColor(getCountryCode(geo.properties.name) || ""),
                       stroke: "#ffffff",
                       strokeWidth: 1.5,
                       outline: "none",
@@ -224,12 +232,9 @@ function WorldMap({ selectedMetric, selectedYear }: WorldMapProps) {
         </ZoomableGroup>
       </ComposableMap>
       {tooltip && (
-        <div
-          className="map-tooltip"
-          style={{ left: tooltip.x + 12, top: tooltip.y - 28 }}
-        >
+        <div className="map-tooltip" style={{ left: tooltip.x + 12, top: tooltip.y - 28 }}>
           <div>{tooltip.name}</div>
-          {tooltip.value && <div style={{ fontSize: '12px', opacity: 0.9 }}>{tooltip.value}</div>}
+          {tooltip.value && <div style={{ fontSize: "12px", opacity: 0.9 }}>{tooltip.value}</div>}
         </div>
       )}
     </>

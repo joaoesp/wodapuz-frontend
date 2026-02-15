@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:1337/api';
+const API_BASE_URL = "http://localhost:1337/api";
 
 export interface IndicatorData {
   countryCode: string;
@@ -9,16 +9,20 @@ export interface IndicatorData {
 }
 
 const INDICATOR_SLUGS: Record<string, string> = {
-  'GDP': 'gdp',
-  'GDP growth': 'gdp-growth',
-  'GDP per capita': 'gdp-per-capita',
-  'Debt-to-GDP': 'debt-to-gdp',
-  'Inflation': 'inflation',
-  'Current Account Balance': 'current-account-balance',
+  GDP: "gdp",
+  "GDP growth": "gdp-growth",
+  "GDP per capita": "gdp-per-capita",
+  "Debt-to-GDP": "debt-to-gdp",
+  Inflation: "inflation",
+  "Current Account Balance": "current-account-balance",
 };
 
 export const worldBankService = {
-  async getIndicatorYearRange(indicator: string, startYear: number, endYear: number): Promise<Record<string, IndicatorData[]>> {
+  async getIndicatorYearRange(
+    indicator: string,
+    startYear: number,
+    endYear: number
+  ): Promise<Record<string, IndicatorData[]>> {
     try {
       const indicatorSlug = INDICATOR_SLUGS[indicator];
       if (!indicatorSlug) {

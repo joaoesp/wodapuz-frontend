@@ -25,12 +25,12 @@
 }
 
 .bottom-bar-btn:hover {
-  background-color: #9CC837;
-  border-color: #9CC837;
+  background-color: #9cc837;
+  border-color: #9cc837;
 }
 
 .bottom-bar-btn.active {
-  background-color: #9CC837;
-  border-color: #9CC837;
+  background-color: #9cc837;
+  border-color: #9cc837;
   color: #303030;
 }

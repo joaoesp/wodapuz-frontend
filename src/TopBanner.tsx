@@ -5,11 +5,7 @@ interface TopBannerProps {
 }
 
 function TopBanner({ selectedCategory }: TopBannerProps) {
-  return (
-    <div className="top-banner">
-      {selectedCategory}
-    </div>
-  );
+  return <div className="top-banner">{selectedCategory}</div>;
 }
 
 export default TopBanner;

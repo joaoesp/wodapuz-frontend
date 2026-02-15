@@ -37,10 +37,7 @@ function App() {
           onYearChange={setSelectedYear}
         />
       )}
-      <BottomBar
-        selectedCategory={selectedCategory}
-        onSelectCategory={handleCategoryChange}
-      />
+      <BottomBar selectedCategory={selectedCategory} onSelectCategory={handleCategoryChange} />
     </div>
   );
 }

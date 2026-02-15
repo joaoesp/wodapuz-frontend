@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./MetricButtons.css";
 
 const categoryMetrics: Record<string, string[]> = {

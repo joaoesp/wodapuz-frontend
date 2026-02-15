@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./TimelineSlider.css";
 
 interface TimelineSliderProps {
@@ -9,8 +8,6 @@ interface TimelineSliderProps {
 }
 
 function TimelineSlider({ startYear, endYear, currentYear, onYearChange }: TimelineSliderProps) {
-  const [isPlaying, setIsPlaying] = useState(false);
-
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onYearChange(parseInt(e.target.value));
   };
