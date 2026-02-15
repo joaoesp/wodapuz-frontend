@@ -9,11 +9,21 @@ const categories = [
   { name: "Demographics", initial: "D" },
 ];
 
-function BottomBar() {
+interface BottomBarProps {
+  selectedCategory: string;
+  onSelectCategory: (category: string) => void;
+}
+
+function BottomBar({ selectedCategory, onSelectCategory }: BottomBarProps) {
   return (
     <div className="bottom-bar">
       {categories.map((cat) => (
-        <button key={cat.name} className="bottom-bar-btn" title={cat.name}>
+        <button
+          key={cat.name}
+          className={`bottom-bar-btn ${selectedCategory === cat.name ? "active" : ""}`}
+          title={cat.name}
+          onClick={() => onSelectCategory(cat.name)}
+        >
           {cat.initial}
         </button>
       ))}

@@ -28,3 +28,9 @@
   background-color: #9CC837;
   border-color: #9CC837;
 }
+
+.bottom-bar-btn.active {
+  background-color: #9CC837;
+  border-color: #9CC837;
+  color: #303030;
+}
