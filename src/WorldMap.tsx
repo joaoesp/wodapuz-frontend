@@ -79,9 +79,10 @@ interface Tooltip {
 interface WorldMapProps {
   selectedMetric: string | null;
   selectedYear: number;
+  onYearRangeUpdate: (startYear: number, endYear: number) => void;
 }
 
-function WorldMap({ selectedMetric, selectedYear }: WorldMapProps) {
+function WorldMap({ selectedMetric, selectedYear, onYearRangeUpdate }: WorldMapProps) {
   const [tooltip, setTooltip] = useState<Tooltip | null>(null);
   const [center, setCenter] = useState<[number, number]>(INITIAL_CENTER);
   const [zoom, setZoom] = useState(INITIAL_ZOOM);
@@ -125,6 +126,17 @@ function WorldMap({ selectedMetric, selectedYear }: WorldMapProps) {
             Object.keys(processedData).length
           );
           setIndicatorDataByYear(processedData);
+
+          // Extract available year range from actual data
+          const availableYears = Object.keys(processedData)
+            .map((y) => parseInt(y))
+            .sort((a, b) => a - b);
+
+          if (availableYears.length > 0) {
+            const minYear = availableYears[0];
+            const maxYear = availableYears[availableYears.length - 1];
+            onYearRangeUpdate(minYear, maxYear);
+          }
         })
         .catch((error) => {
           console.error(`Failed to load ${selectedMetric} data:`, error);
@@ -133,7 +145,7 @@ function WorldMap({ selectedMetric, selectedYear }: WorldMapProps) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setIndicatorDataByYear({});
     }
-  }, [selectedMetric]);
+  }, [selectedMetric, onYearRangeUpdate]);
 
   const getCountryColor = (countryCode: string) => {
     if (selectedMetric) {

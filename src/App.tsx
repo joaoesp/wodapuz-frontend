@@ -6,18 +6,35 @@ import MetricButtons from "./MetricButtons";
 import TimelineSlider from "./TimelineSlider";
 import "./App.css";
 
-const START_YEAR = 1960;
-const END_YEAR = 2024; // Most recent year with World Bank data
+const DEFAULT_START_YEAR = 1960;
+const DEFAULT_END_YEAR = 2024; // Most recent year with World Bank data
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState<string>("Economy");
   const [selectedMetric, setSelectedMetric] = useState<string | null>("GDP");
-  const [selectedYear, setSelectedYear] = useState<number>(END_YEAR);
+  const [selectedYear, setSelectedYear] = useState<number>(DEFAULT_END_YEAR);
+  const [availableYearRange, setAvailableYearRange] = useState<{
+    startYear: number;
+    endYear: number;
+  }>({
+    startYear: DEFAULT_START_YEAR,
+    endYear: DEFAULT_END_YEAR,
+  });
 
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
     // Reset metric when category changes
     setSelectedMetric(null);
+  };
+
+  const handleYearRangeUpdate = (startYear: number, endYear: number) => {
+    setAvailableYearRange({ startYear, endYear });
+    // If current year is outside the new range, adjust it
+    if (selectedYear < startYear) {
+      setSelectedYear(startYear);
+    } else if (selectedYear > endYear) {
+      setSelectedYear(endYear);
+    }
   };
 
   return (
@@ -28,11 +45,15 @@ function App() {
         selectedMetric={selectedMetric}
         onSelectMetric={setSelectedMetric}
       />
-      <WorldMap selectedMetric={selectedMetric} selectedYear={selectedYear} />
+      <WorldMap
+        selectedMetric={selectedMetric}
+        selectedYear={selectedYear}
+        onYearRangeUpdate={handleYearRangeUpdate}
+      />
       {selectedMetric && (
         <TimelineSlider
-          startYear={START_YEAR}
-          endYear={END_YEAR}
+          startYear={availableYearRange.startYear}
+          endYear={availableYearRange.endYear}
           currentYear={selectedYear}
           onYearChange={setSelectedYear}
         />
