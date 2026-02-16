@@ -7,6 +7,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Wodapuz frontend — a React 19 + TypeScript SPA built with Vite 7.
 
+## Project Initialization
+
+**IMPORTANT:** When the user says "initialize the project" or "start the project", perform the following steps:
+1. Start the frontend dev server (`npm run dev`) in the background
+2. Start the backend server (in `../wodapuz-backend` with `npm run dev`) in the background
+3. Open the website in Chrome **under your control** using the Chrome DevTools MCP tools (`mcp__chrome-devtools__navigate_page` or `mcp__chrome-devtools__new_page`), not just launching Chrome with bash
+
 ## Commands
 
 - `npm run dev` — Start dev server with HMR

@@ -4,6 +4,7 @@ import BottomBar from "./BottomBar";
 import TopBanner from "./TopBanner";
 import MetricButtons from "./MetricButtons";
 import TimelineSlider from "./TimelineSlider";
+import GdpLineChart from "./GdpLineChart";
 import "./App.css";
 
 const DEFAULT_START_YEAR = 1960;
@@ -51,12 +52,20 @@ function App() {
         onYearRangeUpdate={handleYearRangeUpdate}
       />
       {selectedMetric && (
-        <TimelineSlider
-          startYear={availableYearRange.startYear}
-          endYear={availableYearRange.endYear}
-          currentYear={selectedYear}
-          onYearChange={setSelectedYear}
-        />
+        <>
+          <TimelineSlider
+            startYear={availableYearRange.startYear}
+            endYear={availableYearRange.endYear}
+            currentYear={selectedYear}
+            onYearChange={setSelectedYear}
+          />
+          {selectedMetric === "GDP" && (
+            <GdpLineChart
+              startYear={availableYearRange.startYear}
+              endYear={availableYearRange.endYear}
+            />
+          )}
+        </>
       )}
       <BottomBar selectedCategory={selectedCategory} onSelectCategory={handleCategoryChange} />
     </div>
