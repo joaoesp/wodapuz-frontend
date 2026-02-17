@@ -53,6 +53,11 @@
   color: #9cc837;
 }
 
+.timeline-range-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .timeline-speed-controls {
   display: flex;
   align-items: center;

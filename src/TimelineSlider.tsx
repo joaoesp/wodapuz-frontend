@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import EventPopup from "./EventPopup";
 import "./TimelineSlider.css";
 
 interface TimelineSliderProps {
@@ -6,20 +7,43 @@ interface TimelineSliderProps {
   endYear: number;
   currentYear: number;
   onYearChange: (year: number) => void;
+  pauseYears?: Set<number>;
+  eventsYear?: number;
 }
 
-function TimelineSlider({ startYear, endYear, currentYear, onYearChange }: TimelineSliderProps) {
+function TimelineSlider({
+  startYear,
+  endYear,
+  currentYear,
+  onYearChange,
+  pauseYears,
+  eventsYear,
+}: TimelineSliderProps) {
   const [isPlaying, setIsPlaying] = useState(false);
+  // isEventPaused halts the interval without changing isPlaying,
+  // so the pause button keeps showing ⏸ during the 5s event pause.
+  const [isEventPaused, setIsEventPaused] = useState(false);
   const [speedMultiplier, setSpeedMultiplier] = useState(1); // 1x, 2x, or 4x
   const speedOptions = [1, 2, 4];
+  const eventPauseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const clearEventPauseTimer = () => {
+    if (eventPauseTimerRef.current !== null) {
+      clearTimeout(eventPauseTimerRef.current);
+      eventPauseTimerRef.current = null;
+    }
+  };
 
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    clearEventPauseTimer();
+    setIsEventPaused(false);
     onYearChange(parseInt(e.target.value));
   };
 
   const togglePlay = () => {
+    clearEventPauseTimer();
+    setIsEventPaused(false);
     if (!isPlaying && currentYear === endYear) {
-      // If at the end, restart from the beginning
       onYearChange(startYear);
     }
     setIsPlaying(!isPlaying);
@@ -40,21 +64,34 @@ function TimelineSlider({ startYear, endYear, currentYear, onYearChange }: Timel
   };
 
   useEffect(() => {
-    if (!isPlaying) return;
+    return () => clearEventPauseTimer();
+  }, []);
+
+  useEffect(() => {
+    if (!isPlaying || isEventPaused) return;
 
     const interval = setInterval(() => {
       if (currentYear >= endYear) {
         setIsPlaying(false);
         return;
       }
-      onYearChange(currentYear + 1);
-    }, 1000 / speedMultiplier); // 1x = 1000ms, 2x = 500ms, 4x = 250ms
+      const nextYear = currentYear + 1;
+      onYearChange(nextYear);
+      if (pauseYears?.has(nextYear)) {
+        setIsEventPaused(true);
+        eventPauseTimerRef.current = setTimeout(() => {
+          eventPauseTimerRef.current = null;
+          setIsEventPaused(false);
+        }, 5000);
+      }
+    }, 1000 / speedMultiplier);
 
     return () => clearInterval(interval);
-  }, [isPlaying, currentYear, endYear, onYearChange, speedMultiplier]);
+  }, [isPlaying, isEventPaused, currentYear, endYear, onYearChange, speedMultiplier, pauseYears]);
 
   return (
     <div className="timeline-slider">
+      {eventsYear !== undefined && <EventPopup year={eventsYear} />}
       <div className="timeline-controls">
         <button
           className="timeline-play-button"
@@ -86,14 +123,16 @@ function TimelineSlider({ startYear, endYear, currentYear, onYearChange }: Timel
           </button>
         </div>
       </div>
-      <input
-        type="range"
-        min={startYear}
-        max={endYear}
-        value={currentYear}
-        onChange={handleSliderChange}
-        className="timeline-range"
-      />
+      <div className="timeline-range-wrapper">
+        <input
+          type="range"
+          min={startYear}
+          max={endYear}
+          value={currentYear}
+          onChange={handleSliderChange}
+          className="timeline-range"
+        />
+      </div>
       <div className="timeline-labels">
         <span>{startYear}</span>
         <span>{endYear}</span>

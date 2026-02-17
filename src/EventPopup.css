@@ -1,0 +1,44 @@
+.event-popup {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  white-space: nowrap;
+}
+
+.event-popup--visible {
+  opacity: 1;
+}
+
+.event-popup-card {
+  background: rgba(48, 48, 48, 0.92);
+  border-left: 3px solid #9cc837;
+  border-radius: 6px;
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 260px;
+  backdrop-filter: blur(4px);
+}
+
+.event-popup-year {
+  font-size: 11px;
+  font-weight: 600;
+  color: #9cc837;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.event-popup-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+}
