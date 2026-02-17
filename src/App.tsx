@@ -1,7 +1,6 @@
 import { useState } from "react";
 import WorldMap from "./WorldMap";
-import BottomBar from "./BottomBar";
-import TopBanner from "./TopBanner";
+import Navbar from "./Navbar";
 import MetricButtons from "./MetricButtons";
 import TimelineSlider from "./TimelineSlider";
 import GdpLineChart from "./GdpLineChart";
@@ -46,7 +45,6 @@ function App() {
 
   return (
     <div className="app">
-      <TopBanner selectedCategory={selectedCategory} />
       <MetricButtons
         category={selectedCategory}
         selectedMetric={selectedMetric}
@@ -75,7 +73,7 @@ function App() {
           )}
         </>
       )}
-      <BottomBar selectedCategory={selectedCategory} onSelectCategory={handleCategoryChange} />
+      <Navbar selectedCategory={selectedCategory} onSelectCategory={handleCategoryChange} />
     </div>
   );
 }

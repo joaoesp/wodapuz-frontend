@@ -1,4 +1,4 @@
-import "./BottomBar.css";
+import "./Navbar.css";
 import type { ReactNode } from "react";
 
 const EconomyIcon = () => (
@@ -117,17 +117,21 @@ interface BottomBarProps {
 
 function BottomBar({ selectedCategory, onSelectCategory }: BottomBarProps) {
   return (
-    <div className="bottom-bar">
-      {categories.map((cat) => (
-        <button
-          key={cat.name}
-          className={`bottom-bar-btn ${selectedCategory === cat.name ? "active" : ""}`}
-          title={cat.name}
-          onClick={() => onSelectCategory(cat.name)}
-        >
-          {cat.icon}
-        </button>
-      ))}
+    <div className="category-nav">
+      {categories.map((cat) => {
+        const isActive = selectedCategory === cat.name;
+        return (
+          <div key={cat.name} className={`category-nav-item ${isActive ? "active" : ""}`}>
+            <button
+              className={`category-nav-btn ${isActive ? "active" : ""}`}
+              onClick={() => onSelectCategory(cat.name)}
+            >
+              {cat.icon}
+            </button>
+            <span className="category-nav-label">{cat.name}</span>
+          </div>
+        );
+      })}
     </div>
   );
 }
