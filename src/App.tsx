@@ -4,6 +4,8 @@ import Navbar from "./Navbar";
 import MetricButtons from "./MetricButtons";
 import TimelineSlider from "./TimelineSlider";
 import GdpLineChart from "./GdpLineChart";
+import GdpPerCapitaLineChart from "./GdpPerCapitaLineChart";
+import CountryDashboard from "./CountryDashboard";
 import { GDP_GROWTH_EVENTS } from "./worldEvents";
 import "./App.css";
 
@@ -26,6 +28,11 @@ function App() {
     startYear: DEFAULT_START_YEAR,
     endYear: DEFAULT_END_YEAR,
   });
+  const [selectedCountry, setSelectedCountry] = useState<{
+    code: string;
+    name: string;
+    data: { year: number; value: number }[];
+  } | null>(null);
 
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
@@ -54,6 +61,11 @@ function App() {
         selectedMetric={selectedMetric}
         selectedYear={selectedYear}
         onYearRangeUpdate={handleYearRangeUpdate}
+        onCountryClick={
+          selectedMetric === "GDP per capita"
+            ? (code, name, data) => setSelectedCountry({ code, name, data })
+            : undefined
+        }
       />
       {selectedMetric && (
         <>
@@ -71,9 +83,22 @@ function App() {
               endYear={availableYearRange.endYear}
             />
           )}
+          {selectedMetric === "GDP per capita" && (
+            <GdpPerCapitaLineChart
+              startYear={availableYearRange.startYear}
+              endYear={availableYearRange.endYear}
+            />
+          )}
         </>
       )}
       <Navbar selectedCategory={selectedCategory} onSelectCategory={handleCategoryChange} />
+      {selectedCountry && (
+        <CountryDashboard
+          countryName={selectedCountry.name}
+          data={selectedCountry.data}
+          onClose={() => setSelectedCountry(null)}
+        />
+      )}
     </div>
   );
 }

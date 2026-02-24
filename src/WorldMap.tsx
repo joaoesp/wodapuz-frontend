@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
-import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
+import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from "react-simple-maps";
 import { worldBankService, type IndicatorData } from "./services/worldBankService";
 import { getCountryCode } from "./utils/countryNameToCode";
 
-const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json";
 
 const INITIAL_CENTER: [number, number] = [0, 30];
 const INITIAL_ZOOM = 1;
@@ -80,9 +80,19 @@ interface WorldMapProps {
   selectedMetric: string | null;
   selectedYear: number;
   onYearRangeUpdate: (startYear: number, endYear: number) => void;
+  onCountryClick?: (
+    countryCode: string,
+    countryName: string,
+    timeSeries: { year: number; value: number }[]
+  ) => void;
 }
 
-function WorldMap({ selectedMetric, selectedYear, onYearRangeUpdate }: WorldMapProps) {
+function WorldMap({
+  selectedMetric,
+  selectedYear,
+  onYearRangeUpdate,
+  onCountryClick,
+}: WorldMapProps) {
   const [tooltip, setTooltip] = useState<Tooltip | null>(null);
   const [center, setCenter] = useState<[number, number]>(INITIAL_CENTER);
   const [zoom, setZoom] = useState(INITIAL_ZOOM);
@@ -169,6 +179,29 @@ function WorldMap({ selectedMetric, selectedYear, onYearRangeUpdate }: WorldMapP
     return "#a6a6a6"; // Default gray when no metric selected
   };
 
+  // Small countries/city-states that are too tiny to click reliably on the polygon map
+  const TINY_COUNTRIES: { name: string; code: string; coordinates: [number, number] }[] = [
+    { name: "Singapore", code: "SGP", coordinates: [103.82, 1.35] },
+    { name: "Bahrain", code: "BHR", coordinates: [50.55, 26.07] },
+    { name: "Maldives", code: "MDV", coordinates: [73.22, 3.2] },
+    { name: "Malta", code: "MLT", coordinates: [14.37, 35.9] },
+    { name: "Luxembourg", code: "LUX", coordinates: [6.13, 49.81] },
+    { name: "Qatar", code: "QAT", coordinates: [51.18, 25.35] },
+  ];
+
+  const handleTinyCountryClick = (name: string, code: string) => {
+    if (!onCountryClick) return;
+    const timeSeries: { year: number; value: number }[] = [];
+    Object.entries(indicatorDataByYear).forEach(([year, yearMap]) => {
+      const entry = yearMap.get(code);
+      if (entry && entry.value != null) {
+        timeSeries.push({ year: parseInt(year), value: entry.value });
+      }
+    });
+    timeSeries.sort((a, b) => a.year - b.year);
+    onCountryClick(code, name, timeSeries);
+  };
+
   return (
     <>
       <ComposableMap
@@ -188,7 +221,7 @@ function WorldMap({ selectedMetric, selectedYear, onYearRangeUpdate }: WorldMapP
             [1000, 600],
           ]}
           minZoom={1}
-          maxZoom={8}
+          maxZoom={20}
         >
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>
@@ -221,6 +254,20 @@ function WorldMap({ selectedMetric, selectedYear, onYearRangeUpdate }: WorldMapP
                     });
                   }}
                   onMouseLeave={() => setTooltip(null)}
+                  onClick={() => {
+                    if (!onCountryClick) return;
+                    const countryCode = getCountryCode(geo.properties.name);
+                    if (!countryCode) return;
+                    const timeSeries: { year: number; value: number }[] = [];
+                    Object.entries(indicatorDataByYear).forEach(([year, yearMap]) => {
+                      const entry = yearMap.get(countryCode);
+                      if (entry && entry.value != null) {
+                        timeSeries.push({ year: parseInt(year), value: entry.value });
+                      }
+                    });
+                    timeSeries.sort((a, b) => a.year - b.year);
+                    onCountryClick(countryCode, geo.properties.name, timeSeries);
+                  }}
                   style={{
                     default: {
                       fill: getCountryColor(getCountryCode(geo.properties.name) || ""),
@@ -248,6 +295,45 @@ function WorldMap({ selectedMetric, selectedYear, onYearRangeUpdate }: WorldMapP
               ))
             }
           </Geographies>
+          {TINY_COUNTRIES.map((country) => {
+            const yearData = indicatorDataByYear[selectedYear.toString()];
+            const entry = yearData?.get(country.code);
+            const color =
+              selectedMetric && entry?.value != null
+                ? getColorFromThresholds(
+                    entry.value,
+                    METRIC_CONFIGS[selectedMetric].thresholds,
+                    METRIC_CONFIGS[selectedMetric].colors
+                  )
+                : selectedMetric
+                  ? "#ffffff"
+                  : "#a6a6a6";
+            return (
+              <Marker key={country.code} coordinates={country.coordinates}>
+                <circle
+                  r={4 / zoom}
+                  fill={color}
+                  stroke="#303030"
+                  strokeWidth={0.3 / zoom}
+                  style={{ cursor: "pointer" }}
+                  onMouseMove={(e) => {
+                    let metricValue: string | undefined;
+                    if (selectedMetric && entry?.value != null) {
+                      metricValue = METRIC_CONFIGS[selectedMetric].format(entry.value);
+                    }
+                    setTooltip({
+                      name: country.name,
+                      value: metricValue,
+                      x: e.clientX,
+                      y: e.clientY,
+                    });
+                  }}
+                  onMouseLeave={() => setTooltip(null)}
+                  onClick={() => handleTinyCountryClick(country.name, country.code)}
+                />
+              </Marker>
+            );
+          })}
         </ZoomableGroup>
       </ComposableMap>
       {tooltip && (
