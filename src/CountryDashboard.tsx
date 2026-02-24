@@ -1,10 +1,30 @@
 import "./CountryDashboard.css";
 
+// --- Symlog helpers (linear near zero, log for large values) ---
+const SYMLOG_C = 5; // transition point in %
+
+function symlog(v: number): number {
+  return Math.sign(v) * Math.log10(1 + Math.abs(v) / SYMLOG_C);
+}
+
+// Candidate tick values for a symlog inflation axis
+const SYMLOG_TICK_CANDIDATES = [
+  -1000000, -100000, -10000, -1000, -200, -100, -50, -20, -10, -5, -2, 0, 2, 5, 10, 20, 50, 100,
+  200, 1000, 10000, 100000, 1000000,
+];
+
+function percentile(sorted: number[], p: number): number {
+  return sorted[Math.max(0, Math.floor(sorted.length * p) - 1)];
+}
+
+// --- Metric config ---
+type ScaleMode = "linear" | "symlog" | "clipped";
+
 type MetricConfig = {
   subtitle: string;
   formatValue: (v: number) => string;
   formatLatest: (v: number) => string;
-  minValue: (values: number[]) => number;
+  scaleMode: ScaleMode;
 };
 
 const METRIC_CONFIGS: Record<string, MetricConfig> = {
@@ -12,19 +32,24 @@ const METRIC_CONFIGS: Record<string, MetricConfig> = {
     subtitle: "GDP per Capita — Historical",
     formatValue: (v) => (v >= 1000 ? `$${(v / 1000).toFixed(1)}K` : `$${v.toFixed(0)}`),
     formatLatest: (v) => (v >= 1000 ? `$${(v / 1000).toFixed(1)}K` : `$${v.toFixed(0)}`),
-    minValue: () => 0,
+    scaleMode: "linear",
   },
   Inflation: {
-    subtitle: "Inflation Rate — Historical",
-    formatValue: (v) => `${v.toFixed(1)}%`,
+    subtitle: "Inflation Rate — Historical (symlog scale)",
+    formatValue: (v) =>
+      Math.abs(v) >= 1000
+        ? `${(v / 1000).toFixed(0)}K%`
+        : Math.abs(v) >= 100
+          ? `${v.toFixed(0)}%`
+          : `${v.toFixed(1)}%`,
     formatLatest: (v) => `${v.toFixed(1)}%`,
-    minValue: (values) => Math.min(0, Math.min(...values)),
+    scaleMode: "symlog",
   },
   "Current Account Balance": {
     subtitle: "Current Account Balance (% of GDP) — Historical",
     formatValue: (v) => `${v.toFixed(1)}%`,
     formatLatest: (v) => `${v.toFixed(1)}%`,
-    minValue: (values) => Math.min(...values),
+    scaleMode: "clipped",
   },
 };
 
@@ -42,37 +67,81 @@ function CountryDashboard({ countryName, metric, data, onClose }: CountryDashboa
 
   const width = 560;
   const height = 300;
-  const padding = { top: 20, right: 20, bottom: 40, left: 70 };
+  // Wider left padding for symlog (tick labels can be wide like "100K%")
+  const leftPad = config.scaleMode === "symlog" ? 80 : 70;
+  const padding = { top: 20, right: 20, bottom: 40, left: leftPad };
   const chartWidth = width - padding.left - padding.right;
   const chartHeight = height - padding.top - padding.bottom;
 
   const startYear = data[0].year;
   const endYear = data[data.length - 1].year;
   const allValues = data.map((d) => d.value);
-  const maxValue = Math.max(...allValues);
-  const minValue = config.minValue(allValues);
-
+  const rawMin = Math.min(...allValues);
+  const rawMax = Math.max(...allValues);
   const latestValue = data[data.length - 1].value;
 
   const xScale = (year: number) =>
     ((year - startYear) / (endYear - startYear)) * chartWidth + padding.left;
 
-  const yScale = (value: number) =>
-    chartHeight - ((value - minValue) / (maxValue - minValue)) * chartHeight + padding.top;
+  // --- Build scale-specific state ---
+  let yScale: (v: number) => number;
+  let yTickValues: number[];
+  let showZeroLine = false;
+  let clippedAnnotations: { label: string; y: number }[] = [];
+
+  if (config.scaleMode === "symlog") {
+    const tMin = symlog(rawMin);
+    const tMax = symlog(rawMax);
+    yScale = (v) => {
+      const t = symlog(v);
+      return chartHeight - ((t - tMin) / (tMax - tMin)) * chartHeight + padding.top;
+    };
+    yTickValues = SYMLOG_TICK_CANDIDATES.filter((v) => v >= rawMin - 1 && v <= rawMax + 1);
+    showZeroLine = rawMin < 0;
+  } else if (config.scaleMode === "clipped") {
+    const sorted = [...allValues].sort((a, b) => a - b);
+    const p5 = percentile(sorted, 0.05);
+    const p95 = percentile(sorted, 0.95);
+    const range = Math.max(p95 - p5, 1);
+    const clampMin = p5 - range * 0.15;
+    const clampMax = p95 + range * 0.15;
+
+    yScale = (v) => {
+      const clamped = Math.max(clampMin, Math.min(clampMax, v));
+      return (
+        chartHeight - ((clamped - clampMin) / (clampMax - clampMin)) * chartHeight + padding.top
+      );
+    };
+    yTickValues = Array.from({ length: 5 }, (_, i) => clampMin + (i * (clampMax - clampMin)) / 4);
+    showZeroLine = clampMin < 0 && clampMax > 0;
+
+    if (rawMax > clampMax) {
+      clippedAnnotations.push({
+        label: `▲ Peak: ${config.formatValue(rawMax)}`,
+        y: padding.top + 14,
+      });
+    }
+    if (rawMin < clampMin) {
+      clippedAnnotations.push({
+        label: `▼ Low: ${config.formatValue(rawMin)}`,
+        y: height - padding.bottom - 6,
+      });
+    }
+  } else {
+    // linear (GDP per capita)
+    const scaleMin = 0;
+    const scaleMax = rawMax;
+    yScale = (v) =>
+      chartHeight - ((v - scaleMin) / (scaleMax - scaleMin)) * chartHeight + padding.top;
+    yTickValues = Array.from({ length: 5 }, (_, i) => scaleMin + (i * (scaleMax - scaleMin)) / 4);
+  }
 
   const linePath = data
     .map((point, i) => `${i === 0 ? "M" : "L"} ${xScale(point.year)} ${yScale(point.value)}`)
     .join(" ");
 
-  const areaPath =
-    linePath +
-    ` L ${xScale(endYear)} ${yScale(Math.max(0, minValue))} L ${xScale(startYear)} ${yScale(Math.max(0, minValue))} Z`;
-
-  const yTicks = 5;
-  const yTickValues = Array.from(
-    { length: yTicks },
-    (_, i) => minValue + (i * (maxValue - minValue)) / (yTicks - 1)
-  );
+  const zeroY = yScale(0);
+  const areaPath = linePath + ` L ${xScale(endYear)} ${zeroY} L ${xScale(startYear)} ${zeroY} Z`;
 
   const xTickInterval = 10;
   const xTickValues: number[] = [];
@@ -83,9 +152,6 @@ function CountryDashboard({ countryName, metric, data, onClose }: CountryDashboa
   ) {
     xTickValues.push(year);
   }
-
-  const zeroY = yScale(0);
-  const showZeroLine = minValue < 0;
 
   return (
     <div className="country-dashboard-overlay" onClick={onClose}>
@@ -109,11 +175,16 @@ function CountryDashboard({ countryName, metric, data, onClose }: CountryDashboa
         <svg width={width} height={height}>
           <defs>
             <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#9cc837" stopOpacity="0.3" />
+              <stop offset="0%" stopColor="#9cc837" stopOpacity="0.25" />
               <stop offset="100%" stopColor="#9cc837" stopOpacity="0.02" />
             </linearGradient>
+            <clipPath id="chartClip">
+              <rect x={padding.left} y={padding.top} width={chartWidth} height={chartHeight} />
+            </clipPath>
           </defs>
-          <path d={areaPath} fill="url(#areaGradient)" />
+
+          {/* Area fill clipped to chart bounds */}
+          <path d={areaPath} fill="url(#areaGradient)" clipPath="url(#chartClip)" />
 
           {/* Grid lines */}
           {yTickValues.map((value) => (
@@ -148,7 +219,7 @@ function CountryDashboard({ countryName, metric, data, onClose }: CountryDashboa
             strokeWidth="1"
           />
 
-          {/* Zero line for metrics that go negative */}
+          {/* Zero line */}
           {showZeroLine && (
             <line
               x1={padding.left}
@@ -198,17 +269,33 @@ function CountryDashboard({ countryName, metric, data, onClose }: CountryDashboa
             </g>
           ))}
 
-          {/* Line */}
+          {/* Line (clipped to chart area) */}
           <path
             d={linePath}
             fill="none"
             stroke="#9cc837"
             strokeWidth="2.5"
             strokeLinejoin="round"
+            clipPath="url(#chartClip)"
           />
 
           {/* Endpoint dot */}
           <circle cx={xScale(endYear)} cy={yScale(latestValue)} r="4" fill="#9cc837" />
+
+          {/* Clipping annotations */}
+          {clippedAnnotations.map((ann) => (
+            <text
+              key={ann.label}
+              x={width - padding.right - 4}
+              y={ann.y}
+              textAnchor="end"
+              fill="#f9ca24"
+              fontSize="11"
+              fontStyle="italic"
+            >
+              {ann.label}
+            </text>
+          ))}
         </svg>
       </div>
     </div>
