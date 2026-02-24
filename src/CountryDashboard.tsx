@@ -20,6 +20,12 @@ const METRIC_CONFIGS: Record<string, MetricConfig> = {
     formatLatest: (v) => `${v.toFixed(1)}%`,
     minValue: (values) => Math.min(0, Math.min(...values)),
   },
+  "Current Account Balance": {
+    subtitle: "Current Account Balance (% of GDP) — Historical",
+    formatValue: (v) => `${v.toFixed(1)}%`,
+    formatLatest: (v) => `${v.toFixed(1)}%`,
+    minValue: (values) => Math.min(...values),
+  },
 };
 
 interface CountryDashboardProps {

@@ -6,7 +6,6 @@ import TimelineSlider from "./TimelineSlider";
 import GdpLineChart from "./GdpLineChart";
 import GdpPerCapitaLineChart from "./GdpPerCapitaLineChart";
 import DebtToGdpLineChart from "./DebtToGdpLineChart";
-import CurrentAccountBalanceLineChart from "./CurrentAccountBalanceLineChart";
 import CountryDashboard from "./CountryDashboard";
 import { GDP_GROWTH_EVENTS } from "./worldEvents";
 import "./App.css";
@@ -20,7 +19,7 @@ const GDP_GROWTH_PAUSE_YEARS = new Set(
 );
 
 // Metrics that show a country dashboard on click
-const DASHBOARD_METRICS = new Set(["GDP per capita", "Inflation"]);
+const DASHBOARD_METRICS = new Set(["GDP per capita", "Inflation", "Current Account Balance"]);
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState<string>("Economy");
@@ -94,12 +93,6 @@ function App() {
           )}
           {selectedMetric === "Debt-to-GDP" && (
             <DebtToGdpLineChart
-              startYear={availableYearRange.startYear}
-              endYear={availableYearRange.endYear}
-            />
-          )}
-          {selectedMetric === "Current Account Balance" && (
-            <CurrentAccountBalanceLineChart
               startYear={availableYearRange.startYear}
               endYear={availableYearRange.endYear}
             />
