@@ -15,6 +15,10 @@ const INDICATOR_SLUGS: Record<string, string> = {
   "Debt-to-GDP": "debt-to-gdp",
   Inflation: "inflation",
   "Current Account Balance": "current-account-balance",
+  "Trade Openness": "trade-openness",
+  Exports: "exports",
+  Imports: "imports",
+  "Trade Balance": "trade-balance",
 };
 
 export const worldBankService = {

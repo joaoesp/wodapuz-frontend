@@ -53,6 +53,29 @@ export const METRIC_CONFIGS: Record<string, MetricConfig> = {
     colors: ["#8b0000", "#d32f2f", "#ff9800", "#fdd835", "#9cc837", "#4a7a23", "#2d5016"],
     format: (value: number) => `Current Account: ${value.toFixed(1)}% of GDP`,
   },
+  "Trade Openness": {
+    thresholds: [25, 50, 75, 100, 150],
+    colors: ["#d4e89f", "#b8d66b", "#9cc837", "#6b9c2f", "#4a7a23", "#2d5016"],
+    format: (value: number) => `Trade Openness: ${value.toFixed(1)}% of GDP`,
+  },
+  Exports: {
+    thresholds: [10, 20, 30, 50, 75],
+    colors: ["#d4e89f", "#b8d66b", "#9cc837", "#6b9c2f", "#4a7a23", "#2d5016"],
+    format: (value: number) => `Exports: ${value.toFixed(1)}% of GDP`,
+  },
+  Imports: {
+    thresholds: [10, 20, 30, 50, 75],
+    colors: ["#d4e89f", "#b8d66b", "#9cc837", "#6b9c2f", "#4a7a23", "#2d5016"],
+    format: (value: number) => `Imports: ${value.toFixed(1)}% of GDP`,
+  },
+  "Trade Balance": {
+    thresholds: [-100e9, -10e9, -1e9, 0, 10e9, 100e9],
+    colors: ["#8b0000", "#d32f2f", "#ff9800", "#fdd835", "#9cc837", "#4a7a23", "#2d5016"],
+    format: (value: number) => {
+      const b = value / 1e9;
+      return `Trade Balance: ${b >= 0 ? "+" : ""}${b.toFixed(1)}B`;
+    },
+  },
 };
 
 export function getColorFromThresholds(

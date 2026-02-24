@@ -7,6 +7,7 @@ import GdpLineChart from "./GdpLineChart";
 import GdpPerCapitaLineChart from "./GdpPerCapitaLineChart";
 import DebtToGdpLineChart from "./DebtToGdpLineChart";
 import CountryDashboard from "./CountryDashboard";
+import TradeDashboard from "./TradeDashboard";
 import { GDP_GROWTH_EVENTS } from "./worldEvents";
 import "./App.css";
 
@@ -18,8 +19,11 @@ const GDP_GROWTH_PAUSE_YEARS = new Set(
   GDP_GROWTH_EVENTS.filter((e) => e.startYear === e.endYear).map((e) => e.startYear)
 );
 
-// Metrics that show a country dashboard on click
+// Metrics that show the economy country dashboard on click
 const DASHBOARD_METRICS = new Set(["GDP per capita", "Inflation", "Current Account Balance"]);
+
+// Trade metrics that show the trade dashboard on click
+const TRADE_DASHBOARD_METRICS = new Set(["Trade Openness", "Exports", "Imports", "Trade Balance"]);
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState<string>("Economy");
@@ -64,7 +68,8 @@ function App() {
         selectedYear={selectedYear}
         onYearRangeUpdate={handleYearRangeUpdate}
         onCountryClick={
-          selectedMetric && DASHBOARD_METRICS.has(selectedMetric)
+          selectedMetric &&
+          (DASHBOARD_METRICS.has(selectedMetric) || TRADE_DASHBOARD_METRICS.has(selectedMetric))
             ? (code, name, data) => setSelectedCountry({ code, name, data })
             : undefined
         }
@@ -100,11 +105,19 @@ function App() {
         </>
       )}
       <Navbar selectedCategory={selectedCategory} onSelectCategory={handleCategoryChange} />
-      {selectedCountry && selectedMetric && (
+      {selectedCountry && selectedMetric && DASHBOARD_METRICS.has(selectedMetric) && (
         <CountryDashboard
           countryName={selectedCountry.name}
           metric={selectedMetric}
           data={selectedCountry.data}
+          onClose={() => setSelectedCountry(null)}
+        />
+      )}
+      {selectedCountry && selectedMetric && TRADE_DASHBOARD_METRICS.has(selectedMetric) && (
+        <TradeDashboard
+          countryCode={selectedCountry.code}
+          countryName={selectedCountry.name}
+          year={selectedYear}
           onClose={() => setSelectedCountry(null)}
         />
       )}
