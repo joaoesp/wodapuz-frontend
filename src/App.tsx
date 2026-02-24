@@ -5,6 +5,7 @@ import MetricButtons from "./MetricButtons";
 import TimelineSlider from "./TimelineSlider";
 import GdpLineChart from "./GdpLineChart";
 import GdpPerCapitaLineChart from "./GdpPerCapitaLineChart";
+import DebtToGdpLineChart from "./DebtToGdpLineChart";
 import CountryDashboard from "./CountryDashboard";
 import { GDP_GROWTH_EVENTS } from "./worldEvents";
 import "./App.css";
@@ -85,6 +86,12 @@ function App() {
           )}
           {selectedMetric === "GDP per capita" && (
             <GdpPerCapitaLineChart
+              startYear={availableYearRange.startYear}
+              endYear={availableYearRange.endYear}
+            />
+          )}
+          {selectedMetric === "Debt-to-GDP" && (
+            <DebtToGdpLineChart
               startYear={availableYearRange.startYear}
               endYear={availableYearRange.endYear}
             />
