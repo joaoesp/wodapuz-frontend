@@ -6,7 +6,6 @@ import TimelineSlider from "./TimelineSlider";
 import GdpLineChart from "./GdpLineChart";
 import GdpPerCapitaLineChart from "./GdpPerCapitaLineChart";
 import DebtToGdpLineChart from "./DebtToGdpLineChart";
-import InflationLineChart from "./InflationLineChart";
 import CurrentAccountBalanceLineChart from "./CurrentAccountBalanceLineChart";
 import CountryDashboard from "./CountryDashboard";
 import { GDP_GROWTH_EVENTS } from "./worldEvents";
@@ -19,6 +18,9 @@ const DEFAULT_END_YEAR = 2024; // Most recent year with World Bank data
 const GDP_GROWTH_PAUSE_YEARS = new Set(
   GDP_GROWTH_EVENTS.filter((e) => e.startYear === e.endYear).map((e) => e.startYear)
 );
+
+// Metrics that show a country dashboard on click
+const DASHBOARD_METRICS = new Set(["GDP per capita", "Inflation"]);
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState<string>("Economy");
@@ -39,13 +41,11 @@ function App() {
 
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
-    // Reset metric when category changes
     setSelectedMetric(null);
   };
 
   const handleYearRangeUpdate = (startYear: number, endYear: number) => {
     setAvailableYearRange({ startYear, endYear });
-    // If current year is outside the new range, adjust it
     if (selectedYear < startYear) {
       setSelectedYear(startYear);
     } else if (selectedYear > endYear) {
@@ -65,7 +65,7 @@ function App() {
         selectedYear={selectedYear}
         onYearRangeUpdate={handleYearRangeUpdate}
         onCountryClick={
-          selectedMetric === "GDP per capita"
+          selectedMetric && DASHBOARD_METRICS.has(selectedMetric)
             ? (code, name, data) => setSelectedCountry({ code, name, data })
             : undefined
         }
@@ -98,12 +98,6 @@ function App() {
               endYear={availableYearRange.endYear}
             />
           )}
-          {selectedMetric === "Inflation" && (
-            <InflationLineChart
-              startYear={availableYearRange.startYear}
-              endYear={availableYearRange.endYear}
-            />
-          )}
           {selectedMetric === "Current Account Balance" && (
             <CurrentAccountBalanceLineChart
               startYear={availableYearRange.startYear}
@@ -113,9 +107,10 @@ function App() {
         </>
       )}
       <Navbar selectedCategory={selectedCategory} onSelectCategory={handleCategoryChange} />
-      {selectedCountry && (
+      {selectedCountry && selectedMetric && (
         <CountryDashboard
           countryName={selectedCountry.name}
+          metric={selectedMetric}
           data={selectedCountry.data}
           onClose={() => setSelectedCountry(null)}
         />

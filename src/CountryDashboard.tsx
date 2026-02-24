@@ -1,20 +1,38 @@
 import "./CountryDashboard.css";
 
+type MetricConfig = {
+  subtitle: string;
+  formatValue: (v: number) => string;
+  formatLatest: (v: number) => string;
+  minValue: (values: number[]) => number;
+};
+
+const METRIC_CONFIGS: Record<string, MetricConfig> = {
+  "GDP per capita": {
+    subtitle: "GDP per Capita — Historical",
+    formatValue: (v) => (v >= 1000 ? `$${(v / 1000).toFixed(1)}K` : `$${v.toFixed(0)}`),
+    formatLatest: (v) => (v >= 1000 ? `$${(v / 1000).toFixed(1)}K` : `$${v.toFixed(0)}`),
+    minValue: () => 0,
+  },
+  Inflation: {
+    subtitle: "Inflation Rate — Historical",
+    formatValue: (v) => `${v.toFixed(1)}%`,
+    formatLatest: (v) => `${v.toFixed(1)}%`,
+    minValue: (values) => Math.min(0, Math.min(...values)),
+  },
+};
+
 interface CountryDashboardProps {
   countryName: string;
+  metric: string;
   data: { year: number; value: number }[];
   onClose: () => void;
 }
 
-function formatValue(value: number): string {
-  if (value >= 1000) {
-    return `$${(value / 1000).toFixed(1)}K`;
-  }
-  return `$${value.toFixed(0)}`;
-}
-
-function CountryDashboard({ countryName, data, onClose }: CountryDashboardProps) {
+function CountryDashboard({ countryName, metric, data, onClose }: CountryDashboardProps) {
   if (data.length === 0) return null;
+
+  const config = METRIC_CONFIGS[metric] ?? METRIC_CONFIGS["GDP per capita"];
 
   const width = 560;
   const height = 300;
@@ -26,7 +44,7 @@ function CountryDashboard({ countryName, data, onClose }: CountryDashboardProps)
   const endYear = data[data.length - 1].year;
   const allValues = data.map((d) => d.value);
   const maxValue = Math.max(...allValues);
-  const minValue = 0;
+  const minValue = config.minValue(allValues);
 
   const latestValue = data[data.length - 1].value;
 
@@ -41,7 +59,8 @@ function CountryDashboard({ countryName, data, onClose }: CountryDashboardProps)
     .join(" ");
 
   const areaPath =
-    linePath + ` L ${xScale(endYear)} ${yScale(0)} L ${xScale(startYear)} ${yScale(0)} Z`;
+    linePath +
+    ` L ${xScale(endYear)} ${yScale(Math.max(0, minValue))} L ${xScale(startYear)} ${yScale(Math.max(0, minValue))} Z`;
 
   const yTicks = 5;
   const yTickValues = Array.from(
@@ -59,17 +78,22 @@ function CountryDashboard({ countryName, data, onClose }: CountryDashboardProps)
     xTickValues.push(year);
   }
 
+  const zeroY = yScale(0);
+  const showZeroLine = minValue < 0;
+
   return (
     <div className="country-dashboard-overlay" onClick={onClose}>
       <div className="country-dashboard" onClick={(e) => e.stopPropagation()}>
         <div className="country-dashboard-header">
           <div>
             <h2 className="country-dashboard-title">{countryName}</h2>
-            <p className="country-dashboard-subtitle">GDP per Capita — Historical</p>
+            <p className="country-dashboard-subtitle">{config.subtitle}</p>
           </div>
           <div className="country-dashboard-latest">
             <span className="country-dashboard-latest-label">Latest ({endYear})</span>
-            <span className="country-dashboard-latest-value">{formatValue(latestValue)}</span>
+            <span className="country-dashboard-latest-value">
+              {config.formatLatest(latestValue)}
+            </span>
           </div>
           <button className="country-dashboard-close" onClick={onClose} aria-label="Close">
             ×
@@ -77,7 +101,6 @@ function CountryDashboard({ countryName, data, onClose }: CountryDashboardProps)
         </div>
 
         <svg width={width} height={height}>
-          {/* Area fill */}
           <defs>
             <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#9cc837" stopOpacity="0.3" />
@@ -119,6 +142,19 @@ function CountryDashboard({ countryName, data, onClose }: CountryDashboardProps)
             strokeWidth="1"
           />
 
+          {/* Zero line for metrics that go negative */}
+          {showZeroLine && (
+            <line
+              x1={padding.left}
+              y1={zeroY}
+              x2={width - padding.right}
+              y2={zeroY}
+              stroke="#666"
+              strokeWidth="1"
+              strokeDasharray="4,2"
+            />
+          )}
+
           {/* Y-axis labels */}
           {yTickValues.map((value) => (
             <text
@@ -130,7 +166,7 @@ function CountryDashboard({ countryName, data, onClose }: CountryDashboardProps)
               fontSize="11"
               dominantBaseline="middle"
             >
-              {formatValue(value)}
+              {config.formatValue(value)}
             </text>
           ))}
 
