@@ -194,6 +194,7 @@ export const countryNameToCode: Record<string, string> = {
   Grenada: "GRD",
   Kiribati: "KIR",
   Liechtenstein: "LIE",
+  Maldives: "MDV",
   Malta: "MLT",
   "Marshall Is.": "MHL",
   Mauritius: "MUS",
