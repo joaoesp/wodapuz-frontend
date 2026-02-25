@@ -17,8 +17,10 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 820px;
+  width: 900px;
   max-width: 95vw;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .trade-dashboard-header {
@@ -150,6 +152,34 @@
   color: #888;
   padding: 32px 0;
   font-size: 14px;
+}
+
+.trade-products-loading {
+  text-align: center;
+  color: #888;
+  padding: 16px 0;
+  font-size: 13px;
+}
+
+.trade-partner-row {
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 2px 4px;
+  transition: background 0.12s;
+  outline: none;
+}
+
+.trade-partner-row:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.trade-partner-row.active {
+  background: rgba(156, 200, 55, 0.12);
+}
+
+.trade-partner-row.active .trade-bar-label {
+  color: #9cc837;
+  font-weight: 600;
 }
 
 .trade-dashboard-total {

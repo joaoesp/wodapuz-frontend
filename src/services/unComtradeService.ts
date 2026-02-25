@@ -21,10 +21,31 @@ export interface TradeData {
   iso3: string;
 }
 
+export interface TradePartnerProducts {
+  products: TradeProduct[];
+  flow: string;
+  year: number;
+  iso3: string;
+  partnerIso3: string;
+}
+
 export const unComtradeService = {
   async getTradeData(iso3: string, flow: "X" | "M", year: number): Promise<TradeData> {
     const response = await fetch(`${API_BASE_URL}/un-comtrade/${iso3}/${flow}/${year}`);
     if (!response.ok) throw new Error(`Failed to fetch trade data: ${response.statusText}`);
+    return response.json();
+  },
+
+  async getPartnerProducts(
+    iso3: string,
+    partnerIso3: string,
+    flow: "X" | "M",
+    year: number
+  ): Promise<TradePartnerProducts> {
+    const response = await fetch(
+      `${API_BASE_URL}/un-comtrade/${iso3}/${flow}/${year}/partner/${partnerIso3}`
+    );
+    if (!response.ok) throw new Error(`Failed to fetch partner products: ${response.statusText}`);
     return response.json();
   },
 };
