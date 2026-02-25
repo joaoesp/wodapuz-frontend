@@ -87,7 +87,7 @@ function CountryDashboard({ countryName, metric, data, onClose }: CountryDashboa
   let yScale: (v: number) => number;
   let yTickValues: number[];
   let showZeroLine = false;
-  let clippedAnnotations: { label: string; y: number }[] = [];
+  const clippedAnnotations: { label: string; y: number }[] = [];
 
   if (config.scaleMode === "symlog") {
     const tMin = symlog(rawMin);
