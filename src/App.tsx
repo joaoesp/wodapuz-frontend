@@ -20,7 +20,13 @@ const GDP_GROWTH_PAUSE_YEARS = new Set(
 );
 
 // Metrics that show the economy country dashboard on click
-const DASHBOARD_METRICS = new Set(["GDP per capita", "Inflation", "Current Account Balance"]);
+const DASHBOARD_METRICS = new Set([
+  "GDP per capita",
+  "Inflation",
+  "Current Account Balance",
+  "Military Spending",
+  "Active Personnel",
+]);
 
 // Trade metrics that show the trade dashboard on click
 const TRADE_DASHBOARD_METRICS = new Set(["Trade Openness", "Exports", "Imports", "Trade Balance"]);

@@ -19,6 +19,8 @@ const INDICATOR_SLUGS: Record<string, string> = {
   Exports: "exports",
   Imports: "imports",
   "Trade Balance": "trade-balance",
+  "Military Spending": "defense-spending",
+  "Active Personnel": "active-personnel",
 };
 
 export const worldBankService = {

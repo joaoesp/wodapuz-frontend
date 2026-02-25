@@ -76,6 +76,19 @@ export const METRIC_CONFIGS: Record<string, MetricConfig> = {
       return `Trade Balance: ${b >= 0 ? "+" : ""}${b.toFixed(1)}B`;
     },
   },
+  "Military Spending": {
+    thresholds: [1e9, 5e9, 20e9, 100e9, 500e9],
+    colors: ["#f0e6ff", "#c9a0e8", "#a855c8", "#7c3aad", "#4a1080", "#1a0030"],
+    format: (v: number) => {
+      const b = v / 1e9;
+      return b >= 1 ? `$${b.toFixed(1)}B` : `$${(v / 1e6).toFixed(0)}M`;
+    },
+  },
+  "Active Personnel": {
+    thresholds: [10000, 50000, 200000, 500000, 1000000],
+    colors: ["#e8f5e9", "#a5d6a7", "#66bb6a", "#388e3c", "#1b5e20", "#0a2e0f"],
+    format: (v: number) => (v >= 1e6 ? `${(v / 1e6).toFixed(2)}M` : `${(v / 1e3).toFixed(0)}K`),
+  },
 };
 
 export function getColorFromThresholds(

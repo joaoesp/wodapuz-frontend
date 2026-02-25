@@ -51,6 +51,18 @@ const METRIC_CONFIGS: Record<string, MetricConfig> = {
     formatLatest: (v) => `${v.toFixed(1)}%`,
     scaleMode: "clipped",
   },
+  "Military Spending": {
+    subtitle: "Military Spending (current USD) — Historical",
+    formatValue: (v) => (v >= 1e9 ? `$${(v / 1e9).toFixed(1)}B` : `$${(v / 1e6).toFixed(0)}M`),
+    formatLatest: (v) => (v >= 1e9 ? `$${(v / 1e9).toFixed(1)}B` : `$${(v / 1e6).toFixed(0)}M`),
+    scaleMode: "linear",
+  },
+  "Active Personnel": {
+    subtitle: "Active Military Personnel — Historical",
+    formatValue: (v) => (v >= 1e6 ? `${(v / 1e6).toFixed(2)}M` : `${(v / 1e3).toFixed(0)}K`),
+    formatLatest: (v) => (v >= 1e6 ? `${(v / 1e6).toFixed(2)}M` : `${(v / 1e3).toFixed(0)}K`),
+    scaleMode: "linear",
+  },
 };
 
 interface CountryDashboardProps {
