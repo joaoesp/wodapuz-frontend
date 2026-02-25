@@ -27,30 +27,6 @@ function shortProductName(name: string): string {
   return firstSentence.length > 30 ? firstSentence.slice(0, 28) + "…" : firstSentence;
 }
 
-function HorizontalBars({
-  items,
-  color,
-}: {
-  items: { label: string; value: number; pct: number }[];
-  color: string;
-}) {
-  return (
-    <div>
-      {items.map((item) => (
-        <div key={item.label} className="trade-bar-row">
-          <div className="trade-bar-label" title={item.label}>
-            {item.label}
-          </div>
-          <div className="trade-bar-track">
-            <div className="trade-bar-fill" style={{ width: `${item.pct}%`, background: color }} />
-          </div>
-          <div className="trade-bar-value">{formatValue(item.value)}</div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 function ClickablePartnerList({
   partners,
   selectedIso,
@@ -95,6 +71,148 @@ function ClickablePartnerList({
   );
 }
 
+function ClickableProductList({
+  products,
+  selectedCode,
+  onSelect,
+}: {
+  products: TradeProduct[];
+  selectedCode: string | null;
+  onSelect: (product: TradeProduct) => void;
+}) {
+  const maxValue = products[0]?.value ?? 1;
+  return (
+    <div>
+      {products.map((product) => {
+        const pct = maxValue > 0 ? (product.value / maxValue) * 100 : 0;
+        const isActive = product.code === selectedCode;
+        return (
+          <div
+            key={product.code}
+            className={`trade-partner-row trade-bar-row${isActive ? " product-active" : ""}`}
+            role="button"
+            tabIndex={0}
+            onClick={() => onSelect(product)}
+            onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onSelect(product)}
+          >
+            <div
+              className="trade-bar-label"
+              title={product.name}
+              style={isActive ? { color: "#45b7d1", fontWeight: 600 } : undefined}
+            >
+              {shortProductName(product.name)}
+            </div>
+            <div className="trade-bar-track">
+              <div
+                className="trade-bar-fill"
+                style={{
+                  width: `${pct}%`,
+                  background: isActive ? "#45b7d1" : "rgba(69,183,209,0.35)",
+                }}
+              />
+            </div>
+            <div className="trade-bar-value">{formatValue(product.value)}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function ProductHistoryChart({ data }: { data: { year: number; value: number }[] }) {
+  const W = 340,
+    H = 160;
+  const padL = 52,
+    padR = 8,
+    padT = 8,
+    padB = 28;
+  const innerW = W - padL - padR;
+  const innerH = H - padT - padB;
+
+  const years = data.map((d) => d.year);
+  const minYear = Math.min(...years);
+  const maxYear = Math.max(...years);
+  const maxValue = Math.max(...data.map((d) => d.value));
+
+  const xScale = (year: number) =>
+    maxYear === minYear
+      ? padL + innerW / 2
+      : padL + ((year - minYear) / (maxYear - minYear)) * innerW;
+
+  const yScale = (value: number) =>
+    maxValue === 0 ? padT + innerH : padT + innerH - (value / maxValue) * innerH;
+
+  const points = data.map((d) => `${xScale(d.year)},${yScale(d.value)}`).join(" ");
+
+  const yTicks = [0, maxValue / 2, maxValue];
+
+  // Show every 2 years if there are more than 6 years
+  const xTickYears = years.length > 6 ? years.filter((y) => (y - minYear) % 2 === 0) : years;
+
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block" }}>
+      {/* Y-axis ticks */}
+      {yTicks.map((v, i) => {
+        const y = yScale(v);
+        return (
+          <g key={i}>
+            <line x1={padL - 4} y1={y} x2={padL} y2={y} stroke="#555" strokeWidth={1} />
+            <text x={padL - 6} y={y + 4} textAnchor="end" fontSize={9} fill="#888">
+              {formatValue(v)}
+            </text>
+          </g>
+        );
+      })}
+
+      {/* X-axis ticks */}
+      {xTickYears.map((yr) => {
+        const x = xScale(yr);
+        return (
+          <g key={yr}>
+            <line
+              x1={x}
+              y1={padT + innerH}
+              x2={x}
+              y2={padT + innerH + 4}
+              stroke="#555"
+              strokeWidth={1}
+            />
+            <text
+              x={x}
+              y={padT + innerH + 14}
+              textAnchor="middle"
+              fontSize={9}
+              fill="#888"
+              transform={`rotate(-45, ${x}, ${padT + innerH + 14})`}
+            >
+              {yr}
+            </text>
+          </g>
+        );
+      })}
+
+      {/* Axis lines */}
+      <line x1={padL} y1={padT} x2={padL} y2={padT + innerH} stroke="#444" strokeWidth={1} />
+      <line
+        x1={padL}
+        y1={padT + innerH}
+        x2={padL + innerW}
+        y2={padT + innerH}
+        stroke="#444"
+        strokeWidth={1}
+      />
+
+      {/* Line */}
+      {data.length > 1 && <polyline points={points} fill="none" stroke="#45b7d1" strokeWidth={2} />}
+
+      {/* Dots */}
+      {data.map((d) => (
+        <circle key={d.year} cx={xScale(d.year)} cy={yScale(d.value)} r={3} fill="#45b7d1" />
+      ))}
+    </svg>
+  );
+}
+
 function TradeDashboard({ countryCode, countryName, year, onClose }: TradeDashboardProps) {
   const [flow, setFlow] = useState<"X" | "M">("X");
   const [data, setData] = useState<{ X: TradeData | null; M: TradeData | null }>({
@@ -108,6 +226,11 @@ function TradeDashboard({ countryCode, countryName, year, onClose }: TradeDashbo
   }>({ X: null, M: null });
   const [partnerProducts, setPartnerProducts] = useState<Record<string, TradeProduct[]>>({});
   const [productsLoading, setProductsLoading] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<TradeProduct | null>(null);
+  const [productHistory, setProductHistory] = useState<
+    Record<string, { year: number; value: number }[]>
+  >({});
+  const [historyLoading, setHistoryLoading] = useState(false);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -115,6 +238,7 @@ function TradeDashboard({ countryCode, countryName, year, onClose }: TradeDashbo
     setLoading({ X: true, M: true });
     setSelectedPartner({ X: null, M: null });
     setPartnerProducts({});
+    setSelectedProduct(null);
 
     unComtradeService
       .getTradeData(countryCode, "X", year)
@@ -128,6 +252,12 @@ function TradeDashboard({ countryCode, countryName, year, onClose }: TradeDashbo
       .catch(console.error)
       .finally(() => setLoading((prev) => ({ ...prev, M: false })));
   }, [countryCode, year]);
+
+  // Clear selected product when partner or flow changes
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setSelectedProduct(null);
+  }, [selectedPartner[flow], flow]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Fetch products for active partner (user selection, or first partner as default)
   useEffect(() => {
@@ -146,6 +276,23 @@ function TradeDashboard({ countryCode, countryName, year, onClose }: TradeDashbo
       .finally(() => setProductsLoading(false));
   }, [selectedPartner, flow, countryCode, year, data]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  // Fetch product history when a product is selected
+  useEffect(() => {
+    const partner = selectedPartner[flow] ?? data[flow]?.partners[0] ?? null;
+    if (!selectedProduct || !partner) return;
+
+    const histCacheKey = `${countryCode}-${partner.iso}-${selectedProduct.code}-${flow}`;
+    if (productHistory[histCacheKey] !== undefined) return;
+
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setHistoryLoading(true);
+    unComtradeService
+      .getProductHistory(countryCode, partner.iso, flow, selectedProduct.code)
+      .then((d) => setProductHistory((prev) => ({ ...prev, [histCacheKey]: d.history })))
+      .catch(console.error)
+      .finally(() => setHistoryLoading(false));
+  }, [selectedProduct, selectedPartner, flow, countryCode, year, data]); // eslint-disable-line react-hooks/exhaustive-deps
+
   const current = data[flow];
   const isLoading = loading[flow];
   const hasData = current && (current.partners.length > 0 || current.products.length > 0);
@@ -155,12 +302,11 @@ function TradeDashboard({ countryCode, countryName, year, onClose }: TradeDashbo
   const cacheKey = activePartner ? `${countryCode}-${activePartner.iso}-${flow}` : null;
   const activeProducts = cacheKey ? (partnerProducts[cacheKey] ?? null) : null;
 
-  const productItems =
-    activeProducts?.map((p, _i, arr) => ({
-      label: shortProductName(p.name),
-      value: p.value,
-      pct: arr[0].value > 0 ? (p.value / arr[0].value) * 100 : 0,
-    })) ?? [];
+  const histCacheKey =
+    selectedProduct && activePartner
+      ? `${countryCode}-${activePartner.iso}-${selectedProduct.code}-${flow}`
+      : null;
+  const activeHistory = histCacheKey ? (productHistory[histCacheKey] ?? null) : null;
 
   return (
     <div className="trade-dashboard-overlay" onClick={onClose}>
@@ -205,15 +351,42 @@ function TradeDashboard({ countryCode, countryName, year, onClose }: TradeDashbo
                 />
               </div>
               <div className="trade-chart-section">
-                <h4>
-                  {activePartner ? `Products with ${activePartner.name}` : "Select a partner"}
-                </h4>
-                {productsLoading ? (
-                  <div className="trade-products-loading">Loading…</div>
-                ) : activeProducts === null ? (
-                  <div className="trade-products-loading">No data.</div>
+                {selectedProduct ? (
+                  <>
+                    <div className="trade-history-header">
+                      <button
+                        className="trade-history-back"
+                        onClick={() => setSelectedProduct(null)}
+                      >
+                        ← Products
+                      </button>
+                      <h4>{shortProductName(selectedProduct.name)}</h4>
+                    </div>
+                    {historyLoading ? (
+                      <div className="trade-products-loading">Loading…</div>
+                    ) : activeHistory === null ? (
+                      <div className="trade-products-loading">No data.</div>
+                    ) : (
+                      <ProductHistoryChart data={activeHistory} />
+                    )}
+                  </>
                 ) : (
-                  <HorizontalBars items={productItems} color="#45b7d1" />
+                  <>
+                    <h4>
+                      {activePartner ? `Products with ${activePartner.name}` : "Select a partner"}
+                    </h4>
+                    {productsLoading ? (
+                      <div className="trade-products-loading">Loading…</div>
+                    ) : activeProducts === null ? (
+                      <div className="trade-products-loading">No data.</div>
+                    ) : (
+                      <ClickableProductList
+                        products={activeProducts}
+                        selectedCode={null}
+                        onSelect={setSelectedProduct}
+                      />
+                    )}
+                  </>
                 )}
               </div>
             </div>

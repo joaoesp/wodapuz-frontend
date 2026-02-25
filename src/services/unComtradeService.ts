@@ -29,6 +29,14 @@ export interface TradePartnerProducts {
   partnerIso3: string;
 }
 
+export interface ProductHistory {
+  history: { year: number; value: number }[];
+  hsCode: string;
+  flow: string;
+  iso3: string;
+  partnerIso3: string;
+}
+
 export const unComtradeService = {
   async getTradeData(iso3: string, flow: "X" | "M", year: number): Promise<TradeData> {
     const response = await fetch(`${API_BASE_URL}/un-comtrade/${iso3}/${flow}/${year}`);
@@ -46,6 +54,19 @@ export const unComtradeService = {
       `${API_BASE_URL}/un-comtrade/${iso3}/${flow}/${year}/partner/${partnerIso3}`
     );
     if (!response.ok) throw new Error(`Failed to fetch partner products: ${response.statusText}`);
+    return response.json();
+  },
+
+  async getProductHistory(
+    iso3: string,
+    partnerIso3: string,
+    flow: "X" | "M",
+    hsCode: string
+  ): Promise<ProductHistory> {
+    const response = await fetch(
+      `${API_BASE_URL}/un-comtrade/${iso3}/${flow}/partner/${partnerIso3}/product/${hsCode}`
+    );
+    if (!response.ok) throw new Error(`Failed to fetch product history: ${response.statusText}`);
     return response.json();
   },
 };

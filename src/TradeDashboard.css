@@ -187,3 +187,25 @@
   color: #666;
   margin-top: 4px;
 }
+
+.trade-history-header {
+  margin-bottom: 8px;
+}
+
+.trade-history-header h4 {
+  margin: 4px 0 0;
+}
+
+.trade-history-back {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 11px;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.trade-history-back:hover {
+  color: #ccc;
+}
