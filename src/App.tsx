@@ -7,6 +7,7 @@ import GdpLineChart from "./GdpLineChart";
 import GdpPerCapitaLineChart from "./GdpPerCapitaLineChart";
 import DebtToGdpLineChart from "./DebtToGdpLineChart";
 import CountryDashboard from "./CountryDashboard";
+import ActivePersonnelLineChart from "./ActivePersonnelLineChart";
 import TradeDashboard from "./TradeDashboard";
 import { GDP_GROWTH_EVENTS } from "./worldEvents";
 import "./App.css";
@@ -104,6 +105,12 @@ function App() {
           )}
           {selectedMetric === "Debt-to-GDP" && (
             <DebtToGdpLineChart
+              startYear={availableYearRange.startYear}
+              endYear={availableYearRange.endYear}
+            />
+          )}
+          {selectedMetric === "Active Personnel" && (
+            <ActivePersonnelLineChart
               startYear={availableYearRange.startYear}
               endYear={availableYearRange.endYear}
             />
