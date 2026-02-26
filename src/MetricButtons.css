@@ -26,7 +26,7 @@
   cursor: pointer;
   transition: all 0.2s;
   text-align: left;
-  min-width: 180px;
+  width: 210px;
   white-space: nowrap;
 }
 
