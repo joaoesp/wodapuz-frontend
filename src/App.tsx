@@ -6,7 +6,6 @@ import TimelineSlider from "./TimelineSlider";
 import GdpLineChart from "./GdpLineChart";
 import GdpPerCapitaLineChart from "./GdpPerCapitaLineChart";
 import DebtToGdpLineChart from "./DebtToGdpLineChart";
-import InflationLineChart from "./InflationLineChart";
 import CurrentAccountBalanceLineChart from "./CurrentAccountBalanceLineChart";
 import CountryDashboard from "./CountryDashboard";
 import ActivePersonnelLineChart from "./ActivePersonnelLineChart";
@@ -39,7 +38,6 @@ const CHART_METRICS = new Set([
   "GDP",
   "GDP per capita",
   "Debt-to-GDP",
-  "Inflation",
   "Current Account Balance",
   "Active Personnel",
 ]);
@@ -131,13 +129,6 @@ function App() {
             )}
             {selectedMetric === "Debt-to-GDP" && (
               <DebtToGdpLineChart
-                startYear={availableYearRange.startYear}
-                endYear={availableYearRange.endYear}
-                onClose={() => setShowChart(false)}
-              />
-            )}
-            {selectedMetric === "Inflation" && (
-              <InflationLineChart
                 startYear={availableYearRange.startYear}
                 endYear={availableYearRange.endYear}
                 onClose={() => setShowChart(false)}

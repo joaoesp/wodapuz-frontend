@@ -20,7 +20,6 @@ const METRICS_WITH_CHARTS = new Set([
   "GDP",
   "GDP per capita",
   "Debt-to-GDP",
-  "Inflation",
   "Current Account Balance",
   "Active Personnel",
 ]);
