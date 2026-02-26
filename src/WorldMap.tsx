@@ -94,7 +94,7 @@ export const METRIC_CONFIGS: Record<string, MetricConfig> = {
     // PwrIndx: lower = stronger; dark green = most powerful, light gray = weakest
     thresholds: [0.3, 0.8, 1.5, 3.0],
     colors: ["#2d5016", "#4a7a23", "#9cc837", "#fdd835", "#c8c8c8"],
-    format: (v: number) => `PwrIndx: ${v.toFixed(4)}`,
+    format: (v: number) => `Power Index: ${v.toFixed(4)}`,
   },
 };
 

@@ -8,7 +8,7 @@ import GdpPerCapitaLineChart from "./GdpPerCapitaLineChart";
 import DebtToGdpLineChart from "./DebtToGdpLineChart";
 import CurrentAccountBalanceLineChart from "./CurrentAccountBalanceLineChart";
 import CountryDashboard from "./CountryDashboard";
-import ActivePersonnelLineChart from "./ActivePersonnelLineChart";
+import ActivePersonnelCompare from "./ActivePersonnelCompare";
 import TradeDashboard from "./TradeDashboard";
 import MilitaryInventoryDashboard from "./MilitaryInventoryDashboard";
 import MilitaryInventoryCompare from "./MilitaryInventoryCompare";
@@ -41,14 +41,8 @@ const MILITARY_INVENTORY_METRICS = new Set(["Military Inventory"]);
 // Trade metrics that show the trade dashboard on click
 const TRADE_DASHBOARD_METRICS = new Set(["Trade Openness", "Exports", "Imports", "Trade Balance"]);
 
-// Metrics that have a historical line chart
-const CHART_METRICS = new Set([
-  "GDP",
-  "GDP per capita",
-  "Debt-to-GDP",
-  "Current Account Balance",
-  "Active Personnel",
-]);
+// Metrics that have a historical line chart (inside the shared chart-modal-overlay)
+const CHART_METRICS = new Set(["GDP", "GDP per capita", "Debt-to-GDP", "Current Account Balance"]);
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState<string>("Economy");
@@ -151,15 +145,11 @@ function App() {
                 onClose={() => setShowChart(false)}
               />
             )}
-            {selectedMetric === "Active Personnel" && (
-              <ActivePersonnelLineChart
-                startYear={availableYearRange.startYear}
-                endYear={availableYearRange.endYear}
-                onClose={() => setShowChart(false)}
-              />
-            )}
           </div>
         </div>
+      )}
+      {showChart && selectedMetric === "Active Personnel" && (
+        <ActivePersonnelCompare onClose={() => setShowChart(false)} />
       )}
       <Navbar selectedCategory={selectedCategory} onSelectCategory={handleCategoryChange} />
       {selectedCountry && selectedMetric && DASHBOARD_METRICS.has(selectedMetric) && (
