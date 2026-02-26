@@ -72,18 +72,12 @@ function InflationLineChart({ startYear, endYear, onClose }: InflationLineChartP
           }
         });
 
-        // Sort by average absolute inflation descending, take top 10
-        countries.sort((a, b) => {
-          const aAvg =
-            a.dataPoints.reduce((s, d) => s + Math.abs(d.value), 0) / a.dataPoints.length;
-          const bAvg =
-            b.dataPoints.reduce((s, d) => s + Math.abs(d.value), 0) / b.dataPoints.length;
-          return bAvg - aAvg;
-        });
-
-        const top10 = countries.slice(0, 10);
-        setCountryData(top10);
-        setVisibleCountries(new Set(top10.map((c) => c.name)));
+        setCountryData(countries);
+        // Hide extreme outliers by default so the chart is readable
+        const HIDDEN_BY_DEFAULT = new Set(["Argentina", "Turkey"]);
+        setVisibleCountries(
+          new Set(countries.filter((c) => !HIDDEN_BY_DEFAULT.has(c.name)).map((c) => c.name))
+        );
       } catch (error) {
         console.error("Error fetching Inflation data:", error);
       } finally {
@@ -302,7 +296,7 @@ function InflationLineChart({ startYear, endYear, onClose }: InflationLineChartP
           {/* Legend */}
           {countryData.map((country, index) => {
             const x = width - padding.right + 10;
-            const y = padding.top + index * 20;
+            const y = padding.top + index * 17;
             const isVisible = visibleCountries.has(country.name);
             return (
               <g
