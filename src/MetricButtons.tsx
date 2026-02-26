@@ -22,6 +22,7 @@ const METRICS_WITH_CHARTS = new Set([
   "Debt-to-GDP",
   "Current Account Balance",
   "Active Personnel",
+  "Military Inventory",
 ]);
 
 interface MetricButtonsProps {

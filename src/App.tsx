@@ -11,6 +11,7 @@ import CountryDashboard from "./CountryDashboard";
 import ActivePersonnelLineChart from "./ActivePersonnelLineChart";
 import TradeDashboard from "./TradeDashboard";
 import MilitaryInventoryDashboard from "./MilitaryInventoryDashboard";
+import MilitaryInventoryCompare from "./MilitaryInventoryCompare";
 import { GDP_GROWTH_EVENTS } from "./worldEvents";
 import "./App.css";
 
@@ -184,6 +185,9 @@ function App() {
           countryName={selectedCountry.name}
           onClose={() => setSelectedCountry(null)}
         />
+      )}
+      {showChart && selectedMetric === "Military Inventory" && (
+        <MilitaryInventoryCompare onClose={() => setShowChart(false)} />
       )}
     </div>
   );

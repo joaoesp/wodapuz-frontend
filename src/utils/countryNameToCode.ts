@@ -261,6 +261,15 @@ export const countryNameToCode: Record<string, string> = {
   Somaliland: "",
 };
 
+// Reverse map: ISO3 → first/canonical display name
+export const codeToCountryName: Record<string, string> = (() => {
+  const map: Record<string, string> = {};
+  for (const [name, code] of Object.entries(countryNameToCode)) {
+    if (code && !(code in map)) map[code] = name;
+  }
+  return map;
+})();
+
 export function getCountryCode(countryName: string): string | null {
   // Check if country exists in mapping
   if (!(countryName in countryNameToCode)) {
