@@ -4,6 +4,7 @@ import "./GdpLineChart.css";
 interface ActivePersonnelLineChartProps {
   startYear: number;
   endYear: number;
+  onClose: () => void;
 }
 
 interface CountryData {
@@ -38,10 +39,9 @@ function formatValue(value: number): string {
   return value >= 1e6 ? `${(value / 1e6).toFixed(2)}M` : `${(value / 1e3).toFixed(0)}K`;
 }
 
-function ActivePersonnelLineChart({ startYear, endYear }: ActivePersonnelLineChartProps) {
+function ActivePersonnelLineChart({ startYear, endYear, onClose }: ActivePersonnelLineChartProps) {
   const [countryData, setCountryData] = useState<CountryData[]>([]);
   const [loading, setLoading] = useState(true);
-  const [isMinimized, setIsMinimized] = useState(false);
   const [visibleCountries, setVisibleCountries] = useState<Set<string>>(new Set());
   const [hoveredCountry, setHoveredCountry] = useState<string | null>(null);
   const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
@@ -172,177 +172,171 @@ function ActivePersonnelLineChart({ startYear, endYear }: ActivePersonnelLineCha
   }
 
   return (
-    <div className={`gdp-line-chart ${isMinimized ? "minimized" : ""}`}>
+    <div className="gdp-line-chart">
       <div className="chart-header">
         <h3 className="chart-title">Active Military Personnel — G20</h3>
-        <button
-          className="minimize-button"
-          onClick={() => setIsMinimized(!isMinimized)}
-          aria-label={isMinimized ? "Maximize" : "Minimize"}
-        >
-          {isMinimized ? "□" : "−"}
+        <button className="close-button" onClick={onClose} aria-label="Close">
+          ×
         </button>
       </div>
-      {!isMinimized && (
-        <div className="chart-container">
-          <svg
-            width={width}
-            height={height}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={() => setHoveredCountry(null)}
-          >
-            {/* Y-axis */}
-            <line
-              x1={padding.left}
-              y1={padding.top}
-              x2={padding.left}
-              y2={height - padding.bottom}
-              stroke="#666"
-              strokeWidth="1"
-            />
-            {/* X-axis */}
-            <line
-              x1={padding.left}
-              y1={height - padding.bottom}
-              x2={width - padding.right}
-              y2={height - padding.bottom}
-              stroke="#666"
-              strokeWidth="1"
-            />
+      <div className="chart-container">
+        <svg
+          width={width}
+          height={height}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={() => setHoveredCountry(null)}
+        >
+          {/* Y-axis */}
+          <line
+            x1={padding.left}
+            y1={padding.top}
+            x2={padding.left}
+            y2={height - padding.bottom}
+            stroke="#666"
+            strokeWidth="1"
+          />
+          {/* X-axis */}
+          <line
+            x1={padding.left}
+            y1={height - padding.bottom}
+            x2={width - padding.right}
+            y2={height - padding.bottom}
+            stroke="#666"
+            strokeWidth="1"
+          />
 
-            {/* Y-axis ticks and labels */}
-            {yTickValues.map((value) => {
-              const y = yScale(value);
-              return (
-                <g key={value}>
-                  <line x1={padding.left - 5} y1={y} x2={padding.left} y2={y} stroke="#666" />
-                  <text
-                    x={padding.left - 10}
-                    y={y}
-                    textAnchor="end"
-                    fill="#fff"
-                    fontSize="11"
-                    dominantBaseline="middle"
-                  >
-                    {formatValue(value)}
-                  </text>
-                </g>
-              );
-            })}
-
-            {/* X-axis ticks and labels */}
-            {xTickValues.map((year) => {
-              const x = xScale(year);
-              return (
-                <g key={year}>
-                  <line
-                    x1={x}
-                    y1={height - padding.bottom}
-                    x2={x}
-                    y2={height - padding.bottom + 5}
-                    stroke="#666"
-                  />
-                  <text
-                    x={x}
-                    y={height - padding.bottom + 20}
-                    textAnchor="middle"
-                    fill="#fff"
-                    fontSize="11"
-                  >
-                    {year}
-                  </text>
-                </g>
-              );
-            })}
-
-            {/* Grid lines */}
-            {yTickValues.map((value) => (
-              <line
-                key={`grid-${value}`}
-                x1={padding.left}
-                y1={yScale(value)}
-                x2={width - padding.right}
-                y2={yScale(value)}
-                stroke="#333"
-                strokeWidth="1"
-                strokeDasharray="2,2"
-              />
-            ))}
-
-            {/* Lines */}
-            {countryData
-              .filter((country) => visibleCountries.has(country.name))
-              .map((country) => {
-                const path = createLinePath(country.dataPoints);
-                return (
-                  <g key={country.name}>
-                    <path
-                      d={path}
-                      fill="none"
-                      stroke="transparent"
-                      strokeWidth="10"
-                      style={{ cursor: "pointer" }}
-                      onMouseEnter={() => setHoveredCountry(country.name)}
-                      onMouseLeave={() => setHoveredCountry(null)}
-                    />
-                    <path
-                      d={path}
-                      fill="none"
-                      stroke={country.color}
-                      strokeWidth={hoveredCountry === country.name ? 3 : 2}
-                      style={{ pointerEvents: "none" }}
-                    />
-                  </g>
-                );
-              })}
-
-            {/* Legend */}
-            {countryData.map((country, index) => {
-              const x = width - padding.right + 10;
-              const y = padding.top + index * 20;
-              const isVisible = visibleCountries.has(country.name);
-              return (
-                <g
-                  key={country.name}
-                  style={{ cursor: "pointer" }}
-                  onClick={() => toggleCountry(country.name)}
-                  opacity={isVisible ? 1 : 0.3}
-                >
-                  <line x1={x} y1={y} x2={x + 20} y2={y} stroke={country.color} strokeWidth="2" />
-                  <text x={x + 25} y={y} fill="#fff" fontSize="11" dominantBaseline="middle">
-                    {country.name}
-                  </text>
-                </g>
-              );
-            })}
-
-            {/* Tooltip */}
-            {hoveredCountry && (
-              <g>
-                <rect
-                  x={tooltipPos.x + 10}
-                  y={tooltipPos.y - 15}
-                  width={hoveredCountry.length * 7 + 10}
-                  height={20}
-                  fill="rgba(48, 48, 48, 0.95)"
-                  stroke="#66bb6a"
-                  strokeWidth="1"
-                  rx="4"
-                />
+          {/* Y-axis ticks and labels */}
+          {yTickValues.map((value) => {
+            const y = yScale(value);
+            return (
+              <g key={value}>
+                <line x1={padding.left - 5} y1={y} x2={padding.left} y2={y} stroke="#666" />
                 <text
-                  x={tooltipPos.x + 15}
-                  y={tooltipPos.y}
+                  x={padding.left - 10}
+                  y={y}
+                  textAnchor="end"
                   fill="#fff"
-                  fontSize="12"
-                  fontWeight="600"
+                  fontSize="11"
+                  dominantBaseline="middle"
                 >
-                  {hoveredCountry}
+                  {formatValue(value)}
                 </text>
               </g>
-            )}
-          </svg>
-        </div>
-      )}
+            );
+          })}
+
+          {/* X-axis ticks and labels */}
+          {xTickValues.map((year) => {
+            const x = xScale(year);
+            return (
+              <g key={year}>
+                <line
+                  x1={x}
+                  y1={height - padding.bottom}
+                  x2={x}
+                  y2={height - padding.bottom + 5}
+                  stroke="#666"
+                />
+                <text
+                  x={x}
+                  y={height - padding.bottom + 20}
+                  textAnchor="middle"
+                  fill="#fff"
+                  fontSize="11"
+                >
+                  {year}
+                </text>
+              </g>
+            );
+          })}
+
+          {/* Grid lines */}
+          {yTickValues.map((value) => (
+            <line
+              key={`grid-${value}`}
+              x1={padding.left}
+              y1={yScale(value)}
+              x2={width - padding.right}
+              y2={yScale(value)}
+              stroke="#333"
+              strokeWidth="1"
+              strokeDasharray="2,2"
+            />
+          ))}
+
+          {/* Lines */}
+          {countryData
+            .filter((country) => visibleCountries.has(country.name))
+            .map((country) => {
+              const path = createLinePath(country.dataPoints);
+              return (
+                <g key={country.name}>
+                  <path
+                    d={path}
+                    fill="none"
+                    stroke="transparent"
+                    strokeWidth="10"
+                    style={{ cursor: "pointer" }}
+                    onMouseEnter={() => setHoveredCountry(country.name)}
+                    onMouseLeave={() => setHoveredCountry(null)}
+                  />
+                  <path
+                    d={path}
+                    fill="none"
+                    stroke={country.color}
+                    strokeWidth={hoveredCountry === country.name ? 3 : 2}
+                    style={{ pointerEvents: "none" }}
+                  />
+                </g>
+              );
+            })}
+
+          {/* Legend */}
+          {countryData.map((country, index) => {
+            const x = width - padding.right + 10;
+            const y = padding.top + index * 20;
+            const isVisible = visibleCountries.has(country.name);
+            return (
+              <g
+                key={country.name}
+                style={{ cursor: "pointer" }}
+                onClick={() => toggleCountry(country.name)}
+                opacity={isVisible ? 1 : 0.3}
+              >
+                <line x1={x} y1={y} x2={x + 20} y2={y} stroke={country.color} strokeWidth="2" />
+                <text x={x + 25} y={y} fill="#fff" fontSize="11" dominantBaseline="middle">
+                  {country.name}
+                </text>
+              </g>
+            );
+          })}
+
+          {/* Tooltip */}
+          {hoveredCountry && (
+            <g>
+              <rect
+                x={tooltipPos.x + 10}
+                y={tooltipPos.y - 15}
+                width={hoveredCountry.length * 7 + 10}
+                height={20}
+                fill="rgba(48, 48, 48, 0.95)"
+                stroke="#66bb6a"
+                strokeWidth="1"
+                rx="4"
+              />
+              <text
+                x={tooltipPos.x + 15}
+                y={tooltipPos.y}
+                fill="#fff"
+                fontSize="12"
+                fontWeight="600"
+              >
+                {hoveredCountry}
+              </text>
+            </g>
+          )}
+        </svg>
+      </div>
     </div>
   );
 }

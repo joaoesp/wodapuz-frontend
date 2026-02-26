@@ -6,6 +6,8 @@ import TimelineSlider from "./TimelineSlider";
 import GdpLineChart from "./GdpLineChart";
 import GdpPerCapitaLineChart from "./GdpPerCapitaLineChart";
 import DebtToGdpLineChart from "./DebtToGdpLineChart";
+import InflationLineChart from "./InflationLineChart";
+import CurrentAccountBalanceLineChart from "./CurrentAccountBalanceLineChart";
 import CountryDashboard from "./CountryDashboard";
 import ActivePersonnelLineChart from "./ActivePersonnelLineChart";
 import TradeDashboard from "./TradeDashboard";
@@ -32,9 +34,20 @@ const DASHBOARD_METRICS = new Set([
 // Trade metrics that show the trade dashboard on click
 const TRADE_DASHBOARD_METRICS = new Set(["Trade Openness", "Exports", "Imports", "Trade Balance"]);
 
+// Metrics that have a historical line chart
+const CHART_METRICS = new Set([
+  "GDP",
+  "GDP per capita",
+  "Debt-to-GDP",
+  "Inflation",
+  "Current Account Balance",
+  "Active Personnel",
+]);
+
 function App() {
   const [selectedCategory, setSelectedCategory] = useState<string>("Economy");
   const [selectedMetric, setSelectedMetric] = useState<string | null>("GDP");
+  const [showChart, setShowChart] = useState<boolean>(false);
   const [selectedYear, setSelectedYear] = useState<number>(DEFAULT_END_YEAR);
   const [availableYearRange, setAvailableYearRange] = useState<{
     startYear: number;
@@ -52,6 +65,12 @@ function App() {
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
     setSelectedMetric(null);
+    setShowChart(false);
+  };
+
+  const handleSelectMetric = (metric: string) => {
+    if (metric !== selectedMetric) setShowChart(false);
+    setSelectedMetric(metric);
   };
 
   const handleYearRangeUpdate = (startYear: number, endYear: number) => {
@@ -68,7 +87,9 @@ function App() {
       <MetricButtons
         category={selectedCategory}
         selectedMetric={selectedMetric}
-        onSelectMetric={setSelectedMetric}
+        onSelectMetric={handleSelectMetric}
+        showChart={showChart}
+        onToggleChart={() => setShowChart((v) => !v)}
       />
       <WorldMap
         selectedMetric={selectedMetric}
@@ -82,40 +103,62 @@ function App() {
         }
       />
       {selectedMetric && (
-        <>
-          <TimelineSlider
-            startYear={availableYearRange.startYear}
-            endYear={availableYearRange.endYear}
-            currentYear={selectedYear}
-            onYearChange={setSelectedYear}
-            pauseYears={selectedMetric === "GDP growth" ? GDP_GROWTH_PAUSE_YEARS : undefined}
-            eventsYear={selectedMetric === "GDP growth" ? selectedYear : undefined}
-          />
-          {selectedMetric === "GDP" && (
-            <GdpLineChart
-              startYear={availableYearRange.startYear}
-              endYear={availableYearRange.endYear}
-            />
-          )}
-          {selectedMetric === "GDP per capita" && (
-            <GdpPerCapitaLineChart
-              startYear={availableYearRange.startYear}
-              endYear={availableYearRange.endYear}
-            />
-          )}
-          {selectedMetric === "Debt-to-GDP" && (
-            <DebtToGdpLineChart
-              startYear={availableYearRange.startYear}
-              endYear={availableYearRange.endYear}
-            />
-          )}
-          {selectedMetric === "Active Personnel" && (
-            <ActivePersonnelLineChart
-              startYear={availableYearRange.startYear}
-              endYear={availableYearRange.endYear}
-            />
-          )}
-        </>
+        <TimelineSlider
+          startYear={availableYearRange.startYear}
+          endYear={availableYearRange.endYear}
+          currentYear={selectedYear}
+          onYearChange={setSelectedYear}
+          pauseYears={selectedMetric === "GDP growth" ? GDP_GROWTH_PAUSE_YEARS : undefined}
+          eventsYear={selectedMetric === "GDP growth" ? selectedYear : undefined}
+        />
+      )}
+      {showChart && selectedMetric && CHART_METRICS.has(selectedMetric) && (
+        <div className="chart-modal-overlay" onClick={() => setShowChart(false)}>
+          <div className="chart-modal-content" onClick={(e) => e.stopPropagation()}>
+            {selectedMetric === "GDP" && (
+              <GdpLineChart
+                startYear={availableYearRange.startYear}
+                endYear={availableYearRange.endYear}
+                onClose={() => setShowChart(false)}
+              />
+            )}
+            {selectedMetric === "GDP per capita" && (
+              <GdpPerCapitaLineChart
+                startYear={availableYearRange.startYear}
+                endYear={availableYearRange.endYear}
+                onClose={() => setShowChart(false)}
+              />
+            )}
+            {selectedMetric === "Debt-to-GDP" && (
+              <DebtToGdpLineChart
+                startYear={availableYearRange.startYear}
+                endYear={availableYearRange.endYear}
+                onClose={() => setShowChart(false)}
+              />
+            )}
+            {selectedMetric === "Inflation" && (
+              <InflationLineChart
+                startYear={availableYearRange.startYear}
+                endYear={availableYearRange.endYear}
+                onClose={() => setShowChart(false)}
+              />
+            )}
+            {selectedMetric === "Current Account Balance" && (
+              <CurrentAccountBalanceLineChart
+                startYear={availableYearRange.startYear}
+                endYear={availableYearRange.endYear}
+                onClose={() => setShowChart(false)}
+              />
+            )}
+            {selectedMetric === "Active Personnel" && (
+              <ActivePersonnelLineChart
+                startYear={availableYearRange.startYear}
+                endYear={availableYearRange.endYear}
+                onClose={() => setShowChart(false)}
+              />
+            )}
+          </div>
+        </div>
       )}
       <Navbar selectedCategory={selectedCategory} onSelectCategory={handleCategoryChange} />
       {selectedCountry && selectedMetric && DASHBOARD_METRICS.has(selectedMetric) && (

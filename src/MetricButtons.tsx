@@ -16,13 +16,30 @@ const categoryMetrics: Record<string, string[]> = {
   Demographics: [],
 };
 
+const METRICS_WITH_CHARTS = new Set([
+  "GDP",
+  "GDP per capita",
+  "Debt-to-GDP",
+  "Inflation",
+  "Current Account Balance",
+  "Active Personnel",
+]);
+
 interface MetricButtonsProps {
   category: string;
   selectedMetric: string | null;
   onSelectMetric: (metric: string) => void;
+  showChart: boolean;
+  onToggleChart: () => void;
 }
 
-function MetricButtons({ category, selectedMetric, onSelectMetric }: MetricButtonsProps) {
+function MetricButtons({
+  category,
+  selectedMetric,
+  onSelectMetric,
+  showChart,
+  onToggleChart,
+}: MetricButtonsProps) {
   const metrics = categoryMetrics[category] || [];
 
   if (metrics.length === 0) {
@@ -31,15 +48,44 @@ function MetricButtons({ category, selectedMetric, onSelectMetric }: MetricButto
 
   return (
     <div className="metric-buttons">
-      {metrics.map((metric) => (
-        <button
-          key={metric}
-          className={`metric-btn ${selectedMetric === metric ? "active" : ""}`}
-          onClick={() => onSelectMetric(metric)}
-        >
-          {metric}
-        </button>
-      ))}
+      {metrics.map((metric) => {
+        const isSelected = selectedMetric === metric;
+        const hasChart = METRICS_WITH_CHARTS.has(metric);
+
+        return (
+          <div key={metric} className="metric-row">
+            {isSelected && hasChart && (
+              <button
+                className={`chart-toggle-btn ${showChart ? "active" : ""}`}
+                onClick={onToggleChart}
+                title="Toggle chart"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <polyline
+                    points="1,14 6,8 10,11 17,4"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            )}
+            <button
+              className={`metric-btn ${isSelected ? "active" : ""}`}
+              onClick={() => onSelectMetric(metric)}
+            >
+              {metric}
+            </button>
+          </div>
+        );
+      })}
     </div>
   );
 }

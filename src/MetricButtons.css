@@ -8,6 +8,13 @@
   z-index: 1000;
 }
 
+.metric-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
 .metric-btn {
   padding: 10px 16px;
   background-color: rgba(48, 48, 48, 0.9);
@@ -30,6 +37,34 @@
 }
 
 .metric-btn.active {
+  background-color: #9cc837;
+  border-color: #9cc837;
+  color: #303030;
+}
+
+.chart-toggle-btn {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background-color: rgba(48, 48, 48, 0.9);
+  color: #fff;
+  border: 2px solid #303030;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.chart-toggle-btn:hover {
+  background-color: #9cc837;
+  border-color: #9cc837;
+  color: #303030;
+}
+
+.chart-toggle-btn.active {
   background-color: #9cc837;
   border-color: #9cc837;
   color: #303030;
