@@ -10,7 +10,7 @@ const categoryMetrics: Record<string, string[]> = {
     "Current Account Balance",
   ],
   Trade: ["Trade Openness", "Exports", "Imports", "Trade Balance"],
-  Military: ["Military Spending", "Active Personnel"],
+  Military: ["Military Spending", "Active Personnel", "Military Inventory"],
   Energy: [],
   Resources: [],
   Demographics: [],

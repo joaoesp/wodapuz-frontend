@@ -10,6 +10,7 @@ import CurrentAccountBalanceLineChart from "./CurrentAccountBalanceLineChart";
 import CountryDashboard from "./CountryDashboard";
 import ActivePersonnelLineChart from "./ActivePersonnelLineChart";
 import TradeDashboard from "./TradeDashboard";
+import MilitaryInventoryDashboard from "./MilitaryInventoryDashboard";
 import { GDP_GROWTH_EVENTS } from "./worldEvents";
 import "./App.css";
 
@@ -29,6 +30,12 @@ const DASHBOARD_METRICS = new Set([
   "Military Spending",
   "Active Personnel",
 ]);
+
+// Metrics with no historical data — hide the timeline slider
+const HIDDEN_SLIDER_METRICS = new Set(["Military Inventory"]);
+
+// Military inventory gets its own dashboard
+const MILITARY_INVENTORY_METRICS = new Set(["Military Inventory"]);
 
 // Trade metrics that show the trade dashboard on click
 const TRADE_DASHBOARD_METRICS = new Set(["Trade Openness", "Exports", "Imports", "Trade Balance"]);
@@ -95,12 +102,14 @@ function App() {
         onYearRangeUpdate={handleYearRangeUpdate}
         onCountryClick={
           selectedMetric &&
-          (DASHBOARD_METRICS.has(selectedMetric) || TRADE_DASHBOARD_METRICS.has(selectedMetric))
+          (DASHBOARD_METRICS.has(selectedMetric) ||
+            TRADE_DASHBOARD_METRICS.has(selectedMetric) ||
+            MILITARY_INVENTORY_METRICS.has(selectedMetric))
             ? (code, name, data) => setSelectedCountry({ code, name, data })
             : undefined
         }
       />
-      {selectedMetric && (
+      {selectedMetric && !HIDDEN_SLIDER_METRICS.has(selectedMetric) && (
         <TimelineSlider
           startYear={availableYearRange.startYear}
           endYear={availableYearRange.endYear}
@@ -154,6 +163,7 @@ function App() {
       <Navbar selectedCategory={selectedCategory} onSelectCategory={handleCategoryChange} />
       {selectedCountry && selectedMetric && DASHBOARD_METRICS.has(selectedMetric) && (
         <CountryDashboard
+          countryCode={selectedCountry.code}
           countryName={selectedCountry.name}
           metric={selectedMetric}
           data={selectedCountry.data}
@@ -165,6 +175,13 @@ function App() {
           countryCode={selectedCountry.code}
           countryName={selectedCountry.name}
           year={selectedYear}
+          onClose={() => setSelectedCountry(null)}
+        />
+      )}
+      {selectedCountry && selectedMetric && MILITARY_INVENTORY_METRICS.has(selectedMetric) && (
+        <MilitaryInventoryDashboard
+          countryCode={selectedCountry.code}
+          countryName={selectedCountry.name}
           onClose={() => setSelectedCountry(null)}
         />
       )}

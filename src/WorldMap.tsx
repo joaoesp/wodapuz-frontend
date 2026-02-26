@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from "react-simple-maps";
 import { worldBankService, type IndicatorData } from "./services/worldBankService";
+import { gfpService } from "./services/gfpService";
 import { getCountryCode } from "./utils/countryNameToCode";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json";
@@ -89,6 +90,12 @@ export const METRIC_CONFIGS: Record<string, MetricConfig> = {
     colors: ["#e8f5e9", "#a5d6a7", "#66bb6a", "#388e3c", "#1b5e20", "#0a2e0f"],
     format: (v: number) => (v >= 1e6 ? `${(v / 1e6).toFixed(2)}M` : `${(v / 1e3).toFixed(0)}K`),
   },
+  "Military Inventory": {
+    // PwrIndx: lower = stronger; dark green = most powerful, light gray = weakest
+    thresholds: [0.3, 0.8, 1.5, 3.0],
+    colors: ["#2d5016", "#4a7a23", "#9cc837", "#fdd835", "#c8c8c8"],
+    format: (v: number) => `PwrIndx: ${v.toFixed(4)}`,
+  },
 };
 
 export function getColorFromThresholds(
@@ -152,45 +159,66 @@ function WorldMap({
   }, [resetMap]);
 
   useEffect(() => {
-    if (selectedMetric) {
-      worldBankService
-        .getIndicatorYearRange(selectedMetric, 1960, 2024)
-        .then((dataByYear) => {
-          const processedData: Record<string, Map<string, IndicatorData>> = {};
-
-          Object.keys(dataByYear).forEach((year) => {
-            const yearData = dataByYear[year];
-            const dataMap = new Map<string, IndicatorData>();
-            yearData.forEach((item) => {
-              dataMap.set(item.countryCode, item);
-            });
-            processedData[year] = dataMap;
-          });
-
-          console.log(
-            `${selectedMetric} data loaded for years:`,
-            Object.keys(processedData).length
-          );
-          setIndicatorDataByYear(processedData);
-
-          // Extract available year range from actual data
-          const availableYears = Object.keys(processedData)
-            .map((y) => parseInt(y))
-            .sort((a, b) => a - b);
-
-          if (availableYears.length > 0) {
-            const minYear = availableYears[0];
-            const maxYear = availableYears[availableYears.length - 1];
-            onYearRangeUpdate(minYear, maxYear);
-          }
-        })
-        .catch((error) => {
-          console.error(`Failed to load ${selectedMetric} data:`, error);
-        });
-    } else {
+    if (!selectedMetric) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setIndicatorDataByYear({});
+      return;
     }
+
+    if (selectedMetric === "Military Inventory") {
+      gfpService
+        .fetchRankings()
+        .then((rankings) => {
+          const dataMap = new Map<string, IndicatorData>();
+          rankings.forEach((r) => {
+            dataMap.set(r.countryCode, {
+              countryCode: r.countryCode,
+              countryName: r.countryCode,
+              year: "2026",
+              value: r.powerIndex,
+              indicator: "Military Inventory",
+            });
+          });
+          setIndicatorDataByYear({ "2026": dataMap });
+          onYearRangeUpdate(2026, 2026);
+        })
+        .catch((error) => {
+          console.error("Failed to load GFP rankings:", error);
+        });
+      return;
+    }
+
+    worldBankService
+      .getIndicatorYearRange(selectedMetric, 1960, 2024)
+      .then((dataByYear) => {
+        const processedData: Record<string, Map<string, IndicatorData>> = {};
+
+        Object.keys(dataByYear).forEach((year) => {
+          const yearData = dataByYear[year];
+          const dataMap = new Map<string, IndicatorData>();
+          yearData.forEach((item) => {
+            dataMap.set(item.countryCode, item);
+          });
+          processedData[year] = dataMap;
+        });
+
+        console.log(`${selectedMetric} data loaded for years:`, Object.keys(processedData).length);
+        setIndicatorDataByYear(processedData);
+
+        // Extract available year range from actual data
+        const availableYears = Object.keys(processedData)
+          .map((y) => parseInt(y))
+          .sort((a, b) => a - b);
+
+        if (availableYears.length > 0) {
+          const minYear = availableYears[0];
+          const maxYear = availableYears[availableYears.length - 1];
+          onYearRangeUpdate(minYear, maxYear);
+        }
+      })
+      .catch((error) => {
+        console.error(`Failed to load ${selectedMetric} data:`, error);
+      });
   }, [selectedMetric, onYearRangeUpdate]);
 
   const getCountryColor = (countryCode: string) => {

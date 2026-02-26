@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { gfpService, type GfpCountryDetail } from "./services/gfpService";
 import "./CountryDashboard.css";
 
 // --- Symlog helpers (linear near zero, log for large values) ---
@@ -66,13 +68,29 @@ const METRIC_CONFIGS: Record<string, MetricConfig> = {
 };
 
 interface CountryDashboardProps {
+  countryCode: string;
   countryName: string;
   metric: string;
   data: { year: number; value: number }[];
   onClose: () => void;
 }
 
-function CountryDashboard({ countryName, metric, data, onClose }: CountryDashboardProps) {
+function CountryDashboard({
+  countryCode,
+  countryName,
+  metric,
+  data,
+  onClose,
+}: CountryDashboardProps) {
+  const [gfpDetail, setGfpDetail] = useState<GfpCountryDetail | null>(null);
+
+  useEffect(() => {
+    if (metric !== "Active Personnel") return;
+    gfpService
+      .fetchCountryDetail(countryCode)
+      .then(setGfpDetail)
+      .catch(() => setGfpDetail(null));
+  }, [countryCode, metric]);
   if (data.length === 0) return null;
 
   const config = METRIC_CONFIGS[metric] ?? METRIC_CONFIGS["GDP per capita"];
@@ -163,6 +181,16 @@ function CountryDashboard({ countryName, metric, data, onClose }: CountryDashboa
     year += xTickInterval
   ) {
     xTickValues.push(year);
+  }
+
+  // Personnel breakdown for Active Personnel metric
+  let personnelBreakdown: {
+    army: number | null;
+    airForce: number | null;
+    navy: number | null;
+  } | null = null;
+  if (metric === "Active Personnel" && gfpDetail) {
+    personnelBreakdown = gfpDetail.manpower;
   }
 
   return (
@@ -309,6 +337,48 @@ function CountryDashboard({ countryName, metric, data, onClose }: CountryDashboa
             </text>
           ))}
         </svg>
+
+        {personnelBreakdown &&
+          (() => {
+            const { army, airForce, navy } = personnelBreakdown;
+            const total = (army ?? 0) + (airForce ?? 0) + (navy ?? 0);
+            const pct = (v: number | null) =>
+              total > 0 && v !== null ? ` (${((v / total) * 100).toFixed(1)}%)` : "";
+            const fmtP = (v: number | null) =>
+              v === null
+                ? "N/A"
+                : v >= 1e6
+                  ? `${(v / 1e6).toFixed(2)}M`
+                  : `${(v / 1e3).toFixed(0)}K`;
+            return (
+              <div className="cd-personnel-breakdown">
+                <div className="cd-personnel-title">Personnel Breakdown (GFP)</div>
+                <div className="cd-personnel-grid">
+                  <div className="cd-personnel-item">
+                    <span className="cd-personnel-label">Army</span>
+                    <span className="cd-personnel-value">
+                      {fmtP(army)}
+                      {pct(army)}
+                    </span>
+                  </div>
+                  <div className="cd-personnel-item">
+                    <span className="cd-personnel-label">Air Force</span>
+                    <span className="cd-personnel-value">
+                      {fmtP(airForce)}
+                      {pct(airForce)}
+                    </span>
+                  </div>
+                  <div className="cd-personnel-item">
+                    <span className="cd-personnel-label">Navy</span>
+                    <span className="cd-personnel-value">
+                      {fmtP(navy)}
+                      {pct(navy)}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
       </div>
     </div>
   );
