@@ -47,12 +47,12 @@ function MetricButtons({
 
   return (
     <div className="metric-buttons">
-      {metrics.map((metric) => {
+      {metrics.map((metric, index) => {
         const isSelected = selectedMetric === metric;
         const hasChart = METRICS_WITH_CHARTS.has(metric);
 
         return (
-          <div key={metric} className="metric-row">
+          <div key={metric} className="metric-row" style={{ animationDelay: `${index * 0.1}s` }}>
             {isSelected && hasChart && (
               <button
                 className={`chart-toggle-btn ${showChart ? "active" : ""}`}

@@ -13,6 +13,18 @@
   align-items: center;
   gap: 8px;
   justify-content: flex-end;
+  animation: metric-btn-enter 0.5s ease both;
+}
+
+@keyframes metric-btn-enter {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .metric-btn {
