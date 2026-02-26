@@ -120,12 +120,9 @@ function InflationLineChart({ startYear, endYear, onClose }: InflationLineChartP
   const chartWidth = width - padding.left - padding.right;
   const chartHeight = height - padding.top - padding.bottom;
 
-  const allValues = countryData.flatMap((c) => c.dataPoints.map((d) => d.value));
-  const rawMax = Math.max(...allValues);
-  const rawMin = Math.min(...allValues);
-  // Cap extreme outliers (e.g. Argentina hyperinflation) to keep chart readable
-  const maxValue = Math.min(rawMax, 50);
-  const minValue = Math.min(rawMin, 0);
+  // Fix axis to the typical range; outlier values are clamped to the boundary
+  const minValue = -5;
+  const maxValue = 10;
 
   const xScale = (year: number) =>
     ((year - startYear) / (endYear - startYear)) * chartWidth + padding.left;
@@ -142,11 +139,8 @@ function InflationLineChart({ startYear, endYear, onClose }: InflationLineChartP
       .join(" ");
   };
 
-  const yTicks = 5;
-  const yTickValues = Array.from(
-    { length: yTicks },
-    (_, i) => minValue + (i * (maxValue - minValue)) / (yTicks - 1)
-  );
+  // 4 ticks: -5%, 0%, 5%, 10%
+  const yTickValues = [-5, 0, 5, 10];
 
   const xTickInterval = 10;
   const xTickValues: number[] = [];
