@@ -47,6 +47,33 @@ const MILITARY_INVENTORY_METRICS = new Set(["Military Inventory"]);
 // Alliance metric triggers the alliance dashboard on click
 const ALLIANCE_METRICS = new Set(["Military Alliances"]);
 
+const METRIC_DESCRIPTIONS: Record<string, string> = {
+  GDP: "Gross Domestic Product — the total monetary value of all goods and services produced by a country in a year.",
+  "GDP growth":
+    "Annual percentage change in GDP, indicating how fast a country's economy is growing or shrinking.",
+  "GDP per capita":
+    "GDP divided by population — a measure of average economic output and living standards.",
+  "Debt-to-GDP":
+    "Government debt as a percentage of GDP, showing how much a country owes relative to its economic output.",
+  Inflation:
+    "Annual percentage change in consumer prices, reflecting the rate at which purchasing power is eroding.",
+  "Current Account Balance":
+    "The difference between a country's exports and imports of goods, services, and transfers.",
+  "Trade Openness":
+    "Total trade (exports + imports) as a share of GDP, measuring how integrated a country is in global trade.",
+  Exports: "Total value of goods and services sold by a country to the rest of the world.",
+  Imports: "Total value of goods and services purchased by a country from the rest of the world.",
+  "Trade Balance": "Exports minus imports — positive means a surplus, negative means a deficit.",
+  "Military Spending": "Total government expenditure on defense and armed forces.",
+  "Active Personnel": "Number of full-time active-duty military personnel.",
+  "Military Inventory":
+    "Breakdown of a country's military hardware: aircraft, land vehicles, and naval assets.",
+  "Nuclear Capability":
+    "Countries that possess nuclear warheads, with approximate stockpile sizes.",
+  "Military Alliances":
+    "Major military alliances each country belongs to (NATO, CSTO, ANZUS, GCC).",
+};
+
 // Trade metrics that show the trade dashboard on click
 const TRADE_DASHBOARD_METRICS = new Set(["Trade Openness", "Exports", "Imports", "Trade Balance"]);
 
@@ -65,6 +92,7 @@ function App() {
     startYear: DEFAULT_START_YEAR,
     endYear: DEFAULT_END_YEAR,
   });
+  const [showInfo, setShowInfo] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState<{
     code: string;
     name: string;
@@ -80,6 +108,7 @@ function App() {
   const handleSelectMetric = (metric: string) => {
     if (metric !== selectedMetric) setShowChart(false);
     setSelectedMetric(metric);
+    setShowInfo(false);
   };
 
   const handleYearRangeUpdate = (startYear: number, endYear: number) => {
@@ -197,6 +226,23 @@ function App() {
           countryCode={selectedCountry.code}
           onClose={() => setSelectedCountry(null)}
         />
+      )}
+      {selectedMetric && METRIC_DESCRIPTIONS[selectedMetric] && (
+        <div className="info-btn-wrapper" key={selectedMetric}>
+          {showInfo && (
+            <div className="info-balloon">
+              <strong>{selectedMetric}</strong>
+              <p>{METRIC_DESCRIPTIONS[selectedMetric]}</p>
+            </div>
+          )}
+          <button
+            className="info-btn"
+            onClick={() => setShowInfo((v) => !v)}
+            aria-label="Metric information"
+          >
+            i
+          </button>
+        </div>
       )}
     </div>
   );
