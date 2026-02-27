@@ -96,6 +96,11 @@ export const METRIC_CONFIGS: Record<string, MetricConfig> = {
     colors: ["#2d5016", "#4a7a23", "#9cc837", "#fdd835", "#c8c8c8"],
     format: (v: number) => `Power Index: ${v.toFixed(4)}`,
   },
+  "Nuclear Capability": {
+    thresholds: [0.5],
+    colors: ["#ffffff", "#ff7c00"],
+    format: () => "Nuclear Armed State",
+  },
 };
 
 export function getColorFromThresholds(
@@ -162,6 +167,24 @@ function WorldMap({
     if (!selectedMetric) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setIndicatorDataByYear({});
+      return;
+    }
+
+    if (selectedMetric === "Nuclear Capability") {
+      const NUCLEAR_STATES = ["USA", "RUS", "GBR", "FRA", "CHN", "IND", "PAK", "PRK", "ISR"];
+      const dataMap = new Map<string, IndicatorData>();
+      NUCLEAR_STATES.forEach((code) => {
+        dataMap.set(code, {
+          countryCode: code,
+          countryName: code,
+          year: "2026",
+          value: 1,
+          indicator: "Nuclear Capability",
+        });
+      });
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setIndicatorDataByYear({ "2026": dataMap });
+      onYearRangeUpdate(2026, 2026);
       return;
     }
 

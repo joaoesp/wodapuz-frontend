@@ -33,7 +33,7 @@ const DASHBOARD_METRICS = new Set([
 ]);
 
 // Metrics with no historical data — hide the timeline slider
-const HIDDEN_SLIDER_METRICS = new Set(["Military Inventory"]);
+const HIDDEN_SLIDER_METRICS = new Set(["Military Inventory", "Nuclear Capability"]);
 
 // Military inventory gets its own dashboard
 const MILITARY_INVENTORY_METRICS = new Set(["Military Inventory"]);
