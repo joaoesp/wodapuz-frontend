@@ -140,6 +140,7 @@ const ALLIANCE_INFO: Record<string, AllianceInfo> = {
     members: [
       { code: "AUS", name: "Australia" },
       { code: "NZL", name: "New Zealand" },
+      { code: "USA", name: "United States" },
     ],
   },
   GCC: {
