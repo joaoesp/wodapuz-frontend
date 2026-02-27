@@ -13,6 +13,7 @@ import TradeDashboard from "./TradeDashboard";
 import MilitaryInventoryDashboard from "./MilitaryInventoryDashboard";
 import MilitaryInventoryCompare from "./MilitaryInventoryCompare";
 import NuclearWarheadsCompare from "./NuclearWarheadsCompare";
+import AllianceDashboard from "./AllianceDashboard";
 import { GDP_GROWTH_EVENTS } from "./worldEvents";
 import "./App.css";
 
@@ -42,6 +43,9 @@ const HIDDEN_SLIDER_METRICS = new Set([
 
 // Military inventory gets its own dashboard
 const MILITARY_INVENTORY_METRICS = new Set(["Military Inventory"]);
+
+// Alliance metric triggers the alliance dashboard on click
+const ALLIANCE_METRICS = new Set(["Military Alliances"]);
 
 // Trade metrics that show the trade dashboard on click
 const TRADE_DASHBOARD_METRICS = new Set(["Trade Openness", "Exports", "Imports", "Trade Balance"]);
@@ -104,7 +108,8 @@ function App() {
           selectedMetric &&
           (DASHBOARD_METRICS.has(selectedMetric) ||
             TRADE_DASHBOARD_METRICS.has(selectedMetric) ||
-            MILITARY_INVENTORY_METRICS.has(selectedMetric))
+            MILITARY_INVENTORY_METRICS.has(selectedMetric) ||
+            ALLIANCE_METRICS.has(selectedMetric))
             ? (code, name, data) => setSelectedCountry({ code, name, data })
             : undefined
         }
@@ -186,6 +191,13 @@ function App() {
       )}
       {showChart && selectedMetric === "Nuclear Capability" && (
         <NuclearWarheadsCompare onClose={() => setShowChart(false)} />
+      )}
+      {selectedCountry && selectedMetric && ALLIANCE_METRICS.has(selectedMetric) && (
+        <AllianceDashboard
+          countryCode={selectedCountry.code}
+          countryName={selectedCountry.name}
+          onClose={() => setSelectedCountry(null)}
+        />
       )}
     </div>
   );
