@@ -56,12 +56,6 @@ const COUNTRY_TO_ALLIANCE: Record<string, string> = {
   KAZ: "CSTO",
   KGZ: "CSTO",
   TJK: "CSTO",
-  // SCO
-  CHN: "SCO",
-  IND: "SCO",
-  PAK: "SCO",
-  IRN: "SCO",
-  UZB: "SCO",
   // ANZUS
   AUS: "ANZUS",
   NZL: "ANZUS",
@@ -125,15 +119,6 @@ const ALLIANCE_INFO: Record<string, AllianceInfo> = {
     description:
       "A Russia-led mutual defense alliance of post-Soviet states, modeled on NATO's collective defense principle. Established as a formal organization in 2002, the CSTO has intervened militarily once — deploying forces to Kazakhstan in January 2022 to suppress civil unrest. Armenia suspended its membership in 2024 following Russian inaction during the Nagorno-Karabakh conflict.",
     members: ["Russia", "Belarus", "Kazakhstan", "Kyrgyzstan", "Tajikistan"],
-  },
-  SCO: {
-    fullName: "Shanghai Cooperation Organisation",
-    founded: 2001,
-    hq: "Beijing, China",
-    color: "#e67e22",
-    description:
-      "A Eurasian political, economic, and security organization led by China and Russia, covering counterterrorism, border security, and regional stability. Its membership spans the world's two most populous nations and three nuclear-armed states. The SCO has grown significantly, admitting India and Pakistan (2017) and Iran (2023), making it the largest regional organization by geographic area and population covered.",
-    members: ["China", "India", "Pakistan", "Iran", "Uzbekistan"],
   },
   ANZUS: {
     fullName: "Australia, New Zealand, United States Security Treaty",

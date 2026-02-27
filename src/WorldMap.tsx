@@ -149,11 +149,6 @@ export const ALLIANCES = [
     members: new Set(["RUS", "BLR", "KAZ", "KGZ", "TJK"]),
   },
   {
-    name: "SCO",
-    color: "#e67e22",
-    members: new Set(["CHN", "IND", "PAK", "IRN", "UZB"]),
-  },
-  {
     name: "ANZUS",
     color: "#16a085",
     members: new Set(["AUS", "NZL"]),
