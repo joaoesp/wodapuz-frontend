@@ -195,7 +195,6 @@ function App() {
       {selectedCountry && selectedMetric && ALLIANCE_METRICS.has(selectedMetric) && (
         <AllianceDashboard
           countryCode={selectedCountry.code}
-          countryName={selectedCountry.name}
           onClose={() => setSelectedCountry(null)}
         />
       )}

@@ -2,8 +2,12 @@ import "./AllianceDashboard.css";
 
 interface AllianceDashboardProps {
   countryCode: string;
-  countryName: string;
   onClose: () => void;
+}
+
+interface Member {
+  code: string;
+  name: string;
 }
 
 interface AllianceInfo {
@@ -12,7 +16,7 @@ interface AllianceInfo {
   hq: string;
   color: string;
   description: string;
-  members: string[];
+  members: Member[];
 }
 
 // Country → alliance name
@@ -77,38 +81,38 @@ const ALLIANCE_INFO: Record<string, AllianceInfo> = {
     description:
       "A collective defense alliance binding North American and European democracies under Article 5 — an armed attack against one member is considered an attack against all. Founded in 1949 to deter Soviet expansionism, NATO has expanded from its original 12 members to 32 since the end of the Cold War, most recently admitting Finland (2023) and Sweden (2024).",
     members: [
-      "Albania",
-      "Belgium",
-      "Bulgaria",
-      "Canada",
-      "Croatia",
-      "Czech Republic",
-      "Denmark",
-      "Estonia",
-      "Finland",
-      "France",
-      "Germany",
-      "Greece",
-      "Hungary",
-      "Iceland",
-      "Italy",
-      "Latvia",
-      "Lithuania",
-      "Luxembourg",
-      "Montenegro",
-      "Netherlands",
-      "North Macedonia",
-      "Norway",
-      "Poland",
-      "Portugal",
-      "Romania",
-      "Slovakia",
-      "Slovenia",
-      "Spain",
-      "Sweden",
-      "Turkey",
-      "United Kingdom",
-      "United States",
+      { code: "ALB", name: "Albania" },
+      { code: "BEL", name: "Belgium" },
+      { code: "BGR", name: "Bulgaria" },
+      { code: "CAN", name: "Canada" },
+      { code: "HRV", name: "Croatia" },
+      { code: "CZE", name: "Czech Republic" },
+      { code: "DNK", name: "Denmark" },
+      { code: "EST", name: "Estonia" },
+      { code: "FIN", name: "Finland" },
+      { code: "FRA", name: "France" },
+      { code: "DEU", name: "Germany" },
+      { code: "GRC", name: "Greece" },
+      { code: "HUN", name: "Hungary" },
+      { code: "ISL", name: "Iceland" },
+      { code: "ITA", name: "Italy" },
+      { code: "LVA", name: "Latvia" },
+      { code: "LTU", name: "Lithuania" },
+      { code: "LUX", name: "Luxembourg" },
+      { code: "MNE", name: "Montenegro" },
+      { code: "NLD", name: "Netherlands" },
+      { code: "MKD", name: "North Macedonia" },
+      { code: "NOR", name: "Norway" },
+      { code: "POL", name: "Poland" },
+      { code: "PRT", name: "Portugal" },
+      { code: "ROU", name: "Romania" },
+      { code: "SVK", name: "Slovakia" },
+      { code: "SVN", name: "Slovenia" },
+      { code: "ESP", name: "Spain" },
+      { code: "SWE", name: "Sweden" },
+      { code: "TUR", name: "Turkey" },
+      { code: "GBR", name: "United Kingdom" },
+      { code: "USA", name: "United States" },
     ],
   },
   CSTO: {
@@ -118,7 +122,13 @@ const ALLIANCE_INFO: Record<string, AllianceInfo> = {
     color: "#c0392b",
     description:
       "A Russia-led mutual defense alliance of post-Soviet states, modeled on NATO's collective defense principle. Established as a formal organization in 2002, the CSTO has intervened militarily once — deploying forces to Kazakhstan in January 2022 to suppress civil unrest. Armenia suspended its membership in 2024 following Russian inaction during the Nagorno-Karabakh conflict.",
-    members: ["Russia", "Belarus", "Kazakhstan", "Kyrgyzstan", "Tajikistan"],
+    members: [
+      { code: "RUS", name: "Russia" },
+      { code: "BLR", name: "Belarus" },
+      { code: "KAZ", name: "Kazakhstan" },
+      { code: "KGZ", name: "Kyrgyzstan" },
+      { code: "TJK", name: "Tajikistan" },
+    ],
   },
   ANZUS: {
     fullName: "Australia, New Zealand, United States Security Treaty",
@@ -127,7 +137,10 @@ const ALLIANCE_INFO: Record<string, AllianceInfo> = {
     color: "#16a085",
     description:
       "A Pacific security treaty between Australia, New Zealand, and the United States. The US–New Zealand dimension was suspended in 1986 after New Zealand banned nuclear-armed ships from its ports, though the Australia–US partnership remains fully active. ANZUS was complemented in 2021 by the AUKUS pact, under which Australia will acquire nuclear-powered submarines with US and UK assistance.",
-    members: ["Australia", "New Zealand"],
+    members: [
+      { code: "AUS", name: "Australia" },
+      { code: "NZL", name: "New Zealand" },
+    ],
   },
   GCC: {
     fullName: "Gulf Cooperation Council",
@@ -136,11 +149,18 @@ const ALLIANCE_INFO: Record<string, AllianceInfo> = {
     color: "#f39c12",
     description:
       "A regional organization of Arab Gulf monarchies with economic, political, and security cooperation. The GCC maintains a unified military force, the Peninsula Shield Force, deployed during Bahrain's 2011 unrest. Member states share a common threat perception centered on Iran and collectively possess some of the world's largest sovereign wealth funds and oil reserves.",
-    members: ["Saudi Arabia", "United Arab Emirates", "Kuwait", "Qatar", "Bahrain", "Oman"],
+    members: [
+      { code: "SAU", name: "Saudi Arabia" },
+      { code: "ARE", name: "United Arab Emirates" },
+      { code: "KWT", name: "Kuwait" },
+      { code: "QAT", name: "Qatar" },
+      { code: "BHR", name: "Bahrain" },
+      { code: "OMN", name: "Oman" },
+    ],
   },
 };
 
-function AllianceDashboard({ countryCode, countryName, onClose }: AllianceDashboardProps) {
+function AllianceDashboard({ countryCode, onClose }: AllianceDashboardProps) {
   const allianceName = COUNTRY_TO_ALLIANCE[countryCode];
   const info = allianceName ? ALLIANCE_INFO[allianceName] : null;
 
@@ -186,11 +206,13 @@ function AllianceDashboard({ countryCode, countryName, onClose }: AllianceDashbo
           <div className="ad-members-grid">
             {info.members.map((member) => (
               <span
-                key={member}
-                className={`ad-member-chip ${member === countryName ? "current" : ""}`}
-                style={member === countryName ? { borderColor: info.color, color: info.color } : {}}
+                key={member.code}
+                className={`ad-member-chip ${member.code === countryCode ? "current" : ""}`}
+                style={
+                  member.code === countryCode ? { borderColor: info.color, color: info.color } : {}
+                }
               >
-                {member}
+                {member.name}
               </span>
             ))}
           </div>
