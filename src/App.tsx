@@ -12,6 +12,7 @@ import ActivePersonnelCompare from "./ActivePersonnelCompare";
 import TradeDashboard from "./TradeDashboard";
 import MilitaryInventoryDashboard from "./MilitaryInventoryDashboard";
 import MilitaryInventoryCompare from "./MilitaryInventoryCompare";
+import NuclearWarheadsCompare from "./NuclearWarheadsCompare";
 import { GDP_GROWTH_EVENTS } from "./worldEvents";
 import "./App.css";
 
@@ -178,6 +179,9 @@ function App() {
       )}
       {showChart && selectedMetric === "Military Inventory" && (
         <MilitaryInventoryCompare onClose={() => setShowChart(false)} />
+      )}
+      {showChart && selectedMetric === "Nuclear Capability" && (
+        <NuclearWarheadsCompare onClose={() => setShowChart(false)} />
       )}
     </div>
   );
