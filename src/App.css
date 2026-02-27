@@ -21,6 +21,43 @@
   justify-content: center;
 }
 
+.alliance-legend {
+  position: fixed;
+  bottom: 48px;
+  right: 16px;
+  background: rgba(20, 20, 20, 0.88);
+  border: 1px solid #3a3a3a;
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  z-index: 100;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+}
+
+.alliance-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #ddd;
+  white-space: nowrap;
+}
+
+.alliance-legend-color {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.alliance-legend-none {
+  background: #ffffff;
+  border: 1px solid #555;
+}
+
 .map-tooltip {
   position: fixed;
   pointer-events: none;

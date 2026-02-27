@@ -103,6 +103,75 @@ export const METRIC_CONFIGS: Record<string, MetricConfig> = {
   },
 };
 
+// Military alliance definitions — each country assigned to its primary alliance
+export const ALLIANCES = [
+  {
+    name: "NATO",
+    color: "#1a6db5",
+    members: new Set([
+      "ALB",
+      "BEL",
+      "BGR",
+      "CAN",
+      "HRV",
+      "CZE",
+      "DNK",
+      "EST",
+      "FIN",
+      "FRA",
+      "DEU",
+      "GRC",
+      "HUN",
+      "ISL",
+      "ITA",
+      "LVA",
+      "LTU",
+      "LUX",
+      "MNE",
+      "NLD",
+      "MKD",
+      "NOR",
+      "POL",
+      "PRT",
+      "ROU",
+      "SVK",
+      "SVN",
+      "ESP",
+      "SWE",
+      "TUR",
+      "GBR",
+      "USA",
+    ]),
+  },
+  {
+    name: "CSTO",
+    color: "#c0392b",
+    members: new Set(["RUS", "BLR", "KAZ", "KGZ", "TJK"]),
+  },
+  {
+    name: "SCO",
+    color: "#e67e22",
+    members: new Set(["CHN", "IND", "PAK", "IRN", "UZB"]),
+  },
+  {
+    name: "ANZUS",
+    color: "#16a085",
+    members: new Set(["AUS", "NZL"]),
+  },
+  {
+    name: "GCC",
+    color: "#f39c12",
+    members: new Set(["SAU", "ARE", "KWT", "QAT", "BHR", "OMN"]),
+  },
+] as const;
+
+const ALLIANCE_BY_COUNTRY: Record<string, { name: string; color: string }> = {};
+for (const alliance of ALLIANCES) {
+  for (const code of alliance.members) {
+    ALLIANCE_BY_COUNTRY[code] = { name: alliance.name, color: alliance.color };
+  }
+}
+
 export function getColorFromThresholds(
   value: number,
   thresholds: number[],
@@ -167,6 +236,13 @@ function WorldMap({
     if (!selectedMetric) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setIndicatorDataByYear({});
+      return;
+    }
+
+    if (selectedMetric === "Military Alliances") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setIndicatorDataByYear({});
+      onYearRangeUpdate(2024, 2024);
       return;
     }
 
@@ -245,6 +321,9 @@ function WorldMap({
   }, [selectedMetric, onYearRangeUpdate]);
 
   const getCountryColor = (countryCode: string) => {
+    if (selectedMetric === "Military Alliances") {
+      return ALLIANCE_BY_COUNTRY[countryCode]?.color ?? "#ffffff";
+    }
     if (selectedMetric) {
       // If no country code mapping, show white
       if (!countryCode || countryCode === "") {
@@ -321,13 +400,17 @@ function WorldMap({
                     let metricValue: string | undefined;
 
                     if (selectedMetric && countryCode) {
-                      const yearData = indicatorDataByYear[selectedYear.toString()];
-                      if (yearData) {
-                        const data = yearData.get(countryCode);
-                        if (data && data.value !== null && data.value !== undefined) {
-                          const config = METRIC_CONFIGS[selectedMetric];
-                          if (config) {
-                            metricValue = config.format(data.value);
+                      if (selectedMetric === "Military Alliances") {
+                        metricValue = ALLIANCE_BY_COUNTRY[countryCode]?.name;
+                      } else {
+                        const yearData = indicatorDataByYear[selectedYear.toString()];
+                        if (yearData) {
+                          const data = yearData.get(countryCode);
+                          if (data && data.value !== null && data.value !== undefined) {
+                            const config = METRIC_CONFIGS[selectedMetric];
+                            if (config) {
+                              metricValue = config.format(data.value);
+                            }
                           }
                         }
                       }
@@ -386,15 +469,17 @@ function WorldMap({
             const yearData = indicatorDataByYear[selectedYear.toString()];
             const entry = yearData?.get(country.code);
             const color =
-              selectedMetric && entry?.value != null
-                ? getColorFromThresholds(
-                    entry.value,
-                    METRIC_CONFIGS[selectedMetric].thresholds,
-                    METRIC_CONFIGS[selectedMetric].colors
-                  )
-                : selectedMetric
-                  ? "#ffffff"
-                  : "#a6a6a6";
+              selectedMetric === "Military Alliances"
+                ? (ALLIANCE_BY_COUNTRY[country.code]?.color ?? "#ffffff")
+                : selectedMetric && entry?.value != null
+                  ? getColorFromThresholds(
+                      entry.value,
+                      METRIC_CONFIGS[selectedMetric].thresholds,
+                      METRIC_CONFIGS[selectedMetric].colors
+                    )
+                  : selectedMetric
+                    ? "#ffffff"
+                    : "#a6a6a6";
             return (
               <Marker key={country.code} coordinates={country.coordinates}>
                 <circle
@@ -405,7 +490,9 @@ function WorldMap({
                   style={{ cursor: "pointer" }}
                   onMouseMove={(e) => {
                     let metricValue: string | undefined;
-                    if (selectedMetric && entry?.value != null) {
+                    if (selectedMetric === "Military Alliances") {
+                      metricValue = ALLIANCE_BY_COUNTRY[country.code]?.name;
+                    } else if (selectedMetric && entry?.value != null) {
                       metricValue = METRIC_CONFIGS[selectedMetric].format(entry.value);
                     }
                     setTooltip({
@@ -423,6 +510,20 @@ function WorldMap({
           })}
         </ZoomableGroup>
       </ComposableMap>
+      {selectedMetric === "Military Alliances" && (
+        <div className="alliance-legend">
+          {ALLIANCES.map((a) => (
+            <div key={a.name} className="alliance-legend-item">
+              <span className="alliance-legend-color" style={{ background: a.color }} />
+              <span>{a.name}</span>
+            </div>
+          ))}
+          <div className="alliance-legend-item">
+            <span className="alliance-legend-color alliance-legend-none" />
+            <span>No Alliance</span>
+          </div>
+        </div>
+      )}
       {tooltip && (
         <div className="map-tooltip" style={{ left: tooltip.x + 12, top: tooltip.y - 28 }}>
           <div>{tooltip.name}</div>
