@@ -418,14 +418,9 @@ function WorldMap({
     return "#a6a6a6"; // Default gray when no metric selected
   };
 
-  // Small countries/city-states that are too tiny to click reliably on the polygon map
+  // Singapore is too tiny to click on the polygon map; only show its marker when zoomed in
   const TINY_COUNTRIES: { name: string; code: string; coordinates: [number, number] }[] = [
     { name: "Singapore", code: "SGP", coordinates: [103.82, 1.35] },
-    { name: "Bahrain", code: "BHR", coordinates: [50.55, 26.07] },
-    { name: "Maldives", code: "MDV", coordinates: [73.22, 3.2] },
-    { name: "Malta", code: "MLT", coordinates: [14.37, 35.9] },
-    { name: "Luxembourg", code: "LUX", coordinates: [6.13, 49.81] },
-    { name: "Qatar", code: "QAT", coordinates: [51.18, 25.35] },
   ];
 
   const handleInfraHover = useCallback(
@@ -550,49 +545,50 @@ function WorldMap({
               ))
             }
           </Geographies>
-          {TINY_COUNTRIES.map((country) => {
-            const yearData = indicatorDataByYear[selectedYear.toString()];
-            const entry = yearData?.get(country.code);
-            const color =
-              selectedMetric === "Military Alliances"
-                ? (ALLIANCE_BY_COUNTRY[country.code]?.color ?? "#ffffff")
-                : selectedMetric && entry?.value != null
-                  ? getColorFromThresholds(
-                      entry.value,
-                      METRIC_CONFIGS[selectedMetric].thresholds,
-                      METRIC_CONFIGS[selectedMetric].colors
-                    )
-                  : selectedMetric
-                    ? "#ffffff"
-                    : "#a6a6a6";
-            return (
-              <Marker key={country.code} coordinates={country.coordinates}>
-                <circle
-                  r={4 / zoom}
-                  fill={color}
-                  stroke="#303030"
-                  strokeWidth={0.3 / zoom}
-                  style={{ cursor: "pointer" }}
-                  onMouseMove={(e) => {
-                    let metricValue: string | undefined;
-                    if (selectedMetric === "Military Alliances") {
-                      metricValue = ALLIANCE_BY_COUNTRY[country.code]?.name;
-                    } else if (selectedMetric && entry?.value != null) {
-                      metricValue = METRIC_CONFIGS[selectedMetric].format(entry.value);
-                    }
-                    setTooltip({
-                      name: country.name,
-                      value: metricValue,
-                      x: e.clientX,
-                      y: e.clientY,
-                    });
-                  }}
-                  onMouseLeave={() => setTooltip(null)}
-                  onClick={() => handleTinyCountryClick(country.name, country.code)}
-                />
-              </Marker>
-            );
-          })}
+          {zoom >= 6 &&
+            TINY_COUNTRIES.map((country) => {
+              const yearData = indicatorDataByYear[selectedYear.toString()];
+              const entry = yearData?.get(country.code);
+              const color =
+                selectedMetric === "Military Alliances"
+                  ? (ALLIANCE_BY_COUNTRY[country.code]?.color ?? "#ffffff")
+                  : selectedMetric && entry?.value != null
+                    ? getColorFromThresholds(
+                        entry.value,
+                        METRIC_CONFIGS[selectedMetric].thresholds,
+                        METRIC_CONFIGS[selectedMetric].colors
+                      )
+                    : selectedMetric
+                      ? "#ffffff"
+                      : "#a6a6a6";
+              return (
+                <Marker key={country.code} coordinates={country.coordinates}>
+                  <circle
+                    r={8 / zoom}
+                    fill={color}
+                    stroke="#303030"
+                    strokeWidth={0.3 / zoom}
+                    style={{ cursor: "pointer" }}
+                    onMouseMove={(e) => {
+                      let metricValue: string | undefined;
+                      if (selectedMetric === "Military Alliances") {
+                        metricValue = ALLIANCE_BY_COUNTRY[country.code]?.name;
+                      } else if (selectedMetric && entry?.value != null) {
+                        metricValue = METRIC_CONFIGS[selectedMetric].format(entry.value);
+                      }
+                      setTooltip({
+                        name: country.name,
+                        value: metricValue,
+                        x: e.clientX,
+                        y: e.clientY,
+                      });
+                    }}
+                    onMouseLeave={() => setTooltip(null)}
+                    onClick={() => handleTinyCountryClick(country.name, country.code)}
+                  />
+                </Marker>
+              );
+            })}
           {infraType && (
             <InfrastructureLayer
               infraType={infraType}
