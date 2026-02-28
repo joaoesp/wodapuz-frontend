@@ -1,336 +1,408 @@
-import { useEffect, useState } from "react";
-import { owidService } from "./services/owidService";
-import "./GdpLineChart.css";
+import { useEffect, useRef, useState } from "react";
+import { owidService, type CountryEnergyData } from "./services/owidService";
+import { codeToCountryName } from "./utils/countryNameToCode";
+import "./MilitaryInventoryCompare.css";
 
 interface EnergyProductionLineChartProps {
   onClose: () => void;
 }
 
-interface CountryData {
-  name: string;
-  color: string;
-  dataPoints: { year: number; value: number }[];
-}
-
-const COLORS = [
-  "#ff6b6b",
-  "#9cc837",
-  "#4ecdc4",
-  "#45b7d1",
-  "#f9ca24",
-  "#6c5ce7",
-  "#fd79a8",
-  "#26de81",
-  "#ff9f43",
-  "#a29bfe",
-  "#00b894",
-  "#74b9ff",
-  "#e17055",
-  "#fdcb6e",
-  "#55efc4",
-  "#d63031",
-  "#0984e3",
-  "#c56af9",
-  "#43a047",
-  "#fb8c00",
+const SOURCES = [
+  { key: "coal" as const, label: "Coal", color: "#6b7280" },
+  { key: "oil" as const, label: "Oil", color: "#b91c1c" },
+  { key: "gas" as const, label: "Gas", color: "#f97316" },
+  { key: "nuclear" as const, label: "Nuclear", color: "#a855f7" },
+  { key: "hydro" as const, label: "Hydro", color: "#3b82f6" },
+  { key: "wind" as const, label: "Wind", color: "#22d3ee" },
+  { key: "solar" as const, label: "Solar", color: "#eab308" },
+  { key: "biofuel" as const, label: "Biofuel", color: "#22c55e" },
 ];
 
-function formatTwh(v: number): string {
-  if (v >= 1000) return `${(v / 1000).toFixed(1)}k TWh`;
-  return `${Math.round(v)} TWh`;
+type SourceKey = (typeof SOURCES)[number]["key"];
+
+const COUNTRY_COLORS = [
+  "#9cc837",
+  "#ff6b6b",
+  "#45b7d1",
+  "#f9ca24",
+  "#fd79a8",
+  "#74b9ff",
+  "#26de81",
+  "#ff9f43",
+];
+
+interface RankEntry {
+  code: string;
+  name: string;
 }
 
-function EnergyProductionLineChart({ onClose }: EnergyProductionLineChartProps) {
-  const [countryData, setCountryData] = useState<CountryData[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [visibleCountries, setVisibleCountries] = useState<Set<string>>(new Set());
-  const [hoveredCountry, setHoveredCountry] = useState<string | null>(null);
-  const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
+function StackedAreaChart({ data }: { data: CountryEnergyData }) {
+  const W = 280;
+  const H = 160;
+  const padL = 30;
+  const padR = 4;
+  const padT = 4;
+  const padB = 24;
+  const innerW = W - padL - padR;
+  const innerH = H - padT - padB;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const rawData = await owidService.fetchEnergyYearRange(1965, 2030);
+  // Find years with valid total data
+  const validIndices: number[] = [];
+  for (let i = 0; i < data.years.length; i++) {
+    if (data.total[i] !== null && data.total[i]! > 0) {
+      validIndices.push(i);
+    }
+  }
 
-        // Group by country, collecting one value per year
-        const byCountry: Record<string, { name: string; points: Map<number, number> }> = {};
-        for (const [yearStr, entries] of Object.entries(rawData)) {
-          const year = parseInt(yearStr);
-          if (year > 2024) continue;
-          for (const entry of entries) {
-            if (!byCountry[entry.countryCode]) {
-              byCountry[entry.countryCode] = { name: entry.countryName, points: new Map() };
-            }
-            byCountry[entry.countryCode].points.set(year, entry.value);
-          }
-        }
-
-        // Rank by latest available value and take top 20
-        const ranked = Object.entries(byCountry)
-          .map(([, { name, points }]) => {
-            const sortedYears = [...points.keys()].sort((a, b) => a - b);
-            const latestValue = points.get(sortedYears[sortedYears.length - 1]) ?? 0;
-            const dataPoints = sortedYears.map((y) => ({ year: y, value: points.get(y) ?? 0 }));
-            return { name, latestValue, dataPoints };
-          })
-          .sort((a, b) => b.latestValue - a.latestValue)
-          .slice(0, 20);
-
-        const countries: CountryData[] = ranked.map((c, i) => ({
-          name: c.name,
-          color: COLORS[i],
-          dataPoints: c.dataPoints,
-        }));
-
-        setCountryData(countries);
-        setVisibleCountries(new Set(countries.map((c) => c.name)));
-      } catch (error) {
-        console.error("Error fetching energy production data:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  const toggleCountry = (name: string) => {
-    setVisibleCountries((prev) => {
-      const next = new Set(prev);
-      if (next.has(name)) next.delete(name);
-      else next.add(name);
-      return next;
-    });
-  };
-
-  const handleMouseMove = (e: React.MouseEvent<SVGSVGElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setTooltipPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-  };
-
-  if (loading) {
+  if (validIndices.length < 2) {
     return (
-      <div className="gdp-line-chart">
-        <div className="chart-loading">Loading chart...</div>
+      <div style={{ color: "#666", fontSize: 12, textAlign: "center", padding: "40px 0" }}>
+        No data
       </div>
     );
   }
 
-  if (countryData.length === 0) return null;
+  const years = validIndices.map((i) => data.years[i]);
+  const minYear = years[0];
+  const maxYear = years[years.length - 1];
 
-  // Chart dimensions
-  const width = 700;
-  const height = 420;
-  const padding = { top: 20, right: 155, bottom: 40, left: 70 };
-  const chartWidth = width - padding.left - padding.right;
-  const chartHeight = height - padding.top - padding.bottom;
+  const x = (year: number) =>
+    maxYear === minYear
+      ? padL + innerW / 2
+      : padL + ((year - minYear) / (maxYear - minYear)) * innerW;
 
-  const allYears = countryData.flatMap((c) => c.dataPoints.map((d) => d.year));
-  const startYear = Math.min(...allYears);
-  const endYear = Math.max(...allYears);
+  const y = (pct: number) => padT + innerH - (pct / 100) * innerH;
 
-  const allValues = countryData.flatMap((c) => c.dataPoints.map((d) => d.value));
-  const maxValue = Math.max(...allValues);
-  const minNonZero = Math.min(...allValues.filter((v) => v > 0));
+  // Compute stacked percentages per year
+  const stackedData = validIndices.map((idx) => {
+    const total = data.total[idx] ?? 1;
+    const values: Record<SourceKey, number> = {} as Record<SourceKey, number>;
+    for (const s of SOURCES) {
+      values[s.key] = ((data[s.key][idx] ?? 0) / total) * 100;
+    }
+    return { year: data.years[idx], values };
+  });
 
-  const logMin = Math.log10(Math.max(1, minNonZero));
-  const logMax = Math.log10(maxValue);
-
-  const xScale = (year: number) =>
-    ((year - startYear) / (endYear - startYear)) * chartWidth + padding.left;
-
-  const yScale = (value: number) => {
-    if (value <= 0) return height - padding.bottom;
-    const logVal = Math.log10(value);
-    return chartHeight - ((logVal - logMin) / (logMax - logMin)) * chartHeight + padding.top;
-  };
-
-  const createLinePath = (dataPoints: { year: number; value: number }[]) => {
-    const valid = dataPoints.filter((p) => p.value > 0);
-    return valid
-      .map((p, i) => `${i === 0 ? "M" : "L"} ${xScale(p.year)} ${yScale(p.value)}`)
-      .join(" ");
-  };
-
-  // Log-scale Y ticks at powers of 10
-  const yTickValues: number[] = [];
-  for (let pow = Math.floor(logMin); pow <= Math.ceil(logMax); pow++) {
-    yTickValues.push(Math.pow(10, pow));
+  // Build area paths (stacked bottom to top)
+  const areas: { key: string; color: string; path: string }[] = [];
+  for (let si = 0; si < SOURCES.length; si++) {
+    const source = SOURCES[si];
+    // Compute cumulative bottom and top for this source
+    const topPoints: string[] = [];
+    const bottomPoints: string[] = [];
+    for (const d of stackedData) {
+      let bottom = 0;
+      for (let j = 0; j < si; j++) {
+        bottom += d.values[SOURCES[j].key];
+      }
+      const top = bottom + d.values[source.key];
+      topPoints.push(`${x(d.year)},${y(top)}`);
+      bottomPoints.push(`${x(d.year)},${y(bottom)}`);
+    }
+    // Path: top line forward, then bottom line backward
+    const path = `M ${topPoints.join(" L ")} L ${bottomPoints.reverse().join(" L ")} Z`;
+    areas.push({ key: source.key, color: source.color, path });
   }
 
-  // X ticks every 10 years, always including first and last year
-  const xTickInterval = 10;
-  const xTickValues: number[] = [startYear];
-  for (
-    let y = Math.ceil(startYear / xTickInterval) * xTickInterval;
-    y < endYear;
-    y += xTickInterval
-  ) {
-    if (y > startYear) xTickValues.push(y);
-  }
-  if (!xTickValues.includes(endYear)) xTickValues.push(endYear);
+  // X-axis ticks
+  const span = maxYear - minYear;
+  const step = span <= 20 ? 5 : span <= 40 ? 10 : 20;
+  const xTicks = years.filter((yr) => yr === minYear || yr === maxYear || yr % step === 0);
 
   return (
-    <div className="gdp-line-chart">
-      <div className="chart-header">
-        <h3 className="chart-title">Top 20 Energy Producers</h3>
-        <button className="close-button" onClick={onClose} aria-label="Close">
-          ×
-        </button>
-      </div>
-      <div className="chart-container">
-        <svg
-          width={width}
-          height={height}
-          onMouseMove={handleMouseMove}
-          onMouseLeave={() => setHoveredCountry(null)}
+    <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block" }}>
+      {/* Y axis */}
+      <line x1={padL} y1={padT} x2={padL} y2={padT + innerH} stroke="#444" strokeWidth={1} />
+      <line
+        x1={padL}
+        y1={padT + innerH}
+        x2={padL + innerW}
+        y2={padT + innerH}
+        stroke="#444"
+        strokeWidth={1}
+      />
+      {[0, 25, 50, 75, 100].map((pct) => (
+        <g key={pct}>
+          <line
+            x1={padL}
+            y1={y(pct)}
+            x2={padL + innerW}
+            y2={y(pct)}
+            stroke="#333"
+            strokeWidth={0.5}
+            strokeDasharray="2,2"
+          />
+          <text x={padL - 4} y={y(pct) + 3} textAnchor="end" fontSize={8} fill="#666">
+            {pct}%
+          </text>
+        </g>
+      ))}
+      {/* Stacked areas */}
+      {areas.map((a) => (
+        <path key={a.key} d={a.path} fill={a.color} fillOpacity={0.8} />
+      ))}
+      {/* X ticks */}
+      {xTicks.map((yr) => (
+        <text
+          key={yr}
+          x={x(yr)}
+          y={padT + innerH + 14}
+          textAnchor="middle"
+          fontSize={8}
+          fill="#666"
         >
-          {/* Y-axis */}
-          <line
-            x1={padding.left}
-            y1={padding.top}
-            x2={padding.left}
-            y2={height - padding.bottom}
-            stroke="#666"
-            strokeWidth="1"
-          />
-          {/* X-axis */}
-          <line
-            x1={padding.left}
-            y1={height - padding.bottom}
-            x2={width - padding.right}
-            y2={height - padding.bottom}
-            stroke="#666"
-            strokeWidth="1"
-          />
+          {yr}
+        </text>
+      ))}
+    </svg>
+  );
+}
 
-          {/* Y-axis ticks, labels and gridlines */}
-          {yTickValues.map((v) => (
-            <g key={v}>
-              <line
-                x1={padding.left - 5}
-                y1={yScale(v)}
-                x2={padding.left}
-                y2={yScale(v)}
-                stroke="#666"
+function EnergyProductionLineChart({ onClose }: EnergyProductionLineChartProps) {
+  const [allRankings, setAllRankings] = useState<RankEntry[]>([]);
+  const [selectedCountries, setSelectedCountries] = useState<string[]>([]);
+  const [countryData, setCountryData] = useState<Record<string, CountryEnergyData>>({});
+  const [loadingCountries, setLoadingCountries] = useState<Set<string>>(new Set());
+  const [initLoading, setInitLoading] = useState(true);
+  const [showSearch, setShowSearch] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const searchRef = useRef<HTMLInputElement>(null);
+  const fetchedRef = useRef<Set<string>>(new Set());
+
+  // Load rankings and determine top 5
+  useEffect(() => {
+    owidService
+      .fetchEnergyYearRange(1965, 2030)
+      .then((rawData) => {
+        const byCountry: Record<string, { name: string; latest: number }> = {};
+        for (const [yearStr, entries] of Object.entries(rawData)) {
+          const year = parseInt(yearStr);
+          if (year > 2024) continue;
+          for (const entry of entries) {
+            if (!byCountry[entry.countryCode] || year > 0) {
+              const existing = byCountry[entry.countryCode];
+              if (!existing || entry.value > (existing.latest ?? 0)) {
+                byCountry[entry.countryCode] = { name: entry.countryName, latest: entry.value };
+              }
+            }
+          }
+        }
+        const ranked = Object.entries(byCountry)
+          .map(([code, { name, latest }]) => ({ code, name, latest }))
+          .sort((a, b) => b.latest - a.latest);
+
+        setAllRankings(ranked.map((r) => ({ code: r.code, name: r.name })));
+        setSelectedCountries(ranked.slice(0, 5).map((r) => r.code));
+        setInitLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setInitLoading(false);
+      });
+  }, []);
+
+  // Fetch energy data for newly selected countries
+  useEffect(() => {
+    const toFetch = selectedCountries.filter((code) => !fetchedRef.current.has(code));
+    if (toFetch.length === 0) return;
+    toFetch.forEach((c) => fetchedRef.current.add(c));
+    setLoadingCountries((prev) => new Set([...prev, ...toFetch]));
+    Promise.allSettled(
+      toFetch.map((code) => owidService.fetchCountryEnergy(code).then((d) => ({ code, d })))
+    ).then((results) => {
+      const newData: Record<string, CountryEnergyData> = {};
+      results.forEach((r) => {
+        if (r.status === "fulfilled") newData[r.value.code] = r.value.d;
+      });
+      setCountryData((prev) => ({ ...prev, ...newData }));
+      setLoadingCountries((prev) => {
+        const next = new Set(prev);
+        toFetch.forEach((c) => next.delete(c));
+        return next;
+      });
+    });
+  }, [selectedCountries]);
+
+  const addCountry = (code: string) => {
+    if (!selectedCountries.includes(code) && selectedCountries.length < 8) {
+      setSelectedCountries((prev) => [...prev, code]);
+    }
+    setSearchQuery("");
+    setShowSearch(false);
+  };
+
+  const removeCountry = (code: string) => {
+    setSelectedCountries((prev) => prev.filter((c) => c !== code));
+  };
+
+  const filteredRankings = allRankings.filter(
+    (r) =>
+      !selectedCountries.includes(r.code) &&
+      (codeToCountryName[r.code] ?? r.name).toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  return (
+    <div className="mic-overlay" onClick={onClose}>
+      <div className="mic-modal" style={{ width: 940 }} onClick={(e) => e.stopPropagation()}>
+        <div className="mic-header">
+          <div>
+            <h2 className="mic-title">Energy Production Over Time</h2>
+            <p className="mic-subtitle">Source breakdown as % of total production over time</p>
+          </div>
+          <button className="mic-close" onClick={onClose} aria-label="Close">
+            ×
+          </button>
+        </div>
+
+        {/* Shared legend */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 4 }}>
+          {SOURCES.map((s) => (
+            <div key={s.key} style={{ display: "flex", alignItems: "center", gap: 4 }}>
+              <span
+                style={{
+                  width: 10,
+                  height: 10,
+                  borderRadius: 2,
+                  background: s.color,
+                  flexShrink: 0,
+                }}
               />
-              <text
-                x={padding.left - 8}
-                y={yScale(v)}
-                textAnchor="end"
-                fill="#fff"
-                fontSize="10"
-                dominantBaseline="middle"
-              >
-                {formatTwh(v)}
-              </text>
-              <line
-                x1={padding.left}
-                y1={yScale(v)}
-                x2={width - padding.right}
-                y2={yScale(v)}
-                stroke="#333"
-                strokeWidth="1"
-                strokeDasharray="2,2"
-              />
-            </g>
+              <span style={{ fontSize: 11, color: "#aaa" }}>{s.label}</span>
+            </div>
           ))}
+        </div>
 
-          {/* X-axis ticks and labels */}
-          {xTickValues.map((year) => (
-            <g key={year}>
-              <line
-                x1={xScale(year)}
-                y1={height - padding.bottom}
-                x2={xScale(year)}
-                y2={height - padding.bottom + 5}
-                stroke="#666"
-              />
-              <text
-                x={xScale(year)}
-                y={height - padding.bottom + 20}
-                textAnchor="middle"
-                fill="#fff"
-                fontSize="11"
+        {/* Country selector */}
+        <div className="mic-selector">
+          <div className="mic-chips">
+            {selectedCountries.map((code, i) => (
+              <span
+                key={code}
+                className="mic-chip"
+                style={{ borderColor: COUNTRY_COLORS[i % COUNTRY_COLORS.length] }}
               >
-                {year}
-              </text>
-            </g>
-          ))}
+                <span
+                  className="mic-chip-dot"
+                  style={{ background: COUNTRY_COLORS[i % COUNTRY_COLORS.length] }}
+                />
+                {codeToCountryName[code] ?? code}
+                <button
+                  className="mic-chip-remove"
+                  onClick={() => removeCountry(code)}
+                  aria-label={`Remove ${code}`}
+                >
+                  ×
+                </button>
+              </span>
+            ))}
+            {selectedCountries.length < 8 && (
+              <button
+                className="mic-add-btn"
+                onClick={() => {
+                  setShowSearch(true);
+                  setTimeout(() => searchRef.current?.focus(), 50);
+                }}
+              >
+                + Add country
+              </button>
+            )}
+          </div>
+          {showSearch && (
+            <div className="mic-search-wrap">
+              <input
+                ref={searchRef}
+                className="mic-search"
+                placeholder="Search country…"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onBlur={() => {
+                  setTimeout(() => setShowSearch(false), 150);
+                }}
+              />
+              {filteredRankings.length > 0 && (
+                <div className="mic-search-dropdown">
+                  {filteredRankings.slice(0, 10).map((r) => (
+                    <button
+                      key={r.code}
+                      className="mic-search-option"
+                      onMouseDown={() => addCountry(r.code)}
+                    >
+                      {codeToCountryName[r.code] ?? r.name}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
 
-          {/* Country lines */}
-          {countryData
-            .filter((c) => visibleCountries.has(c.name))
-            .map((country) => {
-              const path = createLinePath(country.dataPoints);
+        {/* Chart grid */}
+        {initLoading ? (
+          <div style={{ textAlign: "center", color: "#888", padding: "32px 0" }}>Loading…</div>
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 16,
+            }}
+          >
+            {selectedCountries.map((code) => {
+              const data = countryData[code];
+              const isLoading = loadingCountries.has(code);
               return (
-                <g key={country.name}>
-                  <path
-                    d={path}
-                    fill="none"
-                    stroke="transparent"
-                    strokeWidth="10"
-                    style={{ cursor: "pointer" }}
-                    onMouseEnter={() => setHoveredCountry(country.name)}
-                    onMouseLeave={() => setHoveredCountry(null)}
-                  />
-                  <path
-                    d={path}
-                    fill="none"
-                    stroke={country.color}
-                    strokeWidth={hoveredCountry === country.name ? 3 : 1.5}
-                    style={{ pointerEvents: "none" }}
-                  />
-                </g>
+                <div
+                  key={code}
+                  style={{
+                    width: "calc((100% - 32px) / 3)",
+                    minWidth: 200,
+                    background: "#1e1e1e",
+                    borderRadius: 10,
+                    padding: "10px 12px 8px",
+                    border: "1px solid #2e2e2e",
+                    boxSizing: "border-box",
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: 13,
+                      fontWeight: 600,
+                      color: "#ddd",
+                      marginBottom: 6,
+                    }}
+                  >
+                    {codeToCountryName[code] ?? code}
+                  </div>
+                  {isLoading ? (
+                    <div
+                      style={{
+                        color: "#666",
+                        fontSize: 12,
+                        textAlign: "center",
+                        padding: "40px 0",
+                      }}
+                    >
+                      Loading…
+                    </div>
+                  ) : data ? (
+                    <StackedAreaChart data={data} />
+                  ) : (
+                    <div
+                      style={{
+                        color: "#666",
+                        fontSize: 12,
+                        textAlign: "center",
+                        padding: "40px 0",
+                      }}
+                    >
+                      No data
+                    </div>
+                  )}
+                </div>
               );
             })}
-
-          {/* Legend */}
-          {countryData.map((country, index) => {
-            const lx = width - padding.right + 10;
-            const ly = padding.top + index * 18;
-            const isVisible = visibleCountries.has(country.name);
-            return (
-              <g
-                key={country.name}
-                style={{ cursor: "pointer" }}
-                onClick={() => toggleCountry(country.name)}
-                opacity={isVisible ? 1 : 0.3}
-              >
-                <line x1={lx} y1={ly} x2={lx + 16} y2={ly} stroke={country.color} strokeWidth="2" />
-                <text x={lx + 21} y={ly} fill="#fff" fontSize="10" dominantBaseline="middle">
-                  {country.name}
-                </text>
-              </g>
-            );
-          })}
-
-          {/* Hover tooltip */}
-          {hoveredCountry && (
-            <g>
-              <rect
-                x={tooltipPos.x + 10}
-                y={tooltipPos.y - 15}
-                width={hoveredCountry.length * 7 + 10}
-                height={20}
-                fill="rgba(48,48,48,0.95)"
-                stroke="#ffb300"
-                strokeWidth="1"
-                rx="4"
-              />
-              <text
-                x={tooltipPos.x + 15}
-                y={tooltipPos.y}
-                fill="#fff"
-                fontSize="12"
-                fontWeight="600"
-              >
-                {hoveredCountry}
-              </text>
-            </g>
-          )}
-        </svg>
+          </div>
+        )}
       </div>
     </div>
   );

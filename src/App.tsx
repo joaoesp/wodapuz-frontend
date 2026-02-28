@@ -108,8 +108,6 @@ const CHART_METRICS = new Set([
   "GDP per capita",
   "Debt-to-GDP",
   "Current Account Balance",
-  "Energy Production",
-  "Energy Consumption",
   "Net Energy Balance",
 ]);
 
@@ -250,12 +248,6 @@ function App() {
                 onClose={() => setShowChart(false)}
               />
             )}
-            {selectedMetric === "Energy Production" && (
-              <EnergyProductionLineChart onClose={() => setShowChart(false)} />
-            )}
-            {selectedMetric === "Energy Consumption" && (
-              <EnergyConsumptionLineChart onClose={() => setShowChart(false)} />
-            )}
             {selectedMetric === "Net Energy Balance" && (
               <NetEnergyBalanceLineChart
                 startYear={availableYearRange.startYear}
@@ -268,6 +260,12 @@ function App() {
       )}
       {showChart && selectedMetric === "Active Personnel" && (
         <ActivePersonnelCompare onClose={() => setShowChart(false)} />
+      )}
+      {showChart && selectedMetric === "Energy Production" && (
+        <EnergyProductionLineChart onClose={() => setShowChart(false)} />
+      )}
+      {showChart && selectedMetric === "Energy Consumption" && (
+        <EnergyConsumptionLineChart onClose={() => setShowChart(false)} />
       )}
       <Navbar selectedCategory={selectedCategory} onSelectCategory={handleCategoryChange} />
       {selectedCountry && selectedMetric && DASHBOARD_METRICS.has(selectedMetric) && (
