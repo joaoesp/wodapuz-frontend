@@ -1,0 +1,143 @@
+.energy-dashboard-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.energy-dashboard {
+  background: rgba(36, 36, 36, 0.98);
+  border: 1px solid #3a3a3a;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 820px;
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.energy-dashboard-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.energy-dashboard-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.energy-dashboard-subtitle {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #888;
+}
+
+.energy-dashboard-close {
+  margin-left: auto;
+  background: #3a3a3a;
+  border: none;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.energy-dashboard-close:hover {
+  background: #505050;
+  color: #fff;
+}
+
+.energy-dashboard-loading {
+  text-align: center;
+  color: #888;
+  padding: 32px 0;
+  font-size: 14px;
+}
+
+.energy-dashboard-charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.energy-chart-section {
+  min-width: 0;
+}
+
+.energy-section-label {
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.energy-breakdown-year {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.energy-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.energy-bar-label {
+  width: 56px;
+  font-size: 12px;
+  color: #ccc;
+  flex-shrink: 0;
+}
+
+.energy-bar-track {
+  flex: 1;
+  height: 14px;
+  background: #2a2a2a;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.energy-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.energy-bar-value {
+  width: 70px;
+  font-size: 11px;
+  color: #888;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.energy-no-data {
+  text-align: center;
+  color: #888;
+  padding: 32px 0;
+  font-size: 13px;
+}

@@ -17,7 +17,7 @@ const categoryMetrics: Record<string, string[]> = {
     "Nuclear Capability",
     "Military Alliances",
   ],
-  Energy: [],
+  Energy: ["Energy Production"],
   Resources: [],
   Demographics: [],
 };

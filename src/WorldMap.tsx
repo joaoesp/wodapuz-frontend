@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from "react-simple-maps";
 import { worldBankService, type IndicatorData } from "./services/worldBankService";
 import { gfpService } from "./services/gfpService";
+import { owidService } from "./services/owidService";
 import { getCountryCode } from "./utils/countryNameToCode";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json";
@@ -100,6 +101,11 @@ export const METRIC_CONFIGS: Record<string, MetricConfig> = {
     thresholds: [0.5],
     colors: ["#ffffff", "#ff7c00"],
     format: () => "Nuclear Armed State",
+  },
+  "Energy Production": {
+    thresholds: [10, 100, 500, 1000, 3000],
+    colors: ["#fff8e1", "#ffe082", "#ffb300", "#e65100", "#b71c1c", "#4a0000"],
+    format: (v: number) => (v >= 1000 ? `${(v / 1000).toFixed(1)}k TWh` : `${v.toFixed(1)} TWh`),
   },
 };
 
@@ -278,6 +284,32 @@ function WorldMap({
         })
         .catch((error) => {
           console.error("Failed to load GFP rankings:", error);
+        });
+      return;
+    }
+
+    if (selectedMetric === "Energy Production") {
+      owidService
+        .fetchEnergyYearRange(1965, 2030)
+        .then((dataByYear) => {
+          const processedData: Record<string, Map<string, IndicatorData>> = {};
+          Object.keys(dataByYear).forEach((year) => {
+            const dataMap = new Map<string, IndicatorData>();
+            dataByYear[year].forEach((item) => {
+              dataMap.set(item.countryCode, item);
+            });
+            processedData[year] = dataMap;
+          });
+          setIndicatorDataByYear(processedData);
+          const availableYears = Object.keys(processedData)
+            .map((y) => parseInt(y))
+            .sort((a, b) => a - b);
+          if (availableYears.length > 0) {
+            onYearRangeUpdate(availableYears[0], availableYears[availableYears.length - 1]);
+          }
+        })
+        .catch((error) => {
+          console.error("Failed to load energy production data:", error);
         });
       return;
     }
