@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import WorldMap from "./WorldMap";
 import Navbar from "./Navbar";
 import MetricButtons from "./MetricButtons";
 import TimelineSlider from "./TimelineSlider";
+import InfrastructureToggle from "./InfrastructureToggle";
+import { INFRA_CONFIGS, type InfraType } from "./InfrastructureLayer";
 import GdpLineChart from "./GdpLineChart";
 import GdpPerCapitaLineChart from "./GdpPerCapitaLineChart";
 import DebtToGdpLineChart from "./DebtToGdpLineChart";
@@ -45,6 +47,7 @@ const HIDDEN_SLIDER_METRICS = new Set([
   "Military Inventory",
   "Nuclear Capability",
   "Military Alliances",
+  "Energy Infrastructure",
 ]);
 
 // Military inventory gets its own dashboard
@@ -91,6 +94,8 @@ const METRIC_DESCRIPTIONS: Record<string, string> = {
     "Total primary energy consumed by a country (TWh), with breakdown by source: coal, gas, oil, nuclear, hydro, solar, wind, biofuel, and other renewables.",
   "Net Energy Balance":
     "Net energy imports as a percentage of energy use. Negative values indicate net exporters; positive values indicate net importers.",
+  "Energy Infrastructure":
+    "Major energy infrastructure from the WRI Global Power Plant Database. Select a type to view nuclear, hydro, solar, wind, coal, or gas plants above minimum capacity thresholds.",
 };
 
 // Trade metrics that show the trade dashboard on click
@@ -124,6 +129,18 @@ function App() {
     name: string;
     data: { year: number; value: number }[];
   } | null>(null);
+  const [infraType, setInfraType] = useState<InfraType | null>(null);
+  const [infraCounts, setInfraCounts] = useState<Partial<Record<InfraType, number>>>({});
+
+  useEffect(() => {
+    if (selectedMetric !== "Energy Infrastructure") return;
+    (["nuclear", "hydro", "solar", "wind", "coal", "gas"] as InfraType[]).forEach((type) => {
+      fetch(`/data/infrastructure/${INFRA_CONFIGS[type].file}`)
+        .then((r) => r.json())
+        .then((d: unknown[]) => setInfraCounts((prev) => ({ ...prev, [type]: d.length })))
+        .catch(console.error);
+    });
+  }, [selectedMetric]);
 
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
@@ -133,17 +150,20 @@ function App() {
 
   const handleSelectMetric = (metric: string) => {
     if (metric !== selectedMetric) setShowChart(false);
+    if (metric !== "Energy Infrastructure") setInfraType(null);
     setSelectedMetric(metric);
   };
 
-  const handleYearRangeUpdate = (startYear: number, endYear: number) => {
+  const handleInfraSelect = (t: InfraType) => setInfraType((prev) => (prev === t ? null : t));
+
+  const handleYearRangeUpdate = useCallback((startYear: number, endYear: number) => {
     setAvailableYearRange({ startYear, endYear });
-    if (selectedYear < startYear) {
-      setSelectedYear(startYear);
-    } else if (selectedYear > endYear) {
-      setSelectedYear(endYear);
-    }
-  };
+    setSelectedYear((prev) => {
+      if (prev < startYear) return startYear;
+      if (prev > endYear) return endYear;
+      return prev;
+    });
+  }, []);
 
   return (
     <div className="app">
@@ -168,6 +188,7 @@ function App() {
             ? (code, name, data) => setSelectedCountry({ code, name, data })
             : undefined
         }
+        infraType={selectedMetric === "Energy Infrastructure" ? infraType : null}
       />
       {selectedMetric && !HIDDEN_SLIDER_METRICS.has(selectedMetric) && (
         <TimelineSlider
@@ -177,6 +198,13 @@ function App() {
           onYearChange={setSelectedYear}
           pauseYears={selectedMetric === "GDP growth" ? GDP_GROWTH_PAUSE_YEARS : undefined}
           eventsYear={selectedMetric === "GDP growth" ? selectedYear : undefined}
+        />
+      )}
+      {selectedMetric === "Energy Infrastructure" && (
+        <InfrastructureToggle
+          activeType={infraType}
+          counts={infraCounts}
+          onSelect={handleInfraSelect}
         />
       )}
       {showChart && selectedMetric && CHART_METRICS.has(selectedMetric) && (

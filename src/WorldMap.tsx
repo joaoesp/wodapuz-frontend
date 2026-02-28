@@ -4,6 +4,7 @@ import { worldBankService, type IndicatorData } from "./services/worldBankServic
 import { gfpService } from "./services/gfpService";
 import { owidService } from "./services/owidService";
 import { getCountryCode } from "./utils/countryNameToCode";
+import InfrastructureLayer, { type InfraType } from "./InfrastructureLayer";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json";
 
@@ -213,6 +214,7 @@ interface WorldMapProps {
     countryName: string,
     timeSeries: { year: number; value: number }[]
   ) => void;
+  infraType?: InfraType | null;
 }
 
 function WorldMap({
@@ -220,6 +222,7 @@ function WorldMap({
   selectedYear,
   onYearRangeUpdate,
   onCountryClick,
+  infraType,
 }: WorldMapProps) {
   const [tooltip, setTooltip] = useState<Tooltip | null>(null);
   const [center, setCenter] = useState<[number, number]>(INITIAL_CENTER);
@@ -247,6 +250,13 @@ function WorldMap({
     if (!selectedMetric) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setIndicatorDataByYear({});
+      return;
+    }
+
+    if (selectedMetric === "Energy Infrastructure") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setIndicatorDataByYear({});
+      onYearRangeUpdate(2024, 2024);
       return;
     }
 
@@ -387,6 +397,7 @@ function WorldMap({
     if (selectedMetric === "Military Alliances") {
       return ALLIANCE_BY_COUNTRY[countryCode]?.color ?? "#ffffff";
     }
+    if (selectedMetric === "Energy Infrastructure") return "#a6a6a6";
     if (selectedMetric) {
       // If no country code mapping, show white
       if (!countryCode || countryCode === "") {
@@ -417,6 +428,13 @@ function WorldMap({
     { name: "Luxembourg", code: "LUX", coordinates: [6.13, 49.81] },
     { name: "Qatar", code: "QAT", coordinates: [51.18, 25.35] },
   ];
+
+  const handleInfraHover = useCallback(
+    (tip: { name: string; value: string; x: number; y: number } | null) => {
+      setTooltip(tip ?? null);
+    },
+    []
+  );
 
   const handleTinyCountryClick = (name: string, code: string) => {
     if (!onCountryClick) return;
@@ -571,6 +589,9 @@ function WorldMap({
               </Marker>
             );
           })}
+          {infraType && (
+            <InfrastructureLayer infraType={infraType} zoom={zoom} onHover={handleInfraHover} />
+          )}
         </ZoomableGroup>
       </ComposableMap>
       {selectedMetric === "Military Alliances" && (

@@ -1,0 +1,65 @@
+.infra-toggle {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  background: rgba(20, 20, 20, 0.88);
+  border: 1px solid #3a3a3a;
+  border-radius: 10px;
+  padding: 8px 10px;
+  backdrop-filter: blur(4px);
+  z-index: 100;
+}
+
+.infra-toggle-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: transparent;
+  border: 1px solid #3a3a3a;
+  border-radius: 7px;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: #aaa;
+  transition:
+    border-color 0.15s,
+    color 0.15s,
+    background 0.15s;
+  min-width: 60px;
+}
+
+.infra-toggle-btn:hover {
+  border-color: var(--infra-color);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.infra-toggle-btn.active {
+  border-color: var(--infra-color);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.infra-toggle-btn.active .infra-label,
+.infra-toggle-btn.active .infra-count {
+  color: var(--infra-color);
+}
+
+.infra-symbol {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.infra-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #ccc;
+}
+
+.infra-count {
+  font-size: 10px;
+  color: #888;
+}
