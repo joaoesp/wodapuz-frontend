@@ -107,6 +107,11 @@ export const METRIC_CONFIGS: Record<string, MetricConfig> = {
     colors: ["#fff8e1", "#ffe082", "#ffb300", "#e65100", "#b71c1c", "#4a0000"],
     format: (v: number) => (v >= 1000 ? `${(v / 1000).toFixed(1)}k TWh` : `${v.toFixed(1)} TWh`),
   },
+  "Energy Consumption": {
+    thresholds: [100, 1000, 5000, 15000, 40000],
+    colors: ["#e0f7fa", "#80deea", "#26c6da", "#0097a7", "#006064", "#002f35"],
+    format: (v: number) => (v >= 1000 ? `${(v / 1000).toFixed(1)}k TWh` : `${v.toFixed(1)} TWh`),
+  },
 };
 
 // Military alliance definitions — each country assigned to its primary alliance
@@ -310,6 +315,32 @@ function WorldMap({
         })
         .catch((error) => {
           console.error("Failed to load energy production data:", error);
+        });
+      return;
+    }
+
+    if (selectedMetric === "Energy Consumption") {
+      owidService
+        .fetchConsumptionYearRange(1965, 2025)
+        .then((dataByYear) => {
+          const processedData: Record<string, Map<string, IndicatorData>> = {};
+          Object.keys(dataByYear).forEach((year) => {
+            const dataMap = new Map<string, IndicatorData>();
+            dataByYear[year].forEach((item) => {
+              dataMap.set(item.countryCode, item);
+            });
+            processedData[year] = dataMap;
+          });
+          setIndicatorDataByYear(processedData);
+          const availableYears = Object.keys(processedData)
+            .map((y) => parseInt(y))
+            .sort((a, b) => a - b);
+          if (availableYears.length > 0) {
+            onYearRangeUpdate(availableYears[0], availableYears[availableYears.length - 1]);
+          }
+        })
+        .catch((error) => {
+          console.error("Failed to load energy consumption data:", error);
         });
       return;
     }
