@@ -4,7 +4,8 @@ import { worldBankService, type IndicatorData } from "./services/worldBankServic
 import { gfpService } from "./services/gfpService";
 import { owidService } from "./services/owidService";
 import { getCountryCode } from "./utils/countryNameToCode";
-import InfrastructureLayer, { type InfraType } from "./InfrastructureLayer";
+import InfrastructureLayer from "./InfrastructureLayer";
+import type { InfraType } from "./infraConfig";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json";
 
@@ -254,14 +255,12 @@ function WorldMap({
     }
 
     if (selectedMetric === "Energy Infrastructure") {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIndicatorDataByYear({});
       onYearRangeUpdate(2024, 2024);
       return;
     }
 
     if (selectedMetric === "Military Alliances") {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIndicatorDataByYear({});
       onYearRangeUpdate(2024, 2024);
       return;
@@ -279,7 +278,7 @@ function WorldMap({
           indicator: "Nuclear Capability",
         });
       });
-      // eslint-disable-next-line react-hooks/set-state-in-effect
+
       setIndicatorDataByYear({ "2026": dataMap });
       onYearRangeUpdate(2026, 2026);
       return;

@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 import MetricButtons from "./MetricButtons";
 import TimelineSlider from "./TimelineSlider";
 import InfrastructureToggle from "./InfrastructureToggle";
-import { INFRA_CONFIGS, type InfraType } from "./InfrastructureLayer";
+import { INFRA_CONFIGS, type InfraType } from "./infraConfig";
 import GdpLineChart from "./GdpLineChart";
 import GdpPerCapitaLineChart from "./GdpPerCapitaLineChart";
 import DebtToGdpLineChart from "./DebtToGdpLineChart";

@@ -1,4 +1,4 @@
-import { INFRA_CONFIGS, type InfraType } from "./InfrastructureLayer";
+import { INFRA_CONFIGS, type InfraType } from "./infraConfig";
 import "./InfrastructureToggle.css";
 
 interface InfrastructureToggleProps {

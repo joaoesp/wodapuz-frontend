@@ -160,6 +160,7 @@ function NetEnergyBalanceDashboard({
   const [typePartnersLoading, setTypePartnersLoading] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reset state on props change
     setEnergyTypes({ X: null, M: null });
     setLoadingTypes({ X: true, M: true });
     setSelectedProduct({ X: null, M: null });
@@ -190,6 +191,7 @@ function NetEnergyBalanceDashboard({
     const cacheKey = `${countryCode}-${activeProduct.code}-${flow}`;
     if (typePartners[cacheKey]) return;
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- show loading before async fetch
     setTypePartnersLoading(true);
     unComtradeService
       .getEnergyTypePartners(countryCode, activeProduct.code, flow, fetchYear)

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { INFRA_CONFIGS, type InfraType, type PlantRecord } from "./InfrastructureLayer";
+import { INFRA_CONFIGS, type InfraType, type PlantRecord } from "./infraConfig";
 import { codeToCountryName } from "./utils/countryNameToCode";
 import "./InfrastructureDashboard.css";
 
@@ -14,6 +14,7 @@ function InfrastructureDashboard({ infraType, onClose }: InfrastructureDashboard
   const config = INFRA_CONFIGS[infraType];
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reset state on infraType change
     setLoading(true);
     setPlants(null);
     fetch(`/data/infrastructure/${config.file}`)

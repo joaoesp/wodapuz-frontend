@@ -167,7 +167,7 @@ function EnergyProductionDashboard({
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setLoading(true);
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+
     setData(null);
     owidService
       .fetchCountryEnergy(countryCode)
