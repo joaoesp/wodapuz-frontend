@@ -147,6 +147,32 @@
   flex-shrink: 0;
 }
 
+@keyframes trade-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.trade-spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid rgba(255, 255, 255, 0.08);
+  border-top-color: #45b7d1;
+  border-radius: 50%;
+  animation: trade-spin 0.75s linear infinite;
+  margin: 0 auto 10px;
+}
+
+.trade-spinner-sm {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-top-color: #45b7d1;
+  border-radius: 50%;
+  animation: trade-spin 0.75s linear infinite;
+  margin: 0 auto 8px;
+}
+
 .trade-dashboard-loading {
   text-align: center;
   color: #888;

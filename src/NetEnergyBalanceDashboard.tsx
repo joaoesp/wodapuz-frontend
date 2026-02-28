@@ -250,7 +250,10 @@ function NetEnergyBalanceDashboard({
         </div>
 
         {isLoading ? (
-          <div className="trade-dashboard-loading">Loading energy trade data…</div>
+          <div className="trade-dashboard-loading">
+            <div className="trade-spinner" />
+            Loading energy trade data…
+          </div>
         ) : !hasData ? (
           <div className="trade-dashboard-loading">No data available for {fetchYear}.</div>
         ) : (
@@ -279,7 +282,10 @@ function NetEnergyBalanceDashboard({
                 <div className="trade-dashboard-total">Total: {formatValue(activeWorldTotal)}</div>
               )}
               {typePartnersLoading ? (
-                <div className="trade-products-loading">Loading partners…</div>
+                <div className="trade-products-loading">
+                  <div className="trade-spinner-sm" />
+                  Loading partners…
+                </div>
               ) : activePartners && activePartners.length > 0 ? (
                 <PartnerList partners={activePartners} total={activeWorldTotal} />
               ) : activePartners && activePartners.length === 0 ? (

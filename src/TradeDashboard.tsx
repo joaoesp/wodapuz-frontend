@@ -354,7 +354,10 @@ function TradeDashboard({ countryCode, countryName, year, onClose }: TradeDashbo
         </div>
 
         {isLoading ? (
-          <div className="trade-dashboard-loading">Loading trade data…</div>
+          <div className="trade-dashboard-loading">
+            <div className="trade-spinner" />
+            Loading trade data…
+          </div>
         ) : !hasData ? (
           <div className="trade-dashboard-loading">No data.</div>
         ) : (
@@ -382,7 +385,10 @@ function TradeDashboard({ countryCode, countryName, year, onClose }: TradeDashbo
                       <h4>{shortProductName(selectedProduct.name)}</h4>
                     </div>
                     {historyLoading ? (
-                      <div className="trade-products-loading">Loading…</div>
+                      <div className="trade-products-loading">
+                        <div className="trade-spinner-sm" />
+                        Loading…
+                      </div>
                     ) : activeHistory === null ? (
                       <div className="trade-products-loading">No data.</div>
                     ) : (
@@ -395,7 +401,10 @@ function TradeDashboard({ countryCode, countryName, year, onClose }: TradeDashbo
                       {activePartner ? `Products with ${activePartner.name}` : "Select a partner"}
                     </h4>
                     {productsLoading ? (
-                      <div className="trade-products-loading">Loading…</div>
+                      <div className="trade-products-loading">
+                        <div className="trade-spinner-sm" />
+                        Loading…
+                      </div>
                     ) : activeProducts === null ? (
                       <div className="trade-products-loading">No data.</div>
                     ) : (
