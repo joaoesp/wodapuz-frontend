@@ -108,6 +108,14 @@
 }
 
 .info-balloon {
+  display: none;
+}
+
+.info-btn-wrapper:hover .info-balloon {
+  display: block;
+}
+
+.info-balloon {
   background: rgba(20, 20, 20, 0.92);
   border: 1px solid #3a3a3a;
   border-radius: 10px;

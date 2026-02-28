@@ -30,6 +30,7 @@ const METRICS_WITH_CHARTS = new Set([
   "Active Personnel",
   "Military Inventory",
   "Nuclear Capability",
+  "Energy Production",
 ]);
 
 interface MetricButtonsProps {

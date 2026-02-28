@@ -15,6 +15,7 @@ import MilitaryInventoryCompare from "./MilitaryInventoryCompare";
 import NuclearWarheadsCompare from "./NuclearWarheadsCompare";
 import AllianceDashboard from "./AllianceDashboard";
 import EnergyProductionDashboard from "./EnergyProductionDashboard";
+import EnergyProductionLineChart from "./EnergyProductionLineChart";
 import { GDP_GROWTH_EVENTS } from "./worldEvents";
 import "./App.css";
 
@@ -84,7 +85,13 @@ const METRIC_DESCRIPTIONS: Record<string, string> = {
 const TRADE_DASHBOARD_METRICS = new Set(["Trade Openness", "Exports", "Imports", "Trade Balance"]);
 
 // Metrics that have a historical line chart (inside the shared chart-modal-overlay)
-const CHART_METRICS = new Set(["GDP", "GDP per capita", "Debt-to-GDP", "Current Account Balance"]);
+const CHART_METRICS = new Set([
+  "GDP",
+  "GDP per capita",
+  "Debt-to-GDP",
+  "Current Account Balance",
+  "Energy Production",
+]);
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState<string>("Economy");
@@ -98,7 +105,6 @@ function App() {
     startYear: DEFAULT_START_YEAR,
     endYear: DEFAULT_END_YEAR,
   });
-  const [showInfo, setShowInfo] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState<{
     code: string;
     name: string;
@@ -114,7 +120,6 @@ function App() {
   const handleSelectMetric = (metric: string) => {
     if (metric !== selectedMetric) setShowChart(false);
     setSelectedMetric(metric);
-    setShowInfo(false);
   };
 
   const handleYearRangeUpdate = (startYear: number, endYear: number) => {
@@ -191,6 +196,9 @@ function App() {
                 onClose={() => setShowChart(false)}
               />
             )}
+            {selectedMetric === "Energy Production" && (
+              <EnergyProductionLineChart onClose={() => setShowChart(false)} />
+            )}
           </div>
         </div>
       )}
@@ -244,17 +252,11 @@ function App() {
       )}
       {selectedMetric && METRIC_DESCRIPTIONS[selectedMetric] && (
         <div className="info-btn-wrapper" key={selectedMetric}>
-          {showInfo && (
-            <div className="info-balloon">
-              <strong>{selectedMetric}</strong>
-              <p>{METRIC_DESCRIPTIONS[selectedMetric]}</p>
-            </div>
-          )}
-          <button
-            className="info-btn"
-            onClick={() => setShowInfo((v) => !v)}
-            aria-label="Metric information"
-          >
+          <div className="info-balloon">
+            <strong>{selectedMetric}</strong>
+            <p>{METRIC_DESCRIPTIONS[selectedMetric]}</p>
+          </div>
+          <button className="info-btn" aria-label="Metric information">
             i
           </button>
         </div>
