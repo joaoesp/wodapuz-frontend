@@ -1,116 +1,1180 @@
 [
-  { "n": "ATUCHA I", "lat": -33.967, "lon": -59.206, "mw": 370, "c": "ARG" },
-  { "n": "ATUCHA II", "lat": -33.967, "lon": -59.204, "mw": 745, "c": "ARG" },
-  { "n": "EMBALSE", "lat": -32.232, "lon": -64.442, "mw": 648, "c": "ARG" },
-  { "n": "Armenian-2", "lat": 40.181, "lon": 44.15, "mw": 375, "c": "ARM" },
-  { "n": "DOEL 4", "lat": 51.325, "lon": 4.26, "mw": 2910, "c": "BEL" },
-  { "n": "TIHANGE 1N", "lat": 50.534, "lon": 5.275, "mw": 962, "c": "BEL" },
-  { "n": "TIHANGE 3", "lat": 50.534, "lon": 5.275, "mw": 2054, "c": "BEL" },
   {
-    "n": "Almirante Álvaro Alberto - Unidade I (An",
-    "lat": -23.009,
-    "lon": -44.457,
-    "mw": 640,
-    "c": "BRA"
+    "n": "Kashiwazaki Kariwa",
+    "lat": 37.426,
+    "lon": 138.594,
+    "mw": 8212,
+    "c": "JPN"
   },
   {
-    "n": "Almirante Álvaro Alberto - Unidade II (A",
+    "n": "Zaporozhye",
+    "lat": 47.512,
+    "lon": 34.586,
+    "mw": 6000,
+    "c": "UKR"
+  },
+  {
+    "n": "Hanbit",
+    "lat": 35.41,
+    "lon": 126.418,
+    "mw": 5900,
+    "c": "KOR"
+  },
+  {
+    "n": "Hanul",
+    "lat": 37.093,
+    "lon": 129.383,
+    "mw": 5900,
+    "c": "KOR"
+  },
+  {
+    "n": "GRAVELINES",
+    "lat": 51.014,
+    "lon": 2.133,
+    "mw": 5460,
+    "c": "FRA"
+  },
+  {
+    "n": "PALUEL",
+    "lat": 49.858,
+    "lon": 0.635,
+    "mw": 5320,
+    "c": "FRA"
+  },
+  {
+    "n": "CATTENOM",
+    "lat": 49.416,
+    "lon": 6.217,
+    "mw": 5200,
+    "c": "FRA"
+  },
+  {
+    "n": "Ohi",
+    "lat": 35.542,
+    "lon": 135.654,
+    "mw": 4710,
+    "c": "JPN"
+  },
+  {
+    "n": "Fukushima Daina",
+    "lat": 37.316,
+    "lon": 141.026,
+    "mw": 4400,
+    "c": "JPN"
+  },
+  {
+    "n": "Palo Verde",
+    "lat": 33.388,
+    "lon": -112.862,
+    "mw": 4210,
+    "c": "USA"
+  },
+  {
+    "n": "Hongyanhe",
+    "lat": 39.8,
+    "lon": 121.48,
+    "mw": 4183,
+    "c": "CHN"
+  },
+  {
+    "n": "Qinshan 2",
+    "lat": 30.433,
+    "lon": 120.95,
+    "mw": 4101,
+    "c": "CHN"
+  },
+  {
+    "n": "Ningde",
+    "lat": 27.045,
+    "lon": 120.285,
+    "mw": 4072,
+    "c": "CHN"
+  },
+  {
+    "n": "Fuqing",
+    "lat": 25.443,
+    "lon": 119.444,
+    "mw": 4000,
+    "c": "CHN"
+  },
+  {
+    "n": "Yangjiang",
+    "lat": 21.71,
+    "lon": 112.26,
+    "mw": 4000,
+    "c": "CHN"
+  },
+  {
+    "n": "Balakovo NPP",
+    "lat": 52.093,
+    "lon": 47.954,
+    "mw": 4000,
+    "c": "RUS"
+  },
+  {
+    "n": "Kalinn NPP",
+    "lat": 57.905,
+    "lon": 35.061,
+    "mw": 4000,
+    "c": "RUS"
+  },
+  {
+    "n": "Kursk",
+    "lat": 51.675,
+    "lon": 35.606,
+    "mw": 4000,
+    "c": "RUS"
+  },
+  {
+    "n": "Leningrad NPP",
+    "lat": 59.853,
+    "lon": 29.049,
+    "mw": 4000,
+    "c": "RUS"
+  },
+  {
+    "n": "Rostov NPP",
+    "lat": 47.599,
+    "lon": 42.372,
+    "mw": 4000,
+    "c": "RUS"
+  },
+  {
+    "n": "Ringhals",
+    "lat": 57.257,
+    "lon": 12.109,
+    "mw": 3932,
+    "c": "SWE"
+  },
+  {
+    "n": "Ling Ao",
+    "lat": 22.6,
+    "lon": 114.55,
+    "mw": 3914,
+    "c": "CHN"
+  },
+  {
+    "n": "Darlington",
+    "lat": 43.87,
+    "lon": -78.724,
+    "mw": 3740,
+    "c": "CAN"
+  },
+  {
+    "n": "CRUAS",
+    "lat": 44.633,
+    "lon": 4.755,
+    "mw": 3660,
+    "c": "FRA"
+  },
+  {
+    "n": "TRICASTIN 1",
+    "lat": 44.331,
+    "lon": 4.731,
+    "mw": 3660,
+    "c": "FRA"
+  },
+  {
+    "n": "BLAYAIS",
+    "lat": 45.256,
+    "lon": -0.693,
+    "mw": 3640,
+    "c": "FRA"
+  },
+  {
+    "n": "CHINON",
+    "lat": 47.225,
+    "lon": 0.166,
+    "mw": 3620,
+    "c": "FRA"
+  },
+  {
+    "n": "Hamaoka",
+    "lat": 34.623,
+    "lon": 138.142,
+    "mw": 3617,
+    "c": "JPN"
+  },
+  {
+    "n": "BUGEY",
+    "lat": 45.797,
+    "lon": 5.271,
+    "mw": 3580,
+    "c": "FRA"
+  },
+  {
+    "n": "DAMPIERRE",
+    "lat": 47.732,
+    "lon": 2.518,
+    "mw": 3560,
+    "c": "FRA"
+  },
+  {
+    "n": "Browns Ferry",
+    "lat": 34.704,
+    "lon": -87.119,
+    "mw": 3494,
+    "c": "USA"
+  },
+  {
+    "n": "Genkai",
+    "lat": 33.515,
+    "lon": 129.836,
+    "mw": 3478,
+    "c": "JPN"
+  },
+  {
+    "n": "Takahama",
+    "lat": 35.522,
+    "lon": 135.504,
+    "mw": 3392,
+    "c": "JPN"
+  },
+  {
+    "n": "Bruce B",
+    "lat": 44.319,
+    "lon": -81.603,
+    "mw": 3390,
+    "c": "CAN"
+  },
+  {
+    "n": "Shin-Kori",
+    "lat": 35.327,
+    "lon": 129.302,
+    "mw": 3340,
+    "c": "KOR"
+  },
+  {
+    "n": "Forsmark",
+    "lat": 60.403,
+    "lon": 18.174,
+    "mw": 3227,
+    "c": "SWE"
+  },
+  {
+    "n": "Bruce A",
+    "lat": 44.339,
+    "lon": -81.575,
+    "mw": 3220,
+    "c": "CAN"
+  },
+  {
+    "n": "Kori",
+    "lat": 35.32,
+    "lon": 129.295,
+    "mw": 3137,
+    "c": "KOR"
+  },
+  {
+    "n": "CHOOZ",
+    "lat": 50.09,
+    "lon": 4.789,
+    "mw": 3000,
+    "c": "FRA"
+  },
+  {
+    "n": "Smolensk",
+    "lat": 54.165,
+    "lon": 33.237,
+    "mw": 3000,
+    "c": "RUS"
+  },
+  {
+    "n": "South Ukraine",
+    "lat": 47.812,
+    "lon": 31.22,
+    "mw": 3000,
+    "c": "UKR"
+  },
+  {
+    "n": "CIVAUX",
+    "lat": 46.456,
+    "lon": 0.655,
+    "mw": 2990,
+    "c": "FRA"
+  },
+  {
+    "n": "DOEL 4",
+    "lat": 51.325,
+    "lon": 4.26,
+    "mw": 2910,
+    "c": "BEL"
+  },
+  {
+    "n": "Peach Bottom",
+    "lat": 39.759,
+    "lon": -76.269,
+    "mw": 2876,
+    "c": "USA"
+  },
+  {
+    "n": "Turkey Point",
+    "lat": 25.436,
+    "lon": -80.331,
+    "mw": 2861,
+    "c": "USA"
+  },
+  {
+    "n": "Rivne (Rouno)",
+    "lat": 51.325,
+    "lon": 25.897,
+    "mw": 2835,
+    "c": "UKR"
+  },
+  {
+    "n": "Wolsong",
+    "lat": 35.711,
+    "lon": 129.474,
+    "mw": 2799,
+    "c": "KOR"
+  },
+  {
+    "n": "South Texas Project",
+    "lat": 28.795,
+    "lon": -96.048,
+    "mw": 2709,
+    "c": "USA"
+  },
+  {
+    "n": "ST ALBAN",
+    "lat": 45.404,
+    "lon": 4.755,
+    "mw": 2670,
+    "c": "FRA"
+  },
+  {
+    "n": "Oconee",
+    "lat": 34.794,
+    "lon": -82.899,
+    "mw": 2667,
+    "c": "USA"
+  },
+  {
+    "n": "FLAMANVILLE",
+    "lat": 49.537,
+    "lon": -1.882,
+    "mw": 2660,
+    "c": "FRA"
+  },
+  {
+    "n": "PENLY",
+    "lat": 49.976,
+    "lon": 1.211,
+    "mw": 2660,
+    "c": "FRA"
+  },
+  {
+    "n": "BELLEVILLE",
+    "lat": 47.51,
+    "lon": 2.875,
+    "mw": 2620,
+    "c": "FRA"
+  },
+  {
+    "n": "GOLFECH",
+    "lat": 44.106,
+    "lon": 0.844,
+    "mw": 2620,
+    "c": "FRA"
+  },
+  {
+    "n": "NOGENT",
+    "lat": 48.517,
+    "lon": 3.518,
+    "mw": 2620,
+    "c": "FRA"
+  },
+  {
+    "n": "Oskarshamn",
+    "lat": 57.413,
+    "lon": 16.668,
+    "mw": 2603,
+    "c": "SWE"
+  },
+  {
+    "n": "Kernkraft Gundremmingen",
+    "lat": 48.515,
+    "lon": 10.402,
+    "mw": 2572,
+    "c": "DEU"
+  },
+  {
+    "n": "Watts Bar Nuclear Plant",
+    "lat": 35.602,
+    "lon": -84.79,
+    "mw": 2540,
+    "c": "USA"
+  },
+  {
+    "n": "TalenEnergy Susquehanna",
+    "lat": 41.092,
+    "lon": -76.146,
+    "mw": 2532,
+    "c": "USA"
+  },
+  {
+    "n": "Braidwood Generation Station",
+    "lat": 41.243,
+    "lon": -88.229,
+    "mw": 2450,
+    "c": "USA"
+  },
+  {
+    "n": "Byron Generating Station",
+    "lat": 42.074,
+    "lon": -89.282,
+    "mw": 2450,
+    "c": "USA"
+  },
+  {
+    "n": "McGuire",
+    "lat": 35.433,
+    "lon": -80.949,
+    "mw": 2441,
+    "c": "USA"
+  },
+  {
+    "n": "Sequoyah",
+    "lat": 35.227,
+    "lon": -85.092,
+    "mw": 2441,
+    "c": "USA"
+  },
+  {
+    "n": "Comanche Peak",
+    "lat": 32.298,
+    "lon": -97.785,
+    "mw": 2430,
+    "c": "USA"
+  },
+  {
+    "n": "Vogtle",
+    "lat": 33.143,
+    "lon": -81.763,
+    "mw": 2430,
+    "c": "USA"
+  },
+  {
+    "n": "Catawba",
+    "lat": 35.051,
+    "lon": -81.069,
+    "mw": 2410,
+    "c": "USA"
+  },
+  {
+    "n": "PSEG Salem Generating Station",
+    "lat": 39.462,
+    "lon": -75.536,
+    "mw": 2382,
+    "c": "USA"
+  },
+  {
+    "n": "LaSalle Generating Station",
+    "lat": 41.245,
+    "lon": -88.669,
+    "mw": 2340,
+    "c": "USA"
+  },
+  {
+    "n": "Diablo Canyon",
+    "lat": 35.212,
+    "lon": -120.856,
+    "mw": 2323,
+    "c": "USA"
+  },
+  {
+    "n": "Donald C Cook",
+    "lat": 41.976,
+    "lon": -86.565,
+    "mw": 2285,
+    "c": "USA"
+  },
+  {
+    "n": "Limerick",
+    "lat": 40.224,
+    "lon": -75.587,
+    "mw": 2277,
+    "c": "USA"
+  },
+  {
+    "n": "Onagawa",
+    "lat": 38.4,
+    "lon": 141.5,
+    "mw": 2174,
+    "c": "JPN"
+  },
+  {
+    "n": "Millstone",
+    "lat": 41.311,
+    "lon": -72.168,
+    "mw": 2163,
+    "c": "USA"
+  },
+  {
+    "n": "Pickering B",
+    "lat": 43.81,
+    "lon": -79.064,
+    "mw": 2160,
+    "c": "CAN"
+  },
+  {
+    "n": "St Lucie",
+    "lat": 27.349,
+    "lon": -80.246,
+    "mw": 2160,
+    "c": "USA"
+  },
+  {
+    "n": "Temelín",
+    "lat": 49.18,
+    "lon": 14.38,
+    "mw": 2133,
+    "c": "CZE"
+  },
+  {
+    "n": "TIHANGE 3",
+    "lat": 50.534,
+    "lon": 5.275,
+    "mw": 2054,
+    "c": "BEL"
+  },
+  {
+    "n": "Dukonavy",
+    "lat": 49.085,
+    "lon": 16.148,
+    "mw": 2040,
+    "c": "CZE"
+  },
+  {
+    "n": "Kuosheng",
+    "lat": 25.203,
+    "lon": 121.663,
+    "mw": 2040,
+    "c": "TWN"
+  },
+  {
+    "n": "Fangjiashan",
+    "lat": 30.44,
+    "lon": 120.94,
+    "mw": 2024,
+    "c": "CHN"
+  },
+  {
+    "n": "Ikata",
+    "lat": 33.491,
+    "lon": 132.309,
+    "mw": 2022,
+    "c": "JPN"
+  },
+  {
+    "n": "Dresden Generating Station",
+    "lat": 41.39,
+    "lon": -88.27,
+    "mw": 2019,
+    "c": "USA"
+  },
+  {
+    "n": "Quad Cities Generating Station",
+    "lat": 41.726,
+    "lon": -90.31,
+    "mw": 2019,
+    "c": "USA"
+  },
+  {
+    "n": "CN ALMARAZ 1",
+    "lat": 39.807,
+    "lon": -5.699,
+    "mw": 2017,
+    "c": "ESP"
+  },
+  {
+    "n": "Brunswick Nuclear",
+    "lat": 33.96,
+    "lon": -78.011,
+    "mw": 2003,
+    "c": "USA"
+  },
+  {
+    "n": "KOZLODUY",
+    "lat": 43.744,
+    "lon": 23.772,
+    "mw": 2000,
+    "c": "BGR"
+  },
+  {
+    "n": "Fangchenggang",
+    "lat": 21.67,
+    "lon": 108.56,
+    "mw": 2000,
+    "c": "CHN"
+  },
+  {
+    "n": "KUNDANKULAM",
+    "lat": 8.169,
+    "lon": 77.133,
+    "mw": 2000,
+    "c": "IND"
+  },
+  {
+    "n": "Kudankulam",
+    "lat": 8.169,
+    "lon": 77.713,
+    "mw": 2000,
+    "c": "IND"
+  },
+  {
+    "n": "Tomari",
+    "lat": 43.037,
+    "lon": 140.512,
+    "mw": 2000,
+    "c": "JPN"
+  },
+  {
+    "n": "Shin-Wolsong",
+    "lat": 35.722,
+    "lon": 129.479,
+    "mw": 2000,
+    "c": "KOR"
+  },
+  {
+    "n": "Khmelnytska",
+    "lat": 50.302,
+    "lon": 26.647,
+    "mw": 2000,
+    "c": "UKR"
+  },
+  {
+    "n": "ASCO GR",
+    "lat": 41.201,
+    "lon": 0.568,
+    "mw": 1991,
+    "c": "ESP"
+  },
+  {
+    "n": "Tianwan",
+    "lat": 34.69,
+    "lon": 119.46,
+    "mw": 1980,
+    "c": "CHN"
+  },
+  {
+    "n": "North Anna",
+    "lat": 38.06,
+    "lon": -77.79,
+    "mw": 1960,
+    "c": "USA"
+  },
+  {
+    "n": "Maanshan",
+    "lat": 21.959,
+    "lon": 120.75,
+    "mw": 1902,
+    "c": "TWN"
+  },
+  {
+    "n": "Nine Mile Point Nuclear Station",
+    "lat": 43.521,
+    "lon": -76.41,
+    "mw": 1901,
+    "c": "USA"
+  },
+  {
+    "n": "Daya Bay",
+    "lat": 22.6,
+    "lon": 114.54,
+    "mw": 1888,
+    "c": "CHN"
+  },
+  {
+    "n": "Paksi Atomerőmű",
+    "lat": 46.574,
+    "lon": 18.854,
+    "mw": 1887,
+    "c": "HUN"
+  },
+  {
+    "n": "Novovoronezh",
+    "lat": 51.282,
+    "lon": 39.21,
+    "mw": 1880,
+    "c": "RUS"
+  },
+  {
+    "n": "Calvert Cliffs Nuclear Power Plant",
+    "lat": 38.434,
+    "lon": -76.442,
+    "mw": 1850,
+    "c": "USA"
+  },
+  {
+    "n": "Edwin I Hatch",
+    "lat": 31.934,
+    "lon": -82.345,
+    "mw": 1848,
+    "c": "USA"
+  },
+  {
+    "n": "Beaver Valley",
+    "lat": 40.622,
+    "lon": -80.434,
+    "mw": 1847,
+    "c": "USA"
+  },
+  {
+    "n": "Arkansas Nuclear One",
+    "lat": 35.311,
+    "lon": -93.235,
+    "mw": 1845,
+    "c": "USA"
+  },
+  {
+    "n": "ST LAURENT",
+    "lat": 47.72,
+    "lon": 1.578,
+    "mw": 1830,
+    "c": "FRA"
+  },
+  {
+    "n": "Koeberg",
+    "lat": -33.674,
+    "lon": 18.428,
+    "mw": 1800,
+    "c": "ZAF"
+  },
+  {
+    "n": "Sendai",
+    "lat": 31.834,
+    "lon": 130.189,
+    "mw": 1780,
+    "c": "JPN"
+  },
+  {
+    "n": "Joseph M Farley",
+    "lat": 31.223,
+    "lon": -85.112,
+    "mw": 1776,
+    "c": "USA"
+  },
+  {
+    "n": "Olkiluoto 1",
+    "lat": 61.237,
+    "lon": 21.443,
+    "mw": 1760,
+    "c": "FIN"
+  },
+  {
+    "n": "FESSENHEIM",
+    "lat": 47.903,
+    "lon": 7.563,
+    "mw": 1760,
+    "c": "FRA"
+  },
+  {
+    "n": "Kola NPP",
+    "lat": 67.467,
+    "lon": 32.467,
+    "mw": 1760,
+    "c": "RUS"
+  },
+  {
+    "n": "Shika",
+    "lat": 37.061,
+    "lon": 136.726,
+    "mw": 1746,
+    "c": "JPN"
+  },
+  {
+    "n": "Surry",
+    "lat": 37.166,
+    "lon": -76.699,
+    "mw": 1695,
+    "c": "USA"
+  },
+  {
+    "n": "Laguna Verde",
+    "lat": 19.721,
+    "lon": -96.406,
+    "mw": 1510,
+    "c": "MEX"
+  },
+  {
+    "n": "ISAR-2",
+    "lat": 48.605,
+    "lon": 12.294,
+    "mw": 1485,
+    "c": "DEU"
+  },
+  {
+    "n": "BROKDORF",
+    "lat": 53.851,
+    "lon": 9.345,
+    "mw": 1480,
+    "c": "DEU"
+  },
+  {
+    "n": "Beloyarsk",
+    "lat": 56.842,
+    "lon": 61.322,
+    "mw": 1480,
+    "c": "RUS"
+  },
+  {
+    "n": "PHILIPPSBURG-2",
+    "lat": 49.253,
+    "lon": 8.436,
+    "mw": 1468,
+    "c": "DEU"
+  },
+  {
+    "n": "Grand Gulf",
+    "lat": 32.008,
+    "lon": -91.048,
+    "mw": 1440,
+    "c": "USA"
+  },
+  {
+    "n": "EMSLAND",
+    "lat": 52.472,
+    "lon": 7.32,
+    "mw": 1406,
+    "c": "DEU"
+  },
+  {
+    "n": "NECKARWESTHEIM-2",
+    "lat": 49.041,
+    "lon": 9.176,
+    "mw": 1400,
+    "c": "DEU"
+  },
+  {
+    "n": "TARAPUR",
+    "lat": 19.829,
+    "lon": 72.662,
+    "mw": 1400,
+    "c": "IND"
+  },
+  {
+    "n": "Grohnde",
+    "lat": 52.036,
+    "lon": 9.414,
+    "mw": 1360,
+    "c": "DEU"
+  },
+  {
+    "n": "Almirante Álvaro Alberto - Unidade II (Antiga Angra II)",
     "lat": -23.007,
     "lon": -44.459,
     "mw": 1350,
     "c": "BRA"
   },
-  { "n": "KOZLODUY", "lat": 43.744, "lon": 23.772, "mw": 2000, "c": "BGR" },
-  { "n": "Bruce A", "lat": 44.339, "lon": -81.575, "mw": 3220, "c": "CAN" },
-  { "n": "Bruce B", "lat": 44.319, "lon": -81.603, "mw": 3390, "c": "CAN" },
-  { "n": "Darlington", "lat": 43.87, "lon": -78.724, "mw": 3740, "c": "CAN" },
-  { "n": "Pickering A", "lat": 43.811, "lon": -79.069, "mw": 1084, "c": "CAN" },
-  { "n": "Pickering B", "lat": 43.81, "lon": -79.064, "mw": 2160, "c": "CAN" },
-  { "n": "Point Lepreau", "lat": 45.069, "lon": -66.454, "mw": 660, "c": "CAN" },
-  { "n": "CEFR", "lat": 39.74, "lon": 116.03, "mw": 20, "c": "CHN" },
-  { "n": "Changjiang", "lat": 19.46, "lon": 108.9, "mw": 1220, "c": "CHN" },
-  { "n": "Daya Bay", "lat": 22.6, "lon": 114.54, "mw": 1888, "c": "CHN" },
-  { "n": "Fangchenggang", "lat": 21.67, "lon": 108.56, "mw": 2000, "c": "CHN" },
-  { "n": "Fangjiashan", "lat": 30.44, "lon": 120.94, "mw": 2024, "c": "CHN" },
-  { "n": "Fuqing", "lat": 25.443, "lon": 119.444, "mw": 4000, "c": "CHN" },
-  { "n": "Hongyanhe", "lat": 39.8, "lon": 121.48, "mw": 4183, "c": "CHN" },
-  { "n": "Ling Ao", "lat": 22.6, "lon": 114.55, "mw": 3914, "c": "CHN" },
-  { "n": "Ningde", "lat": 27.045, "lon": 120.286, "mw": 4072, "c": "CHN" },
-  { "n": "Qinshan 2", "lat": 30.433, "lon": 120.95, "mw": 4101, "c": "CHN" },
-  { "n": "Tianwan", "lat": 34.69, "lon": 119.46, "mw": 1980, "c": "CHN" },
-  { "n": "Yangjiang", "lat": 21.71, "lon": 112.26, "mw": 4000, "c": "CHN" },
-  { "n": "Dukonavy", "lat": 49.085, "lon": 16.148, "mw": 2040, "c": "CZE" },
-  { "n": "Temelín", "lat": 49.18, "lon": 14.38, "mw": 2133, "c": "CZE" },
-  { "n": "Loviisa Y1", "lat": 60.371, "lon": 26.347, "mw": 992, "c": "FIN" },
-  { "n": "Olkiluoto 1", "lat": 61.237, "lon": 21.443, "mw": 1760, "c": "FIN" },
-  { "n": "BELLEVILLE", "lat": 47.51, "lon": 2.875, "mw": 2620, "c": "FRA" },
-  { "n": "BLAYAIS", "lat": 45.256, "lon": -0.693, "mw": 3640, "c": "FRA" },
-  { "n": "BUGEY", "lat": 45.797, "lon": 5.271, "mw": 3580, "c": "FRA" },
-  { "n": "CATTENOM", "lat": 49.416, "lon": 6.217, "mw": 5200, "c": "FRA" },
-  { "n": "CHINON", "lat": 47.225, "lon": 0.166, "mw": 3620, "c": "FRA" },
-  { "n": "CHOOZ", "lat": 50.09, "lon": 4.789, "mw": 3000, "c": "FRA" },
-  { "n": "CIVAUX", "lat": 46.456, "lon": 0.655, "mw": 2990, "c": "FRA" },
-  { "n": "CRUAS", "lat": 44.633, "lon": 4.755, "mw": 3660, "c": "FRA" },
-  { "n": "DAMPIERRE", "lat": 47.732, "lon": 2.519, "mw": 3560, "c": "FRA" },
-  { "n": "FESSENHEIM", "lat": 47.903, "lon": 7.563, "mw": 1760, "c": "FRA" },
-  { "n": "FLAMANVILLE", "lat": 49.537, "lon": -1.882, "mw": 2660, "c": "FRA" },
-  { "n": "GOLFECH", "lat": 44.106, "lon": 0.844, "mw": 2620, "c": "FRA" },
-  { "n": "GRAVELINES", "lat": 51.014, "lon": 2.133, "mw": 5460, "c": "FRA" },
-  { "n": "NOGENT", "lat": 48.517, "lon": 3.518, "mw": 2620, "c": "FRA" },
-  { "n": "PALUEL", "lat": 49.858, "lon": 0.635, "mw": 5320, "c": "FRA" },
-  { "n": "PENLY", "lat": 49.976, "lon": 1.211, "mw": 2660, "c": "FRA" },
-  { "n": "ST ALBAN", "lat": 45.404, "lon": 4.755, "mw": 2670, "c": "FRA" },
-  { "n": "ST LAURENT", "lat": 47.72, "lon": 1.578, "mw": 1830, "c": "FRA" },
-  { "n": "TRICASTIN 1", "lat": 44.331, "lon": 4.731, "mw": 3660, "c": "FRA" },
-  { "n": "BROKDORF", "lat": 53.851, "lon": 9.345, "mw": 1480, "c": "DEU" },
-  { "n": "EMSLAND", "lat": 52.472, "lon": 7.32, "mw": 1406, "c": "DEU" },
-  { "n": "Grohnde", "lat": 52.036, "lon": 9.414, "mw": 1360, "c": "DEU" },
-  { "n": "ISAR-2", "lat": 48.605, "lon": 12.294, "mw": 1485, "c": "DEU" },
-  { "n": "Kernkraft Gundremmingen", "lat": 48.515, "lon": 10.402, "mw": 2572, "c": "DEU" },
-  { "n": "NECKARWESTHEIM-2", "lat": 49.041, "lon": 9.176, "mw": 1400, "c": "DEU" },
-  { "n": "PHILIPPSBURG-2", "lat": 49.253, "lon": 8.436, "mw": 1468, "c": "DEU" },
-  { "n": "Paksi Atomerőmű", "lat": 46.574, "lon": 18.854, "mw": 1887, "c": "HUN" },
-  { "n": "DAE RAJASTHAN", "lat": 24.875, "lon": 75.619, "mw": 100, "c": "IND" },
-  { "n": "KAIGA", "lat": 14.865, "lon": 74.439, "mw": 880, "c": "IND" },
-  { "n": "KAKRAPARA", "lat": 21.238, "lon": 73.349, "mw": 440, "c": "IND" },
-  { "n": "KUNDANKULAM", "lat": 8.169, "lon": 77.133, "mw": 2000, "c": "IND" },
-  { "n": "Kudankulam", "lat": 8.169, "lon": 77.713, "mw": 2000, "c": "IND" },
-  { "n": "M.A.P.P.", "lat": 12.557, "lon": 80.175, "mw": 440, "c": "IND" },
-  { "n": "N.A.P.S", "lat": 28.156, "lon": 78.409, "mw": 440, "c": "IND" },
-  { "n": "R.A.P.S.", "lat": 24.875, "lon": 75.619, "mw": 1080, "c": "IND" },
-  { "n": "TARAPUR", "lat": 19.829, "lon": 72.662, "mw": 1400, "c": "IND" },
-  { "n": "Bushehr", "lat": 28.83, "lon": 50.886, "mw": 1000, "c": "IRN" },
-  { "n": "Fukushima Daina", "lat": 37.316, "lon": 141.027, "mw": 4400, "c": "JPN" },
-  { "n": "Genkai", "lat": 33.515, "lon": 129.836, "mw": 3478, "c": "JPN" },
-  { "n": "Hamaoka", "lat": 34.624, "lon": 138.142, "mw": 3617, "c": "JPN" },
-  { "n": "Higashi-Dori", "lat": 41.188, "lon": 141.39, "mw": 1100, "c": "JPN" },
-  { "n": "Ikata", "lat": 33.491, "lon": 132.309, "mw": 2022, "c": "JPN" },
-  { "n": "Kashiwazaki Kariwa", "lat": 37.426, "lon": 138.594, "mw": 8212, "c": "JPN" },
-  { "n": "Mihama", "lat": 35.702, "lon": 135.963, "mw": 826, "c": "JPN" },
-  { "n": "Ohi", "lat": 35.542, "lon": 135.654, "mw": 4710, "c": "JPN" },
-  { "n": "Onagawa", "lat": 38.4, "lon": 141.5, "mw": 2174, "c": "JPN" },
-  { "n": "Sendai", "lat": 31.834, "lon": 130.189, "mw": 1780, "c": "JPN" },
-  { "n": "Shika", "lat": 37.061, "lon": 136.727, "mw": 1746, "c": "JPN" },
-  { "n": "Shimane", "lat": 35.538, "lon": 132.999, "mw": 820, "c": "JPN" },
-  { "n": "Takahama", "lat": 35.522, "lon": 135.504, "mw": 3392, "c": "JPN" },
-  { "n": "Tokai Daini", "lat": 36.422, "lon": 140.603, "mw": 1100, "c": "JPN" },
-  { "n": "Tomari", "lat": 43.037, "lon": 140.513, "mw": 2000, "c": "JPN" },
-  { "n": "Tsuruga", "lat": 35.752, "lon": 136.019, "mw": 1160, "c": "JPN" },
-  { "n": "Laguna Verde", "lat": 19.721, "lon": -96.406, "mw": 1510, "c": "MEX" },
-  { "n": "Borssele Nuclear Power Station", "lat": 51.431, "lon": 3.717, "mw": 485, "c": "NLD" },
-  { "n": "Chasnupp", "lat": 32.392, "lon": 71.462, "mw": 1330, "c": "PAK" },
-  { "n": "Kanupp", "lat": 24.845, "lon": 66.789, "mw": 137, "c": "PAK" },
-  { "n": "NPP Cernavoda", "lat": 44.322, "lon": 28.057, "mw": 1298, "c": "ROU" },
-  { "n": "Balakovo NPP", "lat": 52.093, "lon": 47.954, "mw": 4000, "c": "RUS" },
-  { "n": "Beloyarsk", "lat": 56.842, "lon": 61.323, "mw": 1480, "c": "RUS" },
-  { "n": "Bilibino", "lat": 68.05, "lon": 166.539, "mw": 48, "c": "RUS" },
-  { "n": "Kalinn NPP", "lat": 57.905, "lon": 35.061, "mw": 4000, "c": "RUS" },
-  { "n": "Kola NPP", "lat": 67.467, "lon": 32.467, "mw": 1760, "c": "RUS" },
-  { "n": "Kursk", "lat": 51.675, "lon": 35.606, "mw": 4000, "c": "RUS" },
-  { "n": "Leningrad NPP", "lat": 59.853, "lon": 29.049, "mw": 4000, "c": "RUS" },
-  { "n": "Novovoronezh", "lat": 51.282, "lon": 39.21, "mw": 1880, "c": "RUS" },
-  { "n": "Rostov NPP", "lat": 47.599, "lon": 42.372, "mw": 4000, "c": "RUS" },
-  { "n": "Smolensk", "lat": 54.165, "lon": 33.237, "mw": 3000, "c": "RUS" },
+  {
+    "n": "Chasnupp",
+    "lat": 32.392,
+    "lon": 71.462,
+    "mw": 1330,
+    "c": "PAK"
+  },
+  {
+    "n": "Perry",
+    "lat": 41.801,
+    "lon": -81.144,
+    "mw": 1312,
+    "c": "USA"
+  },
+  {
+    "n": "Point Beach Nuclear Plant",
+    "lat": 44.281,
+    "lon": -87.537,
+    "mw": 1311,
+    "c": "USA"
+  },
+  {
+    "n": "Indian Point 2",
+    "lat": 41.271,
+    "lon": -73.953,
+    "mw": 1299,
+    "c": "USA"
+  },
+  {
+    "n": "NPP Cernavoda",
+    "lat": 44.322,
+    "lon": 28.057,
+    "mw": 1298,
+    "c": "ROU"
+  },
+  {
+    "n": "PSEG Hope Creek Generating Station",
+    "lat": 39.467,
+    "lon": -75.538,
+    "mw": 1291,
+    "c": "USA"
+  },
+  {
+    "n": "Fermi",
+    "lat": 41.963,
+    "lon": -83.258,
+    "mw": 1281,
+    "c": "USA"
+  },
+  {
+    "n": "Chinshan",
+    "lat": 25.286,
+    "lon": 121.587,
+    "mw": 1272,
+    "c": "TWN"
+  },
+  {
+    "n": "Wolf Creek Generating Station",
+    "lat": 38.239,
+    "lon": -95.69,
+    "mw": 1268,
+    "c": "USA"
+  },
+  {
+    "n": "Kernkraftwerk Leibstadt",
+    "lat": 47.601,
+    "lon": 8.184,
+    "mw": 1245,
+    "c": "CHE"
+  },
+  {
+    "n": "Seabrook",
+    "lat": 42.899,
+    "lon": -70.849,
+    "mw": 1242,
+    "c": "USA"
+  },
+  {
+    "n": "Callaway",
+    "lat": 38.759,
+    "lon": -91.779,
+    "mw": 1236,
+    "c": "USA"
+  },
+  {
+    "n": "Heysham 2",
+    "lat": 54.029,
+    "lon": -2.916,
+    "mw": 1230,
+    "c": "GBR"
+  },
+  {
+    "n": "Changjiang",
+    "lat": 19.46,
+    "lon": 108.9,
+    "mw": 1220,
+    "c": "CHN"
+  },
+  {
+    "n": "Columbia Generating Station",
+    "lat": 46.471,
+    "lon": -119.334,
+    "mw": 1200,
+    "c": "USA"
+  },
+  {
+    "n": "Waterford 3",
+    "lat": 29.995,
+    "lon": -90.472,
+    "mw": 1200,
+    "c": "USA"
+  },
+  {
+    "n": "Sizewell B",
+    "lat": 52.215,
+    "lon": 1.621,
+    "mw": 1198,
+    "c": "GBR"
+  },
+  {
+    "n": "Prairie Island",
+    "lat": 44.622,
+    "lon": -92.633,
+    "mw": 1186,
+    "c": "USA"
+  },
+  {
+    "n": "Torness",
+    "lat": 55.968,
+    "lon": -2.409,
+    "mw": 1185,
+    "c": "GBR"
+  },
+  {
+    "n": "Hartlepool",
+    "lat": 54.634,
+    "lon": -1.18,
+    "mw": 1180,
+    "c": "GBR"
+  },
+  {
+    "n": "Tsuruga",
+    "lat": 35.752,
+    "lon": 136.019,
+    "mw": 1160,
+    "c": "JPN"
+  },
+  {
+    "n": "Heysham 1",
+    "lat": 54.029,
+    "lon": -2.916,
+    "mw": 1155,
+    "c": "GBR"
+  },
+  {
+    "n": "Clinton Power Station",
+    "lat": 40.172,
+    "lon": -88.834,
+    "mw": 1138,
+    "c": "USA"
+  },
+  {
+    "n": "Higashi-Dori",
+    "lat": 41.188,
+    "lon": 141.39,
+    "mw": 1100,
+    "c": "JPN"
+  },
+  {
+    "n": "Tokai Daini",
+    "lat": 36.422,
+    "lon": 140.603,
+    "mw": 1100,
+    "c": "JPN"
+  },
+  {
+    "n": "Pickering A",
+    "lat": 43.811,
+    "lon": -79.069,
+    "mw": 1084,
+    "c": "CAN"
+  },
+  {
+    "n": "R.A.P.S.",
+    "lat": 24.875,
+    "lon": 75.619,
+    "mw": 1080,
+    "c": "IND"
+  },
+  {
+    "n": "CN COFRENTES",
+    "lat": 39.213,
+    "lon": -1.051,
+    "mw": 1064,
+    "c": "ESP"
+  },
+  {
+    "n": "Dungeness B",
+    "lat": 50.913,
+    "lon": 0.964,
+    "mw": 1050,
+    "c": "GBR"
+  },
+  {
+    "n": "VANDELLOS GR 2",
+    "lat": 40.951,
+    "lon": 0.866,
+    "mw": 1045,
+    "c": "ESP"
+  },
+  {
+    "n": "River Bend",
+    "lat": 30.757,
+    "lon": -91.333,
+    "mw": 1036,
+    "c": "USA"
+  },
+  {
+    "n": "Kernkraftwerk Gösgen",
+    "lat": 47.366,
+    "lon": 7.968,
+    "mw": 1035,
+    "c": "CHE"
+  },
+  {
+    "n": "V C Summer",
+    "lat": 34.298,
+    "lon": -81.315,
+    "mw": 1030,
+    "c": "USA"
+  },
+  {
+    "n": "Indian Point 3",
+    "lat": 41.271,
+    "lon": -73.953,
+    "mw": 1012,
+    "c": "USA"
+  },
+  {
+    "n": "TRILLO",
+    "lat": 40.702,
+    "lon": -2.623,
+    "mw": 1003,
+    "c": "ESP"
+  },
+  {
+    "n": "Bushehr",
+    "lat": 28.83,
+    "lon": 50.886,
+    "mw": 1000,
+    "c": "IRN"
+  },
+  {
+    "n": "Loviisa Y1",
+    "lat": 60.371,
+    "lon": 26.347,
+    "mw": 992,
+    "c": "FIN"
+  },
+  {
+    "n": "Hunterston B",
+    "lat": 55.72,
+    "lon": -4.896,
+    "mw": 965,
+    "c": "GBR"
+  },
+  {
+    "n": "TIHANGE 1N",
+    "lat": 50.534,
+    "lon": 5.275,
+    "mw": 962,
+    "c": "BEL"
+  },
+  {
+    "n": "Hinkley Point B",
+    "lat": 51.209,
+    "lon": -3.133,
+    "mw": 955,
+    "c": "GBR"
+  },
+  {
+    "n": "Harris",
+    "lat": 35.633,
+    "lon": -78.956,
+    "mw": 951,
+    "c": "USA"
+  },
+  {
+    "n": "Davis Besse",
+    "lat": 41.597,
+    "lon": -83.086,
+    "mw": 925,
+    "c": "USA"
+  },
+  {
+    "n": "James A Fitzpatrick",
+    "lat": 43.521,
+    "lon": -76.408,
+    "mw": 883,
+    "c": "USA"
+  },
+  {
+    "n": "KAIGA",
+    "lat": 14.865,
+    "lon": 74.439,
+    "mw": 880,
+    "c": "IND"
+  },
   {
     "n": "Bohunice Nuclear Power Plant Slovakia",
     "lat": 48.496,
@@ -125,109 +1189,179 @@
     "mw": 880,
     "c": "SVK"
   },
-  { "n": "Krsko (NEK)", "lat": 45.939, "lon": 15.516, "mw": 696, "c": "SVN" },
-  { "n": "Koeberg", "lat": -33.674, "lon": 18.428, "mw": 1800, "c": "ZAF" },
-  { "n": "Hanbit", "lat": 35.411, "lon": 126.418, "mw": 5900, "c": "KOR" },
-  { "n": "Hanul", "lat": 37.093, "lon": 129.383, "mw": 5900, "c": "KOR" },
-  { "n": "Kori", "lat": 35.32, "lon": 129.295, "mw": 3137, "c": "KOR" },
-  { "n": "Shin-Kori", "lat": 35.327, "lon": 129.302, "mw": 3340, "c": "KOR" },
-  { "n": "Shin-Wolsong", "lat": 35.722, "lon": 129.479, "mw": 2000, "c": "KOR" },
-  { "n": "Wolsong", "lat": 35.711, "lon": 129.474, "mw": 2799, "c": "KOR" },
-  { "n": "ASCO GR", "lat": 41.201, "lon": 0.568, "mw": 1991, "c": "ESP" },
-  { "n": "CN ALMARAZ 1", "lat": 39.807, "lon": -5.699, "mw": 2017, "c": "ESP" },
-  { "n": "CN COFRENTES", "lat": 39.213, "lon": -1.051, "mw": 1064, "c": "ESP" },
-  { "n": "TRILLO", "lat": 40.702, "lon": -2.623, "mw": 1003, "c": "ESP" },
-  { "n": "VANDELLOS GR 2", "lat": 40.951, "lon": 0.866, "mw": 1045, "c": "ESP" },
-  { "n": "Forsmark", "lat": 60.403, "lon": 18.174, "mw": 3227, "c": "SWE" },
-  { "n": "Oskarshamn", "lat": 57.413, "lon": 16.668, "mw": 2603, "c": "SWE" },
-  { "n": "Ringhals", "lat": 57.257, "lon": 12.109, "mw": 3932, "c": "SWE" },
-  { "n": "Kernkraftwerk Beznau", "lat": 47.552, "lon": 8.228, "mw": 760, "c": "CHE" },
-  { "n": "Kernkraftwerk Gösgen", "lat": 47.366, "lon": 7.968, "mw": 1035, "c": "CHE" },
-  { "n": "Kernkraftwerk Leibstadt", "lat": 47.601, "lon": 8.185, "mw": 1245, "c": "CHE" },
-  { "n": "Kernkraftwerk Mühleberg", "lat": 46.969, "lon": 7.268, "mw": 390, "c": "CHE" },
-  { "n": "Chinshan", "lat": 25.286, "lon": 121.587, "mw": 1272, "c": "TWN" },
-  { "n": "Kuosheng", "lat": 25.203, "lon": 121.663, "mw": 2040, "c": "TWN" },
-  { "n": "Maanshan", "lat": 21.959, "lon": 120.75, "mw": 1902, "c": "TWN" },
-  { "n": "Khmelnytska", "lat": 50.302, "lon": 26.647, "mw": 2000, "c": "UKR" },
-  { "n": "Rivne (Rouno)", "lat": 51.325, "lon": 25.897, "mw": 2835, "c": "UKR" },
-  { "n": "South Ukraine", "lat": 47.812, "lon": 31.22, "mw": 3000, "c": "UKR" },
-  { "n": "Zaporozhye", "lat": 47.512, "lon": 34.586, "mw": 6000, "c": "UKR" },
-  { "n": "Dungeness B", "lat": 50.913, "lon": 0.964, "mw": 1050, "c": "GBR" },
-  { "n": "Hartlepool", "lat": 54.634, "lon": -1.18, "mw": 1180, "c": "GBR" },
-  { "n": "Heysham 1", "lat": 54.029, "lon": -2.916, "mw": 1155, "c": "GBR" },
-  { "n": "Heysham 2", "lat": 54.029, "lon": -2.916, "mw": 1230, "c": "GBR" },
-  { "n": "Hinkley Point B", "lat": 51.209, "lon": -3.133, "mw": 955, "c": "GBR" },
-  { "n": "Hunterston B", "lat": 55.72, "lon": -4.896, "mw": 965, "c": "GBR" },
-  { "n": "Sizewell B", "lat": 52.215, "lon": 1.621, "mw": 1198, "c": "GBR" },
-  { "n": "Torness", "lat": 55.968, "lon": -2.409, "mw": 1185, "c": "GBR" },
-  { "n": "Arkansas Nuclear One", "lat": 35.311, "lon": -93.235, "mw": 1845, "c": "USA" },
-  { "n": "Beaver Valley", "lat": 40.622, "lon": -80.434, "mw": 1847, "c": "USA" },
-  { "n": "Braidwood Generation Station", "lat": 41.244, "lon": -88.229, "mw": 2450, "c": "USA" },
-  { "n": "Browns Ferry", "lat": 34.704, "lon": -87.119, "mw": 3494, "c": "USA" },
-  { "n": "Brunswick Nuclear", "lat": 33.96, "lon": -78.011, "mw": 2003, "c": "USA" },
-  { "n": "Byron Generating Station", "lat": 42.074, "lon": -89.282, "mw": 2450, "c": "USA" },
-  { "n": "Callaway", "lat": 38.759, "lon": -91.779, "mw": 1236, "c": "USA" },
   {
-    "n": "Calvert Cliffs Nuclear Power Plant",
-    "lat": 38.434,
-    "lon": -76.442,
-    "mw": 1850,
+    "n": "Mihama",
+    "lat": 35.702,
+    "lon": 135.963,
+    "mw": 826,
+    "c": "JPN"
+  },
+  {
+    "n": "Shimane",
+    "lat": 35.538,
+    "lon": 132.999,
+    "mw": 820,
+    "c": "JPN"
+  },
+  {
+    "n": "Palisades",
+    "lat": 42.323,
+    "lon": -86.315,
+    "mw": 812,
     "c": "USA"
   },
-  { "n": "Catawba", "lat": 35.051, "lon": -81.069, "mw": 2410, "c": "USA" },
-  { "n": "Clinton Power Station", "lat": 40.172, "lon": -88.834, "mw": 1138, "c": "USA" },
-  { "n": "Columbia Generating Station", "lat": 46.471, "lon": -119.334, "mw": 1200, "c": "USA" },
-  { "n": "Comanche Peak", "lat": 32.298, "lon": -97.785, "mw": 2430, "c": "USA" },
-  { "n": "Cooper Nuclear Station", "lat": 40.363, "lon": -95.641, "mw": 801, "c": "USA" },
-  { "n": "Davis Besse", "lat": 41.597, "lon": -83.086, "mw": 925, "c": "USA" },
-  { "n": "Diablo Canyon", "lat": 35.212, "lon": -120.855, "mw": 2323, "c": "USA" },
-  { "n": "Donald C Cook", "lat": 41.976, "lon": -86.565, "mw": 2285, "c": "USA" },
-  { "n": "Dresden Generating Station", "lat": 41.39, "lon": -88.27, "mw": 2019, "c": "USA" },
-  { "n": "Duane Arnold Energy Center", "lat": 42.101, "lon": -91.778, "mw": 680, "c": "USA" },
-  { "n": "Edwin I Hatch", "lat": 31.934, "lon": -82.345, "mw": 1848, "c": "USA" },
-  { "n": "Fermi", "lat": 41.963, "lon": -83.258, "mw": 1281, "c": "USA" },
-  { "n": "Grand Gulf", "lat": 32.008, "lon": -91.048, "mw": 1440, "c": "USA" },
-  { "n": "H B Robinson", "lat": 34.402, "lon": -80.159, "mw": 769, "c": "USA" },
-  { "n": "Harris", "lat": 35.633, "lon": -78.956, "mw": 951, "c": "USA" },
-  { "n": "Indian Point 2", "lat": 41.271, "lon": -73.953, "mw": 1299, "c": "USA" },
-  { "n": "Indian Point 3", "lat": 41.271, "lon": -73.953, "mw": 1012, "c": "USA" },
-  { "n": "James A Fitzpatrick", "lat": 43.521, "lon": -76.408, "mw": 883, "c": "USA" },
-  { "n": "Joseph M Farley", "lat": 31.223, "lon": -85.112, "mw": 1776, "c": "USA" },
-  { "n": "LaSalle Generating Station", "lat": 41.246, "lon": -88.669, "mw": 2340, "c": "USA" },
-  { "n": "Limerick", "lat": 40.224, "lon": -75.587, "mw": 2277, "c": "USA" },
-  { "n": "McGuire", "lat": 35.433, "lon": -80.949, "mw": 2441, "c": "USA" },
-  { "n": "Millstone", "lat": 41.311, "lon": -72.168, "mw": 2163, "c": "USA" },
-  { "n": "Monticello Nuclear Facility", "lat": 45.334, "lon": -93.849, "mw": 685, "c": "USA" },
-  { "n": "Nine Mile Point Nuclear Station", "lat": 43.521, "lon": -76.41, "mw": 1901, "c": "USA" },
-  { "n": "North Anna", "lat": 38.06, "lon": -77.79, "mw": 1960, "c": "USA" },
-  { "n": "Oconee", "lat": 34.794, "lon": -82.899, "mw": 2667, "c": "USA" },
   {
-    "n": "PSEG Hope Creek Generating Station",
-    "lat": 39.467,
-    "lon": -75.538,
-    "mw": 1291,
+    "n": "Cooper Nuclear Station",
+    "lat": 40.363,
+    "lon": -95.641,
+    "mw": 801,
     "c": "USA"
   },
-  { "n": "PSEG Salem Generating Station", "lat": 39.463, "lon": -75.536, "mw": 2382, "c": "USA" },
-  { "n": "Palisades", "lat": 42.323, "lon": -86.315, "mw": 812, "c": "USA" },
-  { "n": "Palo Verde", "lat": 33.388, "lon": -112.862, "mw": 4210, "c": "USA" },
-  { "n": "Peach Bottom", "lat": 39.759, "lon": -76.269, "mw": 2876, "c": "USA" },
-  { "n": "Perry", "lat": 41.801, "lon": -81.144, "mw": 1312, "c": "USA" },
-  { "n": "Point Beach Nuclear Plant", "lat": 44.281, "lon": -87.537, "mw": 1311, "c": "USA" },
-  { "n": "Prairie Island", "lat": 44.622, "lon": -92.633, "mw": 1186, "c": "USA" },
-  { "n": "Quad Cities Generating Station", "lat": 41.726, "lon": -90.31, "mw": 2019, "c": "USA" },
-  { "n": "R E Ginna Nuclear Power Plant", "lat": 43.278, "lon": -77.31, "mw": 614, "c": "USA" },
-  { "n": "River Bend", "lat": 30.757, "lon": -91.333, "mw": 1036, "c": "USA" },
-  { "n": "Seabrook", "lat": 42.899, "lon": -70.849, "mw": 1242, "c": "USA" },
-  { "n": "Sequoyah", "lat": 35.227, "lon": -85.092, "mw": 2441, "c": "USA" },
-  { "n": "South Texas Project", "lat": 28.795, "lon": -96.048, "mw": 2709, "c": "USA" },
-  { "n": "St Lucie", "lat": 27.349, "lon": -80.246, "mw": 2160, "c": "USA" },
-  { "n": "Surry", "lat": 37.166, "lon": -76.699, "mw": 1695, "c": "USA" },
-  { "n": "TalenEnergy Susquehanna", "lat": 41.092, "lon": -76.146, "mw": 2532, "c": "USA" },
-  { "n": "Turkey Point", "lat": 25.436, "lon": -80.331, "mw": 2861, "c": "USA" },
-  { "n": "V C Summer", "lat": 34.298, "lon": -81.315, "mw": 1030, "c": "USA" },
-  { "n": "Vogtle", "lat": 33.143, "lon": -81.762, "mw": 2430, "c": "USA" },
-  { "n": "Waterford 3", "lat": 29.995, "lon": -90.472, "mw": 1200, "c": "USA" },
-  { "n": "Watts Bar Nuclear Plant", "lat": 35.602, "lon": -84.789, "mw": 2540, "c": "USA" },
-  { "n": "Wolf Creek Generating Station", "lat": 38.239, "lon": -95.69, "mw": 1268, "c": "USA" }
+  {
+    "n": "H B Robinson",
+    "lat": 34.402,
+    "lon": -80.159,
+    "mw": 769,
+    "c": "USA"
+  },
+  {
+    "n": "Kernkraftwerk Beznau",
+    "lat": 47.552,
+    "lon": 8.228,
+    "mw": 760,
+    "c": "CHE"
+  },
+  {
+    "n": "ATUCHA II",
+    "lat": -33.967,
+    "lon": -59.205,
+    "mw": 745,
+    "c": "ARG"
+  },
+  {
+    "n": "Krsko (NEK)",
+    "lat": 45.939,
+    "lon": 15.516,
+    "mw": 696,
+    "c": "SVN"
+  },
+  {
+    "n": "Monticello Nuclear Facility",
+    "lat": 45.334,
+    "lon": -93.849,
+    "mw": 685,
+    "c": "USA"
+  },
+  {
+    "n": "Duane Arnold Energy Center",
+    "lat": 42.101,
+    "lon": -91.778,
+    "mw": 680,
+    "c": "USA"
+  },
+  {
+    "n": "Point Lepreau",
+    "lat": 45.069,
+    "lon": -66.454,
+    "mw": 660,
+    "c": "CAN"
+  },
+  {
+    "n": "EMBALSE",
+    "lat": -32.232,
+    "lon": -64.442,
+    "mw": 648,
+    "c": "ARG"
+  },
+  {
+    "n": "Almirante Álvaro Alberto - Unidade I (Antiga Angra I)",
+    "lat": -23.009,
+    "lon": -44.457,
+    "mw": 640,
+    "c": "BRA"
+  },
+  {
+    "n": "R E Ginna Nuclear Power Plant",
+    "lat": 43.278,
+    "lon": -77.31,
+    "mw": 614,
+    "c": "USA"
+  },
+  {
+    "n": "Borssele Nuclear Power Station",
+    "lat": 51.431,
+    "lon": 3.717,
+    "mw": 485,
+    "c": "NLD"
+  },
+  {
+    "n": "KAKRAPARA",
+    "lat": 21.238,
+    "lon": 73.349,
+    "mw": 440,
+    "c": "IND"
+  },
+  {
+    "n": "M.A.P.P.",
+    "lat": 12.557,
+    "lon": 80.175,
+    "mw": 440,
+    "c": "IND"
+  },
+  {
+    "n": "N.A.P.S",
+    "lat": 28.156,
+    "lon": 78.409,
+    "mw": 440,
+    "c": "IND"
+  },
+  {
+    "n": "Kernkraftwerk Mühleberg",
+    "lat": 46.969,
+    "lon": 7.268,
+    "mw": 390,
+    "c": "CHE"
+  },
+  {
+    "n": "Armenian-2",
+    "lat": 40.181,
+    "lon": 44.15,
+    "mw": 375,
+    "c": "ARM"
+  },
+  {
+    "n": "ATUCHA I",
+    "lat": -33.967,
+    "lon": -59.206,
+    "mw": 370,
+    "c": "ARG"
+  },
+  {
+    "n": "Kanupp",
+    "lat": 24.845,
+    "lon": 66.789,
+    "mw": 137,
+    "c": "PAK"
+  },
+  {
+    "n": "DAE RAJASTHAN",
+    "lat": 24.875,
+    "lon": 75.619,
+    "mw": 100,
+    "c": "IND"
+  },
+  {
+    "n": "Bilibino",
+    "lat": 68.05,
+    "lon": 166.539,
+    "mw": 48,
+    "c": "RUS"
+  },
+  {
+    "n": "CEFR",
+    "lat": 39.74,
+    "lon": 116.03,
+    "mw": 20,
+    "c": "CHN"
+  }
 ]

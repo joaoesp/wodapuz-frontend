@@ -1,93 +1,318 @@
 [
-  { "n": "Cauchari", "lat": -23.8, "lon": -66.8, "mw": 300, "c": "ARG" },
-  { "n": "Haughton River Solar Farm", "lat": -19.733, "lon": 147.048, "mw": 500, "c": "AUS" },
-  { "n": "Sunraysia", "lat": -34.804, "lon": 143.491, "mw": 200, "c": "AUS" },
-  { "n": "Ituverava", "lat": -12.594, "lon": -44.112, "mw": 210, "c": "BRA" },
-  { "n": "Nova Olinda", "lat": -8.213, "lon": -42.545, "mw": 210, "c": "BRA" },
-  { "n": "Alashan 1p2", "lat": 38.761, "lon": 105.723, "mw": 400, "c": "CHN" },
-  { "n": "Alashan 1p3", "lat": 38.93, "lon": 105.64, "mw": 500, "c": "CHN" },
-  { "n": "Da Qaidam", "lat": 37.276, "lon": 95.514, "mw": 247, "c": "CHN" },
-  { "n": "Da Qaidam III+", "lat": 37.276, "lon": 95.514, "mw": 270, "c": "CHN" },
-  { "n": "Dabaodangzhen A", "lat": 38.65, "lon": 110.05, "mw": 200, "c": "CHN" },
-  { "n": "Datong GCL", "lat": 40.467, "lon": 114.027, "mw": 310, "c": "CHN" },
-  { "n": "Datong TopRunner", "lat": 40.008, "lon": 112.956, "mw": 1000, "c": "CHN" },
-  { "n": "DhSP} CTGNE", "lat": 37.37, "lon": 97.26, "mw": 500, "c": "CHN" },
-  { "n": "GoSP} CSP", "lat": 36.35, "lon": 95.12, "mw": 200, "c": "CHN" },
-  { "n": "GoSP} CTGNE", "lat": 36.34, "lon": 95.19, "mw": 500, "c": "CHN" },
-  { "n": "Golmud", "lat": 36.4, "lon": 95.157, "mw": 200, "c": "CHN" },
-  { "n": "Gonghe CPI", "lat": 36.155, "lon": 100.507, "mw": 200, "c": "CHN" },
-  { "n": "Hanggin C", "lat": 40.44, "lon": 108.827, "mw": 200, "c": "CHN" },
-  { "n": "Hongshagang", "lat": 38.957, "lon": 102.472, "mw": 820, "c": "CHN" },
-  { "n": "Hongshagang I", "lat": 38.924, "lon": 102.548, "mw": 300, "c": "CHN" },
-  { "n": "Hongshagang III", "lat": 38.923, "lon": 102.562, "mw": 250, "c": "CHN" },
-  { "n": "Ili Kazakh I", "lat": 43.992, "lon": 80.826, "mw": 1000, "c": "CHN" },
-  { "n": "Jianshui", "lat": 23.75, "lon": 102.933, "mw": 300, "c": "CHN" },
-  { "n": "Jinchuan K", "lat": 38.585, "lon": 102.157, "mw": 250, "c": "CHN" },
-  { "n": "Liushuquan ST", "lat": 43.138, "lon": 92.947, "mw": 200, "c": "CHN" },
-  { "n": "Longyangxia Solar-Hydro I", "lat": 36.184, "lon": 100.618, "mw": 320, "c": "CHN" },
-  { "n": "Longyangxia Solar-Hydro II", "lat": 36.099, "lon": 100.547, "mw": 530, "c": "CHN" },
-  { "n": "Ningdong NGEI", "lat": 38.315, "lon": 106.805, "mw": 300, "c": "CHN" },
-  { "n": "Shicheng", "lat": 26.31, "lon": 116.31, "mw": 200, "c": "CHN" },
-  { "n": "Tiangang Floating", "lat": 33.236, "lon": 117.977, "mw": 275, "c": "CHN" },
-  { "n": "Toksun", "lat": 42.244, "lon": 88.315, "mw": 971, "c": "CHN" },
-  { "n": "Wulataixiang G", "lat": 42.248, "lon": 93.886, "mw": 200, "c": "CHN" },
-  { "n": "Xihe", "lat": 31.76, "lon": 113.515, "mw": 200, "c": "CHN" },
-  { "n": "Xingqing A", "lat": 38.53, "lon": 106.616, "mw": 500, "c": "CHN" },
-  { "n": "Yanchi", "lat": 37.982, "lon": 106.999, "mw": 1000, "c": "CHN" },
-  { "n": "Yuyang A", "lat": 38.762, "lon": 109.679, "mw": 200, "c": "CHN" },
-  { "n": "Yuyang D", "lat": 38.81, "lon": 109.692, "mw": 300, "c": "CHN" },
-  { "n": "Cestas", "lat": 44.724, "lon": -0.815, "mw": 301, "c": "FRA" },
-  { "n": "Anantapur Tata", "lat": 14.026, "lon": 78.434, "mw": 200, "c": "IND" },
-  { "n": "BhSP1", "lat": 27.491, "lon": 71.961, "mw": 420, "c": "IND" },
-  { "n": "BhSP2", "lat": 27.491, "lon": 71.961, "mw": 260, "c": "IND" },
-  { "n": "BhSP3", "lat": 27.491, "lon": 71.961, "mw": 560, "c": "IND" },
-  { "n": "BhSP3} Acme", "lat": 27.517, "lon": 71.964, "mw": 200, "c": "IND" },
-  { "n": "BhSP3} SBG", "lat": 27.507, "lon": 71.974, "mw": 360, "c": "IND" },
-  { "n": "BhSP4", "lat": 27.491, "lon": 71.961, "mw": 210, "c": "IND" },
-  { "n": "Charanka Solar Power Plant", "lat": 23.907, "lon": 71.188, "mw": 221, "c": "IND" },
-  { "n": "KUMSP} Greenko", "lat": 15.679, "lon": 78.274, "mw": 500, "c": "IND" },
-  { "n": "KUMSP} Softbank", "lat": 15.662, "lon": 78.257, "mw": 350, "c": "IND" },
-  { "n": "Kamuthi Solar Power Plant", "lat": 9.338, "lon": 78.392, "mw": 648, "c": "IND" },
-  { "n": "NPKSP} Azure O", "lat": 14.024, "lon": 78.446, "mw": 200, "c": "IND" },
-  { "n": "NPKSP} Greenko", "lat": 14.101, "lon": 78.463, "mw": 500, "c": "IND" },
-  { "n": "PaSP} Renew 2", "lat": 14.284, "lon": 77.4, "mw": 300, "c": "IND" },
-  { "n": "RUMS} Acme", "lat": 24.471, "lon": 81.549, "mw": 250, "c": "IND" },
-  { "n": "RUMS} Mahindra", "lat": 24.484, "lon": 81.595, "mw": 250, "c": "IND" },
-  { "n": "RUMS} Sprng", "lat": 24.469, "lon": 81.581, "mw": 250, "c": "IND" },
-  { "n": "Setouchi", "lat": 34.643, "lon": 134.159, "mw": 230, "c": "JPN" },
-  { "n": "Don José", "lat": 21.344, "lon": -100.596, "mw": 207, "c": "MEX" },
-  { "n": "Puerto Libertad", "lat": 29.945, "lon": -112.665, "mw": 320, "c": "MEX" },
-  { "n": "Solem", "lat": 21.895, "lon": -102.082, "mw": 287, "c": "MEX" },
-  { "n": "Villanueva I", "lat": 25.586, "lon": -103.056, "mw": 330, "c": "MEX" },
-  { "n": "Villanueva III", "lat": 25.577, "lon": -103.034, "mw": 250, "c": "MEX" },
   {
-    "n": "Centrale Solaire Noor Ouarzazate 2",
-    "lat": 31.009,
-    "lon": -6.862,
-    "mw": 200,
-    "c": "MAR"
+    "n": "Miraah CSP",
+    "lat": 18.35,
+    "lon": 55.71,
+    "mw": 1021,
+    "c": "OMN"
   },
-  { "n": "Miraah CSP", "lat": 18.35, "lon": 55.71, "mw": 1021, "c": "OMN" },
-  { "n": "Quaid-e-Azam", "lat": 29.318, "lon": 71.824, "mw": 400, "c": "PAK" },
-  { "n": "Solara4", "lat": 37.365, "lon": -7.665, "mw": 219, "c": "PRT" },
-  { "n": "SOLABEN 3", "lat": 39.226, "lon": -5.39, "mw": 200, "c": "ESP" },
-  { "n": "MBRSP} II", "lat": 24.759, "lon": 55.383, "mw": 220, "c": "ARE" },
-  { "n": "MBRSP} IIIA", "lat": 24.747, "lon": 55.385, "mw": 200, "c": "ARE" },
-  { "n": "MBRSP} IIIB", "lat": 24.765, "lon": 55.37, "mw": 300, "c": "ARE" },
-  { "n": "AV Solar Ranch One", "lat": 34.78, "lon": -118.424, "mw": 253, "c": "USA" },
-  { "n": "Agua Caliente Solar Project", "lat": 32.977, "lon": -113.494, "mw": 348, "c": "USA" },
-  { "n": "Buckthorn Westex", "lat": 30.576, "lon": -102.551, "mw": 202, "c": "USA" },
-  { "n": "California Valley Solar Ranch", "lat": 35.324, "lon": -119.917, "mw": 250, "c": "USA" },
-  { "n": "Copper Mountain Solar 3", "lat": 35.889, "lon": -114.958, "mw": 255, "c": "USA" },
-  { "n": "Desert Sunlight 250  LLC", "lat": 33.806, "lon": -115.395, "mw": 250, "c": "USA" },
-  { "n": "Desert Sunlight 300  LLC", "lat": 33.823, "lon": -115.394, "mw": 314, "c": "USA" },
-  { "n": "Genesis Solar Energy Project", "lat": 33.665, "lon": -114.998, "mw": 250, "c": "USA" },
   {
-    "n": "Great Valley Solar Portfolio Holdings  L",
-    "lat": 36.581,
-    "lon": -120.38,
-    "mw": 203,
+    "n": "Datong TopRunner",
+    "lat": 40.008,
+    "lon": 112.956,
+    "mw": 1000,
+    "c": "CHN"
+  },
+  {
+    "n": "Ili Kazakh I",
+    "lat": 43.992,
+    "lon": 80.826,
+    "mw": 1000,
+    "c": "CHN"
+  },
+  {
+    "n": "Yanchi",
+    "lat": 37.982,
+    "lon": 106.999,
+    "mw": 1000,
+    "c": "CHN"
+  },
+  {
+    "n": "Toksun",
+    "lat": 42.244,
+    "lon": 88.315,
+    "mw": 971,
+    "c": "CHN"
+  },
+  {
+    "n": "Hongshagang",
+    "lat": 38.957,
+    "lon": 102.472,
+    "mw": 820,
+    "c": "CHN"
+  },
+  {
+    "n": "Kamuthi Solar Power Plant",
+    "lat": 9.338,
+    "lon": 78.392,
+    "mw": 648,
+    "c": "IND"
+  },
+  {
+    "n": "Topaz Solar Farm",
+    "lat": 35.406,
+    "lon": -120.069,
+    "mw": 586,
     "c": "USA"
+  },
+  {
+    "n": "BhSP3",
+    "lat": 27.491,
+    "lon": 71.961,
+    "mw": 560,
+    "c": "IND"
+  },
+  {
+    "n": "Longyangxia Solar-Hydro II",
+    "lat": 36.099,
+    "lon": 100.547,
+    "mw": 530,
+    "c": "CHN"
+  },
+  {
+    "n": "Haughton River Solar Farm",
+    "lat": -19.733,
+    "lon": 147.048,
+    "mw": 500,
+    "c": "AUS"
+  },
+  {
+    "n": "Alashan 1p3",
+    "lat": 38.93,
+    "lon": 105.64,
+    "mw": 500,
+    "c": "CHN"
+  },
+  {
+    "n": "DhSP} CTGNE",
+    "lat": 37.37,
+    "lon": 97.26,
+    "mw": 500,
+    "c": "CHN"
+  },
+  {
+    "n": "GoSP} CTGNE",
+    "lat": 36.34,
+    "lon": 95.19,
+    "mw": 500,
+    "c": "CHN"
+  },
+  {
+    "n": "Xingqing A",
+    "lat": 38.53,
+    "lon": 106.616,
+    "mw": 500,
+    "c": "CHN"
+  },
+  {
+    "n": "KUMSP} Greenko",
+    "lat": 15.679,
+    "lon": 78.274,
+    "mw": 500,
+    "c": "IND"
+  },
+  {
+    "n": "NPKSP} Greenko",
+    "lat": 14.101,
+    "lon": 78.463,
+    "mw": 500,
+    "c": "IND"
+  },
+  {
+    "n": "BhSP1",
+    "lat": 27.491,
+    "lon": 71.961,
+    "mw": 420,
+    "c": "IND"
+  },
+  {
+    "n": "Dau Tieng",
+    "lat": 11.335,
+    "lon": 106.275,
+    "mw": 420,
+    "c": "VNM"
+  },
+  {
+    "n": "Alashan 1p2",
+    "lat": 38.761,
+    "lon": 105.723,
+    "mw": 400,
+    "c": "CHN"
+  },
+  {
+    "n": "Quaid-e-Azam",
+    "lat": 29.318,
+    "lon": 71.824,
+    "mw": 400,
+    "c": "PAK"
+  },
+  {
+    "n": "BhSP3} SBG",
+    "lat": 27.507,
+    "lon": 71.974,
+    "mw": 360,
+    "c": "IND"
+  },
+  {
+    "n": "KUMSP} Softbank",
+    "lat": 15.662,
+    "lon": 78.257,
+    "mw": 350,
+    "c": "IND"
+  },
+  {
+    "n": "Agua Caliente Solar Project",
+    "lat": 32.977,
+    "lon": -113.495,
+    "mw": 348,
+    "c": "USA"
+  },
+  {
+    "n": "Villanueva I",
+    "lat": 25.586,
+    "lon": -103.056,
+    "mw": 330,
+    "c": "MEX"
+  },
+  {
+    "n": "Phước Nam",
+    "lat": 11.446,
+    "lon": 108.866,
+    "mw": 330,
+    "c": "VNM"
+  },
+  {
+    "n": "Longyangxia Solar-Hydro I",
+    "lat": 36.184,
+    "lon": 100.618,
+    "mw": 320,
+    "c": "CHN"
+  },
+  {
+    "n": "Puerto Libertad",
+    "lat": 29.945,
+    "lon": -112.665,
+    "mw": 320,
+    "c": "MEX"
+  },
+  {
+    "n": "Solar Star 1",
+    "lat": 34.818,
+    "lon": -118.404,
+    "mw": 318,
+    "c": "USA"
+  },
+  {
+    "n": "Desert Sunlight 300  LLC",
+    "lat": 33.823,
+    "lon": -115.394,
+    "mw": 314,
+    "c": "USA"
+  },
+  {
+    "n": "Datong GCL",
+    "lat": 40.467,
+    "lon": 114.027,
+    "mw": 310,
+    "c": "CHN"
+  },
+  {
+    "n": "Cestas",
+    "lat": 44.724,
+    "lon": -0.815,
+    "mw": 301,
+    "c": "FRA"
+  },
+  {
+    "n": "Cauchari",
+    "lat": -23.8,
+    "lon": -66.8,
+    "mw": 300,
+    "c": "ARG"
+  },
+  {
+    "n": "Hongshagang I",
+    "lat": 38.924,
+    "lon": 102.548,
+    "mw": 300,
+    "c": "CHN"
+  },
+  {
+    "n": "Jianshui",
+    "lat": 23.75,
+    "lon": 102.933,
+    "mw": 300,
+    "c": "CHN"
+  },
+  {
+    "n": "Ningdong NGEI",
+    "lat": 38.315,
+    "lon": 106.805,
+    "mw": 300,
+    "c": "CHN"
+  },
+  {
+    "n": "Yuyang D",
+    "lat": 38.81,
+    "lon": 109.692,
+    "mw": 300,
+    "c": "CHN"
+  },
+  {
+    "n": "PaSP} Renew 2",
+    "lat": 14.284,
+    "lon": 77.4,
+    "mw": 300,
+    "c": "IND"
+  },
+  {
+    "n": "MBRSP} IIIB",
+    "lat": 24.765,
+    "lon": 55.37,
+    "mw": 300,
+    "c": "ARE"
+  },
+  {
+    "n": "Stateline Solar",
+    "lat": 35.6,
+    "lon": -115.4,
+    "mw": 300,
+    "c": "USA"
+  },
+  {
+    "n": "Solem",
+    "lat": 21.895,
+    "lon": -102.082,
+    "mw": 287,
+    "c": "MEX"
+  },
+  {
+    "n": "Mojave Solar Project",
+    "lat": 35.018,
+    "lon": -117.339,
+    "mw": 280,
+    "c": "USA"
+  },
+  {
+    "n": "Solana Generating Station",
+    "lat": 32.922,
+    "lon": -112.956,
+    "mw": 280,
+    "c": "USA"
+  },
+  {
+    "n": "Solar Star 2",
+    "lat": 34.849,
+    "lon": -118.353,
+    "mw": 279,
+    "c": "USA"
+  },
+  {
+    "n": "Tiangang Floating",
+    "lat": 33.236,
+    "lon": 117.977,
+    "mw": 275,
+    "c": "CHN"
   },
   {
     "n": "McCoy Solar Energy Project Hybrid",
@@ -96,20 +321,347 @@
     "mw": 271,
     "c": "USA"
   },
-  { "n": "Moapa Southern Paiute", "lat": 36.53, "lon": -114.77, "mw": 250, "c": "USA" },
-  { "n": "Mojave Solar Project", "lat": 35.018, "lon": -117.339, "mw": 280, "c": "USA" },
-  { "n": "Mount Signal Solar Farm V", "lat": 32.679, "lon": -115.567, "mw": 252, "c": "USA" },
-  { "n": "Phoebe Solar", "lat": 31.843, "lon": -102.868, "mw": 250, "c": "USA" },
-  { "n": "RE Tranquillity", "lat": 36.581, "lon": -120.404, "mw": 205, "c": "USA" },
-  { "n": "Silver State Solar Power South", "lat": 35.63, "lon": -115.32, "mw": 260, "c": "USA" },
-  { "n": "Solana Generating Station", "lat": 32.922, "lon": -112.956, "mw": 280, "c": "USA" },
-  { "n": "Solar Star 1", "lat": 34.818, "lon": -118.404, "mw": 318, "c": "USA" },
-  { "n": "Solar Star 2", "lat": 34.849, "lon": -118.353, "mw": 279, "c": "USA" },
-  { "n": "Stateline Solar", "lat": 35.6, "lon": -115.4, "mw": 300, "c": "USA" },
-  { "n": "Techren Solar II LLC", "lat": 35.867, "lon": -114.956, "mw": 200, "c": "USA" },
-  { "n": "Topaz Solar Farm", "lat": 35.406, "lon": -120.069, "mw": 586, "c": "USA" },
-  { "n": "Wright Solar Park", "lat": 37.009, "lon": -120.957, "mw": 200, "c": "USA" },
-  { "n": "Dau Tieng", "lat": 11.335, "lon": 106.275, "mw": 420, "c": "VNM" },
-  { "n": "Phước Nam", "lat": 11.446, "lon": 108.866, "mw": 330, "c": "VNM" },
-  { "n": "Thuan Bac", "lat": 11.7, "lon": 109.03, "mw": 204, "c": "VNM" }
+  {
+    "n": "Da Qaidam III+",
+    "lat": 37.276,
+    "lon": 95.514,
+    "mw": 270,
+    "c": "CHN"
+  },
+  {
+    "n": "BhSP2",
+    "lat": 27.491,
+    "lon": 71.961,
+    "mw": 260,
+    "c": "IND"
+  },
+  {
+    "n": "Silver State Solar Power South",
+    "lat": 35.63,
+    "lon": -115.32,
+    "mw": 260,
+    "c": "USA"
+  },
+  {
+    "n": "Copper Mountain Solar 3",
+    "lat": 35.889,
+    "lon": -114.958,
+    "mw": 255,
+    "c": "USA"
+  },
+  {
+    "n": "AV Solar Ranch One",
+    "lat": 34.78,
+    "lon": -118.424,
+    "mw": 253,
+    "c": "USA"
+  },
+  {
+    "n": "Mount Signal Solar Farm V",
+    "lat": 32.679,
+    "lon": -115.567,
+    "mw": 252,
+    "c": "USA"
+  },
+  {
+    "n": "Hongshagang III",
+    "lat": 38.923,
+    "lon": 102.562,
+    "mw": 250,
+    "c": "CHN"
+  },
+  {
+    "n": "Jinchuan K",
+    "lat": 38.585,
+    "lon": 102.157,
+    "mw": 250,
+    "c": "CHN"
+  },
+  {
+    "n": "RUMS} Acme",
+    "lat": 24.471,
+    "lon": 81.549,
+    "mw": 250,
+    "c": "IND"
+  },
+  {
+    "n": "RUMS} Mahindra",
+    "lat": 24.484,
+    "lon": 81.595,
+    "mw": 250,
+    "c": "IND"
+  },
+  {
+    "n": "RUMS} Sprng",
+    "lat": 24.469,
+    "lon": 81.581,
+    "mw": 250,
+    "c": "IND"
+  },
+  {
+    "n": "Villanueva III",
+    "lat": 25.577,
+    "lon": -103.034,
+    "mw": 250,
+    "c": "MEX"
+  },
+  {
+    "n": "California Valley Solar Ranch",
+    "lat": 35.324,
+    "lon": -119.917,
+    "mw": 250,
+    "c": "USA"
+  },
+  {
+    "n": "Desert Sunlight 250  LLC",
+    "lat": 33.806,
+    "lon": -115.395,
+    "mw": 250,
+    "c": "USA"
+  },
+  {
+    "n": "Genesis Solar Energy Project",
+    "lat": 33.665,
+    "lon": -114.998,
+    "mw": 250,
+    "c": "USA"
+  },
+  {
+    "n": "Moapa Southern Paiute",
+    "lat": 36.53,
+    "lon": -114.77,
+    "mw": 250,
+    "c": "USA"
+  },
+  {
+    "n": "Phoebe Solar",
+    "lat": 31.843,
+    "lon": -102.868,
+    "mw": 250,
+    "c": "USA"
+  },
+  {
+    "n": "Da Qaidam",
+    "lat": 37.276,
+    "lon": 95.514,
+    "mw": 247,
+    "c": "CHN"
+  },
+  {
+    "n": "Setouchi",
+    "lat": 34.643,
+    "lon": 134.159,
+    "mw": 230,
+    "c": "JPN"
+  },
+  {
+    "n": "Charanka Solar Power Plant",
+    "lat": 23.907,
+    "lon": 71.188,
+    "mw": 221,
+    "c": "IND"
+  },
+  {
+    "n": "MBRSP} II",
+    "lat": 24.759,
+    "lon": 55.383,
+    "mw": 220,
+    "c": "ARE"
+  },
+  {
+    "n": "Solara4",
+    "lat": 37.365,
+    "lon": -7.665,
+    "mw": 219,
+    "c": "PRT"
+  },
+  {
+    "n": "Ituverava",
+    "lat": -12.594,
+    "lon": -44.112,
+    "mw": 210,
+    "c": "BRA"
+  },
+  {
+    "n": "Nova Olinda",
+    "lat": -8.213,
+    "lon": -42.545,
+    "mw": 210,
+    "c": "BRA"
+  },
+  {
+    "n": "BhSP4",
+    "lat": 27.491,
+    "lon": 71.961,
+    "mw": 210,
+    "c": "IND"
+  },
+  {
+    "n": "Don José",
+    "lat": 21.344,
+    "lon": -100.596,
+    "mw": 207,
+    "c": "MEX"
+  },
+  {
+    "n": "RE Tranquillity",
+    "lat": 36.581,
+    "lon": -120.404,
+    "mw": 205,
+    "c": "USA"
+  },
+  {
+    "n": "Thuan Bac",
+    "lat": 11.7,
+    "lon": 109.03,
+    "mw": 204,
+    "c": "VNM"
+  },
+  {
+    "n": "Great Valley Solar Portfolio Holdings  LLC",
+    "lat": 36.581,
+    "lon": -120.38,
+    "mw": 203,
+    "c": "USA"
+  },
+  {
+    "n": "Buckthorn Westex",
+    "lat": 30.576,
+    "lon": -102.551,
+    "mw": 202,
+    "c": "USA"
+  },
+  {
+    "n": "Sunraysia",
+    "lat": -34.804,
+    "lon": 143.491,
+    "mw": 200,
+    "c": "AUS"
+  },
+  {
+    "n": "Dabaodangzhen A",
+    "lat": 38.65,
+    "lon": 110.05,
+    "mw": 200,
+    "c": "CHN"
+  },
+  {
+    "n": "GoSP} CSP",
+    "lat": 36.35,
+    "lon": 95.12,
+    "mw": 200,
+    "c": "CHN"
+  },
+  {
+    "n": "Golmud",
+    "lat": 36.4,
+    "lon": 95.157,
+    "mw": 200,
+    "c": "CHN"
+  },
+  {
+    "n": "Gonghe CPI",
+    "lat": 36.155,
+    "lon": 100.507,
+    "mw": 200,
+    "c": "CHN"
+  },
+  {
+    "n": "Hanggin C",
+    "lat": 40.44,
+    "lon": 108.827,
+    "mw": 200,
+    "c": "CHN"
+  },
+  {
+    "n": "Liushuquan ST",
+    "lat": 43.138,
+    "lon": 92.947,
+    "mw": 200,
+    "c": "CHN"
+  },
+  {
+    "n": "Shicheng",
+    "lat": 26.31,
+    "lon": 116.31,
+    "mw": 200,
+    "c": "CHN"
+  },
+  {
+    "n": "Wulataixiang G",
+    "lat": 42.248,
+    "lon": 93.886,
+    "mw": 200,
+    "c": "CHN"
+  },
+  {
+    "n": "Xihe",
+    "lat": 31.76,
+    "lon": 113.515,
+    "mw": 200,
+    "c": "CHN"
+  },
+  {
+    "n": "Yuyang A",
+    "lat": 38.762,
+    "lon": 109.679,
+    "mw": 200,
+    "c": "CHN"
+  },
+  {
+    "n": "Anantapur Tata",
+    "lat": 14.026,
+    "lon": 78.434,
+    "mw": 200,
+    "c": "IND"
+  },
+  {
+    "n": "BhSP3} Acme",
+    "lat": 27.517,
+    "lon": 71.964,
+    "mw": 200,
+    "c": "IND"
+  },
+  {
+    "n": "NPKSP} Azure O",
+    "lat": 14.024,
+    "lon": 78.446,
+    "mw": 200,
+    "c": "IND"
+  },
+  {
+    "n": "Centrale Solaire Noor Ouarzazate 2",
+    "lat": 31.009,
+    "lon": -6.862,
+    "mw": 200,
+    "c": "MAR"
+  },
+  {
+    "n": "SOLABEN 3",
+    "lat": 39.226,
+    "lon": -5.391,
+    "mw": 200,
+    "c": "ESP"
+  },
+  {
+    "n": "MBRSP} IIIA",
+    "lat": 24.747,
+    "lon": 55.385,
+    "mw": 200,
+    "c": "ARE"
+  },
+  {
+    "n": "Techren Solar II LLC",
+    "lat": 35.867,
+    "lon": -114.956,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Wright Solar Park",
+    "lat": 37.009,
+    "lon": -120.957,
+    "mw": 200,
+    "c": "USA"
+  }
 ]

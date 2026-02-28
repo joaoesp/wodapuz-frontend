@@ -1,249 +1,185 @@
 [
-  { "n": "Hadjret Ennous", "lat": 36.577, "lon": 2.08, "mw": 1200, "c": "DZA" },
-  { "n": "Koudiet Eddraouch", "lat": 36.885, "lon": 8.078, "mw": 1200, "c": "DZA" },
-  { "n": "Terga", "lat": 35.461, "lon": -1.229, "mw": 1200, "c": "DZA" },
-  { "n": "NUEVO PUERTO", "lat": -34.572, "lon": -58.383, "mw": 1218, "c": "ARG" },
-  { "n": "Hrazadan", "lat": 40.564, "lon": 44.748, "mw": 1110, "c": "ARM" },
-  { "n": "Simmering", "lat": 48.182, "lon": 16.433, "mw": 1272, "c": "AUT" },
-  { "n": "Al Dur Power and Water", "lat": 25.971, "lon": 50.608, "mw": 1540, "c": "BHR" },
-  { "n": "Alba Power Station", "lat": 26.095, "lon": 50.601, "mw": 2204, "c": "BHR" },
-  { "n": "Sitra Power an Water Station", "lat": 26.183, "lon": 50.624, "mw": 1205, "c": "BHR" },
-  { "n": "Ashuganj (Aggreko)", "lat": 24.043, "lon": 91.016, "mw": 1649, "c": "BGD" },
   {
-    "n": "Bereza SDPP Thermal Power Plant Belarus",
-    "lat": 52.454,
-    "lon": 25.193,
-    "mw": 1130,
-    "c": "BLR"
-  },
-  {
-    "n": "Lukoml Thermal Power Plant Belarus",
-    "lat": 54.68,
-    "lon": 29.134,
-    "mw": 2460,
-    "c": "BLR"
-  },
-  { "n": "Minsk-4 CHP CCGT Power Plant", "lat": 53.872, "lon": 27.402, "mw": 1035, "c": "BLR" },
-  {
-    "n": "Governador Leonel Brizola (Antiga TermoR",
-    "lat": -22.71,
-    "lon": -43.246,
-    "mw": 1058,
-    "c": "BRA"
-  },
-  { "n": "Greenfield Energy Centre", "lat": 42.77, "lon": -82.453, "mw": 1005, "c": "CAN" },
-  { "n": "Lennox", "lat": 44.144, "lon": -76.848, "mw": 2000, "c": "CAN" },
-  { "n": "Banshan Gas", "lat": 30.36, "lon": 120.14, "mw": 1170, "c": "CHN" },
-  { "n": "Beijing - Northeast Gas", "lat": 39.95, "lon": 116.62, "mw": 1400, "c": "CHN" },
-  { "n": "Beijing - Northwest", "lat": 39.942, "lon": 116.126, "mw": 2100, "c": "CHN" },
-  { "n": "Bejing Southwest", "lat": 39.94, "lon": 116.13, "mw": 1538, "c": "CHN" },
-  { "n": "Black Point Power Station", "lat": 22.41, "lon": 113.91, "mw": 2500, "c": "CHN" },
-  { "n": "Dazhou", "lat": 31.11, "lon": 107.48, "mw": 1400, "c": "CHN" },
-  { "n": "Fujian Jinjiang LNG", "lat": 24.56, "lon": 118.64, "mw": 1516, "c": "CHN" },
-  { "n": "Fujian Putian", "lat": 25.22, "lon": 119, "mw": 1528, "c": "CHN" },
-  { "n": "Guangdong Huizhou", "lat": 22.76, "lon": 114.61, "mw": 1080, "c": "CHN" },
-  { "n": "Guangdong Shenzhen Qianwan", "lat": 22.51, "lon": 113.85, "mw": 1083, "c": "CHN" },
-  { "n": "Hangzhou Hadian Banshan", "lat": 31.23, "lon": 118.37, "mw": 1170, "c": "CHN" },
-  { "n": "Hengmen Expansion Gas", "lat": 22.57, "lon": 113.57, "mw": 1170, "c": "CHN" },
-  { "n": "Hengmen Gas", "lat": 22.57, "lon": 113.57, "mw": 1030, "c": "CHN" },
-  { "n": "Huaneng Shanghai Baoshan", "lat": 31.46, "lon": 121.4, "mw": 1200, "c": "CHN" },
-  { "n": "Huizhou LNG Gas", "lat": 22.76, "lon": 114.61, "mw": 1080, "c": "CHN" },
-  { "n": "Qianwan Gas", "lat": 22.51, "lon": 113.85, "mw": 1170, "c": "CHN" },
-  { "n": "Qishuyan Gas", "lat": 31.74, "lon": 120.04, "mw": 1140, "c": "CHN" },
-  { "n": "Shanghai - Huaneng Gas", "lat": 31.46, "lon": 121.4, "mw": 1212, "c": "CHN" },
-  { "n": "Shanghai Lingang", "lat": 30.85, "lon": 121.79, "mw": 1400, "c": "CHN" },
-  { "n": "Shanghai Lingang", "lat": 30.85, "lon": 121.83, "mw": 1560, "c": "CHN" },
-  { "n": "Shenzhen Dongbu", "lat": 22.57, "lon": 114.44, "mw": 1116, "c": "CHN" },
-  { "n": "Shenzhen East", "lat": 22.57, "lon": 114.44, "mw": 1050, "c": "CHN" },
-  { "n": "Shenzhen Qianwan", "lat": 22.51, "lon": 113.85, "mw": 1170, "c": "CHN" },
-  { "n": "Shidongkou", "lat": 31.46, "lon": 121.4, "mw": 1050, "c": "CHN" },
-  { "n": "Zhongshan Jiaming Plant", "lat": 22.57, "lon": 113.57, "mw": 1350, "c": "CHN" },
-  { "n": "Abu Kir", "lat": 31.269, "lon": 30.141, "mw": 2236, "c": "EGY" },
-  { "n": "Cairo North", "lat": 30.108, "lon": 31.266, "mw": 1500, "c": "EGY" },
-  { "n": "Cairo West", "lat": 30.139, "lon": 31.167, "mw": 1360, "c": "EGY" },
-  { "n": "Damietta", "lat": 31.382, "lon": 31.724, "mw": 1200, "c": "EGY" },
-  { "n": "Kuriemat 2", "lat": 29.269, "lon": 31.224, "mw": 2754, "c": "EGY" },
-  { "n": "New Gas Shabab", "lat": 30.465, "lon": 31.923, "mw": 1000, "c": "EGY" },
-  { "n": "North Giza", "lat": 30.248, "lon": 30.947, "mw": 2250, "c": "EGY" },
-  { "n": "Nubaria", "lat": 30.699, "lon": 30.667, "mw": 2250, "c": "EGY" },
-  { "n": "Shoubra El-Kheima", "lat": 30.124, "lon": 31.238, "mw": 1295, "c": "EGY" },
-  { "n": "Sidi Krir", "lat": 31.043, "lon": 29.665, "mw": 2092, "c": "EGY" },
-  { "n": "Talkha", "lat": 31.062, "lon": 31.392, "mw": 1460, "c": "EGY" },
-  { "n": "Emsland", "lat": 52.482, "lon": 7.307, "mw": 1837, "c": "DEU" },
-  { "n": "Gemeinschaftskraftwerk Irsching", "lat": 48.767, "lon": 11.58, "mw": 1391, "c": "DEU" },
-  { "n": "Gersteinwerk", "lat": 51.673, "lon": 7.71, "mw": 2005, "c": "DEU" },
-  { "n": "Knapsack Natural Gas I", "lat": 50.862, "lon": 6.842, "mw": 1230, "c": "DEU" },
-  { "n": "DGEN MEGA CCCP", "lat": 21.692, "lon": 72.622, "mw": 1200, "c": "IND" },
-  { "n": "KONDAPALLI GT", "lat": 16.64, "lon": 80.55, "mw": 1458, "c": "IND" },
-  { "n": "PRAGATI CCCP -III", "lat": 28.796, "lon": 77.071, "mw": 1371, "c": "IND" },
-  { "n": "RATNAGIRI GAS", "lat": 17.559, "lon": 73.167, "mw": 1967, "c": "IND" },
-  { "n": "SUGEN CCCP", "lat": 21.34, "lon": 72.989, "mw": 1148, "c": "IND" },
-  { "n": "PLTGU Gresik", "lat": -7.163, "lon": 112.662, "mw": 1579, "c": "IDN" },
-  { "n": "PLTGU Priok Block 1   2", "lat": -6.11, "lon": 106.867, "mw": 1180, "c": "IDN" },
-  { "n": "PLTGU Tambak Lorok", "lat": -6.95, "lon": 110.434, "mw": 1034, "c": "IDN" },
-  { "n": "Aliabad Power Plant", "lat": 36.944, "lon": 54.89, "mw": 1000, "c": "IRN" },
-  { "n": "Damavand C.C.", "lat": 35.416, "lon": 51.851, "mw": 2800, "c": "IRN" },
-  { "n": "Fars", "lat": 29.359, "lon": 52.616, "mw": 1034, "c": "IRN" },
-  { "n": "Kazeroon", "lat": 29.563, "lon": 51.696, "mw": 1372, "c": "IRN" },
-  { "n": "Kerman", "lat": 30.21, "lon": 56.793, "mw": 1912, "c": "IRN" },
-  { "n": "Shahid Rajaee", "lat": 36.16, "lon": 50.3, "mw": 2040, "c": "IRN" },
-  { "n": "Shirvan", "lat": 37.34, "lon": 58.049, "mw": 1404, "c": "IRN" },
-  { "n": "Al-Anbar", "lat": 33.534, "lon": 43.026, "mw": 1643, "c": "IRQ" },
-  { "n": "Duhok", "lat": 36.945, "lon": 42.782, "mw": 1000, "c": "IRQ" },
-  { "n": "Erbil", "lat": 36.008, "lon": 43.917, "mw": 1500, "c": "IRQ" },
-  { "n": "Shatt Al-Basra", "lat": 30.186, "lon": 47.837, "mw": 1250, "c": "IRQ" },
-  { "n": "Eshkol", "lat": 31.839, "lon": 34.655, "mw": 1432, "c": "ISR" },
-  { "n": "Hagit", "lat": 32.617, "lon": 35.043, "mw": 1255, "c": "ISR" },
-  { "n": "Ramat Hovav", "lat": 31.154, "lon": 34.815, "mw": 1067, "c": "ISR" },
-  { "n": "CHIVASSO", "lat": 45.186, "lon": 7.902, "mw": 1123, "c": "ITA" },
-  { "n": "ENIPOWER BRINDISI", "lat": 40.629, "lon": 18.003, "mw": 1260, "c": "ITA" },
-  { "n": "LA CASELLA C.LE", "lat": 45.09, "lon": 9.481, "mw": 1466, "c": "ITA" },
-  { "n": "MONTALTO (Alessandro Volta)", "lat": 42.357, "lon": 11.537, "mw": 3446, "c": "ITA" },
-  { "n": "OSTIGLIA", "lat": 45.06, "lon": 11.137, "mw": 1457, "c": "ITA" },
-  { "n": "SERMIDE", "lat": 45.027, "lon": 11.252, "mw": 1151, "c": "ITA" },
-  { "n": "TAVAZZANO", "lat": 45.333, "lon": 9.436, "mw": 1520, "c": "ITA" },
-  { "n": "TERMINI IMERESE C.LE", "lat": 37.968, "lon": 13.751, "mw": 1235, "c": "ITA" },
-  { "n": "TORREVALDALIGA South", "lat": 42.124, "lon": 11.762, "mw": 1488, "c": "ITA" },
-  { "n": "VADO Ligure", "lat": 44.276, "lon": 8.431, "mw": 1353, "c": "ITA" },
-  { "n": "Chiba", "lat": 35.565, "lon": 140.105, "mw": 2880, "c": "JPN" },
-  { "n": "Chita Daini", "lat": 35.007, "lon": 136.864, "mw": 1708, "c": "JPN" },
-  { "n": "Futtsu", "lat": 35.342, "lon": 139.832, "mw": 5040, "c": "JPN" },
-  { "n": "Goi", "lat": 35.547, "lon": 140.072, "mw": 1886, "c": "JPN" },
-  { "n": "Higashi Niigata", "lat": 37.996, "lon": 139.237, "mw": 4810, "c": "JPN" },
-  { "n": "Higashi Ogishima", "lat": 35.495, "lon": 139.745, "mw": 2000, "c": "JPN" },
-  { "n": "Himeji Daiichi", "lat": 34.773, "lon": 134.694, "mw": 1442, "c": "JPN" },
-  { "n": "Himeji Daini", "lat": 34.773, "lon": 134.694, "mw": 1650, "c": "JPN" },
-  { "n": "Kashima Kyodo", "lat": 35.941, "lon": 140.689, "mw": 1000, "c": "JPN" },
-  { "n": "Kawagoe", "lat": 35.008, "lon": 136.689, "mw": 4802, "c": "JPN" },
-  { "n": "Kawasaki", "lat": 35.512, "lon": 139.763, "mw": 1500, "c": "JPN" },
-  { "n": "Minami Yokohama", "lat": 35.404, "lon": 139.637, "mw": 1150, "c": "JPN" },
-  { "n": "Nanko", "lat": 34.618, "lon": 135.405, "mw": 1800, "c": "JPN" },
-  { "n": "Ohgishima", "lat": 35.495, "lon": 139.745, "mw": 1221, "c": "JPN" },
-  { "n": "Sakaiko", "lat": 34.57, "lon": 135.442, "mw": 2000, "c": "JPN" },
-  { "n": "Shin Kokura", "lat": 33.908, "lon": 130.861, "mw": 1800, "c": "JPN" },
-  { "n": "Shin Nagoya", "lat": 35.065, "lon": 136.877, "mw": 3058, "c": "JPN" },
-  { "n": "Shin Oita", "lat": 33.267, "lon": 131.708, "mw": 2295, "c": "JPN" },
-  { "n": "Shinagawa", "lat": 35.62, "lon": 139.756, "mw": 1140, "c": "JPN" },
-  { "n": "Sodegaura", "lat": 35.462, "lon": 139.977, "mw": 3600, "c": "JPN" },
-  { "n": "Yanai", "lat": 33.953, "lon": 132.125, "mw": 1400, "c": "JPN" },
-  { "n": "Yokkaichi", "lat": 34.973, "lon": 136.646, "mw": 1245, "c": "JPN" },
-  { "n": "Samra CCGT Power Plant Jordan", "lat": 32.143, "lon": 36.142, "mw": 1031, "c": "JOR" },
-  { "n": "Az Zour North", "lat": 28.714, "lon": 48.381, "mw": 1100, "c": "KWT" },
-  { "n": "Az Zour South CCGT", "lat": 28.707, "lon": 48.374, "mw": 5805, "c": "KWT" },
-  { "n": "Doha East", "lat": 29.368, "lon": 47.796, "mw": 1158, "c": "KWT" },
-  { "n": "Doha West", "lat": 29.368, "lon": 47.787, "mw": 2543, "c": "KWT" },
-  { "n": "Sabiya", "lat": 29.567, "lon": 48.171, "mw": 5367, "c": "KWT" },
-  { "n": "Al Khums", "lat": 32.62, "lon": 14.331, "mw": 1000, "c": "LBY" },
-  { "n": "Az Zawiyah", "lat": 32.788, "lon": 12.674, "mw": 1440, "c": "LBY" },
-  { "n": "North Benghazi Station 1", "lat": 32.203, "lon": 20.133, "mw": 1040, "c": "LBY" },
-  {
-    "n": "Elektrenai (Lithuania) Thermal Power Pla",
-    "lat": 54.77,
-    "lon": 24.647,
-    "mw": 1800,
-    "c": "LTU"
-  },
-  { "n": "Kapar Energy Ventures (KEV)", "lat": 3.117, "lon": 101.322, "mw": 2420, "c": "MYS" },
-  { "n": "Paka", "lat": 4.602, "lon": 103.45, "mw": 1136, "c": "MYS" },
-  { "n": "Segari", "lat": 4.391, "lon": 100.589, "mw": 1303, "c": "MYS" },
-  { "n": "TNB Prai", "lat": 5.374, "lon": 100.375, "mw": 1071, "c": "MYS" },
-  { "n": "Altamira III y IV", "lat": 22.494, "lon": -97.901, "mw": 1036, "c": "MEX" },
-  { "n": "Altamira V", "lat": 22.5, "lon": -97.905, "mw": 1121, "c": "MEX" },
-  { "n": "Tamazunchale", "lat": 21.311, "lon": -98.756, "mw": 1135, "c": "MEX" },
-  { "n": "Eems", "lat": 53.444, "lon": 6.856, "mw": 2465, "c": "NLD" },
-  { "n": "Magnum", "lat": 53.45, "lon": 6.855, "mw": 1311, "c": "NLD" },
-  { "n": "Alaoji", "lat": 5.067, "lon": 7.322, "mw": 1074, "c": "NGA" },
-  { "n": "Sohar Alumnium", "lat": 24.472, "lon": 56.633, "mw": 1000, "c": "OMN" },
-  { "n": "ILIJAN", "lat": 13.622, "lon": 121.08, "mw": 1271, "c": "PHL" },
-  { "n": "STA RITA", "lat": 13.77, "lon": 121.035, "mw": 1060, "c": "PHL" },
-  { "n": "Ribatejo", "lat": 39.012, "lon": -8.952, "mw": 1176, "c": "PRT" },
-  { "n": "Mesaieed CCGT Power Plant Qatar", "lat": 24.975, "lon": 51.578, "mw": 2007, "c": "QAT" },
-  { "n": "Qatalum CCGT Power Plant Qatar", "lat": 24.971, "lon": 51.581, "mw": 1350, "c": "QAT" },
-  {
-    "n": "Ras Laffan B CCGT Power Plant Qatar",
-    "lat": 25.924,
-    "lon": 51.548,
-    "mw": 1025,
-    "c": "QAT"
-  },
-  {
-    "n": "Ras Laffan C (Ras Qartas) CCGT Power Pla",
-    "lat": 25.936,
-    "lon": 51.524,
-    "mw": 2730,
-    "c": "QAT"
-  },
-  { "n": "CHP Volga Car", "lat": 53.575, "lon": 49.245, "mw": 1172, "c": "RUS" },
-  { "n": "CHP-20", "lat": 55.7, "lon": 37.586, "mw": 1150, "c": "RUS" },
-  { "n": "CHP-21", "lat": 55.895, "lon": 37.511, "mw": 1800, "c": "RUS" },
-  { "n": "CHP-23", "lat": 55.916, "lon": 37.688, "mw": 5690, "c": "RUS" },
-  { "n": "Chelyabinsk CHP-1", "lat": 55.23, "lon": 61.491, "mw": 1129, "c": "RUS" },
-  { "n": "Iriklinskaya", "lat": 51.754, "lon": 58.803, "mw": 2444, "c": "RUS" },
-  { "n": "Karmanovskaya TPP", "lat": 56.249, "lon": 54.588, "mw": 1831, "c": "RUS" },
-  { "n": "Kirishskaya GRES", "lat": 59.489, "lon": 32.05, "mw": 2595, "c": "RUS" },
-  { "n": "Konakovskaya", "lat": 56.741, "lon": 36.771, "mw": 2520, "c": "RUS" },
-  { "n": "Krasnodar TPP", "lat": 45.018, "lon": 39.061, "mw": 1120, "c": "RUS" },
-  { "n": "Krostromskaya", "lat": 57.46, "lon": 41.174, "mw": 3600, "c": "RUS" },
-  {
-    "n": "Naberezhnye Chelny Thermal Power Plant",
-    "lat": 55.691,
-    "lon": 52.476,
-    "mw": 1180,
+    "n": "Surgutskaya GRES-2",
+    "lat": 61.279,
+    "lon": 73.489,
+    "mw": 8865,
     "c": "RUS"
   },
-  { "n": "Nevinnomysskya", "lat": 44.66, "lon": 41.929, "mw": 1530, "c": "RUS" },
-  { "n": "Nizhnevartovskaya", "lat": 60.976, "lon": 76.943, "mw": 2013, "c": "RUS" },
-  { "n": "Pechorskaya", "lat": 65.134, "lon": 57.316, "mw": 1060, "c": "RUS" },
-  { "n": "Permskaya", "lat": 58.496, "lon": 56.347, "mw": 3363, "c": "RUS" },
-  { "n": "Shaturskaya GRES", "lat": 55.583, "lon": 39.561, "mw": 1493, "c": "RUS" },
-  { "n": "Srednevralskaya", "lat": 57.002, "lon": 60.464, "mw": 1579, "c": "RUS" },
-  { "n": "Stavropolskaya GRES", "lat": 45.312, "lon": 41.511, "mw": 2415, "c": "RUS" },
-  { "n": "Surgutskaya GRES-2", "lat": 61.279, "lon": 73.489, "mw": 8865, "c": "RUS" },
-  { "n": "Tyumen CHP-1", "lat": 57.087, "lon": 65.627, "mw": 1417, "c": "RUS" },
-  { "n": "Verkhnetagilskaya", "lat": 57.356, "lon": 59.96, "mw": 1062, "c": "RUS" },
-  { "n": "Yavinskaya GRES", "lat": 59.338, "lon": 57.246, "mw": 1025, "c": "RUS" },
-  { "n": "Yuzhnaya Tets", "lat": 59.828, "lon": 30.451, "mw": 1207, "c": "RUS" },
-  { "n": "Yuzhnouralskaya 2", "lat": 54.456, "lon": 61.233, "mw": 1592, "c": "RUS" },
-  { "n": "Zainskaya GRES", "lat": 55.29, "lon": 52.023, "mw": 2200, "c": "RUS" },
-  { "n": "FARAS", "lat": 27.46, "lon": 46.864, "mw": 1244, "c": "SAU" },
-  { "n": "GHAZLAN", "lat": 26.85, "lon": 49.896, "mw": 4256, "c": "SAU" },
   {
-    "n": "Hajr for Electricity Production Co. Stat",
+    "n": "Az Zour South CCGT",
+    "lat": 28.707,
+    "lon": 48.374,
+    "mw": 5805,
+    "c": "KWT"
+  },
+  {
+    "n": "CHP-23",
+    "lat": 55.916,
+    "lon": 37.688,
+    "mw": 5690,
+    "c": "RUS"
+  },
+  {
+    "n": "Sabiya",
+    "lat": 29.567,
+    "lon": 48.171,
+    "mw": 5367,
+    "c": "KWT"
+  },
+  {
+    "n": "Futtsu",
+    "lat": 35.342,
+    "lon": 139.832,
+    "mw": 5040,
+    "c": "JPN"
+  },
+  {
+    "n": "Shuweihat S1",
+    "lat": 24.165,
+    "lon": 52.568,
+    "mw": 4889,
+    "c": "ARE"
+  },
+  {
+    "n": "Higashi Niigata",
+    "lat": 37.996,
+    "lon": 139.237,
+    "mw": 4810,
+    "c": "JPN"
+  },
+  {
+    "n": "Kawagoe",
+    "lat": 35.008,
+    "lon": 136.689,
+    "mw": 4802,
+    "c": "JPN"
+  },
+  {
+    "n": "Bang Pakong",
+    "lat": 13.501,
+    "lon": 101.025,
+    "mw": 4384,
+    "c": "THA"
+  },
+  {
+    "n": "Dah-Tarn",
+    "lat": 25.027,
+    "lon": 121.048,
+    "mw": 4380,
+    "c": "TWN"
+  },
+  {
+    "n": "West County Energy Center",
+    "lat": 26.699,
+    "lon": -80.375,
+    "mw": 4263,
+    "c": "USA"
+  },
+  {
+    "n": "GHAZLAN",
+    "lat": 26.85,
+    "lon": 49.896,
+    "mw": 4256,
+    "c": "SAU"
+  },
+  {
+    "n": "Hajr for Electricity Production Co. Station",
     "lat": 25.83,
     "lon": 50.132,
     "mw": 4098,
     "c": "SAU"
   },
-  { "n": "JUBAIL (SWCC)", "lat": 26.91, "lon": 49.769, "mw": 1570, "c": "SAU" },
-  { "n": "MARAFIQ IWPP (1)", "lat": 26.9, "lon": 49.769, "mw": 2941, "c": "SAU" },
-  { "n": "QURAYYAH -STEAM", "lat": 25.86, "lon": 50.118, "mw": 2500, "c": "SAU" },
-  { "n": "QURAYYAH- CC", "lat": 25.86, "lon": 50.118, "mw": 3846, "c": "SAU" },
-  { "n": "RAS Al Khair", "lat": 27.53, "lon": 49.143, "mw": 1460, "c": "SAU" },
-  { "n": "Riyadh 12", "lat": 24.79, "lon": 45.621, "mw": 2056, "c": "SAU" },
-  { "n": "Riyadh 7", "lat": 24.57, "lon": 46.883, "mw": 1316, "c": "SAU" },
-  { "n": "Riyadh 8", "lat": 24.6, "lon": 46.571, "mw": 2072, "c": "SAU" },
-  { "n": "SHEDGUM", "lat": 25.68, "lon": 49.433, "mw": 1101, "c": "SAU" },
-  { "n": "Wasit Gas Plant", "lat": 27.11, "lon": 49.312, "mw": 1412, "c": "SAU" },
   {
-    "n": "Keppel Merlimau Cogen Power Plant Singap",
-    "lat": 1.282,
-    "lon": 103.675,
-    "mw": 1300,
-    "c": "SGP"
+    "n": "QURAYYAH- CC",
+    "lat": 25.86,
+    "lon": 50.118,
+    "mw": 3846,
+    "c": "SAU"
   },
   {
-    "n": "PowerSeraya Pulau Seraya CCGT Cogen Powe",
-    "lat": 1.277,
-    "lon": 103.727,
-    "mw": 1540,
-    "c": "SGP"
+    "n": "Ratchaburi (RATCHGEN)",
+    "lat": 13.598,
+    "lon": 99.884,
+    "mw": 3645,
+    "c": "THA"
   },
   {
-    "n": "SembCorp Pulau Sakra CCGT Cogen Power St",
-    "lat": 1.254,
-    "lon": 103.703,
-    "mw": 1215,
-    "c": "SGP"
+    "n": "Sodegaura",
+    "lat": 35.462,
+    "lon": 139.977,
+    "mw": 3600,
+    "c": "JPN"
+  },
+  {
+    "n": "Krostromskaya",
+    "lat": 57.46,
+    "lon": 41.174,
+    "mw": 3600,
+    "c": "RUS"
+  },
+  {
+    "n": "Crystal River",
+    "lat": 28.966,
+    "lon": -82.698,
+    "mw": 3449,
+    "c": "USA"
+  },
+  {
+    "n": "MONTALTO (Alessandro Volta)",
+    "lat": 42.357,
+    "lon": 11.537,
+    "mw": 3446,
+    "c": "ITA"
+  },
+  {
+    "n": "Permskaya",
+    "lat": 58.496,
+    "lon": 56.347,
+    "mw": 3363,
+    "c": "RUS"
+  },
+  {
+    "n": "Shin Nagoya",
+    "lat": 35.065,
+    "lon": 136.877,
+    "mw": 3058,
+    "c": "JPN"
+  },
+  {
+    "n": "Incheon",
+    "lat": 37.511,
+    "lon": 126.608,
+    "mw": 3052,
+    "c": "KOR"
+  },
+  {
+    "n": "Syrdarya",
+    "lat": 40.229,
+    "lon": 69.1,
+    "mw": 3000,
+    "c": "UZB"
+  },
+  {
+    "n": "MARAFIQ IWPP (1)",
+    "lat": 26.9,
+    "lon": 49.769,
+    "mw": 2941,
+    "c": "SAU"
+  },
+  {
+    "n": "Chiba",
+    "lat": 35.565,
+    "lon": 140.105,
+    "mw": 2880,
+    "c": "JPN"
+  },
+  {
+    "n": "Jack McDonough",
+    "lat": 33.824,
+    "lon": -84.476,
+    "mw": 2848,
+    "c": "USA"
   },
   {
     "n": "Senoko I-VII CCGT Power Plants Singapore",
@@ -253,88 +189,992 @@
     "c": "SGP"
   },
   {
+    "n": "Damavand C.C.",
+    "lat": 35.416,
+    "lon": 51.851,
+    "mw": 2800,
+    "c": "IRN"
+  },
+  {
+    "n": "Kuriemat 2",
+    "lat": 29.269,
+    "lon": 31.224,
+    "mw": 2754,
+    "c": "EGY"
+  },
+  {
+    "n": "Ras Laffan C (Ras Qartas) CCGT Power Plant Qatar",
+    "lat": 25.936,
+    "lon": 51.523,
+    "mw": 2730,
+    "c": "QAT"
+  },
+  {
+    "n": "Fort Myers",
+    "lat": 26.697,
+    "lon": -81.783,
+    "mw": 2681,
+    "c": "USA"
+  },
+  {
+    "n": "Kirishskaya GRES",
+    "lat": 59.489,
+    "lon": 32.05,
+    "mw": 2595,
+    "c": "RUS"
+  },
+  {
+    "n": "Barry",
+    "lat": 31.007,
+    "lon": -88.01,
+    "mw": 2569,
+    "c": "USA"
+  },
+  {
+    "n": "Chalk Point LLC",
+    "lat": 38.544,
+    "lon": -76.686,
+    "mw": 2553,
+    "c": "USA"
+  },
+  {
+    "n": "Ravenswood",
+    "lat": 40.759,
+    "lon": -73.946,
+    "mw": 2551,
+    "c": "USA"
+  },
+  {
+    "n": "Doha West",
+    "lat": 29.368,
+    "lon": 47.786,
+    "mw": 2543,
+    "c": "KWT"
+  },
+  {
+    "n": "Konakovskaya",
+    "lat": 56.741,
+    "lon": 36.771,
+    "mw": 2520,
+    "c": "RUS"
+  },
+  {
+    "n": "Black Point Power Station",
+    "lat": 22.41,
+    "lon": 113.91,
+    "mw": 2500,
+    "c": "CHN"
+  },
+  {
+    "n": "QURAYYAH -STEAM",
+    "lat": 25.86,
+    "lon": 50.118,
+    "mw": 2500,
+    "c": "SAU"
+  },
+  {
+    "n": "Eems",
+    "lat": 53.444,
+    "lon": 6.856,
+    "mw": 2465,
+    "c": "NLD"
+  },
+  {
+    "n": "Lukoml Thermal Power Plant Belarus",
+    "lat": 54.68,
+    "lon": 29.134,
+    "mw": 2460,
+    "c": "BLR"
+  },
+  {
+    "n": "Martin",
+    "lat": 27.054,
+    "lon": -80.563,
+    "mw": 2448,
+    "c": "USA"
+  },
+  {
+    "n": "Iriklinskaya",
+    "lat": 51.754,
+    "lon": 58.803,
+    "mw": 2444,
+    "c": "RUS"
+  },
+  {
+    "n": "Nine Mile Point",
+    "lat": 29.947,
+    "lon": -90.146,
+    "mw": 2440,
+    "c": "USA"
+  },
+  {
+    "n": "APC UAN",
+    "lat": 24.438,
+    "lon": 54.491,
+    "mw": 2430,
+    "c": "ARE"
+  },
+  {
+    "n": "Union Power Station",
+    "lat": 33.296,
+    "lon": -92.589,
+    "mw": 2428,
+    "c": "USA"
+  },
+  {
+    "n": "Kapar Energy Ventures (KEV)",
+    "lat": 3.117,
+    "lon": 101.322,
+    "mw": 2420,
+    "c": "MYS"
+  },
+  {
+    "n": "Stavropolskaya GRES",
+    "lat": 45.312,
+    "lon": 41.511,
+    "mw": 2415,
+    "c": "RUS"
+  },
+  {
+    "n": "Hsinta (gas)",
+    "lat": 22.852,
+    "lon": 120.199,
+    "mw": 2410,
+    "c": "TWN"
+  },
+  {
+    "n": "Sanford",
+    "lat": 28.842,
+    "lon": -81.326,
+    "mw": 2378,
+    "c": "USA"
+  },
+  {
+    "n": "Mystic Generating Station",
+    "lat": 42.391,
+    "lon": -71.067,
+    "mw": 2376,
+    "c": "USA"
+  },
+  {
+    "n": "Paradise",
+    "lat": 37.261,
+    "lon": -86.978,
+    "mw": 2310,
+    "c": "USA"
+  },
+  {
+    "n": "Shin Oita",
+    "lat": 33.267,
+    "lon": 131.708,
+    "mw": 2295,
+    "c": "JPN"
+  },
+  {
+    "n": "H L Culbreath Bayside Power Station",
+    "lat": 27.907,
+    "lon": -82.423,
+    "mw": 2294,
+    "c": "USA"
+  },
+  {
+    "n": "North Giza",
+    "lat": 30.248,
+    "lon": 30.947,
+    "mw": 2250,
+    "c": "EGY"
+  },
+  {
+    "n": "Nubaria",
+    "lat": 30.699,
+    "lon": 30.667,
+    "mw": 2250,
+    "c": "EGY"
+  },
+  {
+    "n": "Sherwood H Smith Jr Energy Complex",
+    "lat": 34.839,
+    "lon": -79.741,
+    "mw": 2245,
+    "c": "USA"
+  },
+  {
+    "n": "Abu Kir",
+    "lat": 31.269,
+    "lon": 30.141,
+    "mw": 2236,
+    "c": "EGY"
+  },
+  {
+    "n": "Hines Energy Complex",
+    "lat": 27.788,
+    "lon": -81.87,
+    "mw": 2234,
+    "c": "USA"
+  },
+  {
+    "n": "Tashkent",
+    "lat": 41.382,
+    "lon": 69.368,
+    "mw": 2230,
+    "c": "UZB"
+  },
+  {
+    "n": "Victor J Daniel Jr",
+    "lat": 30.532,
+    "lon": -88.555,
+    "mw": 2229,
+    "c": "USA"
+  },
+  {
+    "n": "Alba Power Station",
+    "lat": 26.095,
+    "lon": 50.601,
+    "mw": 2204,
+    "c": "BHR"
+  },
+  {
+    "n": "Zainskaya GRES",
+    "lat": 55.29,
+    "lon": 52.023,
+    "mw": 2200,
+    "c": "RUS"
+  },
+  {
+    "n": "TAPCO",
+    "lat": 24.768,
+    "lon": 54.687,
+    "mw": 2200,
+    "c": "ARE"
+  },
+  {
+    "n": "Pembroke",
+    "lat": 51.685,
+    "lon": -4.99,
+    "mw": 2180,
+    "c": "GBR"
+  },
+  {
+    "n": "FAPCO (Fuj F2)",
+    "lat": 25.314,
+    "lon": 56.373,
+    "mw": 2114,
+    "c": "ARE"
+  },
+  {
+    "n": "Beijing - Northwest",
+    "lat": 39.942,
+    "lon": 116.126,
+    "mw": 2100,
+    "c": "CHN"
+  },
+  {
+    "n": "Sidi Krir",
+    "lat": 31.043,
+    "lon": 29.665,
+    "mw": 2092,
+    "c": "EGY"
+  },
+  {
+    "n": "Riyadh 8",
+    "lat": 24.6,
+    "lon": 46.571,
+    "mw": 2072,
+    "c": "SAU"
+  },
+  {
+    "n": "Jebel Ali M",
+    "lat": 25.059,
+    "lon": 55.118,
+    "mw": 2060,
+    "c": "ARE"
+  },
+  {
+    "n": "Riyadh 12",
+    "lat": 24.79,
+    "lon": 45.621,
+    "mw": 2056,
+    "c": "SAU"
+  },
+  {
+    "n": "Shahid Rajaee",
+    "lat": 36.16,
+    "lon": 50.3,
+    "mw": 2040,
+    "c": "IRN"
+  },
+  {
+    "n": "E C Gaston",
+    "lat": 33.244,
+    "lon": -86.458,
+    "mw": 2034,
+    "c": "USA"
+  },
+  {
+    "n": "Wang Noi",
+    "lat": 14.232,
+    "lon": 100.781,
+    "mw": 2027,
+    "c": "THA"
+  },
+  {
+    "n": "Nizhnevartovskaya",
+    "lat": 60.976,
+    "lon": 76.943,
+    "mw": 2013,
+    "c": "RUS"
+  },
+  {
+    "n": "Mesaieed CCGT Power Plant Qatar",
+    "lat": 24.975,
+    "lon": 51.578,
+    "mw": 2007,
+    "c": "QAT"
+  },
+  {
+    "n": "Gersteinwerk",
+    "lat": 51.672,
+    "lon": 7.71,
+    "mw": 2005,
+    "c": "DEU"
+  },
+  {
+    "n": "Lennox",
+    "lat": 44.144,
+    "lon": -76.848,
+    "mw": 2000,
+    "c": "CAN"
+  },
+  {
+    "n": "Higashi Ogishima",
+    "lat": 35.495,
+    "lon": 139.745,
+    "mw": 2000,
+    "c": "JPN"
+  },
+  {
+    "n": "Sakaiko",
+    "lat": 34.57,
+    "lon": 135.442,
+    "mw": 2000,
+    "c": "JPN"
+  },
+  {
+    "n": "Planta Centro",
+    "lat": 10.495,
+    "lon": -68.155,
+    "mw": 2000,
+    "c": "VEN"
+  },
+  {
+    "n": "H Allen Franklin Combined Cycle",
+    "lat": 32.608,
+    "lon": -85.097,
+    "mw": 1996,
+    "c": "USA"
+  },
+  {
+    "n": "RATNAGIRI GAS",
+    "lat": 17.559,
+    "lon": 73.167,
+    "mw": 1967,
+    "c": "IND"
+  },
+  {
+    "n": "KOMIPO Incheon",
+    "lat": 37.511,
+    "lon": 126.609,
+    "mw": 1960,
+    "c": "KOR"
+  },
+  {
+    "n": "Dan E Karn",
+    "lat": 43.645,
+    "lon": -83.84,
+    "mw": 1946,
+    "c": "USA"
+  },
+  {
+    "n": "Kerman",
+    "lat": 30.21,
+    "lon": 56.793,
+    "mw": 1912,
+    "c": "IRN"
+  },
+  {
+    "n": "Dongducheon",
+    "lat": 37.903,
+    "lon": 127.09,
+    "mw": 1900,
+    "c": "KOR"
+  },
+  {
+    "n": "Forney Energy Center",
+    "lat": 32.756,
+    "lon": -96.492,
+    "mw": 1894,
+    "c": "USA"
+  },
+  {
+    "n": "Goi",
+    "lat": 35.547,
+    "lon": 140.072,
+    "mw": 1886,
+    "c": "JPN"
+  },
+  {
+    "n": "Midland Cogeneration Venture",
+    "lat": 43.586,
+    "lon": -84.224,
+    "mw": 1854,
+    "c": "USA"
+  },
+  {
+    "n": "Emsland",
+    "lat": 52.482,
+    "lon": 7.307,
+    "mw": 1837,
+    "c": "DEU"
+  },
+  {
+    "n": "Karmanovskaya TPP",
+    "lat": 56.249,
+    "lon": 54.588,
+    "mw": 1831,
+    "c": "RUS"
+  },
+  {
+    "n": "Sabine",
+    "lat": 30.024,
+    "lon": -93.878,
+    "mw": 1812,
+    "c": "USA"
+  },
+  {
+    "n": "Nanko",
+    "lat": 34.618,
+    "lon": 135.405,
+    "mw": 1800,
+    "c": "JPN"
+  },
+  {
+    "n": "Shin Kokura",
+    "lat": 33.908,
+    "lon": 130.861,
+    "mw": 1800,
+    "c": "JPN"
+  },
+  {
+    "n": "Elektrenai (Lithuania) Thermal Power Plant Lithuania",
+    "lat": 54.77,
+    "lon": 24.647,
+    "mw": 1800,
+    "c": "LTU"
+  },
+  {
+    "n": "CHP-21",
+    "lat": 55.895,
+    "lon": 37.511,
+    "mw": 1800,
+    "c": "RUS"
+  },
+  {
+    "n": "Boryeong (CC)",
+    "lat": 36.395,
+    "lon": 126.486,
+    "mw": 1800,
+    "c": "KOR"
+  },
+  {
+    "n": "Busan (pusan)",
+    "lat": 35.085,
+    "lon": 129,
+    "mw": 1800,
+    "c": "KOR"
+  },
+  {
+    "n": "Seoincheon",
+    "lat": 37.536,
+    "lon": 126.603,
+    "mw": 1800,
+    "c": "KOR"
+  },
+  {
+    "n": "Shinincheon",
+    "lat": 37.508,
+    "lon": 126.616,
+    "mw": 1800,
+    "c": "KOR"
+  },
+  {
+    "n": "TalenEnergy Martins Creek",
+    "lat": 40.798,
+    "lon": -75.105,
+    "mw": 1794,
+    "c": "USA"
+  },
+  {
+    "n": "Allen",
+    "lat": 35.074,
+    "lon": -90.149,
+    "mw": 1792,
+    "c": "USA"
+  },
+  {
+    "n": "Tunghsiao",
+    "lat": 24.491,
+    "lon": 120.669,
+    "mw": 1785,
+    "c": "TWN"
+  },
+  {
+    "n": "Greensville County Power Station",
+    "lat": 36.718,
+    "lon": -77.65,
+    "mw": 1773,
+    "c": "USA"
+  },
+  {
+    "n": "Staythorpe C",
+    "lat": 53.073,
+    "lon": -0.859,
+    "mw": 1772,
+    "c": "GBR"
+  },
+  {
+    "n": "Navoi",
+    "lat": 40.157,
+    "lon": 65.31,
+    "mw": 1758,
+    "c": "UZB"
+  },
+  {
+    "n": "Lincoln Combustion",
+    "lat": 35.432,
+    "lon": -81.035,
+    "mw": 1754,
+    "c": "USA"
+  },
+  {
+    "n": "PSEG Linden Generating Station",
+    "lat": 40.622,
+    "lon": -74.207,
+    "mw": 1740,
+    "c": "USA"
+  },
+  {
+    "n": "Haynes",
+    "lat": 33.765,
+    "lon": -118.099,
+    "mw": 1739,
+    "c": "USA"
+  },
+  {
+    "n": "GREC",
+    "lat": 36.19,
+    "lon": -95.289,
+    "mw": 1734,
+    "c": "USA"
+  },
+  {
+    "n": "Midlothian Energy Facility",
+    "lat": 32.43,
+    "lon": -97.054,
+    "mw": 1734,
+    "c": "USA"
+  },
+  {
+    "n": "New Mirfah (MIPCO)",
+    "lat": 24.104,
+    "lon": 53.426,
+    "mw": 1728,
+    "c": "ARE"
+  },
+  {
+    "n": "Elwood Energy LLC",
+    "lat": 41.439,
+    "lon": -88.124,
+    "mw": 1728,
+    "c": "USA"
+  },
+  {
+    "n": "Okeechobee Clean Energy Center",
+    "lat": 27.634,
+    "lon": -80.791,
+    "mw": 1723,
+    "c": "USA"
+  },
+  {
+    "n": "Ricardo Zuloaga (Tacoa) Thermal Power Plant Venezuela",
+    "lat": 10.588,
+    "lon": -67.081,
+    "mw": 1720,
+    "c": "VEN"
+  },
+  {
+    "n": "Muskogee",
+    "lat": 35.761,
+    "lon": -95.287,
+    "mw": 1716,
+    "c": "USA"
+  },
+  {
+    "n": "Chita Daini",
+    "lat": 35.007,
+    "lon": 136.864,
+    "mw": 1708,
+    "c": "JPN"
+  },
+  {
+    "n": "Seminole",
+    "lat": 34.967,
+    "lon": -96.726,
+    "mw": 1701,
+    "c": "USA"
+  },
+  {
+    "n": "South Bangkok",
+    "lat": 13.617,
+    "lon": 100.559,
+    "mw": 1691,
+    "c": "THA"
+  },
+  {
+    "n": "BESOS  GRUPO 5",
+    "lat": 41.42,
+    "lon": 2.229,
+    "mw": 1671,
+    "c": "ESP"
+  },
+  {
+    "n": "Taweelah A1",
+    "lat": 24.761,
+    "lon": 54.68,
+    "mw": 1671,
+    "c": "ARE"
+  },
+  {
+    "n": "Lackawanna Energy Center",
+    "lat": 41.471,
+    "lon": -75.544,
+    "mw": 1665,
+    "c": "USA"
+  },
+  {
+    "n": "Himeji Daini",
+    "lat": 34.773,
+    "lon": 134.694,
+    "mw": 1650,
+    "c": "JPN"
+  },
+  {
+    "n": "Ashuganj (Aggreko)",
+    "lat": 24.043,
+    "lon": 91.016,
+    "mw": 1649,
+    "c": "BGD"
+  },
+  {
+    "n": "Al-Anbar",
+    "lat": 33.534,
+    "lon": 43.026,
+    "mw": 1643,
+    "c": "IRQ"
+  },
+  {
+    "n": "Lagoon Creek",
+    "lat": 35.658,
+    "lon": -89.396,
+    "mw": 1625,
+    "c": "USA"
+  },
+  {
+    "n": "Ormond Beach",
+    "lat": 34.129,
+    "lon": -119.169,
+    "mw": 1612,
+    "c": "USA"
+  },
+  {
+    "n": "Panda Temple Power Station",
+    "lat": 31.056,
+    "lon": -97.317,
+    "mw": 1606,
+    "c": "USA"
+  },
+  {
+    "n": "Nong Saeng",
+    "lat": 14.442,
+    "lon": 100.776,
+    "mw": 1600,
+    "c": "THA"
+  },
+  {
+    "n": "Rojana Power Plant 1",
+    "lat": 14.332,
+    "lon": 100.638,
+    "mw": 1600,
+    "c": "THA"
+  },
+  {
+    "n": "Enka Gebze Doğalgaz Santrali",
+    "lat": 40.764,
+    "lon": 30.393,
+    "mw": 1595,
+    "c": "TUR"
+  },
+  {
+    "n": "Yuzhnouralskaya 2",
+    "lat": 54.456,
+    "lon": 61.233,
+    "mw": 1592,
+    "c": "RUS"
+  },
+  {
+    "n": "Josefa Joaquina Sanchez",
+    "lat": 10.489,
+    "lon": -71.635,
+    "mw": 1586,
+    "c": "VEN"
+  },
+  {
+    "n": "ARCOS DE LA FRONTERA GRUPO 1",
+    "lat": 36.672,
+    "lon": -5.816,
+    "mw": 1585,
+    "c": "ESP"
+  },
+  {
+    "n": "PLTGU Gresik",
+    "lat": -7.163,
+    "lon": 112.662,
+    "mw": 1579,
+    "c": "IDN"
+  },
+  {
+    "n": "Srednevralskaya",
+    "lat": 57.002,
+    "lon": 60.464,
+    "mw": 1579,
+    "c": "RUS"
+  },
+  {
+    "n": "JUBAIL (SWCC)",
+    "lat": 26.91,
+    "lon": 49.769,
+    "mw": 1570,
+    "c": "SAU"
+  },
+  {
+    "n": "Northport",
+    "lat": 40.924,
+    "lon": -73.342,
+    "mw": 1564,
+    "c": "USA"
+  },
+  {
+    "n": "Shanghai Lingang",
+    "lat": 30.85,
+    "lon": 121.83,
+    "mw": 1560,
+    "c": "CHN"
+  },
+  {
+    "n": "Pocheon",
+    "lat": 37.947,
+    "lon": 127.169,
+    "mw": 1560,
+    "c": "KOR"
+  },
+  {
+    "n": "Ca Mau 1",
+    "lat": 9.242,
+    "lon": 105.06,
+    "mw": 1542,
+    "c": "VNM"
+  },
+  {
+    "n": "Al Dur Power and Water",
+    "lat": 25.971,
+    "lon": 50.608,
+    "mw": 1540,
+    "c": "BHR"
+  },
+  {
+    "n": "PowerSeraya Pulau Seraya CCGT Cogen Power Plant Singapore",
+    "lat": 1.276,
+    "lon": 103.727,
+    "mw": 1540,
+    "c": "SGP"
+  },
+  {
+    "n": "Bejing Southwest",
+    "lat": 39.94,
+    "lon": 116.13,
+    "mw": 1538,
+    "c": "CHN"
+  },
+  {
+    "n": "Chana",
+    "lat": 6.955,
+    "lon": 100.708,
+    "mw": 1531,
+    "c": "THA"
+  },
+  {
+    "n": "Nevinnomysskya",
+    "lat": 44.66,
+    "lon": 41.929,
+    "mw": 1530,
+    "c": "RUS"
+  },
+  {
+    "n": "Cedar Bayou",
+    "lat": 29.75,
+    "lon": -94.926,
+    "mw": 1530,
+    "c": "USA"
+  },
+  {
+    "n": "Fujian Putian",
+    "lat": 25.22,
+    "lon": 119,
+    "mw": 1528,
+    "c": "CHN"
+  },
+  {
+    "n": "TAVAZZANO",
+    "lat": 45.333,
+    "lon": 9.436,
+    "mw": 1520,
+    "c": "ITA"
+  },
+  {
+    "n": "Enka İzmir Doğalgaz Santrali",
+    "lat": 38.747,
+    "lon": 26.956,
+    "mw": 1520,
+    "c": "TUR"
+  },
+  {
+    "n": "Fujian Jinjiang LNG",
+    "lat": 24.56,
+    "lon": 118.64,
+    "mw": 1516,
+    "c": "CHN"
+  },
+  {
+    "n": "Bugok",
+    "lat": 36.959,
+    "lon": 126.782,
+    "mw": 1503,
+    "c": "KOR"
+  },
+  {
+    "n": "Cairo North",
+    "lat": 30.108,
+    "lon": 31.266,
+    "mw": 1500,
+    "c": "EGY"
+  },
+  {
+    "n": "Erbil",
+    "lat": 36.008,
+    "lon": 43.917,
+    "mw": 1500,
+    "c": "IRQ"
+  },
+  {
+    "n": "Kawasaki",
+    "lat": 35.512,
+    "lon": 139.763,
+    "mw": 1500,
+    "c": "JPN"
+  },
+  {
+    "n": "Shaturskaya GRES",
+    "lat": 55.583,
+    "lon": 39.561,
+    "mw": 1493,
+    "c": "RUS"
+  },
+  {
+    "n": "Polk",
+    "lat": 27.729,
+    "lon": -81.99,
+    "mw": 1493,
+    "c": "USA"
+  },
+  {
+    "n": "TORREVALDALIGA South",
+    "lat": 42.124,
+    "lon": 11.762,
+    "mw": 1488,
+    "c": "ITA"
+  },
+  {
+    "n": "Northeastern",
+    "lat": 36.432,
+    "lon": -95.701,
+    "mw": 1478,
+    "c": "USA"
+  },
+  {
+    "n": "P L Bartow",
+    "lat": 27.86,
+    "lon": -82.602,
+    "mw": 1476,
+    "c": "USA"
+  },
+  {
+    "n": "Yulchon",
+    "lat": 34.913,
+    "lon": 127.593,
+    "mw": 1475,
+    "c": "KOR"
+  },
+  {
+    "n": "Brunswick County Power Station",
+    "lat": 36.765,
+    "lon": -77.714,
+    "mw": 1472,
+    "c": "USA"
+  },
+  {
+    "n": "Warren County",
+    "lat": 38.972,
+    "lon": -78.177,
+    "mw": 1472,
+    "c": "USA"
+  },
+  {
     "n": "Tuas CCGT Power Station Singapore",
     "lat": 1.289,
     "lon": 103.641,
     "mw": 1470,
     "c": "SGP"
   },
-  { "n": "Boryeong (CC)", "lat": 36.395, "lon": 126.486, "mw": 1800, "c": "KOR" },
-  { "n": "Bugok", "lat": 36.959, "lon": 126.783, "mw": 1503, "c": "KOR" },
-  { "n": "Busan (pusan)", "lat": 35.085, "lon": 129, "mw": 1800, "c": "KOR" },
-  { "n": "Dongducheon", "lat": 37.903, "lon": 127.09, "mw": 1900, "c": "KOR" },
-  { "n": "Incheon", "lat": 37.511, "lon": 126.608, "mw": 3052, "c": "KOR" },
-  { "n": "KOMIPO Incheon", "lat": 37.511, "lon": 126.609, "mw": 1960, "c": "KOR" },
-  { "n": "Kwangyang", "lat": 34.89, "lon": 127.775, "mw": 1071, "c": "KOR" },
-  { "n": "Pocheon", "lat": 37.947, "lon": 127.169, "mw": 1560, "c": "KOR" },
-  { "n": "Pyeongtaek", "lat": 37.008, "lon": 126.795, "mw": 1348, "c": "KOR" },
-  { "n": "Seoincheon", "lat": 37.536, "lon": 126.603, "mw": 1800, "c": "KOR" },
-  { "n": "Shinincheon", "lat": 37.508, "lon": 126.616, "mw": 1800, "c": "KOR" },
-  { "n": "Yulchon", "lat": 34.913, "lon": 127.593, "mw": 1475, "c": "KOR" },
-  { "n": "ARCOS DE LA FRONTERA GRUPO 1", "lat": 36.672, "lon": -5.816, "mw": 1585, "c": "ESP" },
-  { "n": "BESOS  GRUPO 5", "lat": 41.42, "lon": 2.229, "mw": 1671, "c": "ESP" },
-  { "n": "CARTAGENA GRUPO 1", "lat": 37.573, "lon": -0.939, "mw": 1249, "c": "ESP" },
-  { "n": "CCC SAGUNTO  GRUPO 2", "lat": 39.643, "lon": -0.234, "mw": 1232, "c": "ESP" },
-  { "n": "ESCOMBRERAS GRUPO 1", "lat": 7.573, "lon": -0.939, "mw": 1199, "c": "ESP" },
-  { "n": "PALOS DE LA FRONTERA GRUPO 1", "lat": 37.184, "lon": -6.886, "mw": 1167, "c": "ESP" },
-  { "n": "Dah-Tarn", "lat": 25.027, "lon": 121.048, "mw": 4380, "c": "TWN" },
-  { "n": "Hsinta (gas)", "lat": 22.852, "lon": 120.199, "mw": 2410, "c": "TWN" },
-  { "n": "Tunghsiao", "lat": 24.491, "lon": 120.669, "mw": 1785, "c": "TWN" },
-  { "n": "Bang Pakong", "lat": 13.501, "lon": 101.025, "mw": 4384, "c": "THA" },
-  { "n": "Chana", "lat": 6.955, "lon": 100.708, "mw": 1531, "c": "THA" },
-  { "n": "Kaeng Khoi 2", "lat": 14.605, "lon": 101.026, "mw": 1468, "c": "THA" },
-  { "n": "Nong Saeng", "lat": 14.442, "lon": 100.776, "mw": 1600, "c": "THA" },
-  { "n": "Ratchaburi (RATCHGEN)", "lat": 13.598, "lon": 99.884, "mw": 3645, "c": "THA" },
-  { "n": "Ratchaburi Power (RPCL)", "lat": 13.607, "lon": 99.89, "mw": 1400, "c": "THA" },
-  { "n": "Rayong", "lat": 12.762, "lon": 101.156, "mw": 1232, "c": "THA" },
-  { "n": "Rojana Power Plant 1", "lat": 14.332, "lon": 100.638, "mw": 1600, "c": "THA" },
-  { "n": "South Bangkok", "lat": 13.617, "lon": 100.559, "mw": 1691, "c": "THA" },
-  { "n": "Wang Noi", "lat": 14.232, "lon": 100.781, "mw": 2027, "c": "THA" },
-  { "n": "Aksa Antalya Doğalgaz Santrali", "lat": 37.12, "lon": 30.602, "mw": 1150, "c": "TUR" },
-  { "n": "Ambarlı B Doğalgaz Santrali", "lat": 40.983, "lon": 28.692, "mw": 1351, "c": "TUR" },
-  { "n": "Bursa Doğalgaz Santrali", "lat": 40.295, "lon": 29.074, "mw": 1432, "c": "TUR" },
-  { "n": "Enka Gebze Doğalgaz Santrali", "lat": 40.764, "lon": 30.393, "mw": 1595, "c": "TUR" },
-  { "n": "Enka İzmir Doğalgaz Santrali", "lat": 38.747, "lon": 26.956, "mw": 1520, "c": "TUR" },
-  { "n": "Hamitabat Termik Santrali", "lat": 41.483, "lon": 27.337, "mw": 1156, "c": "TUR" },
-  { "n": "Kiev CHP-5", "lat": 50.532, "lon": 30.663, "mw": 1200, "c": "UKR" },
-  { "n": "APC UAN", "lat": 24.438, "lon": 54.491, "mw": 2430, "c": "ARE" },
-  { "n": "FAPCO (Fuj F2)", "lat": 25.314, "lon": 56.373, "mw": 2114, "c": "ARE" },
-  { "n": "Jebel Ali \"\"D\"\"", "lat": 25.066, "lon": 55.124, "mw": 1027, "c": "ARE" },
-  { "n": "Jebel Ali \"\"L\"\" - Ph ll", "lat": 25.051, "lon": 55.111, "mw": 1393, "c": "ARE" },
-  { "n": "Jebel Ali \"\"M\"\"", "lat": 25.059, "lon": 55.118, "mw": 2060, "c": "ARE" },
-  { "n": "New Mirfah (MIPCO)", "lat": 24.104, "lon": 53.426, "mw": 1728, "c": "ARE" },
-  { "n": "Shuweihat S1", "lat": 24.165, "lon": 52.568, "mw": 4889, "c": "ARE" },
-  { "n": "TAPCO", "lat": 24.768, "lon": 54.687, "mw": 2200, "c": "ARE" },
-  { "n": "Taweelah A1", "lat": 24.761, "lon": 54.68, "mw": 1671, "c": "ARE" },
-  { "n": "Wasit Power Station (WPS)", "lat": 25.373, "lon": 55.461, "mw": 1182, "c": "ARE" },
-  { "n": "Connahs Quay", "lat": 53.232, "lon": -3.081, "mw": 1380, "c": "GBR" },
-  { "n": "Didcot B", "lat": 51.625, "lon": -1.268, "mw": 1470, "c": "GBR" },
-  { "n": "Pembroke", "lat": 51.685, "lon": -4.99, "mw": 2180, "c": "GBR" },
-  { "n": "Peterhead", "lat": 57.477, "lon": -1.789, "mw": 1180, "c": "GBR" },
-  { "n": "Saltend", "lat": 53.735, "lon": -0.243, "mw": 1200, "c": "GBR" },
-  { "n": "South Humber Bank", "lat": 53.601, "lon": -0.145, "mw": 1310, "c": "GBR" },
-  { "n": "Staythorpe C", "lat": 53.073, "lon": -0.858, "mw": 1772, "c": "GBR" },
-  { "n": "West Burton CCGT", "lat": 53.363, "lon": -0.798, "mw": 1332, "c": "GBR" },
-  { "n": "AES Alamitos LLC", "lat": 33.769, "lon": -118.101, "mw": 1115, "c": "USA" },
-  { "n": "Acadia Energy Center", "lat": 30.429, "lon": -92.413, "mw": 1389, "c": "USA" },
-  { "n": "Allen", "lat": 35.074, "lon": -90.149, "mw": 1792, "c": "USA" },
-  { "n": "Anclote", "lat": 28.184, "lon": -82.789, "mw": 1112, "c": "USA" },
-  { "n": "Asheville", "lat": 35.473, "lon": -82.542, "mw": 1131, "c": "USA" },
-  { "n": "Astoria Generating Station", "lat": 40.788, "lon": -73.913, "mw": 1345, "c": "USA" },
-  { "n": "Athens Generating Plant", "lat": 42.273, "lon": -73.849, "mw": 1222, "c": "USA" },
-  { "n": "Aurora", "lat": 41.815, "lon": -88.226, "mw": 1086, "c": "USA" },
-  { "n": "Barney M Davis", "lat": 27.606, "lon": -97.312, "mw": 1082, "c": "USA" },
-  { "n": "Barry", "lat": 31.007, "lon": -88.01, "mw": 2569, "c": "USA" },
-  { "n": "Bergen Generating Station", "lat": 40.838, "lon": -74.024, "mw": 1401, "c": "USA" },
-  { "n": "Bethlehem Power Plant", "lat": 40.618, "lon": -75.315, "mw": 1153, "c": "USA" },
-  { "n": "Bowline Point", "lat": 41.204, "lon": -73.969, "mw": 1242, "c": "USA" },
-  { "n": "Brunswick County Power Station", "lat": 36.765, "lon": -77.714, "mw": 1472, "c": "USA" },
-  { "n": "CPV Fairview Energy Center", "lat": 40.412, "lon": -78.855, "mw": 1197, "c": "USA" },
-  { "n": "Cape Canaveral", "lat": 28.47, "lon": -80.764, "mw": 1295, "c": "USA" },
-  { "n": "Cedar Bayou", "lat": 29.75, "lon": -94.926, "mw": 1530, "c": "USA" },
-  { "n": "Chalk Point LLC", "lat": 38.544, "lon": -76.686, "mw": 2553, "c": "USA" },
-  { "n": "Cherokee", "lat": 39.807, "lon": -104.964, "mw": 1006, "c": "USA" },
-  { "n": "Chouteau", "lat": 36.222, "lon": -95.277, "mw": 1070, "c": "USA" },
+  {
+    "n": "Didcot B",
+    "lat": 51.625,
+    "lon": -1.268,
+    "mw": 1470,
+    "c": "GBR"
+  },
+  {
+    "n": "Kaeng Khoi 2",
+    "lat": 14.605,
+    "lon": 101.026,
+    "mw": 1468,
+    "c": "THA"
+  },
+  {
+    "n": "LA CASELLA C.LE",
+    "lat": 45.09,
+    "lon": 9.48,
+    "mw": 1466,
+    "c": "ITA"
+  },
   {
     "n": "Chuck Lenzie Generating Station",
     "lat": 36.384,
@@ -342,13 +1182,167 @@
     "mw": 1466,
     "c": "USA"
   },
-  { "n": "Clark (NVE)", "lat": 36.088, "lon": -115.051, "mw": 1376, "c": "USA" },
-  { "n": "Colorado Bend II", "lat": 29.289, "lon": -96.065, "mw": 1230, "c": "USA" },
-  { "n": "Cottonwood Energy Project", "lat": 30.259, "lon": -93.735, "mw": 1434, "c": "USA" },
-  { "n": "Crystal River", "lat": 28.966, "lon": -82.698, "mw": 3449, "c": "USA" },
-  { "n": "Dan E Karn", "lat": 43.645, "lon": -83.84, "mw": 1946, "c": "USA" },
-  { "n": "Deer Park Energy Center", "lat": 29.713, "lon": -95.134, "mw": 1176, "c": "USA" },
-  { "n": "Doswell Energy Center", "lat": 37.821, "lon": -77.446, "mw": 1313, "c": "USA" },
+  {
+    "n": "Talkha",
+    "lat": 31.062,
+    "lon": 31.392,
+    "mw": 1460,
+    "c": "EGY"
+  },
+  {
+    "n": "RAS Al Khair",
+    "lat": 27.53,
+    "lon": 49.143,
+    "mw": 1460,
+    "c": "SAU"
+  },
+  {
+    "n": "KONDAPALLI GT",
+    "lat": 16.64,
+    "lon": 80.55,
+    "mw": 1458,
+    "c": "IND"
+  },
+  {
+    "n": "OSTIGLIA",
+    "lat": 45.06,
+    "lon": 11.137,
+    "mw": 1457,
+    "c": "ITA"
+  },
+  {
+    "n": "E W Brown",
+    "lat": 37.788,
+    "lon": -84.713,
+    "mw": 1455,
+    "c": "USA"
+  },
+  {
+    "n": "York Energy Center",
+    "lat": 39.737,
+    "lon": -76.307,
+    "mw": 1449,
+    "c": "USA"
+  },
+  {
+    "n": "Himeji Daiichi",
+    "lat": 34.773,
+    "lon": 134.694,
+    "mw": 1442,
+    "c": "JPN"
+  },
+  {
+    "n": "Az Zawiyah",
+    "lat": 32.788,
+    "lon": 12.674,
+    "mw": 1440,
+    "c": "LBY"
+  },
+  {
+    "n": "Cottonwood Energy Project",
+    "lat": 30.259,
+    "lon": -93.735,
+    "mw": 1434,
+    "c": "USA"
+  },
+  {
+    "n": "Redbud Power Plant",
+    "lat": 35.686,
+    "lon": -97.226,
+    "mw": 1434,
+    "c": "USA"
+  },
+  {
+    "n": "Eshkol",
+    "lat": 31.839,
+    "lon": 34.655,
+    "mw": 1432,
+    "c": "ISR"
+  },
+  {
+    "n": "Bursa Doğalgaz Santrali",
+    "lat": 40.295,
+    "lon": 29.074,
+    "mw": 1432,
+    "c": "TUR"
+  },
+  {
+    "n": "Hanging Rock Energy Facility",
+    "lat": 38.573,
+    "lon": -82.783,
+    "mw": 1430,
+    "c": "USA"
+  },
+  {
+    "n": "Johnsonville",
+    "lat": 36.028,
+    "lon": -87.986,
+    "mw": 1426,
+    "c": "USA"
+  },
+  {
+    "n": "Tyumen CHP-1",
+    "lat": 57.087,
+    "lon": 65.627,
+    "mw": 1417,
+    "c": "RUS"
+  },
+  {
+    "n": "Wasit Gas Plant",
+    "lat": 27.11,
+    "lon": 49.312,
+    "mw": 1412,
+    "c": "SAU"
+  },
+  {
+    "n": "Shirvan",
+    "lat": 37.34,
+    "lon": 58.049,
+    "mw": 1404,
+    "c": "IRN"
+  },
+  {
+    "n": "Bergen Generating Station",
+    "lat": 40.837,
+    "lon": -74.024,
+    "mw": 1401,
+    "c": "USA"
+  },
+  {
+    "n": "Beijing - Northeast Gas",
+    "lat": 39.95,
+    "lon": 116.62,
+    "mw": 1400,
+    "c": "CHN"
+  },
+  {
+    "n": "Dazhou",
+    "lat": 31.11,
+    "lon": 107.48,
+    "mw": 1400,
+    "c": "CHN"
+  },
+  {
+    "n": "Shanghai Lingang",
+    "lat": 30.85,
+    "lon": 121.79,
+    "mw": 1400,
+    "c": "CHN"
+  },
+  {
+    "n": "Yanai",
+    "lat": 33.953,
+    "lon": 132.125,
+    "mw": 1400,
+    "c": "JPN"
+  },
+  {
+    "n": "Ratchaburi Power (RPCL)",
+    "lat": 13.607,
+    "lon": 99.89,
+    "mw": 1400,
+    "c": "THA"
+  },
   {
     "n": "Dynegy Moss Landing Power Plant Hybrid",
     "lat": 36.805,
@@ -357,68 +1351,40 @@
     "c": "USA"
   },
   {
-    "n": "E B Harris Electric Generating Plant",
-    "lat": 32.381,
-    "lon": -86.574,
-    "mw": 1304,
-    "c": "USA"
+    "n": "Jebel Ali L - Ph ll",
+    "lat": 25.051,
+    "lon": 55.111,
+    "mw": 1393,
+    "c": "ARE"
   },
-  { "n": "E C Gaston", "lat": 33.244, "lon": -86.458, "mw": 2034, "c": "USA" },
-  { "n": "E W Brown", "lat": 37.788, "lon": -84.713, "mw": 1455, "c": "USA" },
-  { "n": "Elwood Energy LLC", "lat": 41.439, "lon": -88.124, "mw": 1728, "c": "USA" },
-  { "n": "Fairless Energy Center", "lat": 40.148, "lon": -74.741, "mw": 1338, "c": "USA" },
-  { "n": "Forney Energy Center", "lat": 32.756, "lon": -96.492, "mw": 1894, "c": "USA" },
-  { "n": "Fort Myers", "lat": 26.697, "lon": -81.783, "mw": 2681, "c": "USA" },
-  { "n": "Fort St Vrain", "lat": 40.246, "lon": -104.874, "mw": 1149, "c": "USA" },
-  { "n": "Freestone Energy Center", "lat": 31.891, "lon": -96.113, "mw": 1036, "c": "USA" },
-  { "n": "GREC", "lat": 36.19, "lon": -95.289, "mw": 1734, "c": "USA" },
-  { "n": "Greene County", "lat": 32.602, "lon": -87.781, "mw": 1288, "c": "USA" },
-  { "n": "Greensville County Power Station", "lat": 36.718, "lon": -77.65, "mw": 1773, "c": "USA" },
-  { "n": "Greenwood (MI)", "lat": 43.106, "lon": -82.696, "mw": 1071, "c": "USA" },
-  { "n": "Guadalupe Generating Station", "lat": 29.624, "lon": -98.142, "mw": 1088, "c": "USA" },
-  { "n": "H Allen Franklin Combined Cycle", "lat": 32.608, "lon": -85.097, "mw": 1996, "c": "USA" },
   {
-    "n": "H L Culbreath Bayside Power Station",
-    "lat": 27.907,
-    "lon": -82.423,
-    "mw": 2294,
-    "c": "USA"
+    "n": "Gemeinschaftskraftwerk Irsching",
+    "lat": 48.767,
+    "lon": 11.58,
+    "mw": 1391,
+    "c": "DEU"
   },
-  { "n": "Handley", "lat": 32.728, "lon": -97.219, "mw": 1315, "c": "USA" },
-  { "n": "Hanging Rock Energy Facility", "lat": 38.573, "lon": -82.783, "mw": 1430, "c": "USA" },
-  { "n": "Harding Street", "lat": 39.711, "lon": -86.197, "mw": 1065, "c": "USA" },
-  { "n": "Harquahala Generating Project", "lat": 33.476, "lon": -113.113, "mw": 1325, "c": "USA" },
-  { "n": "Hay Road", "lat": 39.744, "lon": -75.507, "mw": 1193, "c": "USA" },
-  { "n": "Haynes", "lat": 33.765, "lon": -118.099, "mw": 1739, "c": "USA" },
-  { "n": "Hines Energy Complex", "lat": 27.788, "lon": -81.87, "mw": 2234, "c": "USA" },
-  { "n": "Intercession City", "lat": 28.263, "lon": -81.549, "mw": 1197, "c": "USA" },
-  { "n": "J K Smith", "lat": 37.883, "lon": -84.102, "mw": 1055, "c": "USA" },
-  { "n": "Jack County", "lat": 33.101, "lon": -97.957, "mw": 1280, "c": "USA" },
-  { "n": "Jack McDonough", "lat": 33.824, "lon": -84.476, "mw": 2848, "c": "USA" },
-  { "n": "Jasper", "lat": 32.359, "lon": -81.124, "mw": 1002, "c": "USA" },
-  { "n": "John S Rainey", "lat": 34.348, "lon": -82.774, "mw": 1102, "c": "USA" },
-  { "n": "Johnsonville", "lat": 36.028, "lon": -87.986, "mw": 1426, "c": "USA" },
-  { "n": "Joliet 29", "lat": 41.495, "lon": -88.124, "mw": 1320, "c": "USA" },
   {
-    "n": "Kendall County Generation Facility",
-    "lat": 41.48,
-    "lon": -88.258,
-    "mw": 1256,
+    "n": "Acadia Energy Center",
+    "lat": 30.429,
+    "lon": -92.413,
+    "mw": 1389,
     "c": "USA"
   },
-  { "n": "Kiamichi Energy Facility", "lat": 34.683, "lon": -95.935, "mw": 1370, "c": "USA" },
-  { "n": "La Paloma Generating Plant", "lat": 35.296, "lon": -119.592, "mw": 1200, "c": "USA" },
-  { "n": "Lackawanna Energy Center", "lat": 41.471, "lon": -75.544, "mw": 1665, "c": "USA" },
-  { "n": "Lagoon Creek", "lat": 35.658, "lon": -89.396, "mw": 1625, "c": "USA" },
-  { "n": "Lake Side Power Plant", "lat": 40.332, "lon": -111.754, "mw": 1385, "c": "USA" },
-  { "n": "Lamar Power Project", "lat": 33.631, "lon": -95.59, "mw": 1113, "c": "USA" },
-  { "n": "Lauderdale", "lat": 26.069, "lon": -80.198, "mw": 1216, "c": "USA" },
-  { "n": "Lawrenceburg Power  LLC", "lat": 39.091, "lon": -84.867, "mw": 1232, "c": "USA" },
-  { "n": "Lee Combined Cycle Plant", "lat": 35.374, "lon": -78.089, "mw": 1068, "c": "USA" },
-  { "n": "Lincoln Combustion", "lat": 35.432, "lon": -81.035, "mw": 1754, "c": "USA" },
-  { "n": "Little Gypsy", "lat": 30.005, "lon": -90.462, "mw": 1003, "c": "USA" },
-  { "n": "Magnolia Power Plant", "lat": 34.835, "lon": -89.203, "mw": 1004, "c": "USA" },
-  { "n": "Martin", "lat": 27.054, "lon": -80.563, "mw": 2448, "c": "USA" },
+  {
+    "n": "Lake Side Power Plant",
+    "lat": 40.332,
+    "lon": -111.754,
+    "mw": 1385,
+    "c": "USA"
+  },
+  {
+    "n": "Connahs Quay",
+    "lat": 53.232,
+    "lon": -3.082,
+    "mw": 1380,
+    "c": "GBR"
+  },
   {
     "n": "McIntosh Combined Cycle Facility",
     "lat": 32.348,
@@ -426,34 +1392,412 @@
     "mw": 1377,
     "c": "USA"
   },
-  { "n": "Midland Cogeneration Venture", "lat": 43.586, "lon": -84.224, "mw": 1854, "c": "USA" },
-  { "n": "Midlothian Energy Facility", "lat": 32.43, "lon": -97.054, "mw": 1734, "c": "USA" },
   {
-    "n": "Mountainview Generating Station",
-    "lat": 34.082,
-    "lon": -117.242,
-    "mw": 1037,
+    "n": "Clark (NVE)",
+    "lat": 36.087,
+    "lon": -115.051,
+    "mw": 1376,
     "c": "USA"
   },
-  { "n": "Moxie Freedom Generation Plant", "lat": 41.113, "lon": -76.158, "mw": 1058, "c": "USA" },
-  { "n": "Muskogee", "lat": 35.761, "lon": -95.287, "mw": 1716, "c": "USA" },
-  { "n": "Mystic Generating Station", "lat": 42.391, "lon": -71.067, "mw": 2376, "c": "USA" },
-  { "n": "New Covert Generating Facility", "lat": 42.322, "lon": -86.294, "mw": 1176, "c": "USA" },
-  { "n": "Nine Mile Point", "lat": 29.947, "lon": -90.146, "mw": 2440, "c": "USA" },
-  { "n": "Northeastern", "lat": 36.432, "lon": -95.701, "mw": 1478, "c": "USA" },
-  { "n": "Northport", "lat": 40.924, "lon": -73.342, "mw": 1564, "c": "USA" },
-  { "n": "Odessa-Ector Power Plant", "lat": 31.84, "lon": -102.326, "mw": 1153, "c": "USA" },
-  { "n": "Okeechobee Clean Energy Center", "lat": 27.634, "lon": -80.791, "mw": 1723, "c": "USA" },
-  { "n": "Oneta Energy Center", "lat": 36.012, "lon": -95.697, "mw": 1214, "c": "USA" },
-  { "n": "Oregon Clean Energy Center", "lat": 41.668, "lon": -83.444, "mw": 1062, "c": "USA" },
-  { "n": "Ormond Beach", "lat": 34.129, "lon": -119.169, "mw": 1612, "c": "USA" },
-  { "n": "P L Bartow", "lat": 27.86, "lon": -82.602, "mw": 1476, "c": "USA" },
-  { "n": "PSEG Linden Generating Station", "lat": 40.622, "lon": -74.207, "mw": 1740, "c": "USA" },
-  { "n": "Panda Hummel Station LLC", "lat": 40.839, "lon": -76.825, "mw": 1194, "c": "USA" },
-  { "n": "Panda Temple Power Station", "lat": 31.056, "lon": -97.317, "mw": 1606, "c": "USA" },
-  { "n": "Paradise", "lat": 37.261, "lon": -86.978, "mw": 2310, "c": "USA" },
-  { "n": "Polk", "lat": 27.729, "lon": -81.99, "mw": 1493, "c": "USA" },
-  { "n": "Port Everglades", "lat": 26.086, "lon": -80.125, "mw": 1352, "c": "USA" },
+  {
+    "n": "Kazeroon",
+    "lat": 29.563,
+    "lon": 51.696,
+    "mw": 1372,
+    "c": "IRN"
+  },
+  {
+    "n": "PRAGATI CCCP -III",
+    "lat": 28.796,
+    "lon": 77.071,
+    "mw": 1371,
+    "c": "IND"
+  },
+  {
+    "n": "Kiamichi Energy Facility",
+    "lat": 34.683,
+    "lon": -95.935,
+    "mw": 1370,
+    "c": "USA"
+  },
+  {
+    "n": "Cairo West",
+    "lat": 30.139,
+    "lon": 31.167,
+    "mw": 1360,
+    "c": "EGY"
+  },
+  {
+    "n": "VADO Ligure",
+    "lat": 44.276,
+    "lon": 8.431,
+    "mw": 1353,
+    "c": "ITA"
+  },
+  {
+    "n": "Port Everglades",
+    "lat": 26.086,
+    "lon": -80.125,
+    "mw": 1352,
+    "c": "USA"
+  },
+  {
+    "n": "Ambarlı B Doğalgaz Santrali",
+    "lat": 40.983,
+    "lon": 28.692,
+    "mw": 1351,
+    "c": "TUR"
+  },
+  {
+    "n": "Zhongshan Jiaming Plant",
+    "lat": 22.57,
+    "lon": 113.57,
+    "mw": 1350,
+    "c": "CHN"
+  },
+  {
+    "n": "Qatalum CCGT Power Plant Qatar",
+    "lat": 24.971,
+    "lon": 51.581,
+    "mw": 1350,
+    "c": "QAT"
+  },
+  {
+    "n": "Pyeongtaek",
+    "lat": 37.008,
+    "lon": 126.795,
+    "mw": 1348,
+    "c": "KOR"
+  },
+  {
+    "n": "Astoria Generating Station",
+    "lat": 40.788,
+    "lon": -73.913,
+    "mw": 1345,
+    "c": "USA"
+  },
+  {
+    "n": "Fairless Energy Center",
+    "lat": 40.148,
+    "lon": -74.741,
+    "mw": 1338,
+    "c": "USA"
+  },
+  {
+    "n": "West Burton CCGT",
+    "lat": 53.363,
+    "lon": -0.798,
+    "mw": 1332,
+    "c": "GBR"
+  },
+  {
+    "n": "Santan",
+    "lat": 33.333,
+    "lon": -111.75,
+    "mw": 1326,
+    "c": "USA"
+  },
+  {
+    "n": "Harquahala Generating Project",
+    "lat": 33.476,
+    "lon": -113.113,
+    "mw": 1325,
+    "c": "USA"
+  },
+  {
+    "n": "Joliet 29",
+    "lat": 41.495,
+    "lon": -88.124,
+    "mw": 1320,
+    "c": "USA"
+  },
+  {
+    "n": "Riyadh 7",
+    "lat": 24.57,
+    "lon": 46.883,
+    "mw": 1316,
+    "c": "SAU"
+  },
+  {
+    "n": "Handley",
+    "lat": 32.728,
+    "lon": -97.219,
+    "mw": 1315,
+    "c": "USA"
+  },
+  {
+    "n": "Doswell Energy Center",
+    "lat": 37.821,
+    "lon": -77.446,
+    "mw": 1313,
+    "c": "USA"
+  },
+  {
+    "n": "Magnum",
+    "lat": 53.45,
+    "lon": 6.855,
+    "mw": 1311,
+    "c": "NLD"
+  },
+  {
+    "n": "South Humber Bank",
+    "lat": 53.601,
+    "lon": -0.145,
+    "mw": 1310,
+    "c": "GBR"
+  },
+  {
+    "n": "E B Harris Electric Generating Plant",
+    "lat": 32.381,
+    "lon": -86.574,
+    "mw": 1304,
+    "c": "USA"
+  },
+  {
+    "n": "Segari",
+    "lat": 4.391,
+    "lon": 100.589,
+    "mw": 1303,
+    "c": "MYS"
+  },
+  {
+    "n": "Keppel Merlimau Cogen Power Plant Singapore",
+    "lat": 1.282,
+    "lon": 103.675,
+    "mw": 1300,
+    "c": "SGP"
+  },
+  {
+    "n": "Termozulia",
+    "lat": 10.488,
+    "lon": -71.635,
+    "mw": 1300,
+    "c": "VEN"
+  },
+  {
+    "n": "Shoubra El-Kheima",
+    "lat": 30.124,
+    "lon": 31.238,
+    "mw": 1295,
+    "c": "EGY"
+  },
+  {
+    "n": "Cape Canaveral",
+    "lat": 28.47,
+    "lon": -80.764,
+    "mw": 1295,
+    "c": "USA"
+  },
+  {
+    "n": "Riviera",
+    "lat": 26.765,
+    "lon": -80.052,
+    "mw": 1295,
+    "c": "USA"
+  },
+  {
+    "n": "Greene County",
+    "lat": 32.602,
+    "lon": -87.781,
+    "mw": 1288,
+    "c": "USA"
+  },
+  {
+    "n": "Jack County",
+    "lat": 33.101,
+    "lon": -97.957,
+    "mw": 1280,
+    "c": "USA"
+  },
+  {
+    "n": "Simmering",
+    "lat": 48.181,
+    "lon": 16.433,
+    "mw": 1272,
+    "c": "AUT"
+  },
+  {
+    "n": "ILIJAN",
+    "lat": 13.622,
+    "lon": 121.079,
+    "mw": 1271,
+    "c": "PHL"
+  },
+  {
+    "n": "ENIPOWER BRINDISI",
+    "lat": 40.629,
+    "lon": 18.003,
+    "mw": 1260,
+    "c": "ITA"
+  },
+  {
+    "n": "Kendall County Generation Facility",
+    "lat": 41.48,
+    "lon": -88.258,
+    "mw": 1256,
+    "c": "USA"
+  },
+  {
+    "n": "Hagit",
+    "lat": 32.617,
+    "lon": 35.043,
+    "mw": 1255,
+    "c": "ISR"
+  },
+  {
+    "n": "Shatt Al-Basra",
+    "lat": 30.186,
+    "lon": 47.837,
+    "mw": 1250,
+    "c": "IRQ"
+  },
+  {
+    "n": "CARTAGENA GRUPO 1",
+    "lat": 37.573,
+    "lon": -0.939,
+    "mw": 1249,
+    "c": "ESP"
+  },
+  {
+    "n": "Yokkaichi",
+    "lat": 34.973,
+    "lon": 136.646,
+    "mw": 1245,
+    "c": "JPN"
+  },
+  {
+    "n": "FARAS",
+    "lat": 27.46,
+    "lon": 46.864,
+    "mw": 1244,
+    "c": "SAU"
+  },
+  {
+    "n": "Bowline Point",
+    "lat": 41.204,
+    "lon": -73.969,
+    "mw": 1242,
+    "c": "USA"
+  },
+  {
+    "n": "Roseton Generating Facility",
+    "lat": 41.574,
+    "lon": -73.966,
+    "mw": 1242,
+    "c": "USA"
+  },
+  {
+    "n": "Wansley Combined Cycle",
+    "lat": 33.406,
+    "lon": -85.037,
+    "mw": 1239,
+    "c": "USA"
+  },
+  {
+    "n": "TERMINI IMERESE C.LE",
+    "lat": 37.968,
+    "lon": 13.751,
+    "mw": 1235,
+    "c": "ITA"
+  },
+  {
+    "n": "CCC SAGUNTO  GRUPO 2",
+    "lat": 39.643,
+    "lon": -0.234,
+    "mw": 1232,
+    "c": "ESP"
+  },
+  {
+    "n": "Rayong",
+    "lat": 12.762,
+    "lon": 101.156,
+    "mw": 1232,
+    "c": "THA"
+  },
+  {
+    "n": "Lawrenceburg Power  LLC",
+    "lat": 39.091,
+    "lon": -84.867,
+    "mw": 1232,
+    "c": "USA"
+  },
+  {
+    "n": "Wolf Hollow II",
+    "lat": 32.338,
+    "lon": -97.735,
+    "mw": 1231,
+    "c": "USA"
+  },
+  {
+    "n": "Knapsack Natural Gas I",
+    "lat": 50.862,
+    "lon": 6.842,
+    "mw": 1230,
+    "c": "DEU"
+  },
+  {
+    "n": "Colorado Bend II",
+    "lat": 29.289,
+    "lon": -96.065,
+    "mw": 1230,
+    "c": "USA"
+  },
+  {
+    "n": "Athens Generating Plant",
+    "lat": 42.273,
+    "lon": -73.849,
+    "mw": 1222,
+    "c": "USA"
+  },
+  {
+    "n": "Ohgishima",
+    "lat": 35.495,
+    "lon": 139.745,
+    "mw": 1221,
+    "c": "JPN"
+  },
+  {
+    "n": "NUEVO PUERTO",
+    "lat": -34.572,
+    "lon": -58.383,
+    "mw": 1218,
+    "c": "ARG"
+  },
+  {
+    "n": "Lauderdale",
+    "lat": 26.069,
+    "lon": -80.198,
+    "mw": 1216,
+    "c": "USA"
+  },
+  {
+    "n": "SembCorp Pulau Sakra CCGT Cogen Power Station Singapore",
+    "lat": 1.254,
+    "lon": 103.703,
+    "mw": 1215,
+    "c": "SGP"
+  },
+  {
+    "n": "Nhon Trach 1",
+    "lat": 10.643,
+    "lon": 106.84,
+    "mw": 1215,
+    "c": "VNM"
+  },
+  {
+    "n": "Oneta Energy Center",
+    "lat": 36.012,
+    "lon": -95.697,
+    "mw": 1214,
+    "c": "USA"
+  },
+  {
+    "n": "Shanghai - Huaneng Gas",
+    "lat": 31.46,
+    "lon": 121.4,
+    "mw": 1212,
+    "c": "CHN"
+  },
   {
     "n": "Port Washington Generating Station",
     "lat": 43.384,
@@ -461,36 +1805,362 @@
     "mw": 1209,
     "c": "USA"
   },
-  { "n": "Ravenswood", "lat": 40.759, "lon": -73.946, "mw": 2551, "c": "USA" },
-  { "n": "Red Hawk", "lat": 33.335, "lon": -112.841, "mw": 1140, "c": "USA" },
-  { "n": "Redbud Power Plant", "lat": 35.686, "lon": -97.226, "mw": 1434, "c": "USA" },
-  { "n": "Riverside (OK)", "lat": 35.998, "lon": -95.957, "mw": 1122, "c": "USA" },
-  { "n": "Riverside Generating LLC", "lat": 38.192, "lon": -82.605, "mw": 1150, "c": "USA" },
-  { "n": "Riviera", "lat": 26.765, "lon": -80.052, "mw": 1295, "c": "USA" },
-  { "n": "Roseton Generating Facility", "lat": 41.574, "lon": -73.966, "mw": 1242, "c": "USA" },
-  { "n": "Rowan", "lat": 35.731, "lon": -80.602, "mw": 1192, "c": "USA" },
-  { "n": "Sabine", "lat": 30.024, "lon": -93.878, "mw": 1812, "c": "USA" },
-  { "n": "Sanford", "lat": 28.842, "lon": -81.326, "mw": 2378, "c": "USA" },
-  { "n": "Santan", "lat": 33.333, "lon": -111.75, "mw": 1326, "c": "USA" },
-  { "n": "Seminole", "lat": 34.967, "lon": -96.726, "mw": 1701, "c": "USA" },
   {
-    "n": "Sherwood H Smith Jr Energy Complex",
-    "lat": 34.839,
-    "lon": -79.741,
-    "mw": 2245,
+    "n": "Yuzhnaya Tets",
+    "lat": 59.828,
+    "lon": 30.451,
+    "mw": 1207,
+    "c": "RUS"
+  },
+  {
+    "n": "West Phoenix",
+    "lat": 33.442,
+    "lon": -112.158,
+    "mw": 1207,
     "c": "USA"
   },
-  { "n": "Sithe Independence Station", "lat": 43.495, "lon": -76.451, "mw": 1086, "c": "USA" },
-  { "n": "St. Charles Power Station (LA)", "lat": 30.01, "lon": -90.461, "mw": 1000, "c": "USA" },
-  { "n": "T H Wharton", "lat": 29.942, "lon": -95.531, "mw": 1190, "c": "USA" },
-  { "n": "TalenEnergy Martins Creek", "lat": 40.798, "lon": -75.105, "mw": 1794, "c": "USA" },
-  { "n": "Tenaska Georgia Generation Facility", "lat": 33.352, "lon": -85, "mw": 1099, "c": "USA" },
   {
-    "n": "Tenaska Virginia Generating Station",
-    "lat": 37.867,
-    "lon": -78.381,
-    "mw": 1011,
+    "n": "Sitra Power an Water Station",
+    "lat": 26.183,
+    "lon": 50.624,
+    "mw": 1205,
+    "c": "BHR"
+  },
+  {
+    "n": "Hadjret Ennous",
+    "lat": 36.577,
+    "lon": 2.08,
+    "mw": 1200,
+    "c": "DZA"
+  },
+  {
+    "n": "Koudiet Eddraouch",
+    "lat": 36.885,
+    "lon": 8.078,
+    "mw": 1200,
+    "c": "DZA"
+  },
+  {
+    "n": "Terga",
+    "lat": 35.461,
+    "lon": -1.23,
+    "mw": 1200,
+    "c": "DZA"
+  },
+  {
+    "n": "Huaneng Shanghai Baoshan",
+    "lat": 31.46,
+    "lon": 121.4,
+    "mw": 1200,
+    "c": "CHN"
+  },
+  {
+    "n": "Damietta",
+    "lat": 31.381,
+    "lon": 31.724,
+    "mw": 1200,
+    "c": "EGY"
+  },
+  {
+    "n": "DGEN MEGA CCCP",
+    "lat": 21.692,
+    "lon": 72.621,
+    "mw": 1200,
+    "c": "IND"
+  },
+  {
+    "n": "Kiev CHP-5",
+    "lat": 50.532,
+    "lon": 30.663,
+    "mw": 1200,
+    "c": "UKR"
+  },
+  {
+    "n": "Saltend",
+    "lat": 53.735,
+    "lon": -0.243,
+    "mw": 1200,
+    "c": "GBR"
+  },
+  {
+    "n": "La Paloma Generating Plant",
+    "lat": 35.296,
+    "lon": -119.592,
+    "mw": 1200,
     "c": "USA"
+  },
+  {
+    "n": "ESCOMBRERAS GRUPO 1",
+    "lat": 7.573,
+    "lon": -0.939,
+    "mw": 1199,
+    "c": "ESP"
+  },
+  {
+    "n": "CPV Fairview Energy Center",
+    "lat": 40.412,
+    "lon": -78.855,
+    "mw": 1197,
+    "c": "USA"
+  },
+  {
+    "n": "Intercession City",
+    "lat": 28.263,
+    "lon": -81.549,
+    "mw": 1197,
+    "c": "USA"
+  },
+  {
+    "n": "Panda Hummel Station LLC",
+    "lat": 40.839,
+    "lon": -76.826,
+    "mw": 1194,
+    "c": "USA"
+  },
+  {
+    "n": "Hay Road",
+    "lat": 39.744,
+    "lon": -75.507,
+    "mw": 1193,
+    "c": "USA"
+  },
+  {
+    "n": "Rowan",
+    "lat": 35.731,
+    "lon": -80.602,
+    "mw": 1192,
+    "c": "USA"
+  },
+  {
+    "n": "Thomas A Smith Energy Facility",
+    "lat": 34.709,
+    "lon": -84.918,
+    "mw": 1192,
+    "c": "USA"
+  },
+  {
+    "n": "T H Wharton",
+    "lat": 29.942,
+    "lon": -95.531,
+    "mw": 1190,
+    "c": "USA"
+  },
+  {
+    "n": "Wasit Power Station (WPS)",
+    "lat": 25.373,
+    "lon": 55.461,
+    "mw": 1182,
+    "c": "ARE"
+  },
+  {
+    "n": "PLTGU Priok Block 1   2",
+    "lat": -6.11,
+    "lon": 106.867,
+    "mw": 1180,
+    "c": "IDN"
+  },
+  {
+    "n": "Naberezhnye Chelny Thermal Power Plant",
+    "lat": 55.691,
+    "lon": 52.476,
+    "mw": 1180,
+    "c": "RUS"
+  },
+  {
+    "n": "Peterhead",
+    "lat": 57.477,
+    "lon": -1.789,
+    "mw": 1180,
+    "c": "GBR"
+  },
+  {
+    "n": "Ribatejo",
+    "lat": 39.012,
+    "lon": -8.952,
+    "mw": 1176,
+    "c": "PRT"
+  },
+  {
+    "n": "Deer Park Energy Center",
+    "lat": 29.713,
+    "lon": -95.135,
+    "mw": 1176,
+    "c": "USA"
+  },
+  {
+    "n": "New Covert Generating Facility",
+    "lat": 42.322,
+    "lon": -86.294,
+    "mw": 1176,
+    "c": "USA"
+  },
+  {
+    "n": "CHP Volga Car",
+    "lat": 53.575,
+    "lon": 49.245,
+    "mw": 1172,
+    "c": "RUS"
+  },
+  {
+    "n": "Banshan Gas",
+    "lat": 30.36,
+    "lon": 120.14,
+    "mw": 1170,
+    "c": "CHN"
+  },
+  {
+    "n": "Hangzhou Hadian Banshan",
+    "lat": 31.23,
+    "lon": 118.37,
+    "mw": 1170,
+    "c": "CHN"
+  },
+  {
+    "n": "Hengmen Expansion Gas",
+    "lat": 22.57,
+    "lon": 113.57,
+    "mw": 1170,
+    "c": "CHN"
+  },
+  {
+    "n": "Qianwan Gas",
+    "lat": 22.51,
+    "lon": 113.85,
+    "mw": 1170,
+    "c": "CHN"
+  },
+  {
+    "n": "Shenzhen Qianwan",
+    "lat": 22.51,
+    "lon": 113.85,
+    "mw": 1170,
+    "c": "CHN"
+  },
+  {
+    "n": "PALOS DE LA FRONTERA GRUPO 1",
+    "lat": 37.184,
+    "lon": -6.886,
+    "mw": 1167,
+    "c": "ESP"
+  },
+  {
+    "n": "Doha East",
+    "lat": 29.368,
+    "lon": 47.796,
+    "mw": 1158,
+    "c": "KWT"
+  },
+  {
+    "n": "Hamitabat Termik Santrali",
+    "lat": 41.483,
+    "lon": 27.337,
+    "mw": 1156,
+    "c": "TUR"
+  },
+  {
+    "n": "Bethlehem Power Plant",
+    "lat": 40.617,
+    "lon": -75.315,
+    "mw": 1153,
+    "c": "USA"
+  },
+  {
+    "n": "Odessa-Ector Power Plant",
+    "lat": 31.84,
+    "lon": -102.326,
+    "mw": 1153,
+    "c": "USA"
+  },
+  {
+    "n": "SERMIDE",
+    "lat": 45.026,
+    "lon": 11.252,
+    "mw": 1151,
+    "c": "ITA"
+  },
+  {
+    "n": "Minami Yokohama",
+    "lat": 35.404,
+    "lon": 139.637,
+    "mw": 1150,
+    "c": "JPN"
+  },
+  {
+    "n": "CHP-20",
+    "lat": 55.7,
+    "lon": 37.586,
+    "mw": 1150,
+    "c": "RUS"
+  },
+  {
+    "n": "Aksa Antalya Doğalgaz Santrali",
+    "lat": 37.12,
+    "lon": 30.602,
+    "mw": 1150,
+    "c": "TUR"
+  },
+  {
+    "n": "Riverside Generating LLC",
+    "lat": 38.192,
+    "lon": -82.605,
+    "mw": 1150,
+    "c": "USA"
+  },
+  {
+    "n": "Fort St Vrain",
+    "lat": 40.246,
+    "lon": -104.874,
+    "mw": 1149,
+    "c": "USA"
+  },
+  {
+    "n": "SUGEN CCCP",
+    "lat": 21.34,
+    "lon": 72.989,
+    "mw": 1148,
+    "c": "IND"
+  },
+  {
+    "n": "Qishuyan Gas",
+    "lat": 31.74,
+    "lon": 120.04,
+    "mw": 1140,
+    "c": "CHN"
+  },
+  {
+    "n": "Shinagawa",
+    "lat": 35.62,
+    "lon": 139.756,
+    "mw": 1140,
+    "c": "JPN"
+  },
+  {
+    "n": "Red Hawk",
+    "lat": 33.335,
+    "lon": -112.841,
+    "mw": 1140,
+    "c": "USA"
+  },
+  {
+    "n": "V H Braunig",
+    "lat": 29.257,
+    "lon": -98.382,
+    "mw": 1138,
+    "c": "USA"
+  },
+  {
+    "n": "Paka",
+    "lat": 4.602,
+    "lon": 103.45,
+    "mw": 1136,
+    "c": "MYS"
+  },
+  {
+    "n": "Tamazunchale",
+    "lat": 21.311,
+    "lon": -98.757,
+    "mw": 1135,
+    "c": "MEX"
   },
   {
     "n": "Tenaska Westmoreland Generating Station",
@@ -499,16 +2169,76 @@
     "mw": 1134,
     "c": "USA"
   },
-  { "n": "Thomas A Smith Energy Facility", "lat": 34.709, "lon": -84.917, "mw": 1192, "c": "USA" },
-  { "n": "Tracy", "lat": 39.563, "lon": -119.525, "mw": 1033, "c": "USA" },
-  { "n": "Union Power Station", "lat": 33.296, "lon": -92.589, "mw": 2428, "c": "USA" },
-  { "n": "V H Braunig", "lat": 29.257, "lon": -98.382, "mw": 1138, "c": "USA" },
-  { "n": "Victor J Daniel Jr", "lat": 30.532, "lon": -88.555, "mw": 2229, "c": "USA" },
-  { "n": "W S Lee", "lat": 34.602, "lon": -82.435, "mw": 1118, "c": "USA" },
-  { "n": "Wansley Combined Cycle", "lat": 33.406, "lon": -85.037, "mw": 1239, "c": "USA" },
-  { "n": "Warren County", "lat": 38.972, "lon": -78.177, "mw": 1472, "c": "USA" },
-  { "n": "West County Energy Center", "lat": 26.699, "lon": -80.375, "mw": 4263, "c": "USA" },
-  { "n": "West Phoenix", "lat": 33.442, "lon": -112.158, "mw": 1207, "c": "USA" },
+  {
+    "n": "Asheville",
+    "lat": 35.473,
+    "lon": -82.542,
+    "mw": 1131,
+    "c": "USA"
+  },
+  {
+    "n": "Bereza SDPP Thermal Power Plant Belarus",
+    "lat": 52.454,
+    "lon": 25.193,
+    "mw": 1130,
+    "c": "BLR"
+  },
+  {
+    "n": "Chelyabinsk CHP-1",
+    "lat": 55.23,
+    "lon": 61.491,
+    "mw": 1129,
+    "c": "RUS"
+  },
+  {
+    "n": "CHIVASSO",
+    "lat": 45.186,
+    "lon": 7.902,
+    "mw": 1123,
+    "c": "ITA"
+  },
+  {
+    "n": "Riverside (OK)",
+    "lat": 35.998,
+    "lon": -95.957,
+    "mw": 1122,
+    "c": "USA"
+  },
+  {
+    "n": "Altamira V",
+    "lat": 22.5,
+    "lon": -97.905,
+    "mw": 1121,
+    "c": "MEX"
+  },
+  {
+    "n": "Krasnodar TPP",
+    "lat": 45.018,
+    "lon": 39.061,
+    "mw": 1120,
+    "c": "RUS"
+  },
+  {
+    "n": "W S Lee",
+    "lat": 34.602,
+    "lon": -82.435,
+    "mw": 1118,
+    "c": "USA"
+  },
+  {
+    "n": "Shenzhen Dongbu",
+    "lat": 22.57,
+    "lon": 114.44,
+    "mw": 1116,
+    "c": "CHN"
+  },
+  {
+    "n": "AES Alamitos LLC",
+    "lat": 33.769,
+    "lon": -118.101,
+    "mw": 1115,
+    "c": "USA"
+  },
   {
     "n": "Wildcat Point Generation Facility",
     "lat": 39.719,
@@ -516,22 +2246,410 @@
     "mw": 1114,
     "c": "USA"
   },
-  { "n": "Wolf Hollow II", "lat": 32.338, "lon": -97.735, "mw": 1231, "c": "USA" },
-  { "n": "York Energy Center", "lat": 39.738, "lon": -76.307, "mw": 1449, "c": "USA" },
-  { "n": "Navoi", "lat": 40.157, "lon": 65.31, "mw": 1758, "c": "UZB" },
-  { "n": "Syrdarya", "lat": 40.229, "lon": 69.101, "mw": 3000, "c": "UZB" },
-  { "n": "Tashkent", "lat": 41.382, "lon": 69.368, "mw": 2230, "c": "UZB" },
-  { "n": "Josefa Joaquina Sanchez", "lat": 10.489, "lon": -71.635, "mw": 1586, "c": "VEN" },
-  { "n": "Planta Centro", "lat": 10.495, "lon": -68.155, "mw": 2000, "c": "VEN" },
   {
-    "n": "Ricardo Zuloaga (Tacoa) Thermal Power Pl",
-    "lat": 10.588,
-    "lon": -67.081,
-    "mw": 1720,
-    "c": "VEN"
+    "n": "Lamar Power Project",
+    "lat": 33.631,
+    "lon": -95.59,
+    "mw": 1113,
+    "c": "USA"
   },
-  { "n": "Termozulia", "lat": 10.488, "lon": -71.635, "mw": 1300, "c": "VEN" },
-  { "n": "Ca Mau 1", "lat": 9.242, "lon": 105.06, "mw": 1542, "c": "VNM" },
-  { "n": "Nhon Trach 1", "lat": 10.643, "lon": 106.84, "mw": 1215, "c": "VNM" },
-  { "n": "Phu My 1", "lat": 10.606, "lon": 107.04, "mw": 1108, "c": "VNM" }
+  {
+    "n": "Anclote",
+    "lat": 28.184,
+    "lon": -82.789,
+    "mw": 1112,
+    "c": "USA"
+  },
+  {
+    "n": "Hrazadan",
+    "lat": 40.564,
+    "lon": 44.748,
+    "mw": 1110,
+    "c": "ARM"
+  },
+  {
+    "n": "Phu My 1",
+    "lat": 10.606,
+    "lon": 107.04,
+    "mw": 1108,
+    "c": "VNM"
+  },
+  {
+    "n": "John S Rainey",
+    "lat": 34.348,
+    "lon": -82.775,
+    "mw": 1102,
+    "c": "USA"
+  },
+  {
+    "n": "SHEDGUM",
+    "lat": 25.68,
+    "lon": 49.433,
+    "mw": 1101,
+    "c": "SAU"
+  },
+  {
+    "n": "Az Zour North",
+    "lat": 28.713,
+    "lon": 48.381,
+    "mw": 1100,
+    "c": "KWT"
+  },
+  {
+    "n": "Tenaska Georgia Generation Facility",
+    "lat": 33.352,
+    "lon": -85,
+    "mw": 1099,
+    "c": "USA"
+  },
+  {
+    "n": "Guadalupe Generating Station",
+    "lat": 29.624,
+    "lon": -98.142,
+    "mw": 1088,
+    "c": "USA"
+  },
+  {
+    "n": "Aurora",
+    "lat": 41.815,
+    "lon": -88.227,
+    "mw": 1086,
+    "c": "USA"
+  },
+  {
+    "n": "Sithe Independence Station",
+    "lat": 43.495,
+    "lon": -76.451,
+    "mw": 1086,
+    "c": "USA"
+  },
+  {
+    "n": "Guangdong Shenzhen Qianwan",
+    "lat": 22.51,
+    "lon": 113.85,
+    "mw": 1083,
+    "c": "CHN"
+  },
+  {
+    "n": "Barney M Davis",
+    "lat": 27.606,
+    "lon": -97.312,
+    "mw": 1082,
+    "c": "USA"
+  },
+  {
+    "n": "Guangdong Huizhou",
+    "lat": 22.76,
+    "lon": 114.61,
+    "mw": 1080,
+    "c": "CHN"
+  },
+  {
+    "n": "Huizhou LNG Gas",
+    "lat": 22.76,
+    "lon": 114.61,
+    "mw": 1080,
+    "c": "CHN"
+  },
+  {
+    "n": "Alaoji",
+    "lat": 5.067,
+    "lon": 7.322,
+    "mw": 1074,
+    "c": "NGA"
+  },
+  {
+    "n": "TNB Prai",
+    "lat": 5.374,
+    "lon": 100.375,
+    "mw": 1071,
+    "c": "MYS"
+  },
+  {
+    "n": "Kwangyang",
+    "lat": 34.889,
+    "lon": 127.775,
+    "mw": 1071,
+    "c": "KOR"
+  },
+  {
+    "n": "Greenwood (MI)",
+    "lat": 43.106,
+    "lon": -82.696,
+    "mw": 1071,
+    "c": "USA"
+  },
+  {
+    "n": "Chouteau",
+    "lat": 36.222,
+    "lon": -95.277,
+    "mw": 1070,
+    "c": "USA"
+  },
+  {
+    "n": "Lee Combined Cycle Plant",
+    "lat": 35.374,
+    "lon": -78.089,
+    "mw": 1068,
+    "c": "USA"
+  },
+  {
+    "n": "Ramat Hovav",
+    "lat": 31.154,
+    "lon": 34.815,
+    "mw": 1067,
+    "c": "ISR"
+  },
+  {
+    "n": "Harding Street",
+    "lat": 39.711,
+    "lon": -86.197,
+    "mw": 1065,
+    "c": "USA"
+  },
+  {
+    "n": "Verkhnetagilskaya",
+    "lat": 57.356,
+    "lon": 59.96,
+    "mw": 1062,
+    "c": "RUS"
+  },
+  {
+    "n": "Oregon Clean Energy Center",
+    "lat": 41.668,
+    "lon": -83.444,
+    "mw": 1062,
+    "c": "USA"
+  },
+  {
+    "n": "STA RITA",
+    "lat": 13.77,
+    "lon": 121.035,
+    "mw": 1060,
+    "c": "PHL"
+  },
+  {
+    "n": "Pechorskaya",
+    "lat": 65.134,
+    "lon": 57.316,
+    "mw": 1060,
+    "c": "RUS"
+  },
+  {
+    "n": "Governador Leonel Brizola (Antiga TermoRio)",
+    "lat": -22.71,
+    "lon": -43.246,
+    "mw": 1058,
+    "c": "BRA"
+  },
+  {
+    "n": "Moxie Freedom Generation Plant",
+    "lat": 41.113,
+    "lon": -76.158,
+    "mw": 1058,
+    "c": "USA"
+  },
+  {
+    "n": "J K Smith",
+    "lat": 37.883,
+    "lon": -84.102,
+    "mw": 1055,
+    "c": "USA"
+  },
+  {
+    "n": "Shenzhen East",
+    "lat": 22.57,
+    "lon": 114.44,
+    "mw": 1050,
+    "c": "CHN"
+  },
+  {
+    "n": "Shidongkou",
+    "lat": 31.46,
+    "lon": 121.4,
+    "mw": 1050,
+    "c": "CHN"
+  },
+  {
+    "n": "North Benghazi Station 1",
+    "lat": 32.203,
+    "lon": 20.133,
+    "mw": 1040,
+    "c": "LBY"
+  },
+  {
+    "n": "Mountainview Generating Station",
+    "lat": 34.082,
+    "lon": -117.242,
+    "mw": 1037,
+    "c": "USA"
+  },
+  {
+    "n": "Altamira III y IV",
+    "lat": 22.494,
+    "lon": -97.901,
+    "mw": 1036,
+    "c": "MEX"
+  },
+  {
+    "n": "Freestone Energy Center",
+    "lat": 31.891,
+    "lon": -96.113,
+    "mw": 1036,
+    "c": "USA"
+  },
+  {
+    "n": "Minsk-4 CHP CCGT Power Plant",
+    "lat": 53.872,
+    "lon": 27.402,
+    "mw": 1035,
+    "c": "BLR"
+  },
+  {
+    "n": "PLTGU Tambak Lorok",
+    "lat": -6.95,
+    "lon": 110.434,
+    "mw": 1034,
+    "c": "IDN"
+  },
+  {
+    "n": "Fars",
+    "lat": 29.359,
+    "lon": 52.615,
+    "mw": 1034,
+    "c": "IRN"
+  },
+  {
+    "n": "Tracy",
+    "lat": 39.563,
+    "lon": -119.525,
+    "mw": 1033,
+    "c": "USA"
+  },
+  {
+    "n": "Samra CCGT Power Plant Jordan",
+    "lat": 32.143,
+    "lon": 36.142,
+    "mw": 1031,
+    "c": "JOR"
+  },
+  {
+    "n": "Hengmen Gas",
+    "lat": 22.57,
+    "lon": 113.57,
+    "mw": 1030,
+    "c": "CHN"
+  },
+  {
+    "n": "Jebel Ali D",
+    "lat": 25.066,
+    "lon": 55.123,
+    "mw": 1027,
+    "c": "ARE"
+  },
+  {
+    "n": "Ras Laffan B CCGT Power Plant Qatar",
+    "lat": 25.924,
+    "lon": 51.548,
+    "mw": 1025,
+    "c": "QAT"
+  },
+  {
+    "n": "Yavinskaya GRES",
+    "lat": 59.338,
+    "lon": 57.246,
+    "mw": 1025,
+    "c": "RUS"
+  },
+  {
+    "n": "Tenaska Virginia Generating Station",
+    "lat": 37.867,
+    "lon": -78.381,
+    "mw": 1011,
+    "c": "USA"
+  },
+  {
+    "n": "Cherokee",
+    "lat": 39.807,
+    "lon": -104.965,
+    "mw": 1006,
+    "c": "USA"
+  },
+  {
+    "n": "Greenfield Energy Centre",
+    "lat": 42.77,
+    "lon": -82.453,
+    "mw": 1005,
+    "c": "CAN"
+  },
+  {
+    "n": "Magnolia Power Plant",
+    "lat": 34.835,
+    "lon": -89.203,
+    "mw": 1004,
+    "c": "USA"
+  },
+  {
+    "n": "Little Gypsy",
+    "lat": 30.005,
+    "lon": -90.462,
+    "mw": 1003,
+    "c": "USA"
+  },
+  {
+    "n": "Jasper",
+    "lat": 32.359,
+    "lon": -81.124,
+    "mw": 1002,
+    "c": "USA"
+  },
+  {
+    "n": "New Gas Shabab",
+    "lat": 30.465,
+    "lon": 31.923,
+    "mw": 1000,
+    "c": "EGY"
+  },
+  {
+    "n": "Aliabad Power Plant",
+    "lat": 36.944,
+    "lon": 54.89,
+    "mw": 1000,
+    "c": "IRN"
+  },
+  {
+    "n": "Duhok",
+    "lat": 36.944,
+    "lon": 42.782,
+    "mw": 1000,
+    "c": "IRQ"
+  },
+  {
+    "n": "Kashima Kyodo",
+    "lat": 35.941,
+    "lon": 140.689,
+    "mw": 1000,
+    "c": "JPN"
+  },
+  {
+    "n": "Al Khums",
+    "lat": 32.62,
+    "lon": 14.331,
+    "mw": 1000,
+    "c": "LBY"
+  },
+  {
+    "n": "Sohar Alumnium",
+    "lat": 24.472,
+    "lon": 56.633,
+    "mw": 1000,
+    "c": "OMN"
+  },
+  {
+    "n": "St. Charles Power Station (LA)",
+    "lat": 30.01,
+    "lon": -90.461,
+    "mw": 1000,
+    "c": "USA"
+  }
 ]

@@ -1,32 +1,1402 @@
 [
-  { "n": "Ararat Wind Farm", "lat": -37.238, "lon": 143.079, "mw": 240, "c": "AUS" },
-  { "n": "Collgar Wind Farm", "lat": -31.543, "lon": 118.457, "mw": 206, "c": "AUS" },
-  { "n": "Macarthur Wind Farm", "lat": -38.065, "lon": 142.184, "mw": 420, "c": "AUS" },
-  { "n": "Murra Warra Wind Farm", "lat": -36.433, "lon": 142.318, "mw": 429, "c": "AUS" },
-  { "n": "Sapphire Wind Farm", "lat": -29.7, "lon": 151.412, "mw": 270, "c": "AUS" },
-  { "n": "Northwind", "lat": 51.619, "lon": 2.9, "mw": 216, "c": "BEL" },
-  { "n": "Blackspring Ridge", "lat": 50.153, "lon": -112.823, "mw": 299, "c": "CAN" },
-  { "n": "K2 Wind", "lat": 43.937, "lon": -81.64, "mw": 270, "c": "CAN" },
-  { "n": "Lac-Alfred", "lat": 48.419, "lon": -67.714, "mw": 300, "c": "CAN" },
-  { "n": "Rivière du Moulin 2", "lat": 47.997, "lon": -71.056, "mw": 200, "c": "CAN" },
-  { "n": "South Kent", "lat": 42.35, "lon": -82.107, "mw": 270, "c": "CAN" },
+  {
+    "n": "Gansu Wind Farm",
+    "lat": 40.688,
+    "lon": 95.733,
+    "mw": 6000,
+    "c": "CHN"
+  },
+  {
+    "n": "Hornsea 1 - Heron & Njord",
+    "lat": 53.681,
+    "lon": 1.421,
+    "mw": 1200,
+    "c": "GBR"
+  },
+  {
+    "n": "Horse Hollow Wind Energy Center",
+    "lat": 32.214,
+    "lon": -100.057,
+    "mw": 736,
+    "c": "USA"
+  },
+  {
+    "n": "Capricorn Ridge Wind LLC",
+    "lat": 31.952,
+    "lon": -101.019,
+    "mw": 663,
+    "c": "USA"
+  },
+  {
+    "n": "Walney 3",
+    "lat": 54.09,
+    "lon": -3.74,
+    "mw": 660,
+    "c": "GBR"
+  },
+  {
+    "n": "London Array",
+    "lat": 51.622,
+    "lon": 1.496,
+    "mw": 630,
+    "c": "GBR"
+  },
+  {
+    "n": "Gemini",
+    "lat": 54.036,
+    "lon": 5.963,
+    "mw": 600,
+    "c": "NLD"
+  },
+  {
+    "n": "Fowler Ridge Wind Farm LLC",
+    "lat": 40.584,
+    "lon": -87.334,
+    "mw": 600,
+    "c": "USA"
+  },
+  {
+    "n": "Rush Creek Wind",
+    "lat": 39.172,
+    "lon": -103.845,
+    "mw": 600,
+    "c": "USA"
+  },
+  {
+    "n": "Beatrice",
+    "lat": 58.088,
+    "lon": -2.95,
+    "mw": 588,
+    "c": "GBR"
+  },
+  {
+    "n": "Gwynt y Mor",
+    "lat": 53.454,
+    "lon": -3.627,
+    "mw": 576,
+    "c": "GBR"
+  },
+  {
+    "n": "Zafarana",
+    "lat": 29.239,
+    "lon": 32.598,
+    "mw": 547,
+    "c": "EGY"
+  },
+  {
+    "n": "Greater Gabbard",
+    "lat": 51.918,
+    "lon": 1.928,
+    "mw": 504,
+    "c": "GBR"
+  },
+  {
+    "n": "Highland Wind Project (IA)",
+    "lat": 43.08,
+    "lon": -95.656,
+    "mw": 502,
+    "c": "USA"
+  },
+  {
+    "n": "Orient Wind Farm",
+    "lat": 41.202,
+    "lon": -94.417,
+    "mw": 501,
+    "c": "USA"
+  },
+  {
+    "n": "Dabancheng Wind Farm",
+    "lat": 43.6,
+    "lon": 87.854,
+    "mw": 500,
+    "c": "CHN"
+  },
+  {
+    "n": "Hale Community Wind Farm",
+    "lat": 33.928,
+    "lon": -101.742,
+    "mw": 478,
+    "c": "USA"
+  },
+  {
+    "n": "Flat Ridge 2 Wind Energy LLC",
+    "lat": 37.367,
+    "lon": -98.261,
+    "mw": 470,
+    "c": "USA"
+  },
+  {
+    "n": "Biglow Canyon Wind Farm",
+    "lat": 45.654,
+    "lon": -120.603,
+    "mw": 450,
+    "c": "USA"
+  },
+  {
+    "n": "Rolling Hills Wind Farm",
+    "lat": 41.197,
+    "lon": -94.774,
+    "mw": 444,
+    "c": "USA"
+  },
+  {
+    "n": "Murra Warra Wind Farm",
+    "lat": -36.433,
+    "lon": 142.318,
+    "mw": 429,
+    "c": "AUS"
+  },
+  {
+    "n": "Macarthur Wind Farm",
+    "lat": -38.065,
+    "lon": 142.184,
+    "mw": 420,
+    "c": "AUS"
+  },
+  {
+    "n": "Dudgeon East",
+    "lat": 53.117,
+    "lon": 0.614,
+    "mw": 402,
+    "c": "GBR"
+  },
+  {
+    "n": "Jilin Xiangyang 1st Phase Wind",
+    "lat": 45.215,
+    "lon": 123.067,
+    "mw": 400,
+    "c": "CHN"
+  },
+  {
+    "n": "Anholt",
+    "lat": 56.603,
+    "lon": 11.209,
+    "mw": 400,
+    "c": "DNK"
+  },
+  {
+    "n": "BARD Offshore 1",
+    "lat": 54.36,
+    "lon": 5.98,
+    "mw": 400,
+    "c": "DEU"
+  },
+  {
+    "n": "Global Tech I",
+    "lat": 54.509,
+    "lon": 6.367,
+    "mw": 400,
+    "c": "DEU"
+  },
+  {
+    "n": "Rampion Offshore Wind Farm (Hastings Zone)",
+    "lat": 50.64,
+    "lon": -0.18,
+    "mw": 400,
+    "c": "GBR"
+  },
+  {
+    "n": "Grande Prairie Wind Farm",
+    "lat": 42.608,
+    "lon": -98.428,
+    "mw": 400,
+    "c": "USA"
+  },
+  {
+    "n": "West of Duddon Sands",
+    "lat": 53.985,
+    "lon": -3.462,
+    "mw": 389,
+    "c": "GBR"
+  },
+  {
+    "n": "Stephens Ranch Wind Energy LLC",
+    "lat": 32.926,
+    "lon": -101.648,
+    "mw": 376,
+    "c": "USA"
+  },
+  {
+    "n": "Galloper Wind Farm",
+    "lat": 51.88,
+    "lon": 2.04,
+    "mw": 353,
+    "c": "GBR"
+  },
+  {
+    "n": "Foard City Wind",
+    "lat": 33.915,
+    "lon": -99.74,
+    "mw": 353,
+    "c": "USA"
+  },
+  {
+    "n": "Clyde Wind Farm",
+    "lat": 55.442,
+    "lon": -3.543,
+    "mw": 350,
+    "c": "GBR"
+  },
+  {
+    "n": "Lower Snake River Wind Energy Project",
+    "lat": 46.524,
+    "lon": -117.822,
+    "mw": 343,
+    "c": "USA"
+  },
+  {
+    "n": "UW Bertikow",
+    "lat": 53.264,
+    "lon": 14.048,
+    "mw": 340,
+    "c": "DEU"
+  },
+  {
+    "n": "Beaver Creek Wind",
+    "lat": 42.107,
+    "lon": -94.165,
+    "mw": 340,
+    "c": "USA"
+  },
+  {
+    "n": "North English",
+    "lat": 41.643,
+    "lon": -92.499,
+    "mw": 340,
+    "c": "USA"
+  },
+  {
+    "n": "Whitelee",
+    "lat": 55.681,
+    "lon": -4.279,
+    "mw": 322,
+    "c": "GBR"
+  },
+  {
+    "n": "Maple Ridge Wind Farm",
+    "lat": 43.785,
+    "lon": -75.575,
+    "mw": 322,
+    "c": "USA"
+  },
+  {
+    "n": "Rattlesnake Creek Wind Project",
+    "lat": 42.374,
+    "lon": -96.829,
+    "mw": 318,
+    "c": "USA"
+  },
+  {
+    "n": "Sheringham Shoal BMU 1 & 2",
+    "lat": 53.135,
+    "lon": 1.148,
+    "mw": 316,
+    "c": "GBR"
+  },
+  {
+    "n": "Borkum Riffgrund I",
+    "lat": 53.967,
+    "lon": 6.55,
+    "mw": 312,
+    "c": "DEU"
+  },
+  {
+    "n": "Lake Turkana",
+    "lat": 2.645,
+    "lon": 36.738,
+    "mw": 310,
+    "c": "KEN"
+  },
+  {
+    "n": "Karankawa Wind LLC",
+    "lat": 28.109,
+    "lon": -97.751,
+    "mw": 307,
+    "c": "USA"
+  },
+  {
+    "n": "Blue Creek Wind Project",
+    "lat": 40.931,
+    "lon": -84.562,
+    "mw": 302,
+    "c": "USA"
+  },
+  {
+    "n": "Santa Rita East",
+    "lat": 31.208,
+    "lon": -101.111,
+    "mw": 302,
+    "c": "USA"
+  },
+  {
+    "n": "Amrumbank West",
+    "lat": 54.5,
+    "lon": 7.8,
+    "mw": 301,
+    "c": "DEU"
+  },
+  {
+    "n": "Parc Eolien Tarfaya",
+    "lat": 35.611,
+    "lon": -5.432,
+    "mw": 301,
+    "c": "MAR"
+  },
+  {
+    "n": "Cedar Creek Wind",
+    "lat": 40.894,
+    "lon": -104.021,
+    "mw": 301,
+    "c": "USA"
+  },
+  {
+    "n": "Ida Grove Wind",
+    "lat": 42.356,
+    "lon": -95.42,
+    "mw": 301,
+    "c": "USA"
+  },
+  {
+    "n": "Lac-Alfred",
+    "lat": 48.419,
+    "lon": -67.714,
+    "mw": 300,
+    "c": "CAN"
+  },
+  {
+    "n": "Bayannur Wulanyiligeng Wind Farm",
+    "lat": 42.03,
+    "lon": 108.38,
+    "mw": 300,
+    "c": "CHN"
+  },
+  {
+    "n": "Huaneng Fuxin Zhangbei",
+    "lat": 42.763,
+    "lon": 122.518,
+    "mw": 300,
+    "c": "CHN"
+  },
+  {
+    "n": "Huaneng Tongliao Kezuozhongqi Haorigetu",
+    "lat": 44.182,
+    "lon": 121.778,
+    "mw": 300,
+    "c": "CHN"
+  },
+  {
+    "n": "Longyuan Huitengliang Wind Farm",
+    "lat": 43.45,
+    "lon": 116.15,
+    "mw": 300,
+    "c": "CHN"
+  },
+  {
+    "n": "Tongliao Beiqinghe Wind Farm",
+    "lat": 43.94,
+    "lon": 121.18,
+    "mw": 300,
+    "c": "CHN"
+  },
+  {
+    "n": "Thanet",
+    "lat": 51.43,
+    "lon": 1.633,
+    "mw": 300,
+    "c": "GBR"
+  },
+  {
+    "n": "Balko Wind LLC",
+    "lat": 36.518,
+    "lon": -100.847,
+    "mw": 300,
+    "c": "USA"
+  },
+  {
+    "n": "Chisholm View Wind Project",
+    "lat": 36.575,
+    "lon": -97.674,
+    "mw": 300,
+    "c": "USA"
+  },
+  {
+    "n": "Pioneer Prairie Wind Farm",
+    "lat": 43.484,
+    "lon": -92.613,
+    "mw": 300,
+    "c": "USA"
+  },
+  {
+    "n": "Ranchero Wind Farm LLC",
+    "lat": 30.595,
+    "lon": -101.453,
+    "mw": 300,
+    "c": "USA"
+  },
+  {
+    "n": "Rock Creek Wind Project",
+    "lat": 40.4,
+    "lon": -95.2,
+    "mw": 300,
+    "c": "USA"
+  },
+  {
+    "n": "Santa Rita Wind Energy",
+    "lat": 31.181,
+    "lon": -101.319,
+    "mw": 300,
+    "c": "USA"
+  },
+  {
+    "n": "South Plains II",
+    "lat": 34.197,
+    "lon": -101.382,
+    "mw": 300,
+    "c": "USA"
+  },
+  {
+    "n": "Streator Cayuga Ridge South",
+    "lat": 40.997,
+    "lon": -88.49,
+    "mw": 300,
+    "c": "USA"
+  },
+  {
+    "n": "TX Jumbo Road Wind",
+    "lat": 34.72,
+    "lon": -102.253,
+    "mw": 300,
+    "c": "USA"
+  },
+  {
+    "n": "Tahoka Wind",
+    "lat": 33.151,
+    "lon": -101.679,
+    "mw": 300,
+    "c": "USA"
+  },
+  {
+    "n": "Torrecillas Wind Energy  LLC",
+    "lat": 27.614,
+    "lon": -98.794,
+    "mw": 300,
+    "c": "USA"
+  },
+  {
+    "n": "Blackspring Ridge",
+    "lat": 50.153,
+    "lon": -112.823,
+    "mw": 299,
+    "c": "CAN"
+  },
+  {
+    "n": "Canadian Hills Wind",
+    "lat": 35.63,
+    "lon": -98.025,
+    "mw": 299,
+    "c": "USA"
+  },
+  {
+    "n": "Diamond Vista Wind Project  LLC",
+    "lat": 38.566,
+    "lon": -97.041,
+    "mw": 299,
+    "c": "USA"
+  },
+  {
+    "n": "Kay Wind  LLC",
+    "lat": 36.984,
+    "lon": -97.134,
+    "mw": 299,
+    "c": "USA"
+  },
+  {
+    "n": "Red Dirt Wind Project",
+    "lat": 36.1,
+    "lon": -97.8,
+    "mw": 299,
+    "c": "USA"
+  },
+  {
+    "n": "Upland Prairie",
+    "lat": 43.207,
+    "lon": -95.349,
+    "mw": 299,
+    "c": "USA"
+  },
+  {
+    "n": "El Cabo Wind",
+    "lat": 34.651,
+    "lon": -105.462,
+    "mw": 298,
+    "c": "USA"
+  },
+  {
+    "n": "Kingfisher Wind LLC",
+    "lat": 35.77,
+    "lon": -97.8,
+    "mw": 298,
+    "c": "USA"
+  },
+  {
+    "n": "Klondike Windpower III",
+    "lat": 45.584,
+    "lon": -120.504,
+    "mw": 298,
+    "c": "USA"
+  },
+  {
+    "n": "Thunder Ranch Wind Project",
+    "lat": 36.551,
+    "lon": -97.059,
+    "mw": 298,
+    "c": "USA"
+  },
+  {
+    "n": "OWP Nordsee Ost",
+    "lat": 54.445,
+    "lon": 7.683,
+    "mw": 295,
+    "c": "DEU"
+  },
+  {
+    "n": "Horseshoe Bend Wind LLC",
+    "lat": 45.586,
+    "lon": -120.008,
+    "mw": 290,
+    "c": "USA"
+  },
+  {
+    "n": "South Hurlburt Wind LLC",
+    "lat": 45.706,
+    "lon": -120.08,
+    "mw": 290,
+    "c": "USA"
+  },
+  {
+    "n": "Miami Wind Energy Center",
+    "lat": 35.654,
+    "lon": -100.539,
+    "mw": 289,
+    "c": "USA"
+  },
+  {
+    "n": "Baltic 2",
+    "lat": 54.983,
+    "lon": 13.162,
+    "mw": 288,
+    "c": "DEU"
+  },
+  {
+    "n": "Butendiek",
+    "lat": 55.019,
+    "lon": 7.774,
+    "mw": 288,
+    "c": "DEU"
+  },
+  {
+    "n": "Meerwind SüdIOst",
+    "lat": 54.392,
+    "lon": 7.704,
+    "mw": 288,
+    "c": "DEU"
+  },
+  {
+    "n": "Bjorkhojden",
+    "lat": 63.423,
+    "lon": 16.147,
+    "mw": 288,
+    "c": "SWE"
+  },
+  {
+    "n": "Race Bank (Phase 1)",
+    "lat": 53.136,
+    "lon": 0.589,
+    "mw": 287,
+    "c": "GBR"
+  },
+  {
+    "n": "Pomeroy Wind Farm",
+    "lat": 42.584,
+    "lon": -94.747,
+    "mw": 286,
+    "c": "USA"
+  },
+  {
+    "n": "Offshore Windfarm Danysk",
+    "lat": 55.142,
+    "lon": 7.194,
+    "mw": 284,
+    "c": "DEU"
+  },
+  {
+    "n": "Pattern Gulf Wind",
+    "lat": 27.001,
+    "lon": -97.599,
+    "mw": 283,
+    "c": "USA"
+  },
+  {
+    "n": "Western Plains Wind Farm",
+    "lat": 37.855,
+    "lon": -99.68,
+    "mw": 281,
+    "c": "USA"
+  },
+  {
+    "n": "King Mountain Wind Ranch 1",
+    "lat": 31.209,
+    "lon": -102.242,
+    "mw": 278,
+    "c": "USA"
+  },
+  {
+    "n": "Radfords Run Wind Farm",
+    "lat": 40.011,
+    "lon": -89.047,
+    "mw": 278,
+    "c": "USA"
+  },
+  {
+    "n": "Bethel Wind Farm LLC",
+    "lat": 34.575,
+    "lon": -102.475,
+    "mw": 276,
+    "c": "USA"
+  },
+  {
+    "n": "Solomon Forks Wind Project  LLC",
+    "lat": 39.306,
+    "lon": -101.074,
+    "mw": 276,
+    "c": "USA"
+  },
+  {
+    "n": "Wild Horse",
+    "lat": 47.036,
+    "lon": -120.207,
+    "mw": 273,
+    "c": "USA"
+  },
+  {
+    "n": "Sapphire Wind Farm",
+    "lat": -29.7,
+    "lon": 151.412,
+    "mw": 270,
+    "c": "AUS"
+  },
+  {
+    "n": "K2 Wind",
+    "lat": 43.937,
+    "lon": -81.64,
+    "mw": 270,
+    "c": "CAN"
+  },
+  {
+    "n": "South Kent",
+    "lat": 42.349,
+    "lon": -82.107,
+    "mw": 270,
+    "c": "CAN"
+  },
+  {
+    "n": "Lincs",
+    "lat": 53.184,
+    "lon": 0.498,
+    "mw": 270,
+    "c": "GBR"
+  },
+  {
+    "n": "Tucannon River Wind Farm",
+    "lat": 46.421,
+    "lon": -118.027,
+    "mw": 267,
+    "c": "USA"
+  },
+  {
+    "n": "North Hurlburt Wind LLC",
+    "lat": 45.732,
+    "lon": -120.084,
+    "mw": 265,
+    "c": "USA"
+  },
+  {
+    "n": "Ocotillo Express LLC",
+    "lat": 32.753,
+    "lon": -116.045,
+    "mw": 265,
+    "c": "USA"
+  },
+  {
+    "n": "NedPower Mount Storm",
+    "lat": 39.218,
+    "lon": -79.209,
+    "mw": 264,
+    "c": "USA"
+  },
+  {
+    "n": "Gode Wind 1 - Teil 1",
+    "lat": 54.041,
+    "lon": 6.994,
+    "mw": 263,
+    "c": "DEU"
+  },
+  {
+    "n": "Windy Flats Wind Project",
+    "lat": 45.727,
+    "lon": -120.834,
+    "mw": 262,
+    "c": "USA"
+  },
+  {
+    "n": "Pyron Wind Farm LLC Hybrid",
+    "lat": 32.589,
+    "lon": -100.673,
+    "mw": 259,
+    "c": "USA"
+  },
+  {
+    "n": "Burbo Bank Extension (Burbo Bank 2)",
+    "lat": 53.48,
+    "lon": -3.27,
+    "mw": 258,
+    "c": "GBR"
+  },
+  {
+    "n": "Wake Wind Energy Center",
+    "lat": 33.825,
+    "lon": -101.1,
+    "mw": 257,
+    "c": "USA"
+  },
+  {
+    "n": "Alto Douro",
+    "lat": 41.07,
+    "lon": -7.577,
+    "mw": 253,
+    "c": "PRT"
+  },
+  {
+    "n": "Dermott Wind",
+    "lat": 32.864,
+    "lon": -100.975,
+    "mw": 253,
+    "c": "USA"
+  },
+  {
+    "n": "Cedar Point Wind",
+    "lat": 39.422,
+    "lon": -103.678,
+    "mw": 252,
+    "c": "USA"
+  },
+  {
+    "n": "Dongxinrong (Huaneng)",
+    "lat": 44.71,
+    "lon": 122.74,
+    "mw": 251,
+    "c": "CHN"
+  },
+  {
+    "n": "Eurus",
+    "lat": 16.485,
+    "lon": -94.948,
+    "mw": 251,
+    "c": "MEX"
+  },
+  {
+    "n": "Lundgren Wind Project",
+    "lat": 42.335,
+    "lon": -94.171,
+    "mw": 251,
+    "c": "USA"
+  },
+  {
+    "n": "Arbor Hill Wind Farm",
+    "lat": 41.404,
+    "lon": -94.261,
+    "mw": 250,
+    "c": "USA"
+  },
+  {
+    "n": "Buffalo Dunes Wind Project",
+    "lat": 37.621,
+    "lon": -101.076,
+    "mw": 250,
+    "c": "USA"
+  },
+  {
+    "n": "Golden West Power Partners LLC",
+    "lat": 38.935,
+    "lon": -104.212,
+    "mw": 250,
+    "c": "USA"
+  },
+  {
+    "n": "Hidalgo Wind Farm LLC",
+    "lat": 26.466,
+    "lon": -98.411,
+    "mw": 250,
+    "c": "USA"
+  },
+  {
+    "n": "Javelina Wind Energy  LLC",
+    "lat": 27.32,
+    "lon": -99,
+    "mw": 250,
+    "c": "USA"
+  },
+  {
+    "n": "O'Brien Wind",
+    "lat": 43.2,
+    "lon": -95.624,
+    "mw": 250,
+    "c": "USA"
+  },
+  {
+    "n": "Palo Duro Wind",
+    "lat": 36.244,
+    "lon": -101.001,
+    "mw": 250,
+    "c": "USA"
+  },
+  {
+    "n": "Roosevelt County",
+    "lat": 33.926,
+    "lon": -103.511,
+    "mw": 250,
+    "c": "USA"
+  },
+  {
+    "n": "Rush Springs Wind",
+    "lat": 34.683,
+    "lon": -97.829,
+    "mw": 250,
+    "c": "USA"
+  },
+  {
+    "n": "Willow Springs Wind Farm",
+    "lat": 33.345,
+    "lon": -99.624,
+    "mw": 250,
+    "c": "USA"
+  },
+  {
+    "n": "Cedar Creek II",
+    "lat": 40.947,
+    "lon": -103.784,
+    "mw": 248,
+    "c": "USA"
+  },
+  {
+    "n": "Armadillo Flats Wind Project  LLC",
+    "lat": 36.301,
+    "lon": -97.567,
+    "mw": 247,
+    "c": "USA"
+  },
+  {
+    "n": "WPP Cogealac",
+    "lat": 44.59,
+    "lon": 28.565,
+    "mw": 246,
+    "c": "ROU"
+  },
+  {
+    "n": "Pratt Wind  LLC",
+    "lat": 37.55,
+    "lon": -98.8,
+    "mw": 244,
+    "c": "USA"
+  },
+  {
+    "n": "Sweetwater Wind 4 LLC",
+    "lat": 32.312,
+    "lon": -100.53,
+    "mw": 241,
+    "c": "USA"
+  },
+  {
+    "n": "Ararat Wind Farm",
+    "lat": -37.239,
+    "lon": 143.079,
+    "mw": 240,
+    "c": "AUS"
+  },
+  {
+    "n": "Alto Minho I",
+    "lat": 42.015,
+    "lon": -8.346,
+    "mw": 240,
+    "c": "PRT"
+  },
+  {
+    "n": "Big Sky Wind LLC",
+    "lat": 41.599,
+    "lon": -89.456,
+    "mw": 240,
+    "c": "USA"
+  },
+  {
+    "n": "Kilgallioch wind farm",
+    "lat": 54.989,
+    "lon": -4.802,
+    "mw": 239,
+    "c": "GBR"
+  },
+  {
+    "n": "FPL Energy Illinois Wind LLC Hybrid",
+    "lat": 41.768,
+    "lon": -88.887,
+    "mw": 238,
+    "c": "USA"
+  },
+  {
+    "n": "Rio Bravo Windpower  LLC",
+    "lat": 26.649,
+    "lon": -99.039,
+    "mw": 238,
+    "c": "USA"
+  },
+  {
+    "n": "Chapman Ranch Wind I",
+    "lat": 27.593,
+    "lon": -97.501,
+    "mw": 236,
+    "c": "USA"
+  },
+  {
+    "n": "Buffalo Gap 2 Wind Farm",
+    "lat": 32.318,
+    "lon": -100.177,
+    "mw": 233,
+    "c": "USA"
+  },
+  {
+    "n": "Cross Winds Energy Park",
+    "lat": 43.61,
+    "lon": -83.486,
+    "mw": 231,
+    "c": "USA"
+  },
   {
     "n": "West Lincoln Niagara Region Wind Farm",
     "lat": 42.999,
-    "lon": -79.503,
+    "lon": -79.504,
     "mw": 230,
     "c": "CAN"
   },
-  { "n": "Bayannur Wulanyiligeng Wind Farm", "lat": 42.03, "lon": 108.38, "mw": 300, "c": "CHN" },
-  { "n": "Dabancheng Wind Farm", "lat": 43.6, "lon": 87.854, "mw": 500, "c": "CHN" },
-  { "n": "Dongxinrong (Huaneng)", "lat": 44.71, "lon": 122.74, "mw": 251, "c": "CHN" },
-  { "n": "Gansu Wind Farm", "lat": 40.688, "lon": 95.733, "mw": 6000, "c": "CHN" },
-  { "n": "Huadian Kulun", "lat": 41.718, "lon": 112.602, "mw": 201, "c": "CHN" },
+  {
+    "n": "Electra Wind Farm",
+    "lat": 34.103,
+    "lon": -99.119,
+    "mw": 230,
+    "c": "USA"
+  },
+  {
+    "n": "Horse Creek Wind Farm",
+    "lat": 33.35,
+    "lon": -99.54,
+    "mw": 230,
+    "c": "USA"
+  },
+  {
+    "n": "Mariah del Norte",
+    "lat": 34.667,
+    "lon": -102.578,
+    "mw": 230,
+    "c": "USA"
+  },
+  {
+    "n": "Pen y Cymoedd",
+    "lat": 51.656,
+    "lon": -3.696,
+    "mw": 228,
+    "c": "GBR"
+  },
+  {
+    "n": "Stronelairg Wind Farm",
+    "lat": 57.127,
+    "lon": -4.526,
+    "mw": 228,
+    "c": "GBR"
+  },
+  {
+    "n": "Bruennings Breeze Wind Farm",
+    "lat": 26.522,
+    "lon": -97.691,
+    "mw": 228,
+    "c": "USA"
+  },
+  {
+    "n": "Solano Wind",
+    "lat": 38.116,
+    "lon": -121.769,
+    "mw": 228,
+    "c": "USA"
+  },
+  {
+    "n": "Crossroads Wind Farm",
+    "lat": 36.035,
+    "lon": -98.722,
+    "mw": 227,
+    "c": "USA"
+  },
+  {
+    "n": "Patriot Wind Farm",
+    "lat": 27.593,
+    "lon": -97.648,
+    "mw": 226,
+    "c": "USA"
+  },
+  {
+    "n": "Great Western Wind Energy  LLC",
+    "lat": 36.166,
+    "lon": -99.596,
+    "mw": 225,
+    "c": "USA"
+  },
+  {
+    "n": "Trinity Hills",
+    "lat": 33.384,
+    "lon": -98.712,
+    "mw": 225,
+    "c": "USA"
+  },
+  {
+    "n": "Grady Wind Energy Center  LLC",
+    "lat": 34.734,
+    "lon": -103.092,
+    "mw": 221,
+    "c": "USA"
+  },
+  {
+    "n": "Humber Gateway",
+    "lat": 53.388,
+    "lon": 0.501,
+    "mw": 219,
+    "c": "GBR"
+  },
+  {
+    "n": "Northeast Binnendijks",
+    "lat": 52.588,
+    "lon": 4.223,
+    "mw": 218,
+    "c": "NLD"
+  },
+  {
+    "n": "Pattern Panhandle Wind LLC",
+    "lat": 35.428,
+    "lon": -101.253,
+    "mw": 218,
+    "c": "USA"
+  },
+  {
+    "n": "Whitelee 2",
+    "lat": 55.677,
+    "lon": -4.287,
+    "mw": 217,
+    "c": "GBR"
+  },
+  {
+    "n": "California Ridge Wind Energy LLC",
+    "lat": 40.212,
+    "lon": -87.878,
+    "mw": 217,
+    "c": "USA"
+  },
+  {
+    "n": "Northwind",
+    "lat": 51.619,
+    "lon": 2.9,
+    "mw": 216,
+    "c": "BEL"
+  },
+  {
+    "n": "Kingman Wind",
+    "lat": 37.587,
+    "lon": -98.579,
+    "mw": 215,
+    "c": "USA"
+  },
+  {
+    "n": "Marble River Wind Farm",
+    "lat": 44.976,
+    "lon": -73.93,
+    "mw": 215,
+    "c": "USA"
+  },
+  {
+    "n": "Westereems",
+    "lat": 53.438,
+    "lon": 6.861,
+    "mw": 213,
+    "c": "NLD"
+  },
+  {
+    "n": "Glaciers Edge Wind Project",
+    "lat": 42.862,
+    "lon": -95.772,
+    "mw": 212,
+    "c": "USA"
+  },
+  {
+    "n": "Walnut Ridge Wind Farm",
+    "lat": 41.497,
+    "lon": -89.58,
+    "mw": 212,
+    "c": "USA"
+  },
+  {
+    "n": "Grandview Wind Farm  LLC",
+    "lat": 35.238,
+    "lon": -101.311,
+    "mw": 211,
+    "c": "USA"
+  },
+  {
+    "n": "Marengo Wind Plant",
+    "lat": 46.375,
+    "lon": -117.777,
+    "mw": 211,
+    "c": "USA"
+  },
+  {
+    "n": "Mesquite Creek Wind",
+    "lat": 32.7,
+    "lon": -101.741,
+    "mw": 211,
+    "c": "USA"
+  },
+  {
+    "n": "Westermost Rough",
+    "lat": 53.098,
+    "lon": 0.561,
+    "mw": 210,
+    "c": "GBR"
+  },
+  {
+    "n": "Buffalo Ridge II LLC",
+    "lat": 44.528,
+    "lon": -96.627,
+    "mw": 210,
+    "c": "USA"
+  },
+  {
+    "n": "Canadian Breaks  LLC",
+    "lat": 35.2,
+    "lon": -102.316,
+    "mw": 210,
+    "c": "USA"
+  },
+  {
+    "n": "Grand Ridge Wind Energy Center",
+    "lat": 41.227,
+    "lon": -88.684,
+    "mw": 210,
+    "c": "USA"
+  },
+  {
+    "n": "Horns Rev B",
+    "lat": 55.6,
+    "lon": 7.582,
+    "mw": 209,
+    "c": "DNK"
+  },
+  {
+    "n": "Roscoe Wind Farm LLC",
+    "lat": 32.469,
+    "lon": -100.666,
+    "mw": 209,
+    "c": "USA"
+  },
+  {
+    "n": "Desert Wind Farm  LLC",
+    "lat": 36.31,
+    "lon": -76.42,
+    "mw": 208,
+    "c": "USA"
+  },
+  {
+    "n": "Ninnescah Wind Energy  LLC",
+    "lat": 37.587,
+    "lon": -98.579,
+    "mw": 208,
+    "c": "USA"
+  },
+  {
+    "n": "Roedsand 2",
+    "lat": 54.523,
+    "lon": 11.545,
+    "mw": 207,
+    "c": "DNK"
+  },
+  {
+    "n": "Huay Bong",
+    "lat": 15.177,
+    "lon": 101.451,
+    "mw": 207,
+    "c": "THA"
+  },
+  {
+    "n": "Inadale Wind Farm LLC Hybrid",
+    "lat": 32.497,
+    "lon": -100.58,
+    "mw": 207,
+    "c": "USA"
+  },
+  {
+    "n": "Prairie Breeze",
+    "lat": 41.952,
+    "lon": -98.077,
+    "mw": 207,
+    "c": "USA"
+  },
+  {
+    "n": "Rattlesnake Den",
+    "lat": 31.743,
+    "lon": -101.493,
+    "mw": 207,
+    "c": "USA"
+  },
+  {
+    "n": "Collgar Wind Farm",
+    "lat": -31.543,
+    "lon": 118.457,
+    "mw": 206,
+    "c": "AUS"
+  },
+  {
+    "n": "Huitengliang (Beifeng)",
+    "lat": 43.49,
+    "lon": 115.96,
+    "mw": 206,
+    "c": "CHN"
+  },
+  {
+    "n": "Buckeye Wind Energy Center",
+    "lat": 39.004,
+    "lon": -99.414,
+    "mw": 206,
+    "c": "USA"
+  },
+  {
+    "n": "Fenton Wind Farm",
+    "lat": 43.853,
+    "lon": -96.018,
+    "mw": 206,
+    "c": "USA"
+  },
+  {
+    "n": "Lakefield Wind Project LLC",
+    "lat": 43.675,
+    "lon": -95.157,
+    "mw": 206,
+    "c": "USA"
+  },
+  {
+    "n": "Bison 4 Wind Energy Center",
+    "lat": 46.98,
+    "lon": -101.555,
+    "mw": 205,
+    "c": "USA"
+  },
+  {
+    "n": "Bright Stalk Wind Farm I",
+    "lat": 40.701,
+    "lon": -88.701,
+    "mw": 205,
+    "c": "USA"
+  },
+  {
+    "n": "Adama",
+    "lat": 8.591,
+    "lon": 39.249,
+    "mw": 204,
+    "c": "ETH"
+  },
+  {
+    "n": "Milford Wind Corridor I LLC",
+    "lat": 38.536,
+    "lon": -112.935,
+    "mw": 204,
+    "c": "USA"
+  },
+  {
+    "n": "New Mexico Wind Energy Center",
+    "lat": 34.636,
+    "lon": -104.047,
+    "mw": 204,
+    "c": "USA"
+  },
+  {
+    "n": "Shannon Wind",
+    "lat": 33.51,
+    "lon": -98.361,
+    "mw": 204,
+    "c": "USA"
+  },
+  {
+    "n": "White Creek Wind Farm",
+    "lat": 45.816,
+    "lon": -120.342,
+    "mw": 204,
+    "c": "USA"
+  },
+  {
+    "n": "Magic Valley Wind Farm I LLC",
+    "lat": 26.475,
+    "lon": -97.691,
+    "mw": 203,
+    "c": "USA"
+  },
+  {
+    "n": "Upstream Wind Energy LLC",
+    "lat": 42.184,
+    "lon": -97.965,
+    "mw": 203,
+    "c": "USA"
+  },
   {
     "n": "Huadian Wind Huitengxile Inner Mongolia",
     "lat": 41.669,
     "lon": 112.625,
     "mw": 202,
+    "c": "CHN"
+  },
+  {
+    "n": "Parc Eolien Akhfenir",
+    "lat": 27.954,
+    "lon": -11.998,
+    "mw": 202,
+    "c": "MAR"
+  },
+  {
+    "n": "Los Vientos Wind 1B",
+    "lat": 26.349,
+    "lon": -97.667,
+    "mw": 202,
+    "c": "USA"
+  },
+  {
+    "n": "Mesteno",
+    "lat": 26.524,
+    "lon": -98.746,
+    "mw": 202,
+    "c": "USA"
+  },
+  {
+    "n": "Penascal Wind Power LLC",
+    "lat": 27.07,
+    "lon": -97.508,
+    "mw": 202,
+    "c": "USA"
+  },
+  {
+    "n": "Huadian Kulun",
+    "lat": 41.718,
+    "lon": 112.602,
+    "mw": 201,
     "c": "CHN"
   },
   {
@@ -36,117 +1406,167 @@
     "mw": 201,
     "c": "CHN"
   },
-  { "n": "Huaneng Fuxin Zhangbei", "lat": 42.763, "lon": 122.518, "mw": 300, "c": "CHN" },
   {
-    "n": "Huaneng Tongliao Kezuozhongqi Haorigetu",
-    "lat": 44.182,
-    "lon": 121.778,
-    "mw": 300,
+    "n": "Jiangsu Dongtai Wind",
+    "lat": 32.47,
+    "lon": 120.54,
+    "mw": 201,
     "c": "CHN"
   },
-  { "n": "Huitengliang (Beifeng)", "lat": 43.49, "lon": 115.96, "mw": 206, "c": "CHN" },
-  { "n": "Jiangsu Dafeng Wind", "lat": 33.119, "lon": 120.83, "mw": 200, "c": "CHN" },
-  { "n": "Jiangsu Dongtai Phase 2 Wind", "lat": 32.66, "lon": 120.903, "mw": 200, "c": "CHN" },
-  { "n": "Jiangsu Dongtai Wind", "lat": 32.47, "lon": 120.54, "mw": 201, "c": "CHN" },
-  { "n": "Jiangsu Xiangshui Wind", "lat": 33.947, "lon": 119.497, "mw": 201, "c": "CHN" },
-  { "n": "Jilin Xiangyang 1st Phase Wind", "lat": 45.215, "lon": 123.067, "mw": 400, "c": "CHN" },
-  { "n": "Longyuan Huitengliang Wind Farm", "lat": 43.45, "lon": 116.15, "mw": 300, "c": "CHN" },
-  { "n": "Tongliao Beiqinghe Wind Farm", "lat": 43.94, "lon": 121.18, "mw": 300, "c": "CHN" },
-  { "n": "Anholt", "lat": 56.603, "lon": 11.209, "mw": 400, "c": "DNK" },
-  { "n": "Horns Rev B", "lat": 55.6, "lon": 7.583, "mw": 209, "c": "DNK" },
-  { "n": "Roedsand 2", "lat": 54.523, "lon": 11.545, "mw": 207, "c": "DNK" },
-  { "n": "Zafarana", "lat": 29.239, "lon": 32.598, "mw": 547, "c": "EGY" },
-  { "n": "Adama", "lat": 8.591, "lon": 39.25, "mw": 204, "c": "ETH" },
-  { "n": "Amrumbank West", "lat": 54.5, "lon": 7.8, "mw": 301, "c": "DEU" },
-  { "n": "BARD Offshore 1", "lat": 54.36, "lon": 5.98, "mw": 400, "c": "DEU" },
-  { "n": "Baltic 2", "lat": 54.983, "lon": 13.162, "mw": 288, "c": "DEU" },
-  { "n": "Borkum Riffgrund I", "lat": 53.967, "lon": 6.55, "mw": 312, "c": "DEU" },
-  { "n": "Butendiek", "lat": 55.019, "lon": 7.774, "mw": 288, "c": "DEU" },
-  { "n": "Global Tech I", "lat": 54.509, "lon": 6.367, "mw": 400, "c": "DEU" },
-  { "n": "Gode Wind 1 - Teil 1", "lat": 54.041, "lon": 6.994, "mw": 263, "c": "DEU" },
-  { "n": "Meerwind SüdIOst", "lat": 54.392, "lon": 7.704, "mw": 288, "c": "DEU" },
-  { "n": "OWP Nordsee Ost", "lat": 54.445, "lon": 7.683, "mw": 295, "c": "DEU" },
-  { "n": "Offshore Windfarm Danysk", "lat": 55.142, "lon": 7.195, "mw": 284, "c": "DEU" },
-  { "n": "Trianel Windpark Borkum", "lat": 54.042, "lon": 6.467, "mw": 200, "c": "DEU" },
-  { "n": "UW Bertikow", "lat": 53.264, "lon": 14.048, "mw": 340, "c": "DEU" },
-  { "n": "Thimmapuram Wind Farm", "lat": 14.705, "lon": 77.336, "mw": 200, "c": "IND" },
-  { "n": "Lake Turkana", "lat": 2.645, "lon": 36.738, "mw": 310, "c": "KEN" },
-  { "n": "Eurus", "lat": 16.485, "lon": -94.948, "mw": 251, "c": "MEX" },
-  { "n": "Parc Eolien Akhfenir", "lat": 27.954, "lon": -11.997, "mw": 202, "c": "MAR" },
-  { "n": "Parc Eolien Tarfaya", "lat": 35.611, "lon": -5.432, "mw": 301, "c": "MAR" },
-  { "n": "Gemini", "lat": 54.036, "lon": 5.963, "mw": 600, "c": "NLD" },
-  { "n": "Northeast Binnendijks", "lat": 52.588, "lon": 4.223, "mw": 218, "c": "NLD" },
-  { "n": "Westereems", "lat": 53.438, "lon": 6.861, "mw": 213, "c": "NLD" },
-  { "n": "Alto Douro", "lat": 41.07, "lon": -7.577, "mw": 253, "c": "PRT" },
-  { "n": "Alto Minho I", "lat": 42.015, "lon": -8.346, "mw": 240, "c": "PRT" },
-  { "n": "WPP Cogealac", "lat": 44.59, "lon": 28.565, "mw": 246, "c": "ROU" },
-  { "n": "Bjorkhojden", "lat": 63.423, "lon": 16.147, "mw": 288, "c": "SWE" },
-  { "n": "Huay Bong", "lat": 15.177, "lon": 101.451, "mw": 207, "c": "THA" },
-  { "n": "Beatrice", "lat": 58.088, "lon": -2.95, "mw": 588, "c": "GBR" },
-  { "n": "Burbo Bank Extension (Burbo Bank 2)", "lat": 53.48, "lon": -3.27, "mw": 258, "c": "GBR" },
-  { "n": "Clyde Wind Farm", "lat": 55.442, "lon": -3.543, "mw": 350, "c": "GBR" },
-  { "n": "Dudgeon East", "lat": 53.118, "lon": 0.614, "mw": 402, "c": "GBR" },
-  { "n": "Galloper Wind Farm", "lat": 51.88, "lon": 2.04, "mw": 353, "c": "GBR" },
-  { "n": "Greater Gabbard", "lat": 51.918, "lon": 1.928, "mw": 504, "c": "GBR" },
-  { "n": "Gwynt y Mor", "lat": 53.454, "lon": -3.627, "mw": 576, "c": "GBR" },
-  { "n": "Hornsea 1 - Heron & Njord", "lat": 53.682, "lon": 1.421, "mw": 1200, "c": "GBR" },
-  { "n": "Humber Gateway", "lat": 53.388, "lon": 0.501, "mw": 219, "c": "GBR" },
-  { "n": "Kilgallioch wind farm", "lat": 54.989, "lon": -4.802, "mw": 239, "c": "GBR" },
-  { "n": "Lincs", "lat": 53.184, "lon": 0.498, "mw": 270, "c": "GBR" },
-  { "n": "London Array", "lat": 51.622, "lon": 1.496, "mw": 630, "c": "GBR" },
-  { "n": "Pen y Cymoedd", "lat": 51.656, "lon": -3.696, "mw": 228, "c": "GBR" },
-  { "n": "Race Bank (Phase 1)", "lat": 53.136, "lon": 0.589, "mw": 287, "c": "GBR" },
   {
-    "n": "Rampion Offshore Wind Farm (Hastings Zon",
-    "lat": 50.64,
-    "lon": -0.18,
-    "mw": 400,
-    "c": "GBR"
+    "n": "Jiangsu Xiangshui Wind",
+    "lat": 33.947,
+    "lon": 119.497,
+    "mw": 201,
+    "c": "CHN"
   },
-  { "n": "Sheringham Shoal BMU 1 & 2", "lat": 53.135, "lon": 1.148, "mw": 316, "c": "GBR" },
-  { "n": "Stronelairg Wind Farm", "lat": 57.127, "lon": -4.526, "mw": 228, "c": "GBR" },
-  { "n": "Thanet", "lat": 51.43, "lon": 1.633, "mw": 300, "c": "GBR" },
-  { "n": "Walney 3", "lat": 54.09, "lon": -3.74, "mw": 660, "c": "GBR" },
-  { "n": "West of Duddon Sands", "lat": 53.985, "lon": -3.462, "mw": 389, "c": "GBR" },
-  { "n": "Westermost Rough", "lat": 53.098, "lon": 0.562, "mw": 210, "c": "GBR" },
-  { "n": "Whitelee", "lat": 55.681, "lon": -4.279, "mw": 322, "c": "GBR" },
-  { "n": "Whitelee 2", "lat": 55.677, "lon": -4.287, "mw": 217, "c": "GBR" },
-  { "n": "Arbor Hill Wind Farm", "lat": 41.404, "lon": -94.261, "mw": 250, "c": "USA" },
   {
-    "n": "Armadillo Flats Wind Project  LLC",
-    "lat": 36.301,
-    "lon": -97.567,
-    "mw": 247,
+    "n": "Bent Tree Wind Farm Phase 1",
+    "lat": 43.725,
+    "lon": -93.45,
+    "mw": 201,
     "c": "USA"
   },
-  { "n": "Balko Wind LLC", "lat": 36.518, "lon": -100.847, "mw": 300, "c": "USA" },
-  { "n": "Beaver Creek Wind", "lat": 42.107, "lon": -94.165, "mw": 340, "c": "USA" },
-  { "n": "Bent Tree Wind Farm Phase 1", "lat": 43.725, "lon": -93.45, "mw": 201, "c": "USA" },
-  { "n": "Bethel Wind Farm LLC", "lat": 34.575, "lon": -102.475, "mw": 276, "c": "USA" },
-  { "n": "Big Sky Wind LLC", "lat": 41.599, "lon": -89.456, "mw": 240, "c": "USA" },
-  { "n": "Biglow Canyon Wind Farm", "lat": 45.654, "lon": -120.603, "mw": 450, "c": "USA" },
-  { "n": "Bishop Hill Energy LLC", "lat": 41.215, "lon": -90.121, "mw": 200, "c": "USA" },
-  { "n": "Bison 4 Wind Energy Center", "lat": 46.98, "lon": -101.555, "mw": 205, "c": "USA" },
-  { "n": "Blackstone Wind Farm II LLC", "lat": 41.141, "lon": -88.53, "mw": 200, "c": "USA" },
-  { "n": "Blue Creek Wind Project", "lat": 40.932, "lon": -84.562, "mw": 302, "c": "USA" },
-  { "n": "Blue Summit III Wind", "lat": 34.171, "lon": -99.563, "mw": 200, "c": "USA" },
-  { "n": "Bright Stalk Wind Farm I", "lat": 40.701, "lon": -88.701, "mw": 205, "c": "USA" },
-  { "n": "Bruennings Breeze Wind Farm", "lat": 26.522, "lon": -97.691, "mw": 228, "c": "USA" },
-  { "n": "Buckeye Wind Energy Center", "lat": 39.004, "lon": -99.414, "mw": 206, "c": "USA" },
-  { "n": "Buffalo Dunes Wind Project", "lat": 37.621, "lon": -101.076, "mw": 250, "c": "USA" },
-  { "n": "Buffalo Gap 2 Wind Farm", "lat": 32.318, "lon": -100.177, "mw": 233, "c": "USA" },
-  { "n": "Buffalo Ridge II LLC", "lat": 44.528, "lon": -96.627, "mw": 210, "c": "USA" },
-  { "n": "California Ridge Wind Energy LLC", "lat": 40.212, "lon": -87.878, "mw": 217, "c": "USA" },
-  { "n": "Canadian Breaks  LLC", "lat": 35.2, "lon": -102.315, "mw": 210, "c": "USA" },
-  { "n": "Canadian Hills Wind", "lat": 35.63, "lon": -98.025, "mw": 299, "c": "USA" },
-  { "n": "Caney River Wind Project", "lat": 37.46, "lon": -96.42, "mw": 200, "c": "USA" },
-  { "n": "Capricorn Ridge Wind LLC", "lat": 31.952, "lon": -101.019, "mw": 663, "c": "USA" },
-  { "n": "Cedar Creek II", "lat": 40.948, "lon": -103.784, "mw": 248, "c": "USA" },
-  { "n": "Cedar Creek Wind", "lat": 40.894, "lon": -104.021, "mw": 301, "c": "USA" },
-  { "n": "Cedar Point Wind", "lat": 39.422, "lon": -103.678, "mw": 252, "c": "USA" },
-  { "n": "Century", "lat": 42.564, "lon": -93.637, "mw": 201, "c": "USA" },
-  { "n": "Chapman Ranch Wind I", "lat": 27.593, "lon": -97.501, "mw": 236, "c": "USA" },
-  { "n": "Chisholm View Wind Project", "lat": 36.575, "lon": -97.674, "mw": 300, "c": "USA" },
+  {
+    "n": "Century",
+    "lat": 42.564,
+    "lon": -93.637,
+    "mw": 201,
+    "c": "USA"
+  },
+  {
+    "n": "Cloud County Wind Farm",
+    "lat": 39.438,
+    "lon": -97.664,
+    "mw": 201,
+    "c": "USA"
+  },
+  {
+    "n": "Ida Grove II",
+    "lat": 42.327,
+    "lon": -95.459,
+    "mw": 201,
+    "c": "USA"
+  },
+  {
+    "n": "Leaning Juniper Wind Power II",
+    "lat": 45.651,
+    "lon": -120.26,
+    "mw": 201,
+    "c": "USA"
+  },
+  {
+    "n": "Limon III Wind LLC",
+    "lat": 39.353,
+    "lon": -103.474,
+    "mw": 201,
+    "c": "USA"
+  },
+  {
+    "n": "Logan Wind Energy",
+    "lat": 40.941,
+    "lon": -103.259,
+    "mw": 201,
+    "c": "USA"
+  },
+  {
+    "n": "Nobles Wind Project",
+    "lat": 43.704,
+    "lon": -95.713,
+    "mw": 201,
+    "c": "USA"
+  },
+  {
+    "n": "Osborn Wind Energy",
+    "lat": 39.748,
+    "lon": -94.474,
+    "mw": 201,
+    "c": "USA"
+  },
+  {
+    "n": "Penascal II Wind Project LLC",
+    "lat": 27.12,
+    "lon": -97.55,
+    "mw": 201,
+    "c": "USA"
+  },
+  {
+    "n": "Post Rock Wind Power Project  LLC",
+    "lat": 38.842,
+    "lon": -98.299,
+    "mw": 201,
+    "c": "USA"
+  },
+  {
+    "n": "Stella Wind Farm",
+    "lat": 26.942,
+    "lon": -97.642,
+    "mw": 201,
+    "c": "USA"
+  },
+  {
+    "n": "Rivière du Moulin 2",
+    "lat": 47.997,
+    "lon": -71.056,
+    "mw": 200,
+    "c": "CAN"
+  },
+  {
+    "n": "Jiangsu Dafeng Wind",
+    "lat": 33.119,
+    "lon": 120.83,
+    "mw": 200,
+    "c": "CHN"
+  },
+  {
+    "n": "Jiangsu Dongtai Phase 2 Wind",
+    "lat": 32.66,
+    "lon": 120.903,
+    "mw": 200,
+    "c": "CHN"
+  },
+  {
+    "n": "Trianel Windpark Borkum",
+    "lat": 54.042,
+    "lon": 6.467,
+    "mw": 200,
+    "c": "DEU"
+  },
+  {
+    "n": "Thimmapuram Wind Farm",
+    "lat": 14.705,
+    "lon": 77.335,
+    "mw": 200,
+    "c": "IND"
+  },
+  {
+    "n": "Bishop Hill Energy LLC",
+    "lat": 41.215,
+    "lon": -90.121,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Blackstone Wind Farm II LLC",
+    "lat": 41.141,
+    "lon": -88.53,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Blue Summit III Wind",
+    "lat": 34.17,
+    "lon": -99.563,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Caney River Wind Project",
+    "lat": 37.46,
+    "lon": -96.42,
+    "mw": 200,
+    "c": "USA"
+  },
   {
     "n": "Cimarron Bend Wind Project I  LLC",
     "lat": 37.355,
@@ -161,20 +1581,48 @@
     "mw": 200,
     "c": "USA"
   },
-  { "n": "Cloud County Wind Farm", "lat": 39.438, "lon": -97.664, "mw": 201, "c": "USA" },
-  { "n": "Colbeck's Corner  LLC", "lat": 35.254, "lon": -101.187, "mw": 200, "c": "USA" },
-  { "n": "Courtenay Wind Farm", "lat": 47.18, "lon": -98.595, "mw": 200, "c": "USA" },
-  { "n": "Crocker Wind Farm", "lat": 45.052, "lon": -97.826, "mw": 200, "c": "USA" },
-  { "n": "Cross Winds Energy Park", "lat": 43.61, "lon": -83.486, "mw": 231, "c": "USA" },
-  { "n": "Crossroads Wind Farm", "lat": 36.035, "lon": -98.722, "mw": 227, "c": "USA" },
-  { "n": "Crowned Ridge Wind Energy Center", "lat": 45.155, "lon": -96.837, "mw": 200, "c": "USA" },
-  { "n": "Dermott Wind", "lat": 32.864, "lon": -100.975, "mw": 253, "c": "USA" },
-  { "n": "Desert Wind Farm  LLC", "lat": 36.31, "lon": -76.42, "mw": 208, "c": "USA" },
-  { "n": "Diamond Vista Wind Project  LLC", "lat": 38.566, "lon": -97.041, "mw": 299, "c": "USA" },
-  { "n": "Eclipse Wind Farm", "lat": 41.555, "lon": -94.685, "mw": 200, "c": "USA" },
-  { "n": "El Cabo Wind", "lat": 34.651, "lon": -105.462, "mw": 298, "c": "USA" },
-  { "n": "Electra Wind Farm", "lat": 34.103, "lon": -99.119, "mw": 230, "c": "USA" },
-  { "n": "Emmons-Logan Wind  LLC", "lat": 46.373, "lon": -100.051, "mw": 200, "c": "USA" },
+  {
+    "n": "Colbeck's Corner  LLC",
+    "lat": 35.254,
+    "lon": -101.187,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Courtenay Wind Farm",
+    "lat": 47.18,
+    "lon": -98.595,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Crocker Wind Farm",
+    "lat": 45.051,
+    "lon": -97.826,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Crowned Ridge Wind Energy Center",
+    "lat": 45.155,
+    "lon": -96.837,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Eclipse Wind Farm",
+    "lat": 41.555,
+    "lon": -94.685,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Emmons-Logan Wind  LLC",
+    "lat": 46.373,
+    "lon": -100.051,
+    "mw": 200,
+    "c": "USA"
+  },
   {
     "n": "FPL Energy Crystal Lake Wind II LLC",
     "lat": 43.274,
@@ -183,139 +1631,173 @@
     "c": "USA"
   },
   {
-    "n": "FPL Energy Illinois Wind LLC Hybrid",
-    "lat": 41.768,
-    "lon": -88.887,
-    "mw": 238,
+    "n": "Flat Top Wind I",
+    "lat": 31.684,
+    "lon": -98.603,
+    "mw": 200,
     "c": "USA"
   },
-  { "n": "Fenton Wind Farm", "lat": 43.853, "lon": -96.018, "mw": 206, "c": "USA" },
-  { "n": "Flat Ridge 2 Wind Energy LLC", "lat": 37.367, "lon": -98.261, "mw": 470, "c": "USA" },
-  { "n": "Flat Top Wind I", "lat": 31.685, "lon": -98.603, "mw": 200, "c": "USA" },
-  { "n": "Foard City Wind", "lat": 33.915, "lon": -99.74, "mw": 353, "c": "USA" },
-  { "n": "Fowler Ridge Wind Farm LLC", "lat": 40.584, "lon": -87.334, "mw": 600, "c": "USA" },
-  { "n": "Frontier Windpower", "lat": 36.839, "lon": -97.181, "mw": 200, "c": "USA" },
-  { "n": "Glaciers Edge Wind Project", "lat": 42.862, "lon": -95.772, "mw": 212, "c": "USA" },
-  { "n": "Golden West Power Partners LLC", "lat": 38.935, "lon": -104.212, "mw": 250, "c": "USA" },
-  { "n": "Goodwell Wind Project LLC", "lat": 36.541, "lon": -101.566, "mw": 200, "c": "USA" },
-  { "n": "Grady Wind Energy Center  LLC", "lat": 34.734, "lon": -103.092, "mw": 221, "c": "USA" },
-  { "n": "Grand Ridge Wind Energy Center", "lat": 41.227, "lon": -88.684, "mw": 210, "c": "USA" },
-  { "n": "Grande Prairie Wind Farm", "lat": 42.608, "lon": -98.428, "mw": 400, "c": "USA" },
-  { "n": "Grandview Wind Farm  LLC", "lat": 35.238, "lon": -101.311, "mw": 211, "c": "USA" },
-  { "n": "Great Western Wind Energy  LLC", "lat": 36.167, "lon": -99.596, "mw": 225, "c": "USA" },
-  { "n": "Hale Community Wind Farm", "lat": 33.928, "lon": -101.742, "mw": 478, "c": "USA" },
-  { "n": "Headwaters Wind Farm LLC", "lat": 40.067, "lon": -85.013, "mw": 200, "c": "USA" },
-  { "n": "Hidalgo Wind Farm LLC", "lat": 26.466, "lon": -98.411, "mw": 250, "c": "USA" },
-  { "n": "Highland Wind Project (IA)", "lat": 43.08, "lon": -95.656, "mw": 502, "c": "USA" },
-  { "n": "Horse Creek Wind Farm", "lat": 33.35, "lon": -99.54, "mw": 230, "c": "USA" },
-  { "n": "Horse Hollow Wind Energy Center", "lat": 32.214, "lon": -100.057, "mw": 736, "c": "USA" },
-  { "n": "Horseshoe Bend Wind LLC", "lat": 45.586, "lon": -120.008, "mw": 290, "c": "USA" },
-  { "n": "Ida Grove II", "lat": 42.327, "lon": -95.459, "mw": 201, "c": "USA" },
-  { "n": "Ida Grove Wind", "lat": 42.356, "lon": -95.42, "mw": 301, "c": "USA" },
-  { "n": "Inadale Wind Farm LLC Hybrid", "lat": 32.497, "lon": -100.58, "mw": 207, "c": "USA" },
-  { "n": "Javelina Wind Energy  LLC", "lat": 27.32, "lon": -99, "mw": 250, "c": "USA" },
-  { "n": "Javelina Wind Energy II  LLC", "lat": 27.44, "lon": -98.91, "mw": 200, "c": "USA" },
-  { "n": "Karankawa Wind LLC", "lat": 28.109, "lon": -97.75, "mw": 307, "c": "USA" },
-  { "n": "Kay Wind  LLC", "lat": 36.984, "lon": -97.134, "mw": 299, "c": "USA" },
-  { "n": "King Mountain Wind Ranch 1", "lat": 31.209, "lon": -102.242, "mw": 278, "c": "USA" },
-  { "n": "Kingfisher Wind LLC", "lat": 35.77, "lon": -97.8, "mw": 298, "c": "USA" },
-  { "n": "Kingman Wind", "lat": 37.587, "lon": -98.579, "mw": 215, "c": "USA" },
-  { "n": "Klondike Windpower III", "lat": 45.584, "lon": -120.504, "mw": 298, "c": "USA" },
-  { "n": "Lakefield Wind Project LLC", "lat": 43.675, "lon": -95.157, "mw": 206, "c": "USA" },
-  { "n": "Leaning Juniper Wind Power II", "lat": 45.651, "lon": -120.26, "mw": 201, "c": "USA" },
-  { "n": "Limon III Wind LLC", "lat": 39.353, "lon": -103.474, "mw": 201, "c": "USA" },
-  { "n": "Limon Wind I", "lat": 39.381, "lon": -103.573, "mw": 200, "c": "USA" },
-  { "n": "Limon Wind II", "lat": 39.341, "lon": -103.581, "mw": 200, "c": "USA" },
-  { "n": "Logan Wind Energy", "lat": 40.941, "lon": -103.259, "mw": 201, "c": "USA" },
-  { "n": "Logans Gap Wind LLC", "lat": 31.823, "lon": -98.691, "mw": 200, "c": "USA" },
-  { "n": "Longhorn Wind", "lat": 34.311, "lon": -101.251, "mw": 200, "c": "USA" },
-  { "n": "Los Vientos Wind 1A", "lat": 26.331, "lon": -97.586, "mw": 200, "c": "USA" },
-  { "n": "Los Vientos Wind 1B", "lat": 26.349, "lon": -97.667, "mw": 202, "c": "USA" },
-  { "n": "Los Vientos Windpower III", "lat": 26.389, "lon": -98.806, "mw": 200, "c": "USA" },
-  { "n": "Los Vientos Windpower IV", "lat": 26.381, "lon": -98.818, "mw": 200, "c": "USA" },
   {
-    "n": "Lower Snake River Wind Energy Project",
-    "lat": 46.524,
-    "lon": -117.822,
-    "mw": 343,
+    "n": "Frontier Windpower",
+    "lat": 36.839,
+    "lon": -97.181,
+    "mw": 200,
     "c": "USA"
   },
-  { "n": "Lundgren Wind Project", "lat": 42.335, "lon": -94.171, "mw": 251, "c": "USA" },
-  { "n": "Magic Valley Wind Farm I LLC", "lat": 26.475, "lon": -97.691, "mw": 203, "c": "USA" },
-  { "n": "Maple Ridge Wind Farm", "lat": 43.785, "lon": -75.575, "mw": 322, "c": "USA" },
-  { "n": "Marble River Wind Farm", "lat": 44.976, "lon": -73.93, "mw": 215, "c": "USA" },
-  { "n": "Marengo Wind Plant", "lat": 46.375, "lon": -117.777, "mw": 211, "c": "USA" },
-  { "n": "Mariah del Norte", "lat": 34.668, "lon": -102.578, "mw": 230, "c": "USA" },
-  { "n": "Meadow Lake Wind Farm VI LLC", "lat": 40.693, "lon": -87.127, "mw": 200, "c": "USA" },
-  { "n": "Mesquite Creek Wind", "lat": 32.7, "lon": -101.741, "mw": 211, "c": "USA" },
-  { "n": "Mesquite Wind Power LLC", "lat": 32.626, "lon": -99.493, "mw": 200, "c": "USA" },
-  { "n": "Mesteno", "lat": 26.524, "lon": -98.745, "mw": 202, "c": "USA" },
-  { "n": "Miami Wind Energy Center", "lat": 35.654, "lon": -100.539, "mw": 289, "c": "USA" },
-  { "n": "Milford Wind Corridor I LLC", "lat": 38.536, "lon": -112.935, "mw": 204, "c": "USA" },
-  { "n": "Minonk Wind Farm", "lat": 40.889, "lon": -88.997, "mw": 200, "c": "USA" },
-  { "n": "Montague Wind Power Facility LLC", "lat": 45.586, "lon": -120.09, "mw": 200, "c": "USA" },
-  { "n": "NedPower Mount Storm", "lat": 39.218, "lon": -79.209, "mw": 264, "c": "USA" },
-  { "n": "New Mexico Wind Energy Center", "lat": 34.636, "lon": -104.047, "mw": 204, "c": "USA" },
-  { "n": "Ninnescah Wind Energy  LLC", "lat": 37.587, "lon": -98.579, "mw": 208, "c": "USA" },
-  { "n": "Nobles Wind Project", "lat": 43.704, "lon": -95.713, "mw": 201, "c": "USA" },
-  { "n": "North English", "lat": 41.643, "lon": -92.499, "mw": 340, "c": "USA" },
-  { "n": "North Hurlburt Wind LLC", "lat": 45.732, "lon": -120.083, "mw": 265, "c": "USA" },
-  { "n": "O'Brien Wind", "lat": 43.2, "lon": -95.624, "mw": 250, "c": "USA" },
-  { "n": "Ocotillo Express LLC", "lat": 32.753, "lon": -116.045, "mw": 265, "c": "USA" },
-  { "n": "Odell Wind Farm", "lat": 43.853, "lon": -94.932, "mw": 200, "c": "USA" },
-  { "n": "Orient Wind Farm", "lat": 41.202, "lon": -94.417, "mw": 501, "c": "USA" },
-  { "n": "Osborn Wind Energy", "lat": 39.748, "lon": -94.473, "mw": 201, "c": "USA" },
-  { "n": "Palo Duro Wind", "lat": 36.244, "lon": -101.001, "mw": 250, "c": "USA" },
-  { "n": "Papalote Creek II LLC", "lat": 27.996, "lon": -97.297, "mw": 200, "c": "USA" },
-  { "n": "Patriot Wind Farm", "lat": 27.593, "lon": -97.648, "mw": 226, "c": "USA" },
-  { "n": "Pattern Gulf Wind", "lat": 27.001, "lon": -97.599, "mw": 283, "c": "USA" },
-  { "n": "Pattern Panhandle Wind LLC", "lat": 35.428, "lon": -101.253, "mw": 218, "c": "USA" },
-  { "n": "Penascal II Wind Project LLC", "lat": 27.12, "lon": -97.55, "mw": 201, "c": "USA" },
-  { "n": "Penascal Wind Power LLC", "lat": 27.07, "lon": -97.508, "mw": 202, "c": "USA" },
-  { "n": "Pioneer Prairie Wind Farm", "lat": 43.484, "lon": -92.613, "mw": 300, "c": "USA" },
-  { "n": "Pleasant Valley Wind Farm", "lat": 43.805, "lon": -92.77, "mw": 200, "c": "USA" },
-  { "n": "Pomeroy Wind Farm", "lat": 42.584, "lon": -94.747, "mw": 286, "c": "USA" },
-  { "n": "Post Oak Wind LLC", "lat": 32.514, "lon": -99.656, "mw": 200, "c": "USA" },
   {
-    "n": "Post Rock Wind Power Project  LLC",
-    "lat": 38.842,
-    "lon": -98.299,
-    "mw": 201,
+    "n": "Goodwell Wind Project LLC",
+    "lat": 36.541,
+    "lon": -101.566,
+    "mw": 200,
     "c": "USA"
   },
-  { "n": "Prairie Breeze", "lat": 41.952, "lon": -98.077, "mw": 207, "c": "USA" },
-  { "n": "Prairie Rose Wind Farm", "lat": 43.828, "lon": -96.322, "mw": 200, "c": "USA" },
-  { "n": "Pratt Wind  LLC", "lat": 37.55, "lon": -98.8, "mw": 244, "c": "USA" },
-  { "n": "Pyron Wind Farm LLC Hybrid", "lat": 32.589, "lon": -100.673, "mw": 259, "c": "USA" },
-  { "n": "Radfords Run Wind Farm", "lat": 40.011, "lon": -89.047, "mw": 278, "c": "USA" },
-  { "n": "Ranchero Wind Farm LLC", "lat": 30.595, "lon": -101.453, "mw": 300, "c": "USA" },
-  { "n": "Rattlesnake Creek Wind Project", "lat": 42.374, "lon": -96.829, "mw": 318, "c": "USA" },
-  { "n": "Rattlesnake Den", "lat": 31.743, "lon": -101.493, "mw": 207, "c": "USA" },
-  { "n": "Red Dirt Wind Project", "lat": 36.1, "lon": -97.8, "mw": 299, "c": "USA" },
-  { "n": "Red Pine Wind Project", "lat": 44.478, "lon": -96.154, "mw": 200, "c": "USA" },
-  { "n": "Rio Bravo Windpower  LLC", "lat": 26.649, "lon": -99.039, "mw": 238, "c": "USA" },
-  { "n": "Rock Creek Wind Project", "lat": 40.4, "lon": -95.2, "mw": 300, "c": "USA" },
-  { "n": "Rolling Hills Wind Farm", "lat": 41.197, "lon": -94.774, "mw": 444, "c": "USA" },
-  { "n": "Roosevelt County", "lat": 33.926, "lon": -103.511, "mw": 250, "c": "USA" },
-  { "n": "Roscoe Wind Farm LLC", "lat": 32.469, "lon": -100.666, "mw": 209, "c": "USA" },
-  { "n": "Rush Creek Wind", "lat": 39.172, "lon": -103.845, "mw": 600, "c": "USA" },
-  { "n": "Rush Springs Wind", "lat": 34.683, "lon": -97.829, "mw": 250, "c": "USA" },
-  { "n": "Santa Rita East", "lat": 31.208, "lon": -101.111, "mw": 302, "c": "USA" },
-  { "n": "Santa Rita Wind Energy", "lat": 31.181, "lon": -101.319, "mw": 300, "c": "USA" },
-  { "n": "Shannon Wind", "lat": 33.51, "lon": -98.361, "mw": 204, "c": "USA" },
-  { "n": "Solano Wind", "lat": 38.116, "lon": -121.769, "mw": 228, "c": "USA" },
-  { "n": "Solomon Forks Wind Project  LLC", "lat": 39.306, "lon": -101.074, "mw": 276, "c": "USA" },
-  { "n": "South Hurlburt Wind LLC", "lat": 45.706, "lon": -120.08, "mw": 290, "c": "USA" },
-  { "n": "South Plains II", "lat": 34.197, "lon": -101.381, "mw": 300, "c": "USA" },
-  { "n": "South Plains Wind Phase I", "lat": 34.081, "lon": -101.324, "mw": 200, "c": "USA" },
-  { "n": "Stella Wind Farm", "lat": 26.942, "lon": -97.642, "mw": 201, "c": "USA" },
-  { "n": "Stephens Ranch Wind Energy LLC", "lat": 32.926, "lon": -101.648, "mw": 376, "c": "USA" },
-  { "n": "Streator Cayuga Ridge South", "lat": 40.997, "lon": -88.49, "mw": 300, "c": "USA" },
-  { "n": "Sweetwater Wind 4 LLC", "lat": 32.312, "lon": -100.53, "mw": 241, "c": "USA" },
-  { "n": "TX Hereford Wind", "lat": 34.748, "lon": -102.174, "mw": 200, "c": "USA" },
-  { "n": "TX Jumbo Road Wind", "lat": 34.72, "lon": -102.253, "mw": 300, "c": "USA" },
-  { "n": "Tahoka Wind", "lat": 33.151, "lon": -101.679, "mw": 300, "c": "USA" },
-  { "n": "Thunder Ranch Wind Project", "lat": 36.551, "lon": -97.059, "mw": 298, "c": "USA" },
+  {
+    "n": "Headwaters Wind Farm LLC",
+    "lat": 40.067,
+    "lon": -85.013,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Javelina Wind Energy II  LLC",
+    "lat": 27.44,
+    "lon": -98.91,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Limon Wind I",
+    "lat": 39.381,
+    "lon": -103.573,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Limon Wind II",
+    "lat": 39.341,
+    "lon": -103.581,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Logans Gap Wind LLC",
+    "lat": 31.823,
+    "lon": -98.691,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Longhorn Wind",
+    "lat": 34.311,
+    "lon": -101.251,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Los Vientos Wind 1A",
+    "lat": 26.331,
+    "lon": -97.586,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Los Vientos Windpower III",
+    "lat": 26.389,
+    "lon": -98.806,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Los Vientos Windpower IV",
+    "lat": 26.381,
+    "lon": -98.818,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Meadow Lake Wind Farm VI LLC",
+    "lat": 40.693,
+    "lon": -87.127,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Mesquite Wind Power LLC",
+    "lat": 32.626,
+    "lon": -99.493,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Minonk Wind Farm",
+    "lat": 40.889,
+    "lon": -88.997,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Montague Wind Power Facility LLC",
+    "lat": 45.586,
+    "lon": -120.09,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Odell Wind Farm",
+    "lat": 43.853,
+    "lon": -94.932,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Papalote Creek II LLC",
+    "lat": 27.996,
+    "lon": -97.297,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Pleasant Valley Wind Farm",
+    "lat": 43.805,
+    "lon": -92.77,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Post Oak Wind LLC",
+    "lat": 32.514,
+    "lon": -99.656,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Prairie Rose Wind Farm",
+    "lat": 43.828,
+    "lon": -96.322,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Red Pine Wind Project",
+    "lat": 44.478,
+    "lon": -96.154,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "South Plains Wind Phase I",
+    "lat": 34.081,
+    "lon": -101.324,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "TX Hereford Wind",
+    "lat": 34.748,
+    "lon": -102.174,
+    "mw": 200,
+    "c": "USA"
+  },
   {
     "n": "Top of the World Windpower Project",
     "lat": 42.926,
@@ -323,18 +1805,18 @@
     "mw": 200,
     "c": "USA"
   },
-  { "n": "Torrecillas Wind Energy  LLC", "lat": 27.614, "lon": -98.794, "mw": 300, "c": "USA" },
-  { "n": "Trinity Hills", "lat": 33.384, "lon": -98.712, "mw": 225, "c": "USA" },
-  { "n": "Tucannon River Wind Farm", "lat": 46.421, "lon": -118.027, "mw": 267, "c": "USA" },
-  { "n": "Turtle Creek Wind Farm LLC", "lat": 43.43, "lon": -92.839, "mw": 200, "c": "USA" },
-  { "n": "Upland Prairie", "lat": 43.207, "lon": -95.349, "mw": 299, "c": "USA" },
-  { "n": "Upstream Wind Energy LLC", "lat": 42.184, "lon": -97.965, "mw": 203, "c": "USA" },
-  { "n": "Wake Wind Energy Center", "lat": 33.825, "lon": -101.1, "mw": 257, "c": "USA" },
-  { "n": "Walnut Ridge Wind Farm", "lat": 41.497, "lon": -89.58, "mw": 212, "c": "USA" },
-  { "n": "Western Plains Wind Farm", "lat": 37.855, "lon": -99.68, "mw": 281, "c": "USA" },
-  { "n": "White Creek Wind Farm", "lat": 45.816, "lon": -120.342, "mw": 204, "c": "USA" },
-  { "n": "Wild Horse", "lat": 47.036, "lon": -120.206, "mw": 273, "c": "USA" },
-  { "n": "Wildcat Wind Farm I  LLC", "lat": 40.349, "lon": -85.843, "mw": 200, "c": "USA" },
-  { "n": "Willow Springs Wind Farm", "lat": 33.345, "lon": -99.624, "mw": 250, "c": "USA" },
-  { "n": "Windy Flats Wind Project", "lat": 45.727, "lon": -120.834, "mw": 262, "c": "USA" }
+  {
+    "n": "Turtle Creek Wind Farm LLC",
+    "lat": 43.43,
+    "lon": -92.84,
+    "mw": 200,
+    "c": "USA"
+  },
+  {
+    "n": "Wildcat Wind Farm I  LLC",
+    "lat": 40.349,
+    "lon": -85.843,
+    "mw": 200,
+    "c": "USA"
+  }
 ]

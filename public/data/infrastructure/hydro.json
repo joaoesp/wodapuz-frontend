@@ -1,34 +1,1011 @@
 [
-  { "n": "ALICURA", "lat": -40.58, "lon": -70.749, "mw": 1050, "c": "ARG" },
-  { "n": "EL CHOCON", "lat": -39.258, "lon": -68.748, "mw": 1200, "c": "ARG" },
-  { "n": "PIEDRA DEL AGUILA (CPSA)", "lat": -31.665, "lon": -63.831, "mw": 1400, "c": "ARG" },
-  { "n": "YACYRETA", "lat": -27.483, "lon": -56.74, "mw": 1550, "c": "ARG" },
-  { "n": "Tumut 3", "lat": -35.611, "lon": 148.292, "mw": 1500, "c": "AUS" },
-  { "n": "COO", "lat": 50.385, "lon": 5.862, "mw": 1164, "c": "BEL" },
   {
-    "n": "Tala Hydroelectric Power Plant Bhutan",
-    "lat": 27.036,
-    "lon": 89.595,
-    "mw": 1020,
-    "c": "BTN"
+    "n": "Three Gorges Dam",
+    "lat": 30.823,
+    "lon": 111.003,
+    "mw": 22500,
+    "c": "CHN"
   },
-  { "n": "Belo Monte", "lat": -3.126, "lon": -51.775, "mw": 3327, "c": "BRA" },
-  { "n": "Emborcação", "lat": -18.452, "lon": -47.986, "mw": 1192, "c": "BRA" },
-  { "n": "Estreito", "lat": -6.587, "lon": -47.459, "mw": 1087, "c": "BRA" },
   {
-    "n": "Estreito (Luiz Carlos Barreto de Carvalh",
-    "lat": -20.151,
-    "lon": -47.279,
-    "mw": 1048,
+    "n": "Itaipu Dam",
+    "lat": -25.408,
+    "lon": -54.589,
+    "mw": 14000,
     "c": "BRA"
   },
-  { "n": "Furnas", "lat": -20.647, "lon": -46.329, "mw": 1216, "c": "BRA" },
   {
-    "n": "Governador Bento Munhoz da Rocha Neto (F",
+    "n": "Baihetan Dam",
+    "lat": 28.261,
+    "lon": 103.648,
+    "mw": 13050,
+    "c": "CHN"
+  },
+  {
+    "n": "Xiluodu",
+    "lat": 28.26,
+    "lon": 103.65,
+    "mw": 12600,
+    "c": "CHN"
+  },
+  {
+    "n": "Simon Bolivar (Guri)",
+    "lat": 7.766,
+    "lon": -62.998,
+    "mw": 8851,
+    "c": "VEN"
+  },
+  {
+    "n": "Tucuruí",
+    "lat": -3.832,
+    "lon": -49.652,
+    "mw": 8535,
+    "c": "BRA"
+  },
+  {
+    "n": "Grand Coulee",
+    "lat": 47.958,
+    "lon": -118.977,
+    "mw": 6809,
+    "c": "USA"
+  },
+  {
+    "n": "Xiangjiaba",
+    "lat": 28.644,
+    "lon": 104.393,
+    "mw": 6448,
+    "c": "CHN"
+  },
+  {
+    "n": "Longtan",
+    "lat": 25.028,
+    "lon": 107.043,
+    "mw": 6300,
+    "c": "CHN"
+  },
+  {
+    "n": "Krasnoyarsk",
+    "lat": 55.937,
+    "lon": 92.296,
+    "mw": 6000,
+    "c": "RUS"
+  },
+  {
+    "n": "Nuozhadu",
+    "lat": 22.641,
+    "lon": 100.429,
+    "mw": 5850,
+    "c": "CHN"
+  },
+  {
+    "n": "Robert-Bourassa",
+    "lat": 53.782,
+    "lon": -77.531,
+    "mw": 5616,
+    "c": "CAN"
+  },
+  {
+    "n": "Churchill Falls",
+    "lat": 53.529,
+    "lon": -63.965,
+    "mw": 5428,
+    "c": "CAN"
+  },
+  {
+    "n": "Ahai",
+    "lat": 27.349,
+    "lon": 100.506,
+    "mw": 4750,
+    "c": "CHN"
+  },
+  {
+    "n": "Bratsk HPP",
+    "lat": 56.286,
+    "lon": 101.784,
+    "mw": 4500,
+    "c": "RUS"
+  },
+  {
+    "n": "Jinping II",
+    "lat": 28.248,
+    "lon": 101.644,
+    "mw": 4400,
+    "c": "CHN"
+  },
+  {
+    "n": "Pu Bu Gou",
+    "lat": 29.21,
+    "lon": 102.84,
+    "mw": 4260,
+    "c": "CHN"
+  },
+  {
+    "n": "Laxiwa",
+    "lat": 36.07,
+    "lon": 101.186,
+    "mw": 4200,
+    "c": "CHN"
+  },
+  {
+    "n": "Xiaowan",
+    "lat": 24.704,
+    "lon": 100.091,
+    "mw": 4200,
+    "c": "CHN"
+  },
+  {
+    "n": "Ust Illminsk (HPP)",
+    "lat": 57.968,
+    "lon": 102.696,
+    "mw": 3840,
+    "c": "RUS"
+  },
+  {
+    "n": "Jirau",
+    "lat": -9.266,
+    "lon": -64.648,
+    "mw": 3750,
+    "c": "BRA"
+  },
+  {
+    "n": "Jinping I",
+    "lat": 28.182,
+    "lon": 101.632,
+    "mw": 3600,
+    "c": "CHN"
+  },
+  {
+    "n": "Santo Antônio",
+    "lat": -8.801,
+    "lon": -63.95,
+    "mw": 3568,
+    "c": "BRA"
+  },
+  {
+    "n": "Tarbela",
+    "lat": 34.089,
+    "lon": 72.686,
+    "mw": 3478,
+    "c": "PAK"
+  },
+  {
+    "n": "Ilha Solteira",
+    "lat": -20.382,
+    "lon": -51.364,
+    "mw": 3444,
+    "c": "BRA"
+  },
+  {
+    "n": "Belo Monte",
+    "lat": -3.126,
+    "lon": -51.775,
+    "mw": 3327,
+    "c": "BRA"
+  },
+  {
+    "n": "Ertan",
+    "lat": 26.82,
+    "lon": 101.78,
+    "mw": 3300,
+    "c": "CHN"
+  },
+  {
+    "n": "Gezhouba",
+    "lat": 30.74,
+    "lon": 111.269,
+    "mw": 3190,
+    "c": "CHN"
+  },
+  {
+    "n": "Xingó",
+    "lat": -9.621,
+    "lon": -37.792,
+    "mw": 3162,
+    "c": "BRA"
+  },
+  {
+    "n": "Nurek",
+    "lat": 38.372,
+    "lon": 69.348,
+    "mw": 3015,
+    "c": "TJK"
+  },
+  {
+    "n": "Gou Pi Tan",
+    "lat": 27.374,
+    "lon": 107.633,
+    "mw": 3000,
+    "c": "CHN"
+  },
+  {
+    "n": "Guanyinyan",
+    "lat": 26.52,
+    "lon": 101.44,
+    "mw": 3000,
+    "c": "CHN"
+  },
+  {
+    "n": "Boguchanskaya HPP",
+    "lat": 58.694,
+    "lon": 99.149,
+    "mw": 2997,
+    "c": "RUS"
+  },
+  {
+    "n": "Antonio Jose de Sucre (Macagua)",
+    "lat": 8.304,
+    "lon": -62.668,
+    "mw": 2930,
+    "c": "VEN"
+  },
+  {
+    "n": "Bath County",
+    "lat": 38.209,
+    "lon": -79.8,
+    "mw": 2862,
+    "c": "USA"
+  },
+  {
+    "n": "Jinanqiao",
+    "lat": 26.81,
+    "lon": 100.45,
+    "mw": 2800,
+    "c": "CHN"
+  },
+  {
+    "n": "La Grande-4",
+    "lat": 53.886,
+    "lon": -73.466,
+    "mw": 2779,
+    "c": "CAN"
+  },
+  {
+    "n": "Mica",
+    "lat": 52.076,
+    "lon": -118.57,
+    "mw": 2746,
+    "c": "CAN"
+  },
+  {
+    "n": "G.M. Shrum",
+    "lat": 56.015,
+    "lon": -122.196,
+    "mw": 2730,
+    "c": "CAN"
+  },
+  {
+    "n": "Volzhskaya HPP",
+    "lat": 48.824,
+    "lon": 44.677,
+    "mw": 2671,
+    "c": "RUS"
+  },
+  {
+    "n": "Dagangshan",
+    "lat": 29.45,
+    "lon": 102.22,
+    "mw": 2600,
+    "c": "CHN"
+  },
+  {
+    "n": "Manuel Piar (Tocoma) Hydroelectric Power Plant Venezuela",
+    "lat": 7.9,
+    "lon": -63.032,
+    "mw": 2530,
+    "c": "VEN"
+  },
+  {
+    "n": "Revelstoke",
+    "lat": 51.049,
+    "lon": -118.194,
+    "mw": 2480,
+    "c": "CAN"
+  },
+  {
+    "n": "Zhigulevskaya HPP",
+    "lat": 53.426,
+    "lon": 49.479,
+    "mw": 2467,
+    "c": "RUS"
+  },
+  {
+    "n": "Paulo Afonso IV",
+    "lat": -9.413,
+    "lon": -38.211,
+    "mw": 2462,
+    "c": "BRA"
+  },
+  {
+    "n": "Chief Joseph",
+    "lat": 47.995,
+    "lon": -119.64,
+    "mw": 2456,
+    "c": "USA"
+  },
+  {
+    "n": "Robert Moses Niagara",
+    "lat": 43.143,
+    "lon": -79.039,
+    "mw": 2429,
+    "c": "USA"
+  },
+  {
+    "n": "La Grande-3",
+    "lat": 53.727,
+    "lon": -75.987,
+    "mw": 2417,
+    "c": "CAN"
+  },
+  {
+    "n": "Guadian Dam",
+    "lat": 27.822,
+    "lon": 101.903,
+    "mw": 2400,
+    "c": "CHN"
+  },
+  {
+    "n": "Guandi",
+    "lat": 27.82,
+    "lon": 101.88,
+    "mw": 2400,
+    "c": "CHN"
+  },
+  {
+    "n": "Guangzhou Pump Storage",
+    "lat": 23.766,
+    "lon": 113.954,
+    "mw": 2400,
+    "c": "CHN"
+  },
+  {
+    "n": "Huizhou",
+    "lat": 23.27,
+    "lon": 114.31,
+    "mw": 2400,
+    "c": "CHN"
+  },
+  {
+    "n": "Liyuan",
+    "lat": 27.68,
+    "lon": 100.29,
+    "mw": 2400,
+    "c": "CHN"
+  },
+  {
+    "n": "Manuel Moreno Torres (Chicoasén)",
+    "lat": 16.943,
+    "lon": -93.101,
+    "mw": 2400,
+    "c": "MEX"
+  },
+  {
+    "n": "Atatürk Dam",
+    "lat": 37.483,
+    "lon": 38.319,
+    "mw": 2400,
+    "c": "TUR"
+  },
+  {
+    "n": "Son La",
+    "lat": 21.497,
+    "lon": 103.996,
+    "mw": 2400,
+    "c": "VNM"
+  },
+  {
+    "n": "Fransisco de Miranda (Caruachi)",
+    "lat": 8.16,
+    "lon": -62.8,
+    "mw": 2196,
+    "c": "VEN"
+  },
+  {
+    "n": "Ludila",
+    "lat": 26.2,
+    "lon": 100.82,
+    "mw": 2160,
+    "c": "CHN"
+  },
+  {
+    "n": "John Day",
+    "lat": 45.716,
+    "lon": -120.694,
+    "mw": 2160,
+    "c": "USA"
+  },
+  {
+    "n": "La Grande-2-A",
+    "lat": 53.781,
+    "lon": -77.548,
+    "mw": 2106,
+    "c": "CAN"
+  },
+  {
+    "n": "Gongzui",
+    "lat": 29.31,
+    "lon": 103.48,
+    "mw": 2100,
+    "c": "CHN"
+  },
+  {
+    "n": "High Dam",
+    "lat": 23.972,
+    "lon": 32.883,
+    "mw": 2100,
+    "c": "EGY"
+  },
+  {
+    "n": "Itumbiara",
+    "lat": -18.421,
+    "lon": -49.116,
+    "mw": 2081,
+    "c": "BRA"
+  },
+  {
+    "n": "Cahora Bassa",
+    "lat": -15.586,
+    "lon": 32.705,
+    "mw": 2075,
+    "c": "MOZ"
+  },
+  {
+    "n": "Byreyskaya HPP",
+    "lat": 50.27,
+    "lon": 130.314,
+    "mw": 2010,
+    "c": "RUS"
+  },
+  {
+    "n": "Karoune 3",
+    "lat": 31.805,
+    "lon": 50.089,
+    "mw": 2000,
+    "c": "IRN"
+  },
+  {
+    "n": "Masjed Soleyman",
+    "lat": 32.029,
+    "lon": 49.399,
+    "mw": 2000,
+    "c": "IRN"
+  },
+  {
+    "n": "Shahid Abbaspuor",
+    "lat": 32.055,
+    "lon": 49.607,
+    "mw": 2000,
+    "c": "IRN"
+  },
+  {
+    "n": "Ludington",
+    "lat": 43.894,
+    "lon": -86.445,
+    "mw": 1979,
+    "c": "USA"
+  },
+  {
+    "n": "KOYNA COMPLEX",
+    "lat": 17.46,
+    "lon": 73.684,
+    "mw": 1956,
+    "c": "IND"
+  },
+  {
+    "n": "Okutataragi",
+    "lat": 35.241,
+    "lon": 134.862,
+    "mw": 1932,
+    "c": "JPN"
+  },
+  {
+    "n": "Hoa Binh",
+    "lat": 20.808,
+    "lon": 105.323,
+    "mw": 1920,
+    "c": "VNM"
+  },
+  {
+    "n": "Longkaikou",
+    "lat": 26.53,
+    "lon": 100.42,
+    "mw": 1900,
+    "c": "CHN"
+  },
+  {
+    "n": "Beauharnois",
+    "lat": 45.314,
+    "lon": -73.909,
+    "mw": 1877,
+    "c": "CAN"
+  },
+  {
+    "n": "Gilgel Gibe III",
+    "lat": 6.848,
+    "lon": 37.302,
+    "mw": 1870,
+    "c": "ETH"
+  },
+  {
+    "n": "Teles Pires",
+    "lat": -9.341,
+    "lon": -56.777,
+    "mw": 1820,
+    "c": "BRA"
+  },
+  {
+    "n": "The Dalles",
+    "lat": 45.614,
+    "lon": -121.135,
+    "mw": 1820,
+    "c": "USA"
+  },
+  {
+    "n": "Tianhuangping",
+    "lat": 30.47,
+    "lon": 119.61,
+    "mw": 1800,
+    "c": "CHN"
+  },
+  {
+    "n": "Xiaolangdi",
+    "lat": 34.92,
+    "lon": 112.36,
+    "mw": 1800,
+    "c": "CHN"
+  },
+  {
+    "n": "Karakaya Dam",
+    "lat": 38.226,
+    "lon": 39.135,
+    "mw": 1800,
+    "c": "TUR"
+  },
+  {
+    "n": "Dinorwig",
+    "lat": 53.118,
+    "lon": -4.103,
+    "mw": 1800,
+    "c": "GBR"
+  },
+  {
+    "n": "Dagestan Branch",
+    "lat": 46.871,
+    "lon": 46.871,
+    "mw": 1786,
+    "c": "RUS"
+  },
+  {
+    "n": "Inga II",
+    "lat": -5.527,
+    "lon": 13.621,
+    "mw": 1775,
+    "c": "COD"
+  },
+  {
+    "n": "Pengshui",
+    "lat": 29.2,
+    "lon": 108.2,
+    "mw": 1750,
+    "c": "CHN"
+  },
+  {
+    "n": "Dinorwig",
+    "lat": 53.119,
+    "lon": -4.114,
+    "mw": 1728,
+    "c": "GBR"
+  },
+  {
+    "n": "Raccoon Mountain",
+    "lat": 35.056,
+    "lon": -85.388,
+    "mw": 1714,
+    "c": "USA"
+  },
+  {
+    "n": "São Simão",
+    "lat": -19.018,
+    "lon": -50.499,
+    "mw": 1710,
+    "c": "BRA"
+  },
+  {
+    "n": "GRAND MAISON",
+    "lat": 45.146,
+    "lon": 6.051,
+    "mw": 1690,
+    "c": "FRA"
+  },
+  {
+    "n": "Castaic",
+    "lat": 34.587,
+    "lon": -118.657,
+    "mw": 1682,
+    "c": "USA"
+  },
+  {
+    "n": "Governador Bento Munhoz da Rocha Neto (Foz do Areia)",
     "lat": -26.083,
     "lon": -51.65,
     "mw": 1676,
     "c": "BRA"
+  },
+  {
+    "n": "Lijiaxia Dam",
+    "lat": 36.118,
+    "lon": 101.807,
+    "mw": 1632,
+    "c": "CHN"
+  },
+  {
+    "n": "Manwan",
+    "lat": 24.62,
+    "lon": 100.45,
+    "mw": 1605,
+    "c": "CHN"
+  },
+  {
+    "n": "Ming-Tan",
+    "lat": 23.836,
+    "lon": 120.868,
+    "mw": 1602,
+    "c": "TWN"
+  },
+  {
+    "n": "Shuibuya",
+    "lat": 30.44,
+    "lon": 110.34,
+    "mw": 1600,
+    "c": "CHN"
+  },
+  {
+    "n": "Manic-5",
+    "lat": 50.64,
+    "lon": -68.727,
+    "mw": 1596,
+    "c": "CAN"
+  },
+  {
+    "n": "Jupiá (Eng° Souza Dias)",
+    "lat": -20.776,
+    "lon": -51.627,
+    "mw": 1551,
+    "c": "BRA"
+  },
+  {
+    "n": "YACYRETA",
+    "lat": -27.483,
+    "lon": -56.74,
+    "mw": 1550,
+    "c": "ARG"
+  },
+  {
+    "n": "Yacyretá Dam",
+    "lat": -27.483,
+    "lon": -56.725,
+    "mw": 1550,
+    "c": "PRY"
+  },
+  {
+    "n": "Porto Primavera (Eng° Sérgio Motta)",
+    "lat": -22.478,
+    "lon": -52.956,
+    "mw": 1540,
+    "c": "BRA"
+  },
+  {
+    "n": "Dneipro HPP 2",
+    "lat": 47.867,
+    "lon": 35.09,
+    "mw": 1538,
+    "c": "UKR"
+  },
+  {
+    "n": "Tumut 3",
+    "lat": -35.611,
+    "lon": 148.292,
+    "mw": 1500,
+    "c": "AUS"
+  },
+  {
+    "n": "Baishan",
+    "lat": 42.73,
+    "lon": 127.22,
+    "mw": 1500,
+    "c": "CHN"
+  },
+  {
+    "n": "Gongboxia",
+    "lat": 35.88,
+    "lon": 102.23,
+    "mw": 1500,
+    "c": "CHN"
+  },
+  {
+    "n": "Jing Hong",
+    "lat": 22.05,
+    "lon": 100.77,
+    "mw": 1500,
+    "c": "CHN"
+  },
+  {
+    "n": "Coca Coda Sinclair",
+    "lat": -0.144,
+    "lon": -77.617,
+    "mw": 1500,
+    "c": "ECU"
+  },
+  {
+    "n": "NATHPA JHAKRI",
+    "lat": 31.564,
+    "lon": 77.98,
+    "mw": 1500,
+    "c": "IND"
+  },
+  {
+    "n": "Okumino",
+    "lat": 35.739,
+    "lon": 136.671,
+    "mw": 1500,
+    "c": "JPN"
+  },
+  {
+    "n": "Sir Adam Beck 2",
+    "lat": 43.146,
+    "lon": -79.044,
+    "mw": 1499,
+    "c": "CAN"
+  },
+  {
+    "n": "Luiz Gonzaga (Itaparica)",
+    "lat": -9.144,
+    "lon": -38.313,
+    "mw": 1480,
+    "c": "BRA"
+  },
+  {
+    "n": "Itá",
+    "lat": -27.277,
+    "lon": -52.382,
+    "mw": 1450,
+    "c": "BRA"
+  },
+  {
+    "n": "Ghazi Barotha",
+    "lat": 33.779,
+    "lon": 72.259,
+    "mw": 1450,
+    "c": "PAK"
+  },
+  {
+    "n": "Kvilldal",
+    "lat": 59.512,
+    "lon": 6.585,
+    "mw": 1444,
+    "c": "NOR"
+  },
+  {
+    "n": "Marimbondo",
+    "lat": -20.301,
+    "lon": -49.197,
+    "mw": 1440,
+    "c": "BRA"
+  },
+  {
+    "n": "La Grande-1",
+    "lat": 53.732,
+    "lon": -78.571,
+    "mw": 1436,
+    "c": "CAN"
+  },
+  {
+    "n": "Salto Santiago",
+    "lat": -25.65,
+    "lon": -52.617,
+    "mw": 1420,
+    "c": "BRA"
+  },
+  {
+    "n": "Saratovskaya HPP",
+    "lat": 52.048,
+    "lon": 47.762,
+    "mw": 1403,
+    "c": "RUS"
+  },
+  {
+    "n": "PIEDRA DEL AGUILA (CPSA)",
+    "lat": -31.665,
+    "lon": -63.831,
+    "mw": 1400,
+    "c": "ARG"
+  },
+  {
+    "n": "Shuikou",
+    "lat": 26.31,
+    "lon": 118.81,
+    "mw": 1400,
+    "c": "CHN"
+  },
+  {
+    "n": "Aurland5",
+    "lat": 60.863,
+    "lon": 7.302,
+    "mw": 1398,
+    "c": "NOR"
+  },
+  {
+    "n": "Água Vermelha (Antiga José Ermírio de Moraes)",
+    "lat": -19.851,
+    "lon": -50.346,
+    "mw": 1396,
+    "c": "BRA"
+  },
+  {
+    "n": "BHAKRA",
+    "lat": 31.411,
+    "lon": 76.433,
+    "mw": 1379,
+    "c": "IND"
+  },
+  {
+    "n": "Cheboksarskaya HPP",
+    "lat": 56.137,
+    "lon": 47.466,
+    "mw": 1370,
+    "c": "RUS"
+  },
+  {
+    "n": "Kot Addu Power Company ltd.",
+    "lat": 30.445,
+    "lon": 70.981,
+    "mw": 1368,
+    "c": "PAK"
+  },
+  {
+    "n": "Limestone",
+    "lat": 56.508,
+    "lon": -94.11,
+    "mw": 1350,
+    "c": "CAN"
+  },
+  {
+    "n": "Da Chao Shan",
+    "lat": 24.026,
+    "lon": 100.37,
+    "mw": 1350,
+    "c": "CHN"
+  },
+  {
+    "n": "Zeyskaya HPP",
+    "lat": 53.77,
+    "lon": 127.305,
+    "mw": 1330,
+    "c": "RUS"
+  },
+  {
+    "n": "Keban Dam",
+    "lat": 38.806,
+    "lon": 38.759,
+    "mw": 1330,
+    "c": "TUR"
+  },
+  {
+    "n": "René-Lévesque (Manic-3)",
+    "lat": 49.741,
+    "lon": -68.594,
+    "mw": 1326,
+    "c": "CAN"
+  },
+  {
+    "n": "Tianshengqiao II",
+    "lat": 24.96,
+    "lon": 105.16,
+    "mw": 1320,
+    "c": "CHN"
+  },
+  {
+    "n": "Glen Canyon Dam",
+    "lat": 36.937,
+    "lon": -111.484,
+    "mw": 1312,
+    "c": "USA"
+  },
+  {
+    "n": "Inguri (Enguri) Dam Hydroelectric Power Station Georgia",
+    "lat": 42.758,
+    "lon": 42.031,
+    "mw": 1300,
+    "c": "GEO"
+  },
+  {
+    "n": "Rocky Reach",
+    "lat": 47.534,
+    "lon": -120.295,
+    "mw": 1300,
+    "c": "USA"
+  },
+  {
+    "n": "Vianden Pumped Storage Power Plant Luxembourg",
+    "lat": 49.952,
+    "lon": 6.178,
+    "mw": 1296,
+    "c": "LUX"
+  },
+  {
+    "n": "Bad Creek",
+    "lat": 35.008,
+    "lon": -82.998,
+    "mw": 1296,
+    "c": "USA"
+  },
+  {
+    "n": "Bieudron",
+    "lat": 46.185,
+    "lon": 7.251,
+    "mw": 1285,
+    "c": "CHE"
+  },
+  {
+    "n": "Longyangxia",
+    "lat": 36.12,
+    "lon": 100.92,
+    "mw": 1280,
+    "c": "CHN"
+  },
+  {
+    "n": "Qingyuan",
+    "lat": 23.75,
+    "lon": 112.85,
+    "mw": 1280,
+    "c": "CHN"
+  },
+  {
+    "n": "Okawachi",
+    "lat": 35.131,
+    "lon": 134.711,
+    "mw": 1280,
+    "c": "JPN"
+  },
+  {
+    "n": "Shin Takasegawa",
+    "lat": 36.474,
+    "lon": 137.69,
+    "mw": 1280,
+    "c": "JPN"
+  },
+  {
+    "n": "Serra da Mesa",
+    "lat": -13.835,
+    "lon": -48.301,
+    "mw": 1275,
+    "c": "BRA"
+  },
+  {
+    "n": "Governador Ney Aminthas de Barros Braga (Segredo)",
+    "lat": -25.783,
+    "lon": -52.133,
+    "mw": 1260,
+    "c": "BRA"
+  },
+  {
+    "n": "Wujiangdu",
+    "lat": 27.32,
+    "lon": 106.76,
+    "mw": 1250,
+    "c": "CHN"
+  },
+  {
+    "n": "Merowe",
+    "lat": 18.667,
+    "lon": 32.05,
+    "mw": 1250,
+    "c": "SDN"
+  },
+  {
+    "n": "San Carlos",
+    "lat": 6.211,
+    "lon": -74.841,
+    "mw": 1246,
+    "c": "COL"
   },
   {
     "n": "Governador José Richa (Salto Caxias)",
@@ -38,231 +1015,54 @@
     "c": "BRA"
   },
   {
-    "n": "Governador Ney Aminthas de Barros Braga ",
-    "lat": -25.783,
-    "lon": -52.133,
-    "mw": 1260,
+    "n": "Jean-Lesage (Manic-2)",
+    "lat": 49.321,
+    "lon": -68.347,
+    "mw": 1229,
+    "c": "CAN"
+  },
+  {
+    "n": "ALDEADAVILA II 2",
+    "lat": 41.212,
+    "lon": -6.686,
+    "mw": 1226,
+    "c": "ESP"
+  },
+  {
+    "n": "Liujiaxia",
+    "lat": 35.93,
+    "lon": 103.34,
+    "mw": 1225,
+    "c": "CHN"
+  },
+  {
+    "n": "Kettle",
+    "lat": 56.382,
+    "lon": -94.635,
+    "mw": 1220,
+    "c": "CAN"
+  },
+  {
+    "n": "Furnas",
+    "lat": -20.647,
+    "lon": -46.329,
+    "mw": 1216,
     "c": "BRA"
   },
-  { "n": "Ilha Solteira", "lat": -20.382, "lon": -51.364, "mw": 3444, "c": "BRA" },
-  { "n": "Itaipu (Parte Brasileira)", "lat": -25.427, "lon": -54.593, "mw": 7000, "c": "BRA" },
-  { "n": "Itumbiara", "lat": -18.421, "lon": -49.116, "mw": 2081, "c": "BRA" },
-  { "n": "Itá", "lat": -27.277, "lon": -52.382, "mw": 1450, "c": "BRA" },
-  { "n": "Jirau", "lat": -9.266, "lon": -64.648, "mw": 3750, "c": "BRA" },
-  { "n": "Jupiá (Eng° Souza Dias)", "lat": -20.776, "lon": -51.627, "mw": 1551, "c": "BRA" },
-  { "n": "Luiz Gonzaga (Itaparica)", "lat": -9.144, "lon": -38.313, "mw": 1480, "c": "BRA" },
-  { "n": "Machadinho", "lat": -27.528, "lon": -51.79, "mw": 1140, "c": "BRA" },
-  { "n": "Marimbondo", "lat": -20.301, "lon": -49.197, "mw": 1440, "c": "BRA" },
-  { "n": "Paulo Afonso IV", "lat": -9.413, "lon": -38.211, "mw": 2462, "c": "BRA" },
   {
-    "n": "Porto Primavera (Eng° Sérgio Motta)",
-    "lat": -22.478,
-    "lon": -52.956,
-    "mw": 1540,
-    "c": "BRA"
+    "n": "Yantan",
+    "lat": 24.05,
+    "lon": 107.51,
+    "mw": 1210,
+    "c": "CHN"
   },
-  { "n": "Salto Osório", "lat": -25.533, "lon": -53.033, "mw": 1078, "c": "BRA" },
-  { "n": "Salto Santiago", "lat": -25.65, "lon": -52.617, "mw": 1420, "c": "BRA" },
-  { "n": "Santo Antônio", "lat": -8.801, "lon": -63.95, "mw": 3568, "c": "BRA" },
-  { "n": "Serra da Mesa", "lat": -13.835, "lon": -48.301, "mw": 1275, "c": "BRA" },
-  { "n": "Sobradinho", "lat": -9.431, "lon": -40.828, "mw": 1050, "c": "BRA" },
-  { "n": "São Simão", "lat": -19.018, "lon": -50.499, "mw": 1710, "c": "BRA" },
-  { "n": "Teles Pires", "lat": -9.341, "lon": -56.777, "mw": 1820, "c": "BRA" },
-  { "n": "Tucuruí", "lat": -3.832, "lon": -49.652, "mw": 8535, "c": "BRA" },
-  { "n": "Xingó", "lat": -9.621, "lon": -37.792, "mw": 3162, "c": "BRA" },
   {
-    "n": "Água Vermelha (Antiga José Ermírio de Mo",
-    "lat": -19.851,
-    "lon": -50.346,
-    "mw": 1396,
-    "c": "BRA"
+    "n": "Okuyoshino",
+    "lat": 34.118,
+    "lon": 135.821,
+    "mw": 1206,
+    "c": "JPN"
   },
-  { "n": "Beauharnois", "lat": 45.314, "lon": -73.909, "mw": 1877, "c": "CAN" },
-  { "n": "Bersimis-1", "lat": 49.295, "lon": -69.551, "mw": 1178, "c": "CAN" },
-  { "n": "Churchill Falls", "lat": 53.529, "lon": -63.965, "mw": 5428, "c": "CAN" },
-  { "n": "G.M. Shrum", "lat": 56.015, "lon": -122.196, "mw": 2730, "c": "CAN" },
-  { "n": "Jean-Lesage (Manic-2)", "lat": 49.321, "lon": -68.347, "mw": 1229, "c": "CAN" },
-  { "n": "Kettle", "lat": 56.382, "lon": -94.635, "mw": 1220, "c": "CAN" },
-  { "n": "La Grande-1", "lat": 53.732, "lon": -78.571, "mw": 1436, "c": "CAN" },
-  { "n": "La Grande-2-A", "lat": 53.781, "lon": -77.548, "mw": 2106, "c": "CAN" },
-  { "n": "La Grande-3", "lat": 53.727, "lon": -75.987, "mw": 2417, "c": "CAN" },
-  { "n": "La Grande-4", "lat": 53.886, "lon": -73.466, "mw": 2779, "c": "CAN" },
-  { "n": "Limestone", "lat": 56.508, "lon": -94.11, "mw": 1350, "c": "CAN" },
-  { "n": "Manic-5", "lat": 50.64, "lon": -68.727, "mw": 1596, "c": "CAN" },
-  { "n": "Manic-5-PA", "lat": 50.647, "lon": -68.739, "mw": 1064, "c": "CAN" },
-  { "n": "Mica", "lat": 52.076, "lon": -118.57, "mw": 2746, "c": "CAN" },
-  { "n": "Outardes-3", "lat": 49.558, "lon": -68.726, "mw": 1026, "c": "CAN" },
-  { "n": "René-Lévesque (Manic-3)", "lat": 49.741, "lon": -68.594, "mw": 1326, "c": "CAN" },
-  { "n": "Revelstoke", "lat": 51.049, "lon": -118.194, "mw": 2480, "c": "CAN" },
-  { "n": "Robert H Saunders", "lat": 45.009, "lon": -74.79, "mw": 1045, "c": "CAN" },
-  { "n": "Robert-Bourassa", "lat": 53.782, "lon": -77.53, "mw": 5616, "c": "CAN" },
-  { "n": "Sir Adam Beck 2", "lat": 43.146, "lon": -79.044, "mw": 1499, "c": "CAN" },
-  { "n": "Ahai", "lat": 27.349, "lon": 100.506, "mw": 4750, "c": "CHN" },
-  { "n": "Baihetan Dam", "lat": 28.261, "lon": 103.648, "mw": 13050, "c": "CHN" },
-  { "n": "Bailanhe", "lat": 30.6, "lon": 115.45, "mw": 1200, "c": "CHN" },
-  { "n": "Baishan", "lat": 42.73, "lon": 127.22, "mw": 1500, "c": "CHN" },
-  { "n": "Baoquan", "lat": 35.48, "lon": 113.48, "mw": 1200, "c": "CHN" },
-  { "n": "Da Chao Shan", "lat": 24.026, "lon": 100.37, "mw": 1350, "c": "CHN" },
-  { "n": "Dagangshan", "lat": 29.45, "lon": 102.22, "mw": 2600, "c": "CHN" },
-  { "n": "Ertan", "lat": 26.82, "lon": 101.78, "mw": 3300, "c": "CHN" },
-  { "n": "Geheyan", "lat": 30.47, "lon": 111.14, "mw": 1200, "c": "CHN" },
-  { "n": "Gezhouba", "lat": 30.74, "lon": 111.27, "mw": 3190, "c": "CHN" },
-  { "n": "Gongboxia", "lat": 35.88, "lon": 102.23, "mw": 1500, "c": "CHN" },
-  { "n": "Gongzui", "lat": 29.31, "lon": 103.48, "mw": 2100, "c": "CHN" },
-  { "n": "Gou Pi Tan", "lat": 27.374, "lon": 107.633, "mw": 3000, "c": "CHN" },
-  { "n": "Guadian Dam", "lat": 27.822, "lon": 101.903, "mw": 2400, "c": "CHN" },
-  { "n": "Guandi", "lat": 27.82, "lon": 101.88, "mw": 2400, "c": "CHN" },
-  { "n": "Guangzhoao Dam", "lat": 25.96, "lon": 105.25, "mw": 1040, "c": "CHN" },
-  { "n": "Guangzhou Pump Storage", "lat": 23.766, "lon": 113.954, "mw": 2400, "c": "CHN" },
-  { "n": "Guanyinyan", "lat": 26.52, "lon": 101.44, "mw": 3000, "c": "CHN" },
-  { "n": "Heimifeng", "lat": 28.46, "lon": 113.01, "mw": 1200, "c": "CHN" },
-  { "n": "Hongping", "lat": 29.06, "lon": 115.36, "mw": 1200, "c": "CHN" },
-  { "n": "Huhhot", "lat": 40.98, "lon": 111.7, "mw": 1200, "c": "CHN" },
-  { "n": "Huizhou", "lat": 23.27, "lon": 114.31, "mw": 2400, "c": "CHN" },
-  { "n": "Jinanqiao", "lat": 26.81, "lon": 100.45, "mw": 2800, "c": "CHN" },
-  { "n": "Jing Hong", "lat": 22.05, "lon": 100.77, "mw": 1500, "c": "CHN" },
-  { "n": "Jinping I", "lat": 28.182, "lon": 101.632, "mw": 3600, "c": "CHN" },
-  { "n": "Jinping II", "lat": 28.249, "lon": 101.645, "mw": 4400, "c": "CHN" },
-  { "n": "Jishixia", "lat": 35.83, "lon": 102.7, "mw": 1020, "c": "CHN" },
-  { "n": "Laxiwa", "lat": 36.07, "lon": 101.186, "mw": 4200, "c": "CHN" },
-  { "n": "Lijiaxia Dam", "lat": 36.118, "lon": 101.807, "mw": 1632, "c": "CHN" },
-  { "n": "Liujiaxia", "lat": 35.93, "lon": 103.34, "mw": 1225, "c": "CHN" },
-  { "n": "Liyang", "lat": 31.24, "lon": 119.38, "mw": 1200, "c": "CHN" },
-  { "n": "Liyuan", "lat": 27.68, "lon": 100.29, "mw": 2400, "c": "CHN" },
-  { "n": "Longkaikou", "lat": 26.53, "lon": 100.42, "mw": 1900, "c": "CHN" },
-  { "n": "Longtan", "lat": 25.028, "lon": 107.043, "mw": 6300, "c": "CHN" },
-  { "n": "Longyangxia", "lat": 36.12, "lon": 100.92, "mw": 1280, "c": "CHN" },
-  { "n": "Ludila", "lat": 26.2, "lon": 100.82, "mw": 2160, "c": "CHN" },
-  { "n": "Manwan", "lat": 24.62, "lon": 100.45, "mw": 1605, "c": "CHN" },
-  { "n": "Nuozhadu", "lat": 22.641, "lon": 100.429, "mw": 5850, "c": "CHN" },
-  { "n": "Pengshui", "lat": 29.2, "lon": 108.2, "mw": 1750, "c": "CHN" },
-  { "n": "Pu Bu Gou", "lat": 29.21, "lon": 102.84, "mw": 4260, "c": "CHN" },
-  { "n": "Pushihe", "lat": 40.42, "lon": 124.68, "mw": 1200, "c": "CHN" },
-  { "n": "Qingyuan", "lat": 23.75, "lon": 112.85, "mw": 1280, "c": "CHN" },
-  { "n": "Sanbanxi Dam", "lat": 26.608, "lon": 109.048, "mw": 1000, "c": "CHN" },
-  { "n": "Shatuo", "lat": 28.5, "lon": 108.48, "mw": 1120, "c": "CHN" },
-  { "n": "Shuibuya", "lat": 30.44, "lon": 110.34, "mw": 1600, "c": "CHN" },
-  { "n": "Shuikou", "lat": 26.31, "lon": 118.81, "mw": 1400, "c": "CHN" },
-  { "n": "Silin", "lat": 27.37, "lon": 107.63, "mw": 1050, "c": "CHN" },
-  { "n": "Tai'in", "lat": 36.23, "lon": 117.05, "mw": 1000, "c": "CHN" },
-  { "n": "Three Gorges Dam", "lat": 30.824, "lon": 111.003, "mw": 22500, "c": "CHN" },
-  { "n": "Tianhuangping", "lat": 30.47, "lon": 119.61, "mw": 1800, "c": "CHN" },
-  { "n": "Tianshengqiao 1", "lat": 24.941, "lon": 105.103, "mw": 1200, "c": "CHN" },
-  { "n": "Tianshengqiao II", "lat": 24.96, "lon": 105.16, "mw": 1320, "c": "CHN" },
-  { "n": "Tingzikou", "lat": 31.82, "lon": 105.87, "mw": 1100, "c": "CHN" },
-  { "n": "Tongbai", "lat": 29.2, "lon": 121, "mw": 1200, "c": "CHN" },
-  { "n": "Wanjiazhai", "lat": 39.58, "lon": 111.43, "mw": 1080, "c": "CHN" },
-  { "n": "Wujiangdu", "lat": 27.32, "lon": 106.76, "mw": 1250, "c": "CHN" },
-  { "n": "Wuqiangxi", "lat": 28.78, "lon": 110.93, "mw": 1200, "c": "CHN" },
-  { "n": "Xiangjiaba", "lat": 28.644, "lon": 104.393, "mw": 6448, "c": "CHN" },
-  { "n": "Xiangshuijian", "lat": 31.11, "lon": 118.29, "mw": 1000, "c": "CHN" },
-  { "n": "Xianyou", "lat": 25.53, "lon": 118.53, "mw": 1200, "c": "CHN" },
-  { "n": "Xiaolangdi", "lat": 34.92, "lon": 112.36, "mw": 1800, "c": "CHN" },
-  { "n": "Xiaowan", "lat": 24.704, "lon": 100.091, "mw": 4200, "c": "CHN" },
-  { "n": "Xilongchi", "lat": 38.53, "lon": 113.27, "mw": 1200, "c": "CHN" },
-  { "n": "Xiluodu", "lat": 28.26, "lon": 103.65, "mw": 12600, "c": "CHN" },
-  { "n": "Yangqu", "lat": 35.7, "lon": 100.27, "mw": 1200, "c": "CHN" },
-  { "n": "Yantan", "lat": 24.05, "lon": 107.51, "mw": 1210, "c": "CHN" },
-  { "n": "Yixing", "lat": 31.32, "lon": 119.77, "mw": 1000, "c": "CHN" },
-  { "n": "Zhanghewan", "lat": 37.77, "lon": 114.06, "mw": 1000, "c": "CHN" },
-  { "n": "Chivor", "lat": 4.901, "lon": -73.297, "mw": 1000, "c": "COL" },
-  { "n": "Gavio", "lat": 4.725, "lon": -73.483, "mw": 1200, "c": "COL" },
-  { "n": "San Carlos", "lat": 6.211, "lon": -74.84, "mw": 1246, "c": "COL" },
-  { "n": "Inga II", "lat": -5.527, "lon": 13.621, "mw": 1775, "c": "COD" },
-  { "n": "Coca Coda Sinclair", "lat": -0.144, "lon": -77.617, "mw": 1500, "c": "ECU" },
-  { "n": "Paute", "lat": -2.595, "lon": -78.227, "mw": 1100, "c": "ECU" },
-  { "n": "High Dam", "lat": 23.972, "lon": 32.883, "mw": 2100, "c": "EGY" },
-  { "n": "Gilgel Gibe III", "lat": 6.848, "lon": 37.302, "mw": 1870, "c": "ETH" },
-  { "n": "GRAND MAISON", "lat": 45.146, "lon": 6.051, "mw": 1690, "c": "FRA" },
-  {
-    "n": "Inguri (Enguri) Dam Hydroelectric Power ",
-    "lat": 42.758,
-    "lon": 42.031,
-    "mw": 1300,
-    "c": "GEO"
-  },
-  { "n": "Goldisthal", "lat": 50.51, "lon": 11.021, "mw": 1052, "c": "DEU" },
-  { "n": "Markersbach", "lat": 50.519, "lon": 12.88, "mw": 1045, "c": "DEU" },
-  { "n": "PSW Vianden", "lat": 49.952, "lon": 6.178, "mw": 1096, "c": "DEU" },
-  { "n": "Aksombo", "lat": 6.3, "lon": 0.059, "mw": 1038, "c": "GHA" },
-  { "n": "BHAKRA", "lat": 31.411, "lon": 76.433, "mw": 1379, "c": "IND" },
-  { "n": "INDIRA SAGAR", "lat": 22.279, "lon": 76.473, "mw": 1000, "c": "IND" },
-  { "n": "KARCHAM WANGTOO", "lat": 31.516, "lon": 78.107, "mw": 1000, "c": "IND" },
-  { "n": "KOYNA COMPLEX", "lat": 17.46, "lon": 73.684, "mw": 1956, "c": "IND" },
-  { "n": "NATHPA JHAKRI", "lat": 31.564, "lon": 77.98, "mw": 1500, "c": "IND" },
-  { "n": "S.SAROVAR RBPH", "lat": 21.83, "lon": 73.75, "mw": 1200, "c": "IND" },
-  { "n": "SHARAVATHY", "lat": 14.235, "lon": 74.767, "mw": 1035, "c": "IND" },
-  { "n": "TEESTA-III", "lat": 27.598, "lon": 88.651, "mw": 1200, "c": "IND" },
-  { "n": "TEHRI ST -1", "lat": 30.379, "lon": 78.48, "mw": 1000, "c": "IND" },
-  { "n": "CirataI & II", "lat": -6.7, "lon": 107.367, "mw": 1008, "c": "IDN" },
-  { "n": "Karoune 3", "lat": 31.806, "lon": 50.089, "mw": 2000, "c": "IRN" },
-  { "n": "Masjed Soleyman", "lat": 32.029, "lon": 49.399, "mw": 2000, "c": "IRN" },
-  { "n": "Shahid Abbaspuor", "lat": 32.055, "lon": 49.607, "mw": 2000, "c": "IRN" },
-  { "n": "Siahbishe", "lat": 36.218, "lon": 51.305, "mw": 1040, "c": "IRN" },
-  { "n": "Upper Gotvand", "lat": 32.261, "lon": 48.924, "mw": 1016, "c": "IRN" },
-  { "n": "Mosul Dam", "lat": 36.625, "lon": 42.818, "mw": 1052, "c": "IRQ" },
-  { "n": "ENTRACQUE_CHRO", "lat": 44.226, "lon": 7.384, "mw": 1064, "c": "ITA" },
-  { "n": "PRESENZANO", "lat": 41.382, "lon": 14.09, "mw": 1005, "c": "ITA" },
-  { "n": "RONCOVALGRANDE", "lat": 46.07, "lon": 8.734, "mw": 1000, "c": "ITA" },
-  { "n": "Imaichi", "lat": 36.83, "lon": 139.663, "mw": 1050, "c": "JPN" },
-  { "n": "Matanogawa", "lat": 35.262, "lon": 133.492, "mw": 1200, "c": "JPN" },
-  { "n": "Okawachi", "lat": 35.131, "lon": 134.711, "mw": 1280, "c": "JPN" },
-  { "n": "Okukiyotsu", "lat": 36.846, "lon": 138.766, "mw": 1000, "c": "JPN" },
-  { "n": "Okumino", "lat": 35.739, "lon": 136.671, "mw": 1500, "c": "JPN" },
-  { "n": "Okutataragi", "lat": 35.241, "lon": 134.862, "mw": 1932, "c": "JPN" },
-  { "n": "Okuyoshino", "lat": 34.118, "lon": 135.821, "mw": 1206, "c": "JPN" },
-  { "n": "Shimogo", "lat": 37.345, "lon": 139.909, "mw": 1000, "c": "JPN" },
-  { "n": "Shin Takasegawa", "lat": 36.474, "lon": 137.69, "mw": 1280, "c": "JPN" },
-  { "n": "Shin Toyone", "lat": 35.126, "lon": 137.761, "mw": 1125, "c": "JPN" },
-  { "n": "Tamahara", "lat": 36.801, "lon": 139.041, "mw": 1200, "c": "JPN" },
-  {
-    "n": "Toktogul Hydroelectric Power Plant Kyrgy",
-    "lat": 41.657,
-    "lon": 72.636,
-    "mw": 1200,
-    "c": "KGZ"
-  },
-  { "n": "Nam Theun 2", "lat": 18.438, "lon": 102.947, "mw": 1070, "c": "LAO" },
-  {
-    "n": "Vianden Pumped Storage Power Plant Luxem",
-    "lat": 49.952,
-    "lon": 6.178,
-    "mw": 1296,
-    "c": "LUX"
-  },
-  { "n": "Infiernillo", "lat": 18.271, "lon": -101.894, "mw": 1200, "c": "MEX" },
-  { "n": "Malpaso", "lat": 17.181, "lon": -93.597, "mw": 1080, "c": "MEX" },
-  {
-    "n": "Manuel Moreno Torres (Chicoasén)",
-    "lat": 16.943,
-    "lon": -93.101,
-    "mw": 2400,
-    "c": "MEX"
-  },
-  { "n": "Cahora Bassa", "lat": -15.586, "lon": 32.705, "mw": 2075, "c": "MOZ" },
-  { "n": "Aurland5", "lat": 60.863, "lon": 7.302, "mw": 1398, "c": "NOR" },
-  { "n": "Kvilldal", "lat": 59.512, "lon": 6.585, "mw": 1444, "c": "NOR" },
-  { "n": "Tonstad", "lat": 58.665, "lon": 6.708, "mw": 1130, "c": "NOR" },
-  { "n": "Ghazi Barotha", "lat": 33.779, "lon": 72.259, "mw": 1450, "c": "PAK" },
-  { "n": "Kot Addu Power Company ltd.", "lat": 30.445, "lon": 70.981, "mw": 1368, "c": "PAK" },
-  { "n": "Mangla", "lat": 33.137, "lon": 73.642, "mw": 1000, "c": "PAK" },
-  { "n": "Tarbela", "lat": 34.089, "lon": 72.686, "mw": 3478, "c": "PAK" },
-  {
-    "n": "Itaipu Binacional Dam (Paraguay part)",
-    "lat": -25.408,
-    "lon": -54.589,
-    "mw": 7000,
-    "c": "PRY"
-  },
-  { "n": "Yacyretá Dam", "lat": -27.483, "lon": -56.725, "mw": 1550, "c": "PRY" },
-  { "n": "HPP Portile de Fier I", "lat": 44.673, "lon": 22.532, "mw": 1161, "c": "ROU" },
-  { "n": "Boguchanskaya HPP", "lat": 58.694, "lon": 99.149, "mw": 2997, "c": "RUS" },
-  { "n": "Bratsk HPP", "lat": 56.286, "lon": 101.784, "mw": 4500, "c": "RUS" },
-  { "n": "Byreyskaya HPP", "lat": 50.27, "lon": 130.314, "mw": 2010, "c": "RUS" },
-  { "n": "Cheboksarskaya HPP", "lat": 56.137, "lon": 47.466, "mw": 1370, "c": "RUS" },
-  { "n": "Chirkey HPP", "lat": 42.977, "lon": 46.871, "mw": 1000, "c": "RUS" },
-  { "n": "Dagestan Branch", "lat": 46.871, "lon": 46.871, "mw": 1786, "c": "RUS" },
-  { "n": "Krasnoyarsk", "lat": 55.937, "lon": 92.296, "mw": 6000, "c": "RUS" },
   {
     "n": "Nizhnekamsk hydroelectric power station",
     "lat": 55.7,
@@ -270,65 +1070,662 @@
     "mw": 1205,
     "c": "RUS"
   },
-  { "n": "Saratovskaya HPP", "lat": 52.048, "lon": 47.762, "mw": 1403, "c": "RUS" },
-  { "n": "Ust Illminsk (HPP)", "lat": 57.968, "lon": 102.696, "mw": 3840, "c": "RUS" },
-  { "n": "Volzhskaya HPP", "lat": 48.824, "lon": 44.677, "mw": 2671, "c": "RUS" },
-  { "n": "Votkinskaya HPP", "lat": 56.792, "lon": 54.084, "mw": 1020, "c": "RUS" },
-  { "n": "Zagorskaya PSPP", "lat": 56.482, "lon": 38.186, "mw": 1200, "c": "RUS" },
-  { "n": "Zeyskaya HPP", "lat": 53.77, "lon": 127.305, "mw": 1330, "c": "RUS" },
-  { "n": "Zhigulevskaya HPP", "lat": 53.427, "lon": 49.479, "mw": 2467, "c": "RUS" },
-  { "n": "HE DJERDAP I", "lat": 44.668, "lon": 22.527, "mw": 1086, "c": "SRB" },
-  { "n": "Drakensberg", "lat": -28.565, "lon": 29.084, "mw": 1000, "c": "ZAF" },
-  { "n": "Yangyang", "lat": 38.016, "lon": 128.547, "mw": 1000, "c": "KOR" },
-  { "n": "ALDEADAVILA II 2", "lat": 41.212, "lon": -6.686, "mw": 1226, "c": "ESP" },
-  { "n": "Merowe", "lat": 18.667, "lon": 32.05, "mw": 1250, "c": "SDN" },
-  { "n": "Karlshamn", "lat": 56.152, "lon": 14.833, "mw": 1020, "c": "SWE" },
-  { "n": "Bieudron", "lat": 46.186, "lon": 7.251, "mw": 1285, "c": "CHE" },
-  { "n": "Limmern", "lat": 46.849, "lon": 9.012, "mw": 1000, "c": "CHE" },
-  { "n": "Daguan Erchang", "lat": 23.854, "lon": 120.87, "mw": 1000, "c": "TWN" },
-  { "n": "Ming-Hu", "lat": 23.854, "lon": 120.871, "mw": 1000, "c": "TWN" },
-  { "n": "Ming-Tan", "lat": 23.836, "lon": 120.868, "mw": 1602, "c": "TWN" },
-  { "n": "Nurek", "lat": 38.372, "lon": 69.348, "mw": 3015, "c": "TJK" },
-  { "n": "Lam Ta Khong", "lat": 14.807, "lon": 101.545, "mw": 1000, "c": "THA" },
-  { "n": "Atatürk Dam", "lat": 37.483, "lon": 38.319, "mw": 2400, "c": "TUR" },
-  { "n": "Ilısu Dam", "lat": 37.53, "lon": 41.853, "mw": 1200, "c": "TUR" },
-  { "n": "Karakaya Dam", "lat": 38.226, "lon": 39.135, "mw": 1800, "c": "TUR" },
-  { "n": "Keban Dam", "lat": 38.806, "lon": 38.759, "mw": 1330, "c": "TUR" },
-  { "n": "Dneipro HPP 2", "lat": 47.868, "lon": 35.09, "mw": 1538, "c": "UKR" },
-  { "n": "Dinorwig", "lat": 53.118, "lon": -4.103, "mw": 1800, "c": "GBR" },
-  { "n": "Dinorwig", "lat": 53.119, "lon": -4.114, "mw": 1728, "c": "GBR" },
-  { "n": "Bad Creek", "lat": 35.008, "lon": -82.997, "mw": 1296, "c": "USA" },
-  { "n": "Bath County", "lat": 38.209, "lon": -79.8, "mw": 2862, "c": "USA" },
-  { "n": "Blenheim Gilboa", "lat": 42.442, "lon": -74.448, "mw": 1000, "c": "USA" },
-  { "n": "Bonneville", "lat": 45.644, "lon": -121.941, "mw": 1162, "c": "USA" },
-  { "n": "Boundary", "lat": 48.987, "lon": -117.348, "mw": 1119, "c": "USA" },
-  { "n": "Castaic", "lat": 34.587, "lon": -118.657, "mw": 1682, "c": "USA" },
-  { "n": "Chief Joseph", "lat": 47.995, "lon": -119.64, "mw": 2456, "c": "USA" },
-  { "n": "Glen Canyon Dam", "lat": 36.937, "lon": -111.484, "mw": 1312, "c": "USA" },
-  { "n": "Grand Coulee", "lat": 47.958, "lon": -118.977, "mw": 6809, "c": "USA" },
-  { "n": "Helms Pumped Storage", "lat": 37.029, "lon": -118.968, "mw": 1053, "c": "USA" },
-  { "n": "Hoover Dam (AZ)", "lat": 36.016, "lon": -114.738, "mw": 1039, "c": "USA" },
-  { "n": "Hoover Dam (NV)", "lat": 36.016, "lon": -114.738, "mw": 1039, "c": "USA" },
-  { "n": "John Day", "lat": 45.716, "lon": -120.694, "mw": 2160, "c": "USA" },
-  { "n": "Ludington", "lat": 43.894, "lon": -86.445, "mw": 1979, "c": "USA" },
-  { "n": "Muddy Run", "lat": 39.808, "lon": -76.299, "mw": 1072, "c": "USA" },
-  { "n": "Northfield Mountain", "lat": 42.611, "lon": -72.472, "mw": 1168, "c": "USA" },
-  { "n": "Raccoon Mountain", "lat": 35.056, "lon": -85.388, "mw": 1714, "c": "USA" },
-  { "n": "Robert Moses Niagara", "lat": 43.143, "lon": -79.039, "mw": 2429, "c": "USA" },
-  { "n": "Rocky Reach", "lat": 47.534, "lon": -120.295, "mw": 1300, "c": "USA" },
-  { "n": "The Dalles", "lat": 45.614, "lon": -121.135, "mw": 1820, "c": "USA" },
-  { "n": "Wanapum", "lat": 46.873, "lon": -119.97, "mw": 1098, "c": "USA" },
-  { "n": "Antonio Jose de Sucre (Macagua)", "lat": 8.304, "lon": -62.668, "mw": 2930, "c": "VEN" },
-  { "n": "Fransisco de Miranda (Caruachi)", "lat": 8.16, "lon": -62.8, "mw": 2196, "c": "VEN" },
   {
-    "n": "Manuel Piar (Tocoma) Hydroelectric Power",
-    "lat": 7.9,
-    "lon": -63.032,
-    "mw": 2530,
-    "c": "VEN"
+    "n": "EL CHOCON",
+    "lat": -39.258,
+    "lon": -68.748,
+    "mw": 1200,
+    "c": "ARG"
   },
-  { "n": "Simon Bolivar (Guri)", "lat": 7.766, "lon": -62.998, "mw": 8851, "c": "VEN" },
-  { "n": "Hoa Binh", "lat": 20.808, "lon": 105.323, "mw": 1920, "c": "VNM" },
-  { "n": "Lai Chau", "lat": 22.138, "lon": 102.984, "mw": 1200, "c": "VNM" },
-  { "n": "Son La", "lat": 21.497, "lon": 103.996, "mw": 2400, "c": "VNM" }
+  {
+    "n": "Bailanhe",
+    "lat": 30.6,
+    "lon": 115.45,
+    "mw": 1200,
+    "c": "CHN"
+  },
+  {
+    "n": "Baoquan",
+    "lat": 35.48,
+    "lon": 113.48,
+    "mw": 1200,
+    "c": "CHN"
+  },
+  {
+    "n": "Geheyan",
+    "lat": 30.47,
+    "lon": 111.14,
+    "mw": 1200,
+    "c": "CHN"
+  },
+  {
+    "n": "Heimifeng",
+    "lat": 28.46,
+    "lon": 113.01,
+    "mw": 1200,
+    "c": "CHN"
+  },
+  {
+    "n": "Hongping",
+    "lat": 29.06,
+    "lon": 115.36,
+    "mw": 1200,
+    "c": "CHN"
+  },
+  {
+    "n": "Huhhot",
+    "lat": 40.98,
+    "lon": 111.7,
+    "mw": 1200,
+    "c": "CHN"
+  },
+  {
+    "n": "Liyang",
+    "lat": 31.24,
+    "lon": 119.38,
+    "mw": 1200,
+    "c": "CHN"
+  },
+  {
+    "n": "Pushihe",
+    "lat": 40.42,
+    "lon": 124.68,
+    "mw": 1200,
+    "c": "CHN"
+  },
+  {
+    "n": "Tianshengqiao 1",
+    "lat": 24.941,
+    "lon": 105.103,
+    "mw": 1200,
+    "c": "CHN"
+  },
+  {
+    "n": "Tongbai",
+    "lat": 29.2,
+    "lon": 121,
+    "mw": 1200,
+    "c": "CHN"
+  },
+  {
+    "n": "Wuqiangxi",
+    "lat": 28.78,
+    "lon": 110.93,
+    "mw": 1200,
+    "c": "CHN"
+  },
+  {
+    "n": "Xianyou",
+    "lat": 25.53,
+    "lon": 118.53,
+    "mw": 1200,
+    "c": "CHN"
+  },
+  {
+    "n": "Xilongchi",
+    "lat": 38.53,
+    "lon": 113.27,
+    "mw": 1200,
+    "c": "CHN"
+  },
+  {
+    "n": "Yangqu",
+    "lat": 35.7,
+    "lon": 100.27,
+    "mw": 1200,
+    "c": "CHN"
+  },
+  {
+    "n": "Gavio",
+    "lat": 4.725,
+    "lon": -73.483,
+    "mw": 1200,
+    "c": "COL"
+  },
+  {
+    "n": "S.SAROVAR RBPH",
+    "lat": 21.83,
+    "lon": 73.75,
+    "mw": 1200,
+    "c": "IND"
+  },
+  {
+    "n": "TEESTA-III",
+    "lat": 27.598,
+    "lon": 88.65,
+    "mw": 1200,
+    "c": "IND"
+  },
+  {
+    "n": "Matanogawa",
+    "lat": 35.262,
+    "lon": 133.492,
+    "mw": 1200,
+    "c": "JPN"
+  },
+  {
+    "n": "Tamahara",
+    "lat": 36.801,
+    "lon": 139.041,
+    "mw": 1200,
+    "c": "JPN"
+  },
+  {
+    "n": "Toktogul Hydroelectric Power Plant Kyrgyzstan",
+    "lat": 41.657,
+    "lon": 72.636,
+    "mw": 1200,
+    "c": "KGZ"
+  },
+  {
+    "n": "Infiernillo",
+    "lat": 18.271,
+    "lon": -101.894,
+    "mw": 1200,
+    "c": "MEX"
+  },
+  {
+    "n": "Zagorskaya PSPP",
+    "lat": 56.482,
+    "lon": 38.186,
+    "mw": 1200,
+    "c": "RUS"
+  },
+  {
+    "n": "Ilısu Dam",
+    "lat": 37.53,
+    "lon": 41.853,
+    "mw": 1200,
+    "c": "TUR"
+  },
+  {
+    "n": "Lai Chau",
+    "lat": 22.138,
+    "lon": 102.984,
+    "mw": 1200,
+    "c": "VNM"
+  },
+  {
+    "n": "Emborcação",
+    "lat": -18.452,
+    "lon": -47.986,
+    "mw": 1192,
+    "c": "BRA"
+  },
+  {
+    "n": "Bersimis-1",
+    "lat": 49.295,
+    "lon": -69.551,
+    "mw": 1178,
+    "c": "CAN"
+  },
+  {
+    "n": "Northfield Mountain",
+    "lat": 42.611,
+    "lon": -72.472,
+    "mw": 1168,
+    "c": "USA"
+  },
+  {
+    "n": "COO",
+    "lat": 50.385,
+    "lon": 5.862,
+    "mw": 1164,
+    "c": "BEL"
+  },
+  {
+    "n": "Bonneville",
+    "lat": 45.644,
+    "lon": -121.941,
+    "mw": 1162,
+    "c": "USA"
+  },
+  {
+    "n": "HPP Portile de Fier I",
+    "lat": 44.673,
+    "lon": 22.532,
+    "mw": 1161,
+    "c": "ROU"
+  },
+  {
+    "n": "Machadinho",
+    "lat": -27.528,
+    "lon": -51.79,
+    "mw": 1140,
+    "c": "BRA"
+  },
+  {
+    "n": "Tonstad",
+    "lat": 58.665,
+    "lon": 6.708,
+    "mw": 1130,
+    "c": "NOR"
+  },
+  {
+    "n": "Shin Toyone",
+    "lat": 35.126,
+    "lon": 137.761,
+    "mw": 1125,
+    "c": "JPN"
+  },
+  {
+    "n": "Shatuo",
+    "lat": 28.5,
+    "lon": 108.48,
+    "mw": 1120,
+    "c": "CHN"
+  },
+  {
+    "n": "Boundary",
+    "lat": 48.987,
+    "lon": -117.348,
+    "mw": 1119,
+    "c": "USA"
+  },
+  {
+    "n": "Tingzikou",
+    "lat": 31.82,
+    "lon": 105.87,
+    "mw": 1100,
+    "c": "CHN"
+  },
+  {
+    "n": "Paute",
+    "lat": -2.595,
+    "lon": -78.227,
+    "mw": 1100,
+    "c": "ECU"
+  },
+  {
+    "n": "Wanapum",
+    "lat": 46.873,
+    "lon": -119.97,
+    "mw": 1098,
+    "c": "USA"
+  },
+  {
+    "n": "PSW Vianden",
+    "lat": 49.952,
+    "lon": 6.178,
+    "mw": 1096,
+    "c": "DEU"
+  },
+  {
+    "n": "Estreito",
+    "lat": -6.587,
+    "lon": -47.459,
+    "mw": 1087,
+    "c": "BRA"
+  },
+  {
+    "n": "HE DJERDAP I",
+    "lat": 44.668,
+    "lon": 22.527,
+    "mw": 1086,
+    "c": "SRB"
+  },
+  {
+    "n": "Wanjiazhai",
+    "lat": 39.58,
+    "lon": 111.43,
+    "mw": 1080,
+    "c": "CHN"
+  },
+  {
+    "n": "Malpaso",
+    "lat": 17.181,
+    "lon": -93.597,
+    "mw": 1080,
+    "c": "MEX"
+  },
+  {
+    "n": "Salto Osório",
+    "lat": -25.533,
+    "lon": -53.033,
+    "mw": 1078,
+    "c": "BRA"
+  },
+  {
+    "n": "Muddy Run",
+    "lat": 39.808,
+    "lon": -76.299,
+    "mw": 1072,
+    "c": "USA"
+  },
+  {
+    "n": "Nam Theun 2",
+    "lat": 18.438,
+    "lon": 102.947,
+    "mw": 1070,
+    "c": "LAO"
+  },
+  {
+    "n": "Manic-5-PA",
+    "lat": 50.647,
+    "lon": -68.74,
+    "mw": 1064,
+    "c": "CAN"
+  },
+  {
+    "n": "ENTRACQUE_CHRO",
+    "lat": 44.226,
+    "lon": 7.384,
+    "mw": 1064,
+    "c": "ITA"
+  },
+  {
+    "n": "Helms Pumped Storage",
+    "lat": 37.029,
+    "lon": -118.968,
+    "mw": 1053,
+    "c": "USA"
+  },
+  {
+    "n": "Goldisthal",
+    "lat": 50.51,
+    "lon": 11.021,
+    "mw": 1052,
+    "c": "DEU"
+  },
+  {
+    "n": "Mosul Dam",
+    "lat": 36.625,
+    "lon": 42.818,
+    "mw": 1052,
+    "c": "IRQ"
+  },
+  {
+    "n": "ALICURA",
+    "lat": -40.58,
+    "lon": -70.749,
+    "mw": 1050,
+    "c": "ARG"
+  },
+  {
+    "n": "Sobradinho",
+    "lat": -9.431,
+    "lon": -40.828,
+    "mw": 1050,
+    "c": "BRA"
+  },
+  {
+    "n": "Silin",
+    "lat": 27.37,
+    "lon": 107.63,
+    "mw": 1050,
+    "c": "CHN"
+  },
+  {
+    "n": "Imaichi",
+    "lat": 36.83,
+    "lon": 139.663,
+    "mw": 1050,
+    "c": "JPN"
+  },
+  {
+    "n": "Estreito (Luiz Carlos Barreto de Carvalho)",
+    "lat": -20.151,
+    "lon": -47.279,
+    "mw": 1048,
+    "c": "BRA"
+  },
+  {
+    "n": "Robert H Saunders",
+    "lat": 45.009,
+    "lon": -74.79,
+    "mw": 1045,
+    "c": "CAN"
+  },
+  {
+    "n": "Markersbach",
+    "lat": 50.519,
+    "lon": 12.88,
+    "mw": 1045,
+    "c": "DEU"
+  },
+  {
+    "n": "Guangzhoao Dam",
+    "lat": 25.96,
+    "lon": 105.25,
+    "mw": 1040,
+    "c": "CHN"
+  },
+  {
+    "n": "Siahbishe",
+    "lat": 36.218,
+    "lon": 51.305,
+    "mw": 1040,
+    "c": "IRN"
+  },
+  {
+    "n": "Hoover Dam (AZ)",
+    "lat": 36.016,
+    "lon": -114.738,
+    "mw": 1039,
+    "c": "USA"
+  },
+  {
+    "n": "Hoover Dam (NV)",
+    "lat": 36.016,
+    "lon": -114.738,
+    "mw": 1039,
+    "c": "USA"
+  },
+  {
+    "n": "Aksombo",
+    "lat": 6.3,
+    "lon": 0.059,
+    "mw": 1038,
+    "c": "GHA"
+  },
+  {
+    "n": "SHARAVATHY",
+    "lat": 14.235,
+    "lon": 74.767,
+    "mw": 1035,
+    "c": "IND"
+  },
+  {
+    "n": "Outardes-3",
+    "lat": 49.558,
+    "lon": -68.726,
+    "mw": 1026,
+    "c": "CAN"
+  },
+  {
+    "n": "Tala Hydroelectric Power Plant Bhutan",
+    "lat": 27.036,
+    "lon": 89.595,
+    "mw": 1020,
+    "c": "BTN"
+  },
+  {
+    "n": "Jishixia",
+    "lat": 35.83,
+    "lon": 102.7,
+    "mw": 1020,
+    "c": "CHN"
+  },
+  {
+    "n": "Votkinskaya HPP",
+    "lat": 56.792,
+    "lon": 54.084,
+    "mw": 1020,
+    "c": "RUS"
+  },
+  {
+    "n": "Karlshamn",
+    "lat": 56.152,
+    "lon": 14.832,
+    "mw": 1020,
+    "c": "SWE"
+  },
+  {
+    "n": "Upper Gotvand",
+    "lat": 32.261,
+    "lon": 48.924,
+    "mw": 1016,
+    "c": "IRN"
+  },
+  {
+    "n": "CirataI & II",
+    "lat": -6.7,
+    "lon": 107.367,
+    "mw": 1008,
+    "c": "IDN"
+  },
+  {
+    "n": "PRESENZANO",
+    "lat": 41.382,
+    "lon": 14.09,
+    "mw": 1005,
+    "c": "ITA"
+  },
+  {
+    "n": "Sanbanxi Dam",
+    "lat": 26.608,
+    "lon": 109.047,
+    "mw": 1000,
+    "c": "CHN"
+  },
+  {
+    "n": "Tai'in",
+    "lat": 36.23,
+    "lon": 117.05,
+    "mw": 1000,
+    "c": "CHN"
+  },
+  {
+    "n": "Xiangshuijian",
+    "lat": 31.11,
+    "lon": 118.29,
+    "mw": 1000,
+    "c": "CHN"
+  },
+  {
+    "n": "Yixing",
+    "lat": 31.32,
+    "lon": 119.77,
+    "mw": 1000,
+    "c": "CHN"
+  },
+  {
+    "n": "Zhanghewan",
+    "lat": 37.77,
+    "lon": 114.06,
+    "mw": 1000,
+    "c": "CHN"
+  },
+  {
+    "n": "Chivor",
+    "lat": 4.901,
+    "lon": -73.297,
+    "mw": 1000,
+    "c": "COL"
+  },
+  {
+    "n": "INDIRA SAGAR",
+    "lat": 22.279,
+    "lon": 76.473,
+    "mw": 1000,
+    "c": "IND"
+  },
+  {
+    "n": "KARCHAM WANGTOO",
+    "lat": 31.516,
+    "lon": 78.107,
+    "mw": 1000,
+    "c": "IND"
+  },
+  {
+    "n": "TEHRI ST -1",
+    "lat": 30.379,
+    "lon": 78.48,
+    "mw": 1000,
+    "c": "IND"
+  },
+  {
+    "n": "RONCOVALGRANDE",
+    "lat": 46.07,
+    "lon": 8.734,
+    "mw": 1000,
+    "c": "ITA"
+  },
+  {
+    "n": "Okukiyotsu",
+    "lat": 36.846,
+    "lon": 138.766,
+    "mw": 1000,
+    "c": "JPN"
+  },
+  {
+    "n": "Shimogo",
+    "lat": 37.345,
+    "lon": 139.909,
+    "mw": 1000,
+    "c": "JPN"
+  },
+  {
+    "n": "Mangla",
+    "lat": 33.137,
+    "lon": 73.642,
+    "mw": 1000,
+    "c": "PAK"
+  },
+  {
+    "n": "Chirkey HPP",
+    "lat": 42.977,
+    "lon": 46.871,
+    "mw": 1000,
+    "c": "RUS"
+  },
+  {
+    "n": "Drakensberg",
+    "lat": -28.565,
+    "lon": 29.084,
+    "mw": 1000,
+    "c": "ZAF"
+  },
+  {
+    "n": "Yangyang",
+    "lat": 38.016,
+    "lon": 128.547,
+    "mw": 1000,
+    "c": "KOR"
+  },
+  {
+    "n": "Limmern",
+    "lat": 46.849,
+    "lon": 9.012,
+    "mw": 1000,
+    "c": "CHE"
+  },
+  {
+    "n": "Daguan Erchang",
+    "lat": 23.854,
+    "lon": 120.87,
+    "mw": 1000,
+    "c": "TWN"
+  },
+  {
+    "n": "Ming-Hu",
+    "lat": 23.854,
+    "lon": 120.871,
+    "mw": 1000,
+    "c": "TWN"
+  },
+  {
+    "n": "Lam Ta Khong",
+    "lat": 14.807,
+    "lon": 101.545,
+    "mw": 1000,
+    "c": "THA"
+  },
+  {
+    "n": "Blenheim Gilboa",
+    "lat": 42.442,
+    "lon": -74.448,
+    "mw": 1000,
+    "c": "USA"
+  }
 ]
