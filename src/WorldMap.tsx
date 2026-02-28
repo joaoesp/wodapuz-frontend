@@ -436,6 +436,11 @@ function WorldMap({
     []
   );
 
+  const handleClusterClick = useCallback((lon: number, lat: number, newZoom: number) => {
+    setCenter([lon, lat]);
+    setZoom(newZoom);
+  }, []);
+
   const handleTinyCountryClick = (name: string, code: string) => {
     if (!onCountryClick) return;
     const timeSeries: { year: number; value: number }[] = [];
@@ -590,7 +595,12 @@ function WorldMap({
             );
           })}
           {infraType && (
-            <InfrastructureLayer infraType={infraType} zoom={zoom} onHover={handleInfraHover} />
+            <InfrastructureLayer
+              infraType={infraType}
+              zoom={zoom}
+              onHover={handleInfraHover}
+              onClusterClick={handleClusterClick}
+            />
           )}
         </ZoomableGroup>
       </ComposableMap>

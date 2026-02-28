@@ -22,6 +22,7 @@ import EnergyConsumptionDashboard from "./EnergyConsumptionDashboard";
 import EnergyConsumptionLineChart from "./EnergyConsumptionLineChart";
 import NetEnergyBalanceLineChart from "./NetEnergyBalanceLineChart";
 import NetEnergyBalanceDashboard from "./NetEnergyBalanceDashboard";
+import InfrastructureDashboard from "./InfrastructureDashboard";
 import { GDP_GROWTH_EVENTS } from "./worldEvents";
 import "./App.css";
 
@@ -131,6 +132,7 @@ function App() {
   } | null>(null);
   const [infraType, setInfraType] = useState<InfraType | null>(null);
   const [infraCounts, setInfraCounts] = useState<Partial<Record<InfraType, number>>>({});
+  const [showInfraDashboard, setShowInfraDashboard] = useState(false);
 
   useEffect(() => {
     if (selectedMetric !== "Energy Infrastructure") return;
@@ -154,7 +156,10 @@ function App() {
     setSelectedMetric(metric);
   };
 
-  const handleInfraSelect = (t: InfraType) => setInfraType((prev) => (prev === t ? null : t));
+  const handleInfraSelect = (t: InfraType) => {
+    setInfraType((prev) => (prev === t ? null : t));
+    setShowInfraDashboard(false);
+  };
 
   const handleYearRangeUpdate = useCallback((startYear: number, endYear: number) => {
     setAvailableYearRange({ startYear, endYear });
@@ -205,6 +210,13 @@ function App() {
           activeType={infraType}
           counts={infraCounts}
           onSelect={handleInfraSelect}
+          onChartOpen={() => setShowInfraDashboard(true)}
+        />
+      )}
+      {showInfraDashboard && infraType && (
+        <InfrastructureDashboard
+          infraType={infraType}
+          onClose={() => setShowInfraDashboard(false)}
         />
       )}
       {showChart && selectedMetric && CHART_METRICS.has(selectedMetric) && (

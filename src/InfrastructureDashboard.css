@@ -1,0 +1,177 @@
+.infra-dashboard-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.infra-dashboard {
+  background: rgba(36, 36, 36, 0.98);
+  border: 1px solid #3a3a3a;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 700px;
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.infra-dashboard-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.infra-dashboard-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.infra-dashboard-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.infra-dashboard-close {
+  margin-left: auto;
+  background: #3a3a3a;
+  border: none;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.infra-dashboard-close:hover {
+  background: #505050;
+  color: #fff;
+}
+
+.infra-dashboard-loading {
+  text-align: center;
+  color: #888;
+  padding: 32px 0;
+  font-size: 14px;
+}
+
+.infra-dashboard-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.infra-section-label {
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Top 5 table */
+.infra-top-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.infra-top-table th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0 0 8px;
+  border-bottom: 1px solid #333;
+}
+
+.infra-top-table th:last-child {
+  text-align: right;
+}
+
+.infra-top-table td {
+  padding: 6px 0;
+  font-size: 13px;
+  color: #ccc;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.infra-top-table td:first-child {
+  color: #666;
+  width: 24px;
+}
+
+.infra-top-table td:last-child {
+  text-align: right;
+  color: #aaa;
+  font-variant-numeric: tabular-nums;
+}
+
+.infra-top-country {
+  font-size: 11px;
+  color: #777;
+  margin-left: 4px;
+}
+
+/* Country bar chart */
+.infra-country-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.infra-country-bar-label {
+  width: 80px;
+  font-size: 12px;
+  color: #ccc;
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.infra-country-bar-track {
+  flex: 1;
+  height: 14px;
+  background: #2a2a2a;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.infra-country-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.infra-country-bar-value {
+  width: 36px;
+  font-size: 11px;
+  color: #888;
+  text-align: right;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
