@@ -8,7 +8,7 @@ interface InfrastructureToggleProps {
   onChartOpen?: () => void;
 }
 
-const INFRA_ORDER: InfraType[] = ["solar", "nuclear", "hydro", "wind", "gas", "coal"];
+const INFRA_ORDER: InfraType[] = ["solar", "nuclear", "hydro", "wind", "gas", "oil", "coal"];
 
 function InfrastructureToggle({
   activeType,

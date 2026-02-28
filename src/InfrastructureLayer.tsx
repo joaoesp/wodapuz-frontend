@@ -82,6 +82,8 @@ function InfrastructureLayer({
 
   const clusters = useMemo(() => clusterPlants(plants, zoom), [plants, zoom]);
   const config = INFRA_CONFIGS[infraType];
+  const unit = infraType === "oil" ? "kb/d" : "MW";
+  const itemLabel = infraType === "oil" ? "refineries" : `${config.label} plants`;
 
   return (
     <>
@@ -103,7 +105,7 @@ function InfrastructureLayer({
                 onMouseMove={(e) => {
                   onHover({
                     name: plant.n,
-                    value: `${plant.mw.toLocaleString()} MW`,
+                    value: `${plant.mw.toLocaleString()} ${unit}`,
                     x: e.clientX,
                     y: e.clientY,
                   });
@@ -116,10 +118,10 @@ function InfrastructureLayer({
 
         // Cluster marker — radius scales with sqrt(totalMw) for perceptual balance
         const clusterRadius = Math.min(35, (6 + Math.sqrt(cluster.totalMw / 50)) / zoom);
-        const totalMwFormatted =
+        const totalFormatted =
           cluster.totalMw >= 1000
-            ? `${(cluster.totalMw / 1000).toFixed(1)}k MW`
-            : `${cluster.totalMw.toLocaleString()} MW`;
+            ? `${(cluster.totalMw / 1000).toFixed(1)}k ${unit}`
+            : `${cluster.totalMw.toLocaleString()} ${unit}`;
 
         return (
           <Marker key={i} coordinates={[cluster.lon, cluster.lat]}>
@@ -132,8 +134,8 @@ function InfrastructureLayer({
               style={{ cursor: "pointer" }}
               onMouseMove={(e) => {
                 onHover({
-                  name: `${count} ${config.label} plants`,
-                  value: `Total: ${totalMwFormatted}`,
+                  name: `${count} ${itemLabel}`,
+                  value: `Total: ${totalFormatted}`,
                   x: e.clientX,
                   y: e.clientY,
                 });

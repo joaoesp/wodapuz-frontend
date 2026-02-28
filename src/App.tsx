@@ -96,7 +96,7 @@ const METRIC_DESCRIPTIONS: Record<string, string> = {
   "Net Energy Balance":
     "Net energy imports as a percentage of energy use. Negative values indicate net exporters; positive values indicate net importers.",
   "Energy Infrastructure":
-    "Major energy infrastructure from the WRI Global Power Plant Database. Select a type to view nuclear, hydro, solar, wind, coal, or gas plants above minimum capacity thresholds.",
+    "Major energy infrastructure from the WRI Global Power Plant Database. Select a type to view nuclear, hydro, solar, wind, gas, oil, or coal facilities above minimum capacity thresholds.",
 };
 
 // Trade metrics that show the trade dashboard on click
@@ -134,7 +134,7 @@ function App() {
 
   useEffect(() => {
     if (selectedMetric !== "Energy Infrastructure") return;
-    (["nuclear", "hydro", "solar", "wind", "coal", "gas"] as InfraType[]).forEach((type) => {
+    (["nuclear", "hydro", "solar", "wind", "coal", "gas", "oil"] as InfraType[]).forEach((type) => {
       fetch(`/data/infrastructure/${INFRA_CONFIGS[type].file}`)
         .then((r) => r.json())
         .then((d: unknown[]) => setInfraCounts((prev) => ({ ...prev, [type]: d.length })))
@@ -192,6 +192,7 @@ function App() {
             : undefined
         }
         infraType={selectedMetric === "Energy Infrastructure" ? infraType : null}
+        showPipelines={selectedMetric === "Energy Infrastructure" && infraType === "oil"}
       />
       {selectedMetric && !HIDDEN_SLIDER_METRICS.has(selectedMetric) && (
         <TimelineSlider

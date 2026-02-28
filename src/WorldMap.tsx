@@ -5,6 +5,7 @@ import { gfpService } from "./services/gfpService";
 import { owidService } from "./services/owidService";
 import { getCountryCode } from "./utils/countryNameToCode";
 import InfrastructureLayer from "./InfrastructureLayer";
+import PipelineLayer from "./PipelineLayer";
 import type { InfraType } from "./infraConfig";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json";
@@ -216,6 +217,7 @@ interface WorldMapProps {
     timeSeries: { year: number; value: number }[]
   ) => void;
   infraType?: InfraType | null;
+  showPipelines?: boolean;
 }
 
 function WorldMap({
@@ -224,6 +226,7 @@ function WorldMap({
   onYearRangeUpdate,
   onCountryClick,
   infraType,
+  showPipelines,
 }: WorldMapProps) {
   const [tooltip, setTooltip] = useState<Tooltip | null>(null);
   const [center, setCenter] = useState<[number, number]>(INITIAL_CENTER);
@@ -589,6 +592,7 @@ function WorldMap({
                 </Marker>
               );
             })}
+          {showPipelines && <PipelineLayer zoom={zoom} onHover={handleInfraHover} />}
           {infraType && (
             <InfrastructureLayer
               infraType={infraType}

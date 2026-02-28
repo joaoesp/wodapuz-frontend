@@ -44,7 +44,10 @@ function InfrastructureDashboard({ infraType, onClose }: InfrastructureDashboard
       <div className="infra-dashboard" onClick={(e) => e.stopPropagation()}>
         <div className="infra-dashboard-header">
           <span className="infra-dashboard-dot" style={{ background: config.color }} />
-          <h2 className="infra-dashboard-title">{config.label} Plants</h2>
+          <h2 className="infra-dashboard-title">
+            {infraType === "oil" ? "Oil Refineries" : `${config.label} Plants`}
+            <span className="infra-dashboard-threshold">{config.minCapacity}</span>
+          </h2>
           <button className="infra-dashboard-close" onClick={onClose} aria-label="Close">
             ×
           </button>
@@ -57,13 +60,15 @@ function InfrastructureDashboard({ infraType, onClose }: InfrastructureDashboard
         ) : (
           <div className="infra-dashboard-body">
             <div>
-              <h4 className="infra-section-label">Top 5 Plants</h4>
+              <h4 className="infra-section-label">
+                {infraType === "oil" ? "Top 5 Oil Refineries" : "Top 5 Plants"}
+              </h4>
               <table className="infra-top-table">
                 <thead>
                   <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th>MW</th>
+                    <th>{infraType === "oil" ? "kb/d" : "MW"}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -84,7 +89,9 @@ function InfrastructureDashboard({ infraType, onClose }: InfrastructureDashboard
             </div>
 
             <div>
-              <h4 className="infra-section-label">Plants by Country</h4>
+              <h4 className="infra-section-label">
+                {infraType === "oil" ? "Oil Refineries by Country" : "Plants by Country"}
+              </h4>
               {countryCounts.map(([code, count]) => (
                 <div key={code} className="infra-country-bar-row">
                   <div className="infra-country-bar-label">{codeToCountryName[code] ?? code}</div>
