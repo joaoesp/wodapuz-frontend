@@ -112,6 +112,11 @@ export const METRIC_CONFIGS: Record<string, MetricConfig> = {
     colors: ["#e0f7fa", "#80deea", "#26c6da", "#0097a7", "#006064", "#002f35"],
     format: (v: number) => (v >= 1000 ? `${(v / 1000).toFixed(1)}k TWh` : `${v.toFixed(1)} TWh`),
   },
+  "Net Energy Balance": {
+    thresholds: [-50, -10, 0, 20, 50],
+    colors: ["#1a5c2a", "#4a9c5e", "#a8d8b4", "#fdd835", "#f97316", "#b91c1c"],
+    format: (v: number) => `Net Energy Balance: ${v.toFixed(1)}%`,
+  },
 };
 
 // Military alliance definitions — each country assigned to its primary alliance

@@ -31,12 +31,15 @@ function ClickablePartnerList({
   partners,
   selectedIso,
   onSelect,
+  total,
 }: {
   partners: TradePartner[];
   selectedIso: string | null;
   onSelect: (partner: TradePartner) => void;
+  total?: number;
 }) {
   const maxValue = partners[0]?.value ?? 1;
+  const others = total != null ? total - partners.reduce((s, p) => s + p.value, 0) : 0;
   return (
     <div>
       {partners.map((partner) => {
@@ -67,6 +70,21 @@ function ClickablePartnerList({
           </div>
         );
       })}
+      {others > 0 && (
+        <div className="trade-bar-row">
+          <div className="trade-bar-label">Others</div>
+          <div className="trade-bar-track">
+            <div
+              className="trade-bar-fill"
+              style={{
+                width: `${(others / maxValue) * 100}%`,
+                background: "rgba(156,200,55,0.35)",
+              }}
+            />
+          </div>
+          <div className="trade-bar-value">{formatValue(others)}</div>
+        </div>
+      )}
     </div>
   );
 }
@@ -348,6 +366,7 @@ function TradeDashboard({ countryCode, countryName, year, onClose }: TradeDashbo
                   partners={current.partners}
                   selectedIso={activePartner?.iso ?? null}
                   onSelect={(p) => setSelectedPartner((prev) => ({ ...prev, [flow]: p }))}
+                  total={current.total}
                 />
               </div>
               <div className="trade-chart-section">
