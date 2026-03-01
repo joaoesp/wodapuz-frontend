@@ -14,6 +14,7 @@ import {
   type MineralView,
   type MineralRecord,
 } from "./mineralConfig";
+import { CROP_CONFIGS, type CropType, type CropRecord } from "./agricultureConfig";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json";
 
@@ -232,6 +233,37 @@ export const METRIC_CONFIGS: Record<string, MetricConfig> = {
     colors: ["#f1f5f9", "#cbd5e1", "#94a3b8", "#64748b", "#475569", "#1e293b"],
     format: (v: number) => `Zinc: ${v.toFixed(2)} Mt/yr`,
   },
+  "Arable Land": {
+    thresholds: [0.05, 0.15, 0.3, 0.5, 1.0],
+    colors: ["#fef3c7", "#fcd34d", "#f59e0b", "#d97706", "#92400e", "#451a03"],
+    format: (v: number) => `Arable Land: ${v.toFixed(2)} ha/person`,
+  },
+  "Freshwater Resources": {
+    thresholds: [500, 1500, 5000, 15000, 50000],
+    colors: ["#fecaca", "#fde68a", "#bae6fd", "#60a5fa", "#2563eb", "#1e3a8a"],
+    format: (v: number) =>
+      `Freshwater: ${v.toLocaleString(undefined, { maximumFractionDigits: 0 })} m³/capita`,
+  },
+  "crop-wheat": {
+    thresholds: [1, 5, 15, 40, 100],
+    colors: ["#fef3c7", "#fcd34d", "#f59e0b", "#d97706", "#b45309", "#78350f"],
+    format: (v: number) => `Wheat: ${v.toFixed(1)} Mt`,
+  },
+  "crop-corn": {
+    thresholds: [1, 5, 15, 50, 150],
+    colors: ["#fefce8", "#fde047", "#facc15", "#eab308", "#ca8a04", "#713f12"],
+    format: (v: number) => `Corn: ${v.toFixed(1)} Mt`,
+  },
+  "crop-rice": {
+    thresholds: [1, 5, 15, 40, 100],
+    colors: ["#d1fae5", "#6ee7b7", "#34d399", "#10b981", "#059669", "#064e3b"],
+    format: (v: number) => `Rice: ${v.toFixed(1)} Mt`,
+  },
+  "crop-soybeans": {
+    thresholds: [0.5, 2, 5, 15, 50],
+    colors: ["#fef3c7", "#d6a06c", "#b8783c", "#92400e", "#78350f", "#451a03"],
+    format: (v: number) => `Soybeans: ${v.toFixed(1)} Mt`,
+  },
 };
 
 // Military alliance definitions — each country assigned to its primary alliance
@@ -333,6 +365,7 @@ interface WorldMapProps {
   reserveType?: ReserveType | null;
   mineralType?: MineralType | null;
   mineralView?: MineralView;
+  cropType?: CropType | null;
 }
 
 function WorldMap({
@@ -345,6 +378,7 @@ function WorldMap({
   reserveType,
   mineralType,
   mineralView = "reserves",
+  cropType,
 }: WorldMapProps) {
   const [tooltip, setTooltip] = useState<Tooltip | null>(null);
   const [center, setCenter] = useState<[number, number]>(INITIAL_CENTER);
@@ -390,6 +424,12 @@ function WorldMap({
     if (selectedMetric === "Critical Minerals") {
       setIndicatorDataByYear({});
       onYearRangeUpdate(2024, 2024);
+      return;
+    }
+
+    if (selectedMetric === "Agricultural Resources") {
+      setIndicatorDataByYear({});
+      onYearRangeUpdate(1961, 2024);
       return;
     }
 
@@ -570,6 +610,38 @@ function WorldMap({
       .catch(console.error);
   }, [selectedMetric, mineralType, mineralView]);
 
+  useEffect(() => {
+    if (selectedMetric !== "Agricultural Resources" || !cropType) return;
+    const config = CROP_CONFIGS[cropType];
+    fetch(`/data/agriculture/${config.file}`)
+      .then((r) => r.json())
+      .then((data: Record<string, CropRecord[]>) => {
+        const processedData: Record<string, Map<string, IndicatorData>> = {};
+        const indicatorKey = `crop-${cropType}`;
+        Object.keys(data).forEach((year) => {
+          const dataMap = new Map<string, IndicatorData>();
+          data[year].forEach((r) => {
+            dataMap.set(r.c, {
+              countryCode: r.c,
+              countryName: r.c,
+              year,
+              value: r.v,
+              indicator: indicatorKey,
+            });
+          });
+          processedData[year] = dataMap;
+        });
+        setIndicatorDataByYear(processedData);
+        const availableYears = Object.keys(processedData)
+          .map((y) => parseInt(y))
+          .sort((a, b) => a - b);
+        if (availableYears.length > 0) {
+          onYearRangeUpdate(availableYears[0], availableYears[availableYears.length - 1]);
+        }
+      })
+      .catch(console.error);
+  }, [selectedMetric, cropType, onYearRangeUpdate]);
+
   const getCountryColor = (countryCode: string) => {
     if (selectedMetric === "Military Alliances") {
       return ALLIANCE_BY_COUNTRY[countryCode]?.color ?? "#ffffff";
@@ -595,6 +667,19 @@ function WorldMap({
           ? `mineral-production-${mineralType}`
           : `mineral-${mineralType}`;
       const yearData = indicatorDataByYear["2024"];
+      if (yearData) {
+        const data = yearData.get(countryCode);
+        if (data && data.value != null) {
+          const config = METRIC_CONFIGS[metricKey];
+          if (config) return getColorFromThresholds(data.value, config.thresholds, config.colors);
+        }
+      }
+      return "#ffffff";
+    }
+    if (selectedMetric === "Agricultural Resources") {
+      if (!cropType) return "#a6a6a6";
+      const metricKey = `crop-${cropType}`;
+      const yearData = indicatorDataByYear[selectedYear.toString()];
       if (yearData) {
         const data = yearData.get(countryCode);
         if (data && data.value != null) {
@@ -710,6 +795,18 @@ function WorldMap({
                           const data = yearData.get(countryCode);
                           if (data && data.value != null) {
                             const metricKey = `reserves-${reserveType}`;
+                            const config = METRIC_CONFIGS[metricKey];
+                            if (config) {
+                              metricValue = config.format(data.value);
+                            }
+                          }
+                        }
+                      } else if (selectedMetric === "Agricultural Resources" && cropType) {
+                        const yearData = indicatorDataByYear[selectedYear.toString()];
+                        if (yearData) {
+                          const data = yearData.get(countryCode);
+                          if (data && data.value != null) {
+                            const metricKey = `crop-${cropType}`;
                             const config = METRIC_CONFIGS[metricKey];
                             if (config) {
                               metricValue = config.format(data.value);

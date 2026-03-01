@@ -24,7 +24,13 @@ const categoryMetrics: Record<string, string[]> = {
     "Net Energy Balance",
     "Energy Infrastructure",
   ],
-  Resources: ["Energy Resources", "Critical Minerals"],
+  Resources: [
+    "Energy Resources",
+    "Critical Minerals",
+    "Agricultural Resources",
+    "Arable Land",
+    "Freshwater Resources",
+  ],
   Demographics: [],
 };
 
@@ -39,6 +45,8 @@ const METRICS_WITH_CHARTS = new Set([
   "Energy Production",
   "Energy Consumption",
   "Net Energy Balance",
+  "Arable Land",
+  "Freshwater Resources",
 ]);
 
 interface MetricButtonsProps {

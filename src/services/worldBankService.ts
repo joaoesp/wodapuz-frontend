@@ -22,6 +22,8 @@ const INDICATOR_SLUGS: Record<string, string> = {
   "Military Spending": "defense-spending",
   "Active Personnel": "active-personnel",
   "Net Energy Balance": "net-energy-balance",
+  "Arable Land": "arable-land",
+  "Freshwater Resources": "freshwater-resources",
 };
 
 export const worldBankService = {

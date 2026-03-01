@@ -29,6 +29,10 @@ import type { ReserveType } from "./reserveConfig";
 import MineralsToggle from "./MineralsToggle";
 import MineralsDashboard from "./MineralsDashboard";
 import type { MineralType, MineralView } from "./mineralConfig";
+import AgricultureToggle from "./AgricultureToggle";
+import AgricultureDashboard from "./AgricultureDashboard";
+import ResourceLineChart from "./ResourceLineChart";
+import type { CropType } from "./agricultureConfig";
 import { GDP_GROWTH_EVENTS } from "./worldEvents";
 import "./App.css";
 
@@ -109,6 +113,12 @@ const METRIC_DESCRIPTIONS: Record<string, string> = {
     "Proven reserves of oil (billion barrels), natural gas (trillion cubic meters), and coal (billion tonnes) by country.",
   "Critical Minerals":
     "Proven reserves of critical minerals essential for technology, energy transition, and defense: lithium, rare earths, copper, nickel, cobalt, uranium, iron ore, bauxite, and zinc.",
+  "Agricultural Resources":
+    "Annual production of major crops — wheat, corn, rice, and soybeans — by country (million tonnes). Data spans 1961–2024 from FAOSTAT.",
+  "Arable Land":
+    "Arable land per capita (hectares per person) — land under temporary crops, temporary meadows, and land temporarily fallow.",
+  "Freshwater Resources":
+    "Renewable internal freshwater resources per capita (cubic meters) — internal river flows and groundwater from rainfall.",
 };
 
 // Trade metrics that show the trade dashboard on click
@@ -148,6 +158,8 @@ function App() {
   const [mineralType, setMineralType] = useState<MineralType | null>(null);
   const [mineralView, setMineralView] = useState<MineralView>("reserves");
   const [showMineralsDashboard, setShowMineralsDashboard] = useState<MineralType | null>(null);
+  const [cropType, setCropType] = useState<CropType | null>(null);
+  const [showCropDashboard, setShowCropDashboard] = useState<CropType | null>(null);
 
   useEffect(() => {
     if (selectedMetric !== "Energy Infrastructure") return;
@@ -173,6 +185,10 @@ function App() {
       setMineralType(null);
       setMineralView("reserves");
     }
+    if (metric !== "Agricultural Resources") {
+      setCropType(null);
+      setShowCropDashboard(null);
+    }
     setSelectedMetric(metric);
   };
 
@@ -195,6 +211,11 @@ function App() {
     setMineralView(view);
     setMineralType(null);
     setShowMineralsDashboard(null);
+  };
+
+  const handleCropSelect = (t: CropType) => {
+    setCropType((prev) => (prev === t ? null : t));
+    setShowCropDashboard(null);
   };
 
   const handleYearRangeUpdate = useCallback((startYear: number, endYear: number) => {
@@ -236,6 +257,7 @@ function App() {
         reserveType={selectedMetric === "Energy Resources" ? reserveType : null}
         mineralType={selectedMetric === "Critical Minerals" ? mineralType : null}
         mineralView={mineralView}
+        cropType={selectedMetric === "Agricultural Resources" ? cropType : null}
       />
       {selectedMetric && !HIDDEN_SLIDER_METRICS.has(selectedMetric) && (
         <TimelineSlider
@@ -287,6 +309,20 @@ function App() {
           mineralType={showMineralsDashboard}
           mineralView={mineralView}
           onClose={() => setShowMineralsDashboard(null)}
+        />
+      )}
+      {selectedMetric === "Agricultural Resources" && (
+        <AgricultureToggle
+          activeType={cropType}
+          onSelect={handleCropSelect}
+          onChartOpen={(t) => setShowCropDashboard(t)}
+        />
+      )}
+      {showCropDashboard && (
+        <AgricultureDashboard
+          cropType={showCropDashboard}
+          selectedYear={selectedYear}
+          onClose={() => setShowCropDashboard(null)}
         />
       )}
       {showChart && selectedMetric && CHART_METRICS.has(selectedMetric) && (
@@ -369,6 +405,12 @@ function App() {
       )}
       {showChart && selectedMetric === "Nuclear Capability" && (
         <NuclearWarheadsCompare onClose={() => setShowChart(false)} />
+      )}
+      {showChart && selectedMetric === "Arable Land" && (
+        <ResourceLineChart metric="Arable Land" onClose={() => setShowChart(false)} />
+      )}
+      {showChart && selectedMetric === "Freshwater Resources" && (
+        <ResourceLineChart metric="Freshwater Resources" onClose={() => setShowChart(false)} />
       )}
       {selectedCountry && selectedMetric && ALLIANCE_METRICS.has(selectedMetric) && (
         <AllianceDashboard

@@ -1,0 +1,146 @@
+.agriculture-dashboard-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.agriculture-dashboard {
+  background: rgba(36, 36, 36, 0.98);
+  border: 1px solid #3a3a3a;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 500px;
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.agriculture-dashboard-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.agriculture-dashboard-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.agriculture-dashboard-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.agriculture-dashboard-unit {
+  margin-left: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #888;
+}
+
+.agriculture-dashboard-close {
+  margin-left: auto;
+  background: #3a3a3a;
+  border: none;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.agriculture-dashboard-close:hover {
+  background: #505050;
+  color: #fff;
+}
+
+.agriculture-dashboard-loading {
+  text-align: center;
+  color: #888;
+  padding: 32px 0;
+  font-size: 14px;
+}
+
+.agriculture-dashboard-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.agriculture-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.agriculture-bar-rank {
+  width: 20px;
+  font-size: 12px;
+  color: #666;
+  text-align: right;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.agriculture-bar-label {
+  width: 85px;
+  font-size: 12px;
+  color: #ccc;
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.agriculture-bar-track {
+  flex: 1;
+  height: 18px;
+  background: #2a2a2a;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.agriculture-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.agriculture-bar-value {
+  width: 52px;
+  font-size: 12px;
+  color: #aaa;
+  text-align: right;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.agriculture-bar-pct {
+  width: 44px;
+  font-size: 11px;
+  color: #666;
+  text-align: right;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
