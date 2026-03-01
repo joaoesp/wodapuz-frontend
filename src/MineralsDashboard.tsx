@@ -21,7 +21,7 @@ function MineralsDashboard({ mineralType, mineralView, onClose }: MineralsDashbo
 
   const file = mineralView === "production" ? config.productionFile : config.file;
   const unit = mineralView === "production" ? config.productionUnit : config.unit;
-  const viewLabel = mineralView === "production" ? "Production" : "Reserves";
+  const viewLabel = mineralView === "production" ? "Producers" : "Reserves";
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- reset state on mineralType change
@@ -36,6 +36,7 @@ function MineralsDashboard({ mineralType, mineralView, onClose }: MineralsDashbo
 
   const top10 = records ? [...records].sort((a, b) => b.v - a.v).slice(0, 10) : [];
   const maxValue = top10[0]?.v ?? 1;
+  const worldTotal = records ? records.reduce((sum, r) => sum + r.v, 0) : 0;
 
   return (
     <div className="minerals-dashboard-overlay" onClick={onClose}>
@@ -73,6 +74,11 @@ function MineralsDashboard({ mineralType, mineralView, onClose }: MineralsDashbo
                 <div className="minerals-bar-value">
                   {record.v.toLocaleString(undefined, { maximumFractionDigits: 1 })}
                 </div>
+                {mineralView === "production" && worldTotal > 0 && (
+                  <div className="minerals-bar-pct">
+                    {((record.v / worldTotal) * 100).toFixed(1)}%
+                  </div>
+                )}
               </div>
             ))}
           </div>

@@ -25,7 +25,7 @@ function MineralsToggle({ activeType, onSelect, onChartOpen, mineralView }: Mine
               <button
                 className="minerals-chart-btn"
                 onClick={() => onChartOpen(type)}
-                title={`Top 10 ${config.label} ${mineralView === "production" ? "Production" : "Reserves"}`}
+                title={`Top 10 ${config.label} ${mineralView === "production" ? "Producers" : "Reserves"}`}
               >
                 <svg width="16" height="16" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
                   <line
