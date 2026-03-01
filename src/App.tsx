@@ -131,6 +131,22 @@ const METRIC_DESCRIPTIONS: Record<string, string> = {
     "Total population — all residents regardless of legal status or citizenship, midyear estimates from the World Bank.",
   "Population Growth":
     "Annual population growth rate (%). Derived from midyear population estimates by the World Bank.",
+  "Fertility Rate":
+    "Total fertility rate — the average number of children a woman would bear over her lifetime based on current age-specific rates.",
+  "Net Migration":
+    "Net number of migrants (immigrants minus emigrants) during a five-year period. Positive values indicate more people entering the country.",
+  "Life Expectancy":
+    "Life expectancy at birth — the average number of years a newborn would live under current mortality patterns.",
+  "Age Dependency":
+    "Age dependency ratio — the number of dependents (people younger than 15 or older than 64) per 100 working-age population.",
+  "Labor Force":
+    "Labor force participation rate — the proportion of the population aged 15 and older that is economically active.",
+  "Population 65+":
+    "Share of population aged 65 and above as a percentage of total population, indicating the level of demographic aging.",
+  "Population 0-14":
+    "Share of population aged 0–14 as a percentage of total population, reflecting youth demographics.",
+  "Median Age":
+    "The age that divides a population into two equal halves — half are younger and half are older. Data from UN World Population Prospects 2024.",
 };
 
 // Trade metrics that show the trade dashboard on click
@@ -440,6 +456,30 @@ function App() {
       )}
       {showChart && selectedMetric === "Population Growth" && (
         <ResourceLineChart metric="Population Growth" onClose={() => setShowChart(false)} />
+      )}
+      {showChart && selectedMetric === "Fertility Rate" && (
+        <ResourceLineChart metric="Fertility Rate" onClose={() => setShowChart(false)} />
+      )}
+      {showChart && selectedMetric === "Net Migration" && (
+        <ResourceLineChart metric="Net Migration" onClose={() => setShowChart(false)} />
+      )}
+      {showChart && selectedMetric === "Life Expectancy" && (
+        <ResourceLineChart metric="Life Expectancy" onClose={() => setShowChart(false)} />
+      )}
+      {showChart && selectedMetric === "Age Dependency" && (
+        <ResourceLineChart metric="Age Dependency" onClose={() => setShowChart(false)} />
+      )}
+      {showChart && selectedMetric === "Labor Force" && (
+        <ResourceLineChart metric="Labor Force" onClose={() => setShowChart(false)} />
+      )}
+      {showChart && selectedMetric === "Population 65+" && (
+        <ResourceLineChart metric="Population 65+" onClose={() => setShowChart(false)} />
+      )}
+      {showChart && selectedMetric === "Population 0-14" && (
+        <ResourceLineChart metric="Population 0-14" onClose={() => setShowChart(false)} />
+      )}
+      {showChart && selectedMetric === "Median Age" && (
+        <ResourceLineChart metric="Median Age" onClose={() => setShowChart(false)} />
       )}
       {selectedCountry && selectedMetric && ALLIANCE_METRICS.has(selectedMetric) && (
         <AllianceDashboard

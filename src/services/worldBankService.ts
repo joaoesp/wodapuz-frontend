@@ -26,6 +26,13 @@ const INDICATOR_SLUGS: Record<string, string> = {
   "Freshwater Resources": "freshwater-resources",
   Population: "population",
   "Population Growth": "population-growth",
+  "Fertility Rate": "fertility-rate",
+  "Net Migration": "net-migration",
+  "Life Expectancy": "life-expectancy",
+  "Age Dependency": "age-dependency",
+  "Labor Force": "labor-force",
+  "Population 65+": "population-65-plus",
+  "Population 0-14": "population-0-14",
 };
 
 export const worldBankService = {

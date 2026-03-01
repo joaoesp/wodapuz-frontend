@@ -3,7 +3,19 @@ import { worldBankService } from "./services/worldBankService";
 import { codeToCountryName } from "./utils/countryNameToCode";
 import "./MilitaryInventoryCompare.css";
 
-type MetricType = "Arable Land" | "Freshwater Resources" | "Population" | "Population Growth";
+type MetricType =
+  | "Arable Land"
+  | "Freshwater Resources"
+  | "Population"
+  | "Population Growth"
+  | "Fertility Rate"
+  | "Net Migration"
+  | "Life Expectancy"
+  | "Age Dependency"
+  | "Labor Force"
+  | "Population 65+"
+  | "Population 0-14"
+  | "Median Age";
 
 interface ResourceLineChartProps {
   metric: MetricType;
@@ -38,6 +50,50 @@ const METRIC_CONFIG: Record<
     title: "Population Growth Rate",
     unit: "%",
     format: (v) => `${v.toFixed(2)}%`,
+  },
+  "Fertility Rate": {
+    title: "Fertility Rate",
+    unit: "births/woman",
+    format: (v) => v.toFixed(2),
+  },
+  "Net Migration": {
+    title: "Net Migration",
+    unit: "persons",
+    format: (v) => {
+      if (Math.abs(v) >= 1e6) return `${(v / 1e6).toFixed(1)}M`;
+      if (Math.abs(v) >= 1e3) return `${(v / 1e3).toFixed(0)}K`;
+      return v.toFixed(0);
+    },
+  },
+  "Life Expectancy": {
+    title: "Life Expectancy at Birth",
+    unit: "years",
+    format: (v) => v.toFixed(1),
+  },
+  "Age Dependency": {
+    title: "Age Dependency Ratio",
+    unit: "% of working-age",
+    format: (v) => `${v.toFixed(1)}%`,
+  },
+  "Labor Force": {
+    title: "Labor Force Participation",
+    unit: "% of 15+ pop",
+    format: (v) => `${v.toFixed(1)}%`,
+  },
+  "Population 65+": {
+    title: "Population Aged 65+",
+    unit: "% of total",
+    format: (v) => `${v.toFixed(1)}%`,
+  },
+  "Population 0-14": {
+    title: "Population Aged 0-14",
+    unit: "% of total",
+    format: (v) => `${v.toFixed(1)}%`,
+  },
+  "Median Age": {
+    title: "Median Age",
+    unit: "years",
+    format: (v) => v.toFixed(1),
   },
 };
 
@@ -74,66 +130,87 @@ function ResourceLineChart({ metric, onClose }: ResourceLineChartProps) {
   const searchRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    worldBankService
-      .getIndicatorYearRange(metric, 1960, 2024)
-      .then((data) => {
-        // Build time series per country
-        const byCountry: Record<
-          string,
-          { name: string; dataPoints: { year: number; value: number }[] }
-        > = {};
+    const processData = (
+      data: Record<string, { countryCode: string; countryName: string; value: number }[]>
+    ) => {
+      const byCountry: Record<
+        string,
+        { name: string; dataPoints: { year: number; value: number }[] }
+      > = {};
 
-        for (const [yearStr, entries] of Object.entries(data)) {
-          const year = parseInt(yearStr);
-          for (const entry of entries) {
-            if (entry.value == null) continue;
-            if (!codeToCountryName[entry.countryCode]) continue;
-            if (!byCountry[entry.countryCode]) {
-              byCountry[entry.countryCode] = {
-                name: entry.countryName,
-                dataPoints: [],
-              };
-            }
-            byCountry[entry.countryCode].dataPoints.push({ year, value: entry.value });
+      for (const [yearStr, entries] of Object.entries(data)) {
+        const year = parseInt(yearStr);
+        for (const entry of entries) {
+          if (entry.value == null) continue;
+          if (!codeToCountryName[entry.countryCode]) continue;
+          if (!byCountry[entry.countryCode]) {
+            byCountry[entry.countryCode] = {
+              name: entry.countryName,
+              dataPoints: [],
+            };
           }
+          byCountry[entry.countryCode].dataPoints.push({ year, value: entry.value });
         }
+      }
 
-        // Sort data points by year
-        for (const c of Object.values(byCountry)) {
-          c.dataPoints.sort((a, b) => a.year - b.year);
-        }
+      for (const c of Object.values(byCountry)) {
+        c.dataPoints.sort((a, b) => a.year - b.year);
+      }
 
-        // Rank by latest value
-        const ranked = Object.entries(byCountry)
-          .map(([code, { name, dataPoints }]) => {
-            const latest = dataPoints[dataPoints.length - 1]?.value ?? 0;
-            return { code, name, latestValue: latest, dataPoints };
-          })
-          .filter((c) => c.dataPoints.length > 0)
-          .sort((a, b) => b.latestValue - a.latestValue);
+      const ranked = Object.entries(byCountry)
+        .map(([code, { name, dataPoints }]) => {
+          const latest = dataPoints[dataPoints.length - 1]?.value ?? 0;
+          return { code, name, latestValue: latest, dataPoints };
+        })
+        .filter((c) => c.dataPoints.length > 0)
+        .sort((a, b) => b.latestValue - a.latestValue);
 
-        // Store all country data
-        const dataMap: Record<string, CountryTimeSeries> = {};
-        for (const r of ranked) {
-          dataMap[r.code] = { code: r.code, name: r.name, dataPoints: r.dataPoints };
-        }
-        setCountryData(dataMap);
+      const dataMap: Record<string, CountryTimeSeries> = {};
+      for (const r of ranked) {
+        dataMap[r.code] = { code: r.code, name: r.name, dataPoints: r.dataPoints };
+      }
+      setCountryData(dataMap);
 
-        // Set rankings for search
-        setAllCountries(
-          ranked.map((r) => ({ code: r.code, name: r.name, latestValue: r.latestValue }))
-        );
+      setAllCountries(
+        ranked.map((r) => ({ code: r.code, name: r.name, latestValue: r.latestValue }))
+      );
 
-        // Auto-select top 8
-        const top8 = ranked.slice(0, 8).map((r) => r.code);
-        setSelectedCountries(top8);
-        setVisibleCountries(new Set(top8));
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-        setLoading(false);
-      });
+      const top8 = ranked.slice(0, 8).map((r) => r.code);
+      setSelectedCountries(top8);
+      setVisibleCountries(new Set(top8));
+      setLoading(false);
+    };
+
+    if (metric === "Median Age") {
+      fetch("/data/demographics/median-age.json")
+        .then((r) => r.json())
+        .then((raw: Record<string, { c: string; v: number }[]>) => {
+          const data: Record<
+            string,
+            { countryCode: string; countryName: string; value: number }[]
+          > = {};
+          for (const [year, entries] of Object.entries(raw)) {
+            data[year] = entries.map((e) => ({
+              countryCode: e.c,
+              countryName: codeToCountryName[e.c] ?? e.c,
+              value: e.v,
+            }));
+          }
+          processData(data);
+        })
+        .catch((err) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } else {
+      worldBankService
+        .getIndicatorYearRange(metric, 1960, 2024)
+        .then(processData)
+        .catch((err) => {
+          console.error(err);
+          setLoading(false);
+        });
+    }
   }, [metric]);
 
   const addCountry = (code: string) => {

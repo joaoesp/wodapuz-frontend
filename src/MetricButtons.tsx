@@ -31,7 +31,18 @@ const categoryMetrics: Record<string, string[]> = {
     "Arable Land",
     "Freshwater Resources",
   ],
-  Demographics: ["Population", "Population Growth"],
+  Demographics: [
+    "Population",
+    "Population Growth",
+    "Fertility Rate",
+    "Net Migration",
+    "Life Expectancy",
+    "Age Dependency",
+    "Labor Force",
+    "Population 65+",
+    "Population 0-14",
+    "Median Age",
+  ],
 };
 
 const METRICS_WITH_CHARTS = new Set([
@@ -49,6 +60,14 @@ const METRICS_WITH_CHARTS = new Set([
   "Freshwater Resources",
   "Population",
   "Population Growth",
+  "Fertility Rate",
+  "Net Migration",
+  "Life Expectancy",
+  "Age Dependency",
+  "Labor Force",
+  "Population 65+",
+  "Population 0-14",
+  "Median Age",
 ]);
 
 interface MetricButtonsProps {

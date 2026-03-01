@@ -258,6 +258,50 @@ export const METRIC_CONFIGS: Record<string, MetricConfig> = {
     colors: ["#8b0000", "#d32f2f", "#fdd835", "#9cc837", "#4a7a23", "#2d5016"],
     format: (v: number) => `Pop. Growth: ${v.toFixed(2)}%`,
   },
+  "Fertility Rate": {
+    thresholds: [1.5, 2.1, 3, 4, 5],
+    colors: ["#4a7a23", "#9cc837", "#fdd835", "#ff9800", "#d32f2f", "#8b0000"],
+    format: (v: number) => `Fertility Rate: ${v.toFixed(2)} births/woman`,
+  },
+  "Net Migration": {
+    thresholds: [-500000, -50000, 0, 50000, 500000],
+    colors: ["#8b0000", "#d32f2f", "#fdd835", "#9cc837", "#4a7a23", "#2d5016"],
+    format: (v: number) => {
+      if (Math.abs(v) >= 1e6) return `Net Migration: ${(v / 1e6).toFixed(1)}M`;
+      if (Math.abs(v) >= 1e3) return `Net Migration: ${(v / 1e3).toFixed(0)}K`;
+      return `Net Migration: ${v.toFixed(0)}`;
+    },
+  },
+  "Life Expectancy": {
+    thresholds: [55, 65, 72, 78, 82],
+    colors: ["#8b0000", "#d32f2f", "#fdd835", "#9cc837", "#4a7a23", "#2d5016"],
+    format: (v: number) => `Life Expectancy: ${v.toFixed(1)} years`,
+  },
+  "Age Dependency": {
+    thresholds: [40, 50, 60, 75, 90],
+    colors: ["#4a7a23", "#9cc837", "#fdd835", "#ff9800", "#d32f2f", "#8b0000"],
+    format: (v: number) => `Age Dependency: ${v.toFixed(1)}%`,
+  },
+  "Labor Force": {
+    thresholds: [40, 50, 60, 70, 80],
+    colors: ["#d4e89f", "#b8d66b", "#9cc837", "#6b9c2f", "#4a7a23", "#2d5016"],
+    format: (v: number) => `Labor Force: ${v.toFixed(1)}%`,
+  },
+  "Population 65+": {
+    thresholds: [3, 7, 12, 18, 25],
+    colors: ["#dbeafe", "#93c5fd", "#60a5fa", "#3b82f6", "#2563eb", "#1e3a8a"],
+    format: (v: number) => `Pop. 65+: ${v.toFixed(1)}%`,
+  },
+  "Population 0-14": {
+    thresholds: [15, 20, 30, 40, 45],
+    colors: ["#ffedd5", "#fdba74", "#fb923c", "#f97316", "#ea580c", "#9a3412"],
+    format: (v: number) => `Pop. 0-14: ${v.toFixed(1)}%`,
+  },
+  "Median Age": {
+    thresholds: [18, 25, 32, 38, 45],
+    colors: ["#ffedd5", "#fdba74", "#fb923c", "#f97316", "#ea580c", "#9a3412"],
+    format: (v: number) => `Median Age: ${v.toFixed(1)} years`,
+  },
   "crop-wheat": {
     thresholds: [1, 5, 15, 40, 100],
     colors: ["#fef3c7", "#fcd34d", "#f59e0b", "#d97706", "#b45309", "#78350f"],
@@ -444,6 +488,38 @@ function WorldMap({
     if (selectedMetric === "Agricultural Resources") {
       setIndicatorDataByYear({});
       onYearRangeUpdate(1961, 2024);
+      return;
+    }
+
+    if (selectedMetric === "Median Age") {
+      fetch("/data/demographics/median-age.json")
+        .then((r) => r.json())
+        .then((data: Record<string, { c: string; v: number }[]>) => {
+          const processedData: Record<string, Map<string, IndicatorData>> = {};
+          Object.keys(data).forEach((year) => {
+            const dataMap = new Map<string, IndicatorData>();
+            data[year].forEach((r) => {
+              dataMap.set(r.c, {
+                countryCode: r.c,
+                countryName: r.c,
+                year,
+                value: r.v,
+                indicator: "Median Age",
+              });
+            });
+            processedData[year] = dataMap;
+          });
+          setIndicatorDataByYear(processedData);
+          const availableYears = Object.keys(processedData)
+            .map((y) => parseInt(y))
+            .sort((a, b) => a - b);
+          if (availableYears.length > 0) {
+            onYearRangeUpdate(availableYears[0], availableYears[availableYears.length - 1]);
+          }
+        })
+        .catch((error) => {
+          console.error("Failed to load median age data:", error);
+        });
       return;
     }
 
