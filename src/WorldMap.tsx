@@ -7,6 +7,13 @@ import { getCountryCode } from "./utils/countryNameToCode";
 import InfrastructureLayer from "./InfrastructureLayer";
 import PipelineLayer from "./PipelineLayer";
 import type { InfraType } from "./infraConfig";
+import { RESERVE_CONFIGS, type ReserveType, type ReserveRecord } from "./reserveConfig";
+import {
+  MINERAL_CONFIGS,
+  type MineralType,
+  type MineralView,
+  type MineralRecord,
+} from "./mineralConfig";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json";
 
@@ -120,6 +127,111 @@ export const METRIC_CONFIGS: Record<string, MetricConfig> = {
     colors: ["#1a5c2a", "#4a9c5e", "#a8d8b4", "#fdd835", "#f97316", "#b91c1c"],
     format: (v: number) => `Net Energy Balance: ${v.toFixed(1)}%`,
   },
+  "reserves-oil": {
+    thresholds: [5, 15, 50, 100, 200],
+    colors: ["#fecaca", "#f87171", "#ef4444", "#dc2626", "#b91c1c", "#7f1d1d"],
+    format: (v: number) => `Oil Reserves: ${v.toFixed(1)} Bb`,
+  },
+  "reserves-gas": {
+    thresholds: [0.5, 2, 5, 10, 25],
+    colors: ["#ffedd5", "#fdba74", "#fb923c", "#f97316", "#ea580c", "#9a3412"],
+    format: (v: number) => `Gas Reserves: ${v.toFixed(1)} Tcm`,
+  },
+  "reserves-coal": {
+    thresholds: [2, 10, 30, 100, 200],
+    colors: ["#d4d4d4", "#a3a3a3", "#737373", "#525252", "#404040", "#262626"],
+    format: (v: number) => `Coal Reserves: ${v.toFixed(1)} Bt`,
+  },
+  "mineral-lithium": {
+    thresholds: [500, 1500, 5000, 10000, 15000],
+    colors: ["#e0f7fa", "#80deea", "#26c6da", "#0097a7", "#00838f", "#004d40"],
+    format: (v: number) => `Lithium: ${v.toLocaleString()} kt`,
+  },
+  "mineral-rare-earths": {
+    thresholds: [0.5, 2, 6, 15, 30],
+    colors: ["#f3e8ff", "#c4b5fd", "#a78bfa", "#8b5cf6", "#7c3aed", "#4c1d95"],
+    format: (v: number) => `Rare Earths: ${v.toFixed(1)} Mt`,
+  },
+  "mineral-copper": {
+    thresholds: [5, 15, 40, 80, 150],
+    colors: ["#fff7ed", "#fdba74", "#f97316", "#ea580c", "#c2410c", "#7c2d12"],
+    format: (v: number) => `Copper: ${v.toFixed(1)} Mt`,
+  },
+  "mineral-nickel": {
+    thresholds: [1, 3, 7, 16, 40],
+    colors: ["#f5f5f5", "#d4d4d4", "#a3a3a3", "#737373", "#525252", "#262626"],
+    format: (v: number) => `Nickel: ${v.toFixed(1)} Mt`,
+  },
+  "mineral-cobalt": {
+    thresholds: [50, 150, 400, 1000, 2500],
+    colors: ["#dbeafe", "#93c5fd", "#60a5fa", "#3b82f6", "#2563eb", "#1e3a8a"],
+    format: (v: number) => `Cobalt: ${v.toLocaleString()} kt`,
+  },
+  "mineral-uranium": {
+    thresholds: [50, 150, 400, 700, 1200],
+    colors: ["#dcfce7", "#86efac", "#4ade80", "#22c55e", "#16a34a", "#14532d"],
+    format: (v: number) => `Uranium: ${v.toLocaleString()} kt`,
+  },
+  "mineral-iron-ore": {
+    thresholds: [1, 3, 8, 20, 40],
+    colors: ["#fecaca", "#f87171", "#ef4444", "#dc2626", "#b91c1c", "#7f1d1d"],
+    format: (v: number) => `Iron Ore: ${v.toFixed(1)} Bt`,
+  },
+  "mineral-bauxite": {
+    thresholds: [0.2, 0.8, 1.5, 3, 6],
+    colors: ["#fef3c7", "#fcd34d", "#f59e0b", "#d97706", "#b45309", "#78350f"],
+    format: (v: number) => `Bauxite: ${v.toFixed(2)} Bt`,
+  },
+  "mineral-zinc": {
+    thresholds: [2, 6, 15, 30, 50],
+    colors: ["#f1f5f9", "#cbd5e1", "#94a3b8", "#64748b", "#475569", "#1e293b"],
+    format: (v: number) => `Zinc: ${v.toFixed(1)} Mt`,
+  },
+  "mineral-production-lithium": {
+    thresholds: [1, 5, 15, 40, 80],
+    colors: ["#e0f7fa", "#80deea", "#26c6da", "#0097a7", "#00838f", "#004d40"],
+    format: (v: number) => `Lithium: ${v.toLocaleString()} kt/yr`,
+  },
+  "mineral-production-rare-earths": {
+    thresholds: [1, 5, 20, 50, 150],
+    colors: ["#f3e8ff", "#c4b5fd", "#a78bfa", "#8b5cf6", "#7c3aed", "#4c1d95"],
+    format: (v: number) => `Rare Earths: ${v.toFixed(1)} kt/yr`,
+  },
+  "mineral-production-copper": {
+    thresholds: [0.1, 0.5, 1, 2, 4],
+    colors: ["#fff7ed", "#fdba74", "#f97316", "#ea580c", "#c2410c", "#7c2d12"],
+    format: (v: number) => `Copper: ${v.toFixed(2)} Mt/yr`,
+  },
+  "mineral-production-nickel": {
+    thresholds: [0.02, 0.05, 0.1, 0.3, 1],
+    colors: ["#f5f5f5", "#d4d4d4", "#a3a3a3", "#737373", "#525252", "#262626"],
+    format: (v: number) => `Nickel: ${v.toFixed(3)} Mt/yr`,
+  },
+  "mineral-production-cobalt": {
+    thresholds: [1, 3, 8, 20, 100],
+    colors: ["#dbeafe", "#93c5fd", "#60a5fa", "#3b82f6", "#2563eb", "#1e3a8a"],
+    format: (v: number) => `Cobalt: ${v.toLocaleString()} kt/yr`,
+  },
+  "mineral-production-uranium": {
+    thresholds: [0.5, 1, 3, 7, 15],
+    colors: ["#dcfce7", "#86efac", "#4ade80", "#22c55e", "#16a34a", "#14532d"],
+    format: (v: number) => `Uranium: ${v.toFixed(1)} kt/yr`,
+  },
+  "mineral-production-iron-ore": {
+    thresholds: [0.01, 0.05, 0.1, 0.3, 0.7],
+    colors: ["#fecaca", "#f87171", "#ef4444", "#dc2626", "#b91c1c", "#7f1d1d"],
+    format: (v: number) => `Iron Ore: ${v.toFixed(3)} Bt/yr`,
+  },
+  "mineral-production-bauxite": {
+    thresholds: [2, 10, 25, 50, 90],
+    colors: ["#fef3c7", "#fcd34d", "#f59e0b", "#d97706", "#b45309", "#78350f"],
+    format: (v: number) => `Bauxite: ${v.toFixed(1)} Mt/yr`,
+  },
+  "mineral-production-zinc": {
+    thresholds: [0.1, 0.3, 0.7, 1.5, 3],
+    colors: ["#f1f5f9", "#cbd5e1", "#94a3b8", "#64748b", "#475569", "#1e293b"],
+    format: (v: number) => `Zinc: ${v.toFixed(2)} Mt/yr`,
+  },
 };
 
 // Military alliance definitions — each country assigned to its primary alliance
@@ -218,6 +330,9 @@ interface WorldMapProps {
   ) => void;
   infraType?: InfraType | null;
   showPipelines?: boolean;
+  reserveType?: ReserveType | null;
+  mineralType?: MineralType | null;
+  mineralView?: MineralView;
 }
 
 function WorldMap({
@@ -227,6 +342,9 @@ function WorldMap({
   onCountryClick,
   infraType,
   showPipelines,
+  reserveType,
+  mineralType,
+  mineralView = "reserves",
 }: WorldMapProps) {
   const [tooltip, setTooltip] = useState<Tooltip | null>(null);
   const [center, setCenter] = useState<[number, number]>(INITIAL_CENTER);
@@ -258,6 +376,18 @@ function WorldMap({
     }
 
     if (selectedMetric === "Energy Infrastructure") {
+      setIndicatorDataByYear({});
+      onYearRangeUpdate(2024, 2024);
+      return;
+    }
+
+    if (selectedMetric === "Energy Resources") {
+      setIndicatorDataByYear({});
+      onYearRangeUpdate(2024, 2024);
+      return;
+    }
+
+    if (selectedMetric === "Critical Minerals") {
       setIndicatorDataByYear({});
       onYearRangeUpdate(2024, 2024);
       return;
@@ -395,11 +525,85 @@ function WorldMap({
       });
   }, [selectedMetric, onYearRangeUpdate]);
 
+  useEffect(() => {
+    if (selectedMetric !== "Energy Resources" || !reserveType) return;
+    const config = RESERVE_CONFIGS[reserveType];
+    fetch(`/data/resources/${config.file}`)
+      .then((r) => r.json())
+      .then((data: ReserveRecord[]) => {
+        const dataMap = new Map<string, IndicatorData>();
+        data.forEach((r) => {
+          dataMap.set(r.c, {
+            countryCode: r.c,
+            countryName: r.c,
+            year: "2024",
+            value: r.v,
+            indicator: `reserves-${reserveType}`,
+          });
+        });
+        setIndicatorDataByYear({ "2024": dataMap });
+      })
+      .catch(console.error);
+  }, [selectedMetric, reserveType]);
+
+  useEffect(() => {
+    if (selectedMetric !== "Critical Minerals" || !mineralType) return;
+    const config = MINERAL_CONFIGS[mineralType];
+    const file = mineralView === "production" ? config.productionFile : config.file;
+    const indicatorKey =
+      mineralView === "production" ? `mineral-production-${mineralType}` : `mineral-${mineralType}`;
+    fetch(`/data/resources/${file}`)
+      .then((r) => r.json())
+      .then((data: MineralRecord[]) => {
+        const dataMap = new Map<string, IndicatorData>();
+        data.forEach((r) => {
+          dataMap.set(r.c, {
+            countryCode: r.c,
+            countryName: r.c,
+            year: "2024",
+            value: r.v,
+            indicator: indicatorKey,
+          });
+        });
+        setIndicatorDataByYear({ "2024": dataMap });
+      })
+      .catch(console.error);
+  }, [selectedMetric, mineralType, mineralView]);
+
   const getCountryColor = (countryCode: string) => {
     if (selectedMetric === "Military Alliances") {
       return ALLIANCE_BY_COUNTRY[countryCode]?.color ?? "#ffffff";
     }
     if (selectedMetric === "Energy Infrastructure") return "#a6a6a6";
+    if (selectedMetric === "Energy Resources") {
+      if (!reserveType) return "#a6a6a6";
+      const metricKey = `reserves-${reserveType}`;
+      const yearData = indicatorDataByYear["2024"];
+      if (yearData) {
+        const data = yearData.get(countryCode);
+        if (data && data.value != null) {
+          const config = METRIC_CONFIGS[metricKey];
+          if (config) return getColorFromThresholds(data.value, config.thresholds, config.colors);
+        }
+      }
+      return "#ffffff";
+    }
+    if (selectedMetric === "Critical Minerals") {
+      if (!mineralType) return "#a6a6a6";
+      const metricKey =
+        mineralView === "production"
+          ? `mineral-production-${mineralType}`
+          : `mineral-${mineralType}`;
+      const yearData = indicatorDataByYear["2024"];
+      if (yearData) {
+        const data = yearData.get(countryCode);
+        if (data && data.value != null) {
+          const config = METRIC_CONFIGS[metricKey];
+          if (config) return getColorFromThresholds(data.value, config.thresholds, config.colors);
+        }
+      }
+      return "#ffffff";
+    }
     if (selectedMetric) {
       // If no country code mapping, show white
       if (!countryCode || countryCode === "") {
@@ -485,6 +689,33 @@ function WorldMap({
                     if (selectedMetric && countryCode) {
                       if (selectedMetric === "Military Alliances") {
                         metricValue = ALLIANCE_BY_COUNTRY[countryCode]?.name;
+                      } else if (selectedMetric === "Critical Minerals" && mineralType) {
+                        const yearData = indicatorDataByYear["2024"];
+                        if (yearData) {
+                          const data = yearData.get(countryCode);
+                          if (data && data.value != null) {
+                            const metricKey =
+                              mineralView === "production"
+                                ? `mineral-production-${mineralType}`
+                                : `mineral-${mineralType}`;
+                            const config = METRIC_CONFIGS[metricKey];
+                            if (config) {
+                              metricValue = config.format(data.value);
+                            }
+                          }
+                        }
+                      } else if (selectedMetric === "Energy Resources" && reserveType) {
+                        const yearData = indicatorDataByYear["2024"];
+                        if (yearData) {
+                          const data = yearData.get(countryCode);
+                          if (data && data.value != null) {
+                            const metricKey = `reserves-${reserveType}`;
+                            const config = METRIC_CONFIGS[metricKey];
+                            if (config) {
+                              metricValue = config.format(data.value);
+                            }
+                          }
+                        }
                       } else {
                         const yearData = indicatorDataByYear[selectedYear.toString()];
                         if (yearData) {

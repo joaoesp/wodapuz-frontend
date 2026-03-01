@@ -23,6 +23,12 @@ import EnergyConsumptionLineChart from "./EnergyConsumptionLineChart";
 import NetEnergyBalanceLineChart from "./NetEnergyBalanceLineChart";
 import NetEnergyBalanceDashboard from "./NetEnergyBalanceDashboard";
 import InfrastructureDashboard from "./InfrastructureDashboard";
+import ReservesToggle from "./ReservesToggle";
+import ReservesDashboard from "./ReservesDashboard";
+import type { ReserveType } from "./reserveConfig";
+import MineralsToggle from "./MineralsToggle";
+import MineralsDashboard from "./MineralsDashboard";
+import type { MineralType, MineralView } from "./mineralConfig";
 import { GDP_GROWTH_EVENTS } from "./worldEvents";
 import "./App.css";
 
@@ -49,6 +55,8 @@ const HIDDEN_SLIDER_METRICS = new Set([
   "Nuclear Capability",
   "Military Alliances",
   "Energy Infrastructure",
+  "Energy Resources",
+  "Critical Minerals",
 ]);
 
 // Military inventory gets its own dashboard
@@ -97,6 +105,10 @@ const METRIC_DESCRIPTIONS: Record<string, string> = {
     "Net energy imports as a percentage of energy use. Negative values indicate net exporters; positive values indicate net importers.",
   "Energy Infrastructure":
     "Major energy infrastructure from the WRI Global Power Plant Database. Select a type to view nuclear, hydro, solar, wind, gas, oil, or coal facilities above minimum capacity thresholds.",
+  "Energy Resources":
+    "Proven reserves of oil (billion barrels), natural gas (trillion cubic meters), and coal (billion tonnes) by country.",
+  "Critical Minerals":
+    "Proven reserves of critical minerals essential for technology, energy transition, and defense: lithium, rare earths, copper, nickel, cobalt, uranium, iron ore, bauxite, and zinc.",
 };
 
 // Trade metrics that show the trade dashboard on click
@@ -131,6 +143,11 @@ function App() {
   const [infraType, setInfraType] = useState<InfraType | null>(null);
   const [infraCounts, setInfraCounts] = useState<Partial<Record<InfraType, number>>>({});
   const [showInfraDashboard, setShowInfraDashboard] = useState(false);
+  const [reserveType, setReserveType] = useState<ReserveType | null>(null);
+  const [showReservesDashboard, setShowReservesDashboard] = useState<ReserveType | null>(null);
+  const [mineralType, setMineralType] = useState<MineralType | null>(null);
+  const [mineralView, setMineralView] = useState<MineralView>("reserves");
+  const [showMineralsDashboard, setShowMineralsDashboard] = useState<MineralType | null>(null);
 
   useEffect(() => {
     if (selectedMetric !== "Energy Infrastructure") return;
@@ -151,12 +168,33 @@ function App() {
   const handleSelectMetric = (metric: string) => {
     if (metric !== selectedMetric) setShowChart(false);
     if (metric !== "Energy Infrastructure") setInfraType(null);
+    if (metric !== "Energy Resources") setReserveType(null);
+    if (metric !== "Critical Minerals") {
+      setMineralType(null);
+      setMineralView("reserves");
+    }
     setSelectedMetric(metric);
   };
 
   const handleInfraSelect = (t: InfraType) => {
     setInfraType((prev) => (prev === t ? null : t));
     setShowInfraDashboard(false);
+  };
+
+  const handleReserveSelect = (t: ReserveType) => {
+    setReserveType((prev) => (prev === t ? null : t));
+    setShowReservesDashboard(null);
+  };
+
+  const handleMineralSelect = (t: MineralType) => {
+    setMineralType((prev) => (prev === t ? null : t));
+    setShowMineralsDashboard(null);
+  };
+
+  const handleMineralViewChange = (view: MineralView) => {
+    setMineralView(view);
+    setMineralType(null);
+    setShowMineralsDashboard(null);
   };
 
   const handleYearRangeUpdate = useCallback((startYear: number, endYear: number) => {
@@ -176,6 +214,8 @@ function App() {
         onSelectMetric={handleSelectMetric}
         showChart={showChart}
         onToggleChart={() => setShowChart((v) => !v)}
+        mineralView={mineralView}
+        onMineralViewChange={handleMineralViewChange}
       />
       <WorldMap
         selectedMetric={selectedMetric}
@@ -193,6 +233,9 @@ function App() {
         }
         infraType={selectedMetric === "Energy Infrastructure" ? infraType : null}
         showPipelines={selectedMetric === "Energy Infrastructure" && infraType === "oil"}
+        reserveType={selectedMetric === "Energy Resources" ? reserveType : null}
+        mineralType={selectedMetric === "Critical Minerals" ? mineralType : null}
+        mineralView={mineralView}
       />
       {selectedMetric && !HIDDEN_SLIDER_METRICS.has(selectedMetric) && (
         <TimelineSlider
@@ -216,6 +259,34 @@ function App() {
         <InfrastructureDashboard
           infraType={infraType}
           onClose={() => setShowInfraDashboard(false)}
+        />
+      )}
+      {selectedMetric === "Energy Resources" && (
+        <ReservesToggle
+          activeType={reserveType}
+          onSelect={handleReserveSelect}
+          onChartOpen={(t) => setShowReservesDashboard(t)}
+        />
+      )}
+      {showReservesDashboard && (
+        <ReservesDashboard
+          reserveType={showReservesDashboard}
+          onClose={() => setShowReservesDashboard(null)}
+        />
+      )}
+      {selectedMetric === "Critical Minerals" && (
+        <MineralsToggle
+          activeType={mineralType}
+          onSelect={handleMineralSelect}
+          onChartOpen={(t) => setShowMineralsDashboard(t)}
+          mineralView={mineralView}
+        />
+      )}
+      {showMineralsDashboard && (
+        <MineralsDashboard
+          mineralType={showMineralsDashboard}
+          mineralView={mineralView}
+          onClose={() => setShowMineralsDashboard(null)}
         />
       )}
       {showChart && selectedMetric && CHART_METRICS.has(selectedMetric) && (

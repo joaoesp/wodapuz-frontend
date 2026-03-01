@@ -1,3 +1,4 @@
+import type { MineralView } from "./mineralConfig";
 import "./MetricButtons.css";
 
 const categoryMetrics: Record<string, string[]> = {
@@ -23,7 +24,7 @@ const categoryMetrics: Record<string, string[]> = {
     "Net Energy Balance",
     "Energy Infrastructure",
   ],
-  Resources: [],
+  Resources: ["Energy Resources", "Critical Minerals"],
   Demographics: [],
 };
 
@@ -46,6 +47,8 @@ interface MetricButtonsProps {
   onSelectMetric: (metric: string) => void;
   showChart: boolean;
   onToggleChart: () => void;
+  mineralView?: MineralView;
+  onMineralViewChange?: (view: MineralView) => void;
 }
 
 function MetricButtons({
@@ -54,6 +57,8 @@ function MetricButtons({
   onSelectMetric,
   showChart,
   onToggleChart,
+  mineralView = "reserves",
+  onMineralViewChange,
 }: MetricButtonsProps) {
   const metrics = categoryMetrics[category] || [];
 
@@ -68,36 +73,54 @@ function MetricButtons({
         const hasChart = METRICS_WITH_CHARTS.has(metric);
 
         return (
-          <div key={metric} className="metric-row" style={{ animationDelay: `${index * 0.1}s` }}>
-            {isSelected && hasChart && (
-              <button
-                className={`chart-toggle-btn ${showChart ? "active" : ""}`}
-                onClick={onToggleChart}
-                title="Toggle chart"
-              >
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+          <div key={metric}>
+            <div className="metric-row" style={{ animationDelay: `${index * 0.1}s` }}>
+              {isSelected && hasChart && (
+                <button
+                  className={`chart-toggle-btn ${showChart ? "active" : ""}`}
+                  onClick={onToggleChart}
+                  title="Toggle chart"
                 >
-                  <polyline
-                    points="1,14 6,8 10,11 17,4"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <polyline
+                      points="1,14 6,8 10,11 17,4"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              )}
+              <button
+                className={`metric-btn ${isSelected ? "active" : ""} ${metric === "Critical Minerals" && isSelected ? "no-bottom-radius" : ""}`}
+                onClick={() => onSelectMetric(metric)}
+              >
+                {metric}
               </button>
+            </div>
+            {metric === "Critical Minerals" && isSelected && onMineralViewChange && (
+              <div className="mineral-view-submenu">
+                <button
+                  className={`mineral-view-sub-btn ${mineralView === "reserves" ? "active" : ""}`}
+                  onClick={() => onMineralViewChange("reserves")}
+                >
+                  Reserves
+                </button>
+                <button
+                  className={`mineral-view-sub-btn ${mineralView === "production" ? "active" : ""}`}
+                  onClick={() => onMineralViewChange("production")}
+                >
+                  Production
+                </button>
+              </div>
             )}
-            <button
-              className={`metric-btn ${isSelected ? "active" : ""}`}
-              onClick={() => onSelectMetric(metric)}
-            >
-              {metric}
-            </button>
           </div>
         );
       })}
