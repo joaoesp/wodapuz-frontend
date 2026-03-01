@@ -202,6 +202,7 @@ function App() {
 
   useEffect(() => {
     if (!selectedMetric || !METRIC_DESCRIPTIONS[selectedMetric] || getInfoDismissedCookie()) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- reset state on metric change
       setInfoBalloonAutoShow(false);
       return;
     }
