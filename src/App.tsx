@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import WorldMap from "./WorldMap";
 import Navbar from "./Navbar";
-import MetricButtons from "./MetricButtons";
+
 import TimelineSlider from "./TimelineSlider";
 import InfrastructureToggle from "./InfrastructureToggle";
 import { INFRA_CONFIGS, type InfraType } from "./infraConfig";
@@ -152,6 +152,32 @@ const METRIC_DESCRIPTIONS: Record<string, string> = {
 // Trade metrics that show the trade dashboard on click
 const TRADE_DASHBOARD_METRICS = new Set(["Trade Openness", "Exports", "Imports", "Trade Balance"]);
 
+// Metrics that show a chart toggle button in the top bar
+const METRICS_WITH_CHARTS = new Set([
+  "GDP",
+  "GDP per capita",
+  "Debt-to-GDP",
+  "Current Account Balance",
+  "Active Personnel",
+  "Military Inventory",
+  "Nuclear Capability",
+  "Energy Production",
+  "Energy Consumption",
+  "Net Energy Balance",
+  "Arable Land",
+  "Freshwater Resources",
+  "Population",
+  "Population Growth",
+  "Fertility Rate",
+  "Net Migration",
+  "Life Expectancy",
+  "Age Dependency",
+  "Labor Force",
+  "Population 65+",
+  "Population 0-14",
+  "Median Age",
+]);
+
 // Metrics that have a historical line chart (inside the shared chart-modal-overlay)
 const CHART_METRICS = new Set([
   "GDP",
@@ -220,14 +246,20 @@ function App() {
   const handleSelectMetric = (metric: string) => {
     if (metric !== selectedMetric) setShowChart(false);
     if (metric !== "Energy Infrastructure") setInfraType(null);
+    else if (metric !== selectedMetric) setInfraType("solar");
     if (metric !== "Energy Resources") setReserveType(null);
+    else if (metric !== selectedMetric) setReserveType("oil");
     if (metric !== "Critical Minerals") {
       setMineralType(null);
       setMineralView("reserves");
+    } else if (metric !== selectedMetric) {
+      setMineralType("lithium");
     }
     if (metric !== "Agricultural Resources") {
       setCropType(null);
       setShowCropDashboard(null);
+    } else if (metric !== selectedMetric) {
+      setCropType("wheat");
     }
     setSelectedMetric(metric);
   };
@@ -269,15 +301,6 @@ function App() {
 
   return (
     <div className="app">
-      <MetricButtons
-        category={selectedCategory}
-        selectedMetric={selectedMetric}
-        onSelectMetric={handleSelectMetric}
-        showChart={showChart}
-        onToggleChart={() => setShowChart((v) => !v)}
-        mineralView={mineralView}
-        onMineralViewChange={handleMineralViewChange}
-      />
       <WorldMap
         selectedMetric={selectedMetric}
         selectedYear={selectedYear}
@@ -415,7 +438,48 @@ function App() {
       {showChart && selectedMetric === "Energy Consumption" && (
         <EnergyConsumptionLineChart onClose={() => setShowChart(false)} />
       )}
-      <Navbar selectedCategory={selectedCategory} onSelectCategory={handleCategoryChange} />
+      <Navbar
+        selectedCategory={selectedCategory}
+        onSelectCategory={handleCategoryChange}
+        selectedMetric={selectedMetric}
+        onSelectMetric={handleSelectMetric}
+      />
+      {selectedMetric && METRICS_WITH_CHARTS.has(selectedMetric) && (
+        <button
+          className={`top-chart-toggle ${showChart ? "active" : ""}`}
+          onClick={() => setShowChart((v) => !v)}
+        >
+          <span className="top-chart-label">Show chart</span>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+      )}
+      {selectedMetric === "Critical Minerals" && (
+        <div className="mineral-view-toggle">
+          <button
+            className={`mineral-view-toggle-btn ${mineralView === "reserves" ? "active" : ""}`}
+            onClick={() => handleMineralViewChange("reserves")}
+          >
+            Reserves
+          </button>
+          <button
+            className={`mineral-view-toggle-btn ${mineralView === "production" ? "active" : ""}`}
+            onClick={() => handleMineralViewChange("production")}
+          >
+            Production
+          </button>
+        </div>
+      )}
       {selectedCountry && selectedMetric && DASHBOARD_METRICS.has(selectedMetric) && (
         <CountryDashboard
           countryCode={selectedCountry.code}

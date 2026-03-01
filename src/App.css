@@ -13,12 +13,34 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: overlay-fade-in 0.3s ease both;
+}
+
+@keyframes overlay-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .chart-modal-content {
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: chart-pull-down 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes chart-pull-down {
+  from {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .alliance-legend {
@@ -206,6 +228,129 @@
   to {
     stroke-dashoffset: 175.93;
   }
+}
+
+/* ── Critical Minerals view toggle (top center) ── */
+
+/* ── Chart toggle button (top center) ── */
+
+.top-chart-toggle {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: 0 14px 6px;
+  background: rgba(30, 30, 30, 0.92);
+  color: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: tab-drop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  transition:
+    color 0.15s,
+    background-color 0.15s;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.top-chart-toggle .top-chart-label {
+  font-size: 11px;
+  font-weight: 600;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height 0.25s ease,
+    opacity 0.2s ease;
+}
+
+.top-chart-toggle:hover .top-chart-label {
+  max-height: 20px;
+  opacity: 1;
+}
+
+@keyframes tab-drop {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.top-chart-toggle:focus,
+.top-chart-toggle:focus-visible {
+  outline: none;
+}
+
+.top-chart-toggle:hover {
+  color: #fff;
+  background-color: rgba(50, 50, 50, 0.95);
+}
+
+.top-chart-toggle.active {
+  color: #9cc837;
+}
+
+.mineral-view-toggle {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0;
+  background: rgba(30, 30, 30, 0.92);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  animation: mineral-toggle-fade-in 0.3s ease both;
+}
+
+@keyframes mineral-toggle-fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.mineral-view-toggle-btn {
+  padding: 8px 20px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    color 0.15s,
+    background-color 0.15s;
+}
+
+.mineral-view-toggle-btn:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.mineral-view-toggle-btn.active {
+  color: #9cc837;
+  background-color: rgba(156, 200, 55, 0.12);
 }
 
 .map-tooltip {
