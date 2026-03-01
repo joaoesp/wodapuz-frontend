@@ -31,7 +31,7 @@ const categoryMetrics: Record<string, string[]> = {
     "Arable Land",
     "Freshwater Resources",
   ],
-  Demographics: [],
+  Demographics: ["Population", "Population Growth"],
 };
 
 const METRICS_WITH_CHARTS = new Set([
@@ -47,6 +47,8 @@ const METRICS_WITH_CHARTS = new Set([
   "Net Energy Balance",
   "Arable Land",
   "Freshwater Resources",
+  "Population",
+  "Population Growth",
 ]);
 
 interface MetricButtonsProps {

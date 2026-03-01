@@ -244,6 +244,20 @@ export const METRIC_CONFIGS: Record<string, MetricConfig> = {
     format: (v: number) =>
       `Freshwater: ${v.toLocaleString(undefined, { maximumFractionDigits: 0 })} m³/capita`,
   },
+  Population: {
+    thresholds: [5e6, 20e6, 50e6, 200e6, 500e6],
+    colors: ["#d4e89f", "#b8d66b", "#9cc837", "#6b9c2f", "#4a7a23", "#2d5016"],
+    format: (v: number) => {
+      if (v >= 1e9) return `Population: ${(v / 1e9).toFixed(1)}B`;
+      if (v >= 1e6) return `Population: ${(v / 1e6).toFixed(1)}M`;
+      return `Population: ${(v / 1e3).toFixed(0)}K`;
+    },
+  },
+  "Population Growth": {
+    thresholds: [-1, 0, 1, 2, 3],
+    colors: ["#8b0000", "#d32f2f", "#fdd835", "#9cc837", "#4a7a23", "#2d5016"],
+    format: (v: number) => `Pop. Growth: ${v.toFixed(2)}%`,
+  },
   "crop-wheat": {
     thresholds: [1, 5, 15, 40, 100],
     colors: ["#fef3c7", "#fcd34d", "#f59e0b", "#d97706", "#b45309", "#78350f"],

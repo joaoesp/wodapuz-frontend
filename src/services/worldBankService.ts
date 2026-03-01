@@ -24,6 +24,8 @@ const INDICATOR_SLUGS: Record<string, string> = {
   "Net Energy Balance": "net-energy-balance",
   "Arable Land": "arable-land",
   "Freshwater Resources": "freshwater-resources",
+  Population: "population",
+  "Population Growth": "population-growth",
 };
 
 export const worldBankService = {

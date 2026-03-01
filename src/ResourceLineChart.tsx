@@ -3,7 +3,7 @@ import { worldBankService } from "./services/worldBankService";
 import { codeToCountryName } from "./utils/countryNameToCode";
 import "./MilitaryInventoryCompare.css";
 
-type MetricType = "Arable Land" | "Freshwater Resources";
+type MetricType = "Arable Land" | "Freshwater Resources" | "Population" | "Population Growth";
 
 interface ResourceLineChartProps {
   metric: MetricType;
@@ -23,6 +23,21 @@ const METRIC_CONFIG: Record<
     title: "Freshwater Resources per Capita",
     unit: "m³/capita",
     format: (v) => v.toLocaleString(),
+  },
+  Population: {
+    title: "Population",
+    unit: "people",
+    format: (v) => {
+      if (v >= 1e9) return `${(v / 1e9).toFixed(1)}B`;
+      if (v >= 1e6) return `${(v / 1e6).toFixed(1)}M`;
+      if (v >= 1e3) return `${(v / 1e3).toFixed(0)}K`;
+      return v.toFixed(0);
+    },
+  },
+  "Population Growth": {
+    title: "Population Growth Rate",
+    unit: "%",
+    format: (v) => `${v.toFixed(2)}%`,
   },
 };
 
@@ -72,6 +87,7 @@ function ResourceLineChart({ metric, onClose }: ResourceLineChartProps) {
           const year = parseInt(yearStr);
           for (const entry of entries) {
             if (entry.value == null) continue;
+            if (!codeToCountryName[entry.countryCode]) continue;
             if (!byCountry[entry.countryCode]) {
               byCountry[entry.countryCode] = {
                 name: entry.countryName,

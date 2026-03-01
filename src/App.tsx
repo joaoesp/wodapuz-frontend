@@ -119,6 +119,10 @@ const METRIC_DESCRIPTIONS: Record<string, string> = {
     "Arable land per capita (hectares per person) — land under temporary crops, temporary meadows, and land temporarily fallow.",
   "Freshwater Resources":
     "Renewable internal freshwater resources per capita (cubic meters) — internal river flows and groundwater from rainfall.",
+  Population:
+    "Total population — all residents regardless of legal status or citizenship, midyear estimates from the World Bank.",
+  "Population Growth":
+    "Annual population growth rate (%). Derived from midyear population estimates by the World Bank.",
 };
 
 // Trade metrics that show the trade dashboard on click
@@ -411,6 +415,12 @@ function App() {
       )}
       {showChart && selectedMetric === "Freshwater Resources" && (
         <ResourceLineChart metric="Freshwater Resources" onClose={() => setShowChart(false)} />
+      )}
+      {showChart && selectedMetric === "Population" && (
+        <ResourceLineChart metric="Population" onClose={() => setShowChart(false)} />
+      )}
+      {showChart && selectedMetric === "Population Growth" && (
+        <ResourceLineChart metric="Population Growth" onClose={() => setShowChart(false)} />
       )}
       {selectedCountry && selectedMetric && ALLIANCE_METRICS.has(selectedMetric) && (
         <AllianceDashboard
