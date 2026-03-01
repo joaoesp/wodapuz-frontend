@@ -59,18 +59,6 @@
   border: 1px solid #555;
 }
 
-@keyframes info-btn-pop {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.5);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
 .info-btn-wrapper {
   position: fixed;
   bottom: 24px;
@@ -80,7 +68,6 @@
   flex-direction: column;
   align-items: flex-end;
   gap: 10px;
-  animation: info-btn-pop 0.35s ease-in-out;
 }
 
 .info-btn {
@@ -108,14 +95,6 @@
 }
 
 .info-balloon {
-  display: none;
-}
-
-.info-btn-wrapper:hover .info-balloon {
-  display: block;
-}
-
-.info-balloon {
   background: rgba(20, 20, 20, 0.92);
   border: 1px solid #3a3a3a;
   border-radius: 10px;
@@ -126,6 +105,20 @@
   line-height: 1.5;
   backdrop-filter: blur(4px);
   position: relative;
+  transform-origin: bottom right;
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.3s ease;
+}
+
+.info-btn-wrapper:has(.info-btn:hover) .info-balloon,
+.info-auto-show .info-balloon {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
 }
 .info-balloon strong {
   display: block;
@@ -146,6 +139,73 @@
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
   border-top: 8px solid rgba(20, 20, 20, 0.92);
+}
+
+.info-auto-show .info-balloon {
+  padding-right: 36px;
+}
+
+.info-balloon-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+  transition: color 0.15s;
+}
+.info-balloon-close:hover {
+  color: #fff;
+}
+
+.info-btn-ring-wrapper {
+  position: relative;
+  width: 62px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info-btn-countdown {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 62px;
+  height: 62px;
+  pointer-events: none;
+  transform: rotate(-90deg);
+  filter: drop-shadow(0 0 8px rgba(156, 200, 55, 0.9));
+}
+
+.info-btn-countdown-track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.85);
+  stroke-width: 3.5;
+}
+
+.info-btn-countdown-fill {
+  fill: none;
+  stroke: #9cc837;
+  stroke-width: 4;
+  stroke-dasharray: 175.93;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  animation: countdown-ring 5s linear forwards;
+}
+
+@keyframes countdown-ring {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 175.93;
+  }
 }
 
 .map-tooltip {

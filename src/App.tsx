@@ -36,6 +36,14 @@ import type { CropType } from "./agricultureConfig";
 import { GDP_GROWTH_EVENTS } from "./worldEvents";
 import "./App.css";
 
+function getInfoDismissedCookie(): boolean {
+  return document.cookie.split("; ").some((c) => c === "info_dismissed=1");
+}
+
+function setInfoDismissedCookie(): void {
+  document.cookie = "info_dismissed=1; max-age=31536000; path=/";
+}
+
 const DEFAULT_START_YEAR = 1960;
 const DEFAULT_END_YEAR = 2024; // Most recent year with World Bank data
 
@@ -164,6 +172,7 @@ function App() {
   const [showMineralsDashboard, setShowMineralsDashboard] = useState<MineralType | null>(null);
   const [cropType, setCropType] = useState<CropType | null>(null);
   const [showCropDashboard, setShowCropDashboard] = useState<CropType | null>(null);
+  const [infoBalloonAutoShow, setInfoBalloonAutoShow] = useState(false);
 
   useEffect(() => {
     if (selectedMetric !== "Energy Infrastructure") return;
@@ -173,6 +182,16 @@ function App() {
         .then((d: unknown[]) => setInfraCounts((prev) => ({ ...prev, [type]: d.length })))
         .catch(console.error);
     });
+  }, [selectedMetric]);
+
+  useEffect(() => {
+    if (!selectedMetric || !METRIC_DESCRIPTIONS[selectedMetric] || getInfoDismissedCookie()) {
+      setInfoBalloonAutoShow(false);
+      return;
+    }
+    setInfoBalloonAutoShow(true);
+    const timer = setTimeout(() => setInfoBalloonAutoShow(false), 5000);
+    return () => clearTimeout(timer);
   }, [selectedMetric]);
 
   const handleCategoryChange = (category: string) => {
@@ -454,14 +473,43 @@ function App() {
         />
       )}
       {selectedMetric && METRIC_DESCRIPTIONS[selectedMetric] && (
-        <div className="info-btn-wrapper" key={selectedMetric}>
+        <div
+          className={`info-btn-wrapper${infoBalloonAutoShow ? " info-auto-show" : ""}`}
+          key={selectedMetric}
+        >
           <div className="info-balloon">
             <strong>{selectedMetric}</strong>
             <p>{METRIC_DESCRIPTIONS[selectedMetric]}</p>
+            {infoBalloonAutoShow && (
+              <button
+                className="info-balloon-close"
+                aria-label="Dismiss info auto-show"
+                onClick={() => {
+                  setInfoDismissedCookie();
+                  setInfoBalloonAutoShow(false);
+                }}
+              >
+                &times;
+              </button>
+            )}
           </div>
-          <button className="info-btn" aria-label="Metric information">
-            i
-          </button>
+          <div className="info-btn-ring-wrapper">
+            <button className="info-btn" aria-label="Metric information">
+              i
+            </button>
+            {infoBalloonAutoShow && (
+              <svg className="info-btn-countdown" viewBox="0 0 62 62">
+                <circle className="info-btn-countdown-track" cx="31" cy="31" r="28" />
+                <circle
+                  className="info-btn-countdown-fill"
+                  cx="31"
+                  cy="31"
+                  r="28"
+                  key={selectedMetric}
+                />
+              </svg>
+            )}
+          </div>
         </div>
       )}
     </div>
