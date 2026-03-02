@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import WorldMap from "./WorldMap";
+import WorldMap, { METRIC_CONFIGS } from "./WorldMap";
 import Navbar from "./Navbar";
 
 import TimelineSlider from "./TimelineSlider";
@@ -148,6 +148,19 @@ const METRIC_DESCRIPTIONS: Record<string, string> = {
   "Median Age":
     "The age that divides a population into two equal halves — half are younger and half are older. Data from UN World Population Prospects 2024.",
 };
+
+// Metrics that don't show a choropleth legend
+const NO_LEGEND_METRICS = new Set(["Military Alliances", "Energy Infrastructure"]);
+
+function formatThreshold(value: number): string {
+  const abs = Math.abs(value);
+  if (abs >= 1e12) return `${(value / 1e12).toFixed(1)}T`;
+  if (abs >= 1e9) return `${(value / 1e9).toFixed(1)}B`;
+  if (abs >= 1e6) return `${(value / 1e6).toFixed(1)}M`;
+  if (abs >= 1e3) return `${(value / 1e3).toFixed(0)}K`;
+  if (Number.isInteger(value)) return value.toString();
+  return value.toFixed(abs < 1 ? 2 : 1);
+}
 
 // Trade metrics that show the trade dashboard on click
 const TRADE_DASHBOARD_METRICS = new Set(["Trade Openness", "Exports", "Imports", "Trade Balance"]);
@@ -298,6 +311,20 @@ function App() {
       return prev;
     });
   }, []);
+
+  const legendConfigKey =
+    selectedMetric && !NO_LEGEND_METRICS.has(selectedMetric)
+      ? selectedMetric === "Energy Resources" && reserveType
+        ? `reserves-${reserveType}`
+        : selectedMetric === "Critical Minerals" && mineralType
+          ? mineralView === "production"
+            ? `mineral-production-${mineralType}`
+            : `mineral-${mineralType}`
+          : selectedMetric === "Agricultural Resources" && cropType
+            ? `crop-${cropType}`
+            : selectedMetric
+      : null;
+  const legendConfig = legendConfigKey ? METRIC_CONFIGS[legendConfigKey] : null;
 
   return (
     <div className="app">
@@ -576,6 +603,26 @@ function App() {
           data={selectedCountry.data}
           onClose={() => setSelectedCountry(null)}
         />
+      )}
+      {legendConfig && (
+        <div className="map-legend">
+          {legendConfig.colors.map((color, i) => {
+            let label: string;
+            if (i === 0) {
+              label = `≤ ${formatThreshold(legendConfig.thresholds[0])}`;
+            } else if (i < legendConfig.thresholds.length) {
+              label = `≤ ${formatThreshold(legendConfig.thresholds[i])}`;
+            } else {
+              label = `> ${formatThreshold(legendConfig.thresholds[legendConfig.thresholds.length - 1])}`;
+            }
+            return (
+              <div key={i} className="map-legend-item">
+                <span className="map-legend-color" style={{ background: color }} />
+                <span>{label}</span>
+              </div>
+            );
+          })}
+        </div>
       )}
       {selectedMetric && METRIC_DESCRIPTIONS[selectedMetric] && (
         <div
