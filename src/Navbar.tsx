@@ -18,6 +18,7 @@ const categoryMetrics: Record<string, string[]> = {
     "Military Inventory",
     "Nuclear Capability",
     "Military Alliances",
+    "Active Conflicts",
   ],
   Energy: [
     "Energy Production",

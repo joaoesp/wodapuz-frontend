@@ -424,6 +424,7 @@ interface WorldMapProps {
   mineralType?: MineralType | null;
   mineralView?: MineralView;
   cropType?: CropType | null;
+  highlightedCountries?: string[];
 }
 
 function WorldMap({
@@ -437,6 +438,7 @@ function WorldMap({
   mineralType,
   mineralView = "reserves",
   cropType,
+  highlightedCountries,
 }: WorldMapProps) {
   const [tooltip, setTooltip] = useState<Tooltip | null>(null);
   const [center, setCenter] = useState<[number, number]>(INITIAL_CENTER);
@@ -526,6 +528,12 @@ function WorldMap({
     if (selectedMetric === "Military Alliances") {
       setIndicatorDataByYear({});
       onYearRangeUpdate(2024, 2024);
+      return;
+    }
+
+    if (selectedMetric === "Active Conflicts") {
+      setIndicatorDataByYear({});
+      onYearRangeUpdate(2025, 2025);
       return;
     }
 
@@ -733,6 +741,10 @@ function WorldMap({
   }, [selectedMetric, cropType, onYearRangeUpdate]);
 
   const getCountryColor = (countryCode: string) => {
+    if (selectedMetric === "Active Conflicts") {
+      if (highlightedCountries?.includes(countryCode)) return "#c0392b";
+      return "#a6a6a6";
+    }
     if (selectedMetric === "Military Alliances") {
       return ALLIANCE_BY_COUNTRY[countryCode]?.color ?? "#ffffff";
     }
@@ -862,7 +874,11 @@ function WorldMap({
                     let metricValue: string | undefined;
 
                     if (selectedMetric && countryCode) {
-                      if (selectedMetric === "Military Alliances") {
+                      if (selectedMetric === "Active Conflicts") {
+                        metricValue = highlightedCountries?.includes(countryCode)
+                          ? "Conflict Zone"
+                          : undefined;
+                      } else if (selectedMetric === "Military Alliances") {
                         metricValue = ALLIANCE_BY_COUNTRY[countryCode]?.name;
                       } else if (selectedMetric === "Critical Minerals" && mineralType) {
                         const yearData = indicatorDataByYear["2024"];
@@ -945,6 +961,12 @@ function WorldMap({
                       stroke: "#303030",
                       strokeWidth: 0.3,
                       outline: "none",
+                      ...(selectedMetric === "Active Conflicts" &&
+                        highlightedCountries?.includes(
+                          getCountryCode(geo.properties.name) || ""
+                        ) && {
+                          animation: "conflict-pulse 1.4s ease-in-out infinite",
+                        }),
                     },
                     hover: {
                       fill: getCountryColor(getCountryCode(geo.properties.name) || ""),
