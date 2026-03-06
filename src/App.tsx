@@ -311,7 +311,7 @@ function App() {
 
   const handleMineralViewChange = (view: MineralView) => {
     setMineralView(view);
-    setMineralType(null);
+    setMineralType("lithium");
     setShowMineralsDashboard(null);
   };
 
